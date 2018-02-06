@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://livecontracts.io/draft-01/01-core/schema#",
+  "title": "Live Contracts core schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+        "type": "string",
+        "format": "uri"
+    },
+    "id": {
+        "type": "string",
+        "format": "uri"
+    },
+    "actors": {
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "anyOf": [
+              { "$ref": "http://json-schema.org/draft-07/schema#" },
+              { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
+          ],
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "anyOf": [
+              { "$ref": "http://json-schema.org/draft-07/schema#" },
+              { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
+          ],
+        }
+      }
+    },
+    "states": {
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "$ref": "#state"
+        }
+      }
+    },
+    "actions": {
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "$ref": "#action"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "action": {
+      "$id": "#action",
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "responses": {
+          "type": "object",
+          "patternProperties": {
+            "^\\w+$": {
+              "type": "object",
+              "properties": {
+                "transition": {
+                  "type": "string",
+                  "pattern": "^\\w+$"
+                },
+                "update": {
+                  "$ref": "#update"
+                }
+              }
+            }
+          }
+        },
+        "default_response": {
+          "type": "string",
+          "default": "ok"
+        }
+      },
+      "required": [ "type" ],
+      "additionalProperties": true
+    },
+    "state": {
+      "$id": "#state",
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\w+$"
+          }
+        },
+        "default": {
+          "type": "string",
+          "description": "Reference to the default action"
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#transition"
+          }
+        }
+      }
+    },
+    "transition": {
+      "$id": "transition",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "pattern": "^\\w+$"
+        },
+        "response": {
+          "type": "string",
+          "pattern": "^\\w+$"
+        },
+        "condition": {
+          "type": "string"
+        },
+        "transition": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

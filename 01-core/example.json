@@ -1,0 +1,42 @@
+{
+  "$schema": "https://livecontracts.io/draft-01/01-core/schema#",
+  "id": "lt:flow/123",
+  "title": "Some title",
+  "description": "This is a description of a process",
+  "actors": {
+    "employer": {
+      "title": "Employer",
+      "properties": {
+        "name": "string",
+        "company": {
+          "type": "object",
+          "properties": {
+            "name": ""
+          },
+        },
+      }
+    }
+  },
+  "assets": {
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "https://livecontracts.io/draft-01/03-assets/schema#document"
+      }
+    }
+  },
+  "actions": {
+    "configure_initiator": {
+      "$schema": "https://livecontracts.io/draft-01/10-legalflow/schema#trigger",
+      "trigger": {
+
+      }
+    }
+  },
+  "states": {
+    "initial": {
+      "before":
+    }
+  }
+}
+
