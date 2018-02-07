@@ -5,20 +5,20 @@
   "type": "object",
   "properties": {
     "$schema": {
-        "type": "string",
-        "format": "uri"
+      "type": "string",
+      "format": "uri"
     },
     "id": {
-        "type": "string",
-        "format": "uri"
+      "type": "string",
+      "format": "uri"
     },
     "actors": {
       "type": "object",
       "patternProperties": {
         "^\\w+$": {
           "anyOf": [
-              { "$ref": "http://json-schema.org/draft-07/schema#" },
-              { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
+            { "$ref": "http://json-schema.org/draft-07/schema#" },
+            { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
           ],
         }
       }
@@ -28,8 +28,8 @@
       "patternProperties": {
         "^\\w+$": {
           "anyOf": [
-              { "$ref": "http://json-schema.org/draft-07/schema#" },
-              { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
+            { "$ref": "http://json-schema.org/draft-07/schema#" },
+            { "$ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray" }
           ],
         }
       }
@@ -66,21 +66,23 @@
         "description": {
           "type": "string"
         },
-        "responses": {
-          "type": "object",
-          "patternProperties": {
-            "^\\w+$": {
-              "type": "object",
-              "properties": {
-                "transition": {
-                  "type": "string",
-                  "pattern": "^\\w+$"
-                },
-                "update": {
-                  "$ref": "#update"
-                }
-              }
+        "actor": {
+          "anyOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "uniqueItems": true
             }
+          ]
+        },
+        "responses": {
+          "type": "array",
+          "items": {
+            "$ref": "#response"
           }
         },
         "default_response": {
@@ -88,13 +90,43 @@
           "default": "ok"
         }
       },
-      "required": [ "type" ],
-      "additionalProperties": true
+      "required": [ "$schema", "actor" ],
+    },
+    "response": {
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "type": "object",
+          "properties": {
+            "transition": {
+              "type": "string",
+              "pattern": "^\\w+$"
+            },
+            "update": {
+              "$ref": "#update"
+            }
+          }
+        }
+      }
     },
     "state": {
       "$id": "#state",
       "type": "object",
       "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "alt_descriptions": {
+          "type": "object",
+          "patternProperties": {
+            "^\\w+$": {
+              "type": "string",
+            }
+          }
+        },
         "actions": {
           "type": "array",
           "items": {
@@ -102,7 +134,7 @@
             "pattern": "^\\w+$"
           }
         },
-        "default": {
+        "default_action": {
           "type": "string",
           "description": "Reference to the default action"
         },
@@ -111,6 +143,10 @@
           "items": {
             "$ref": "#transition"
           }
+        },
+        "timeout": {
+          "type": "string",
+          "pattern": "^\\d+[ymdwhis](\\s\\d+[ymdwhis])*$"
         }
       }
     },
@@ -130,7 +166,8 @@
           "type": "string"
         },
         "transition": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^\\w+$"
         }
       }
     }
