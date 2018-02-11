@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://livecontracts.io/draft-01/02-scenario/schema#",
+  "title": "Live Contracts scenario schema",
+  "description": "The scenario is a stateless definition of a procedure",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+    },
+    "id": {
+      "description": "Unique identifier for the scenario",
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "description": "Scenario title (short)",
+      "type": "string"
+    },
+    "description": {
+      "description": "Long description",
+      "type": "string"
+    },
+    "keywords": {
+      "description": "Alternative titles or keywords to search on",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "info": {
+      "description": "Schema of the process information",
+      "$ref": "#/definitions/objectSchema"
+    },
+    "actors": {
+      "description": "Set of actor schemas",
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "anyOf": [
+            { "$ref": "#/definitions/objectSchema" },
+            { "type": "array", "items": { "$ref": "#/definitions/objectSchema" } }
+          ],
+        }
+      }
+    },
+    "assets": {
+      "description": "Set of asset schemas",
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "anyOf": [
+            { "$ref": "#/definitions/objectSchema" },
+            { "type": "array", "items": { "$ref": "#/definitions/objectSchema" } }
+          ],
+        }
+      }
+    },
+    "states": {
+      "description": "Set of all states of the scenario",
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "$ref": "#state"
+        }
+      }
+    },
+    "actions": {
+      "description": "Set of all possible actions",
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "$ref": "#action"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "action": {
+      "$id": "#action",
+      "title": "Action",
+      "description": "Definition of an action that ca be performed by an actor (manually or automatically)",
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "description": "The schema sets the action definition",
+          "type": "string",
+          "format": "uri"
+        },
+        "title": {
+          "description": "Action title (short)",
+          "type": "string"
+        },
+        "description": {
+          "description": "Long description",
+          "type": "string"
+        },
+        "actor": {
+          "description": "The actor (or actors) that may perform this action",
+          "anyOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          ]
+        },
+        "responses": {
+          "description": "Default response for the golden flow",
+          "type": "array",
+          "items": {
+            "$ref": "#response"
+          }
+        },
+        "default_response": {
+          "description": "Default response for the golden flow",
+          "type": "string",
+          "default": "ok"
+        },
+        "display": {
+          "description": "Hint for displaying the actions in the UI",
+          "type": "string",
+          "enum": [ "never", "once", "always" ],
+          "default": "always"
+      },
+      "required": [ "$schema", "actor" ],
+    },
+    "response": {
+      "$id": "#response",
+      "title": "Response",
+      "description": "Instructions for a response of an action",
+      "type": "object",
+      "patternProperties": {
+        "^\\w+$": {
+          "type": "object",
+          "properties": {
+            "transition": {
+              "description": "Hard-wired transition for an action response",
+              "type": "string",
+              "pattern": "^\\w+$"
+            },
+            "update": {
+              "description": "Update instruction or set of instructions",
+              "oneOf": [
+                { "$ref": "#update" },
+                { "type": "array", "items": { "$ref": "#update" } }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "state": {
+      "$id": "#state",
+      "title": "State",
+      "description": "Definition of state a process can be in",
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Short title",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the state",
+          "type": "string"
+        },
+        "alt_descriptions": {
+          "description": "Alternative describtions per actor",
+          "type": "object",
+          "patternProperties": {
+            "^\\w+$": {
+              "type": "string",
+            }
+          }
+        },
+        "actions": {
+          "description": "Set of possible actions in this state",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\w+$"
+          }
+        },
+        "default_action": {
+          "description": "Reference to the default action (golden flow)",
+          "type": "string"
+        },
+        "transitions": {
+          "description": "Set of state transitions resulting from an action response",
+          "type": "array",
+          "items": {
+            "$ref": "#transition"
+          }
+        },
+        "timeout": {
+          "description": "State timeout as date period",
+          "type": "string",
+          "pattern": "^\\d+[ymdwhis](\\s\\d+[ymdwhis])*$"
+        }
+      }
+    },
+    "transition": {
+      "$id": "#transition",
+      "title": "Transition",
+      "description": "Declaration of a state transition",
+      "type": "object",
+      "properties": {
+        "action": {
+          "description": "Action reference",
+          "type": "string",
+          "pattern": "^\\w+$"
+        },
+        "response": {
+          "description": "Action response",
+          "type": "string",
+          "pattern": "^\\w+$"
+        },
+        "condition": {
+          "description": "Condition as simple expression",
+          "type": "string"
+        },
+        "transition": {
+          "description": "Reference of the state to transition to",
+          "type": "string",
+          "pattern": "^\\w+$"
+        }
+      }
+    },
+    "update": {
+      "$id": "#update",
+      "title": "Update instruction",
+      "description": "Instruction to update process information, an actor or an asset",
+      "properties": {
+        "select": {
+          "description": "A reference to the data in the process that should be updated",
+          "type": "string",
+          "pattern": "^(info|actors|assets)\\.\\w+(\\.\\w+|\\[\\?[^\\]]+\\])*$"
+        },
+        "patch": {
+          "description": "Whether patch or replace existing objects or array",
+          "type": "boolean",
+          "default": false
+        },
+        "data": {
+          "description": "Use explicit data instead of action response data"
+        },
+        "jmespath": {
+          "description": "Transform the response using JMESPath before updating the process",
+          "type": "string"
+        }
+      },
+      "required": [ "select" ]
+    },
+    "objectSchema": {
+      "allOf": [
+        { "$ref": "http://json-schema.org/draft-07/schema#" },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "object"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

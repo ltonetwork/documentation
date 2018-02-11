@@ -1,5 +1,5 @@
 {
-  "$schema": "https://livecontracts.io/draft-01/01-core/schema#",
+  "$schema": "https://livecontracts.io/draft-01/02-scenario/schema#",
   "id": "lt:flow/123",
   "title": "Some title",
   "description": "This is a description of a process",
@@ -27,8 +27,8 @@
   },
   "actions": {
     "configure_initiator": {
-      "$schema": "https://livecontracts.io/draft-01/10-legalflow/schema#trigger",
-      "trigger": {
+      "$schema": "https://livecontracts.io/draft-01/10-trigger/schema#http",
+      " ": {
 
       }
     }
