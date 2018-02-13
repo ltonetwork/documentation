@@ -1,0 +1,31 @@
+{
+  "$schema": "https://livecontracts.io/draft-01/03-event-chain/schema#",
+  "id": "lt:/flow/process/1234/events",
+  "events": [
+    {
+      "$schema": "https://livecontracts.io/draft-01/09-process/schema#action",
+      "key": "lt:/flow/process/1234#/actions/request_review",
+      "actor": {
+        "key": "lt:/flow/process/1234#/actors/client",
+        "name": "John Snow",
+        "email": "john@example.com"
+      },
+      "response": "ok",
+      "data": {
+        "title": "Lorem ipsum",
+        "media_type": "text/plain",
+        "body": "Aliquam mauris augue, malesuada at mattis sed, finibus quis urna."
+      }
+    },
+    {
+      "$schema": "https://livecontracts.io/draft-01/09-process/schema#action",
+      "key": "lt:/flow/process/1234#/actions/acknowledge",
+      "actor": {
+        "key": "lt:/flow/process/1234#/actors/lawyer",
+        "name": "Jack Grey",
+        "email": "jack.grey@example.com"
+      },
+      "response": "ok"
+    }
+  ]
+}

@@ -82,6 +82,7 @@ The actor schema must define an object.
     "employee": {
       "type": "object",
       "properties": {
+        "id": { "type": "string", "format": "uri" }
         "title": { "type": "string", "const": "Employee" },
         "first_name": { "type": "string" },
         "last_name": { "type": "string" }

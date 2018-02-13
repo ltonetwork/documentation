@@ -29,6 +29,13 @@
         "type": "string"
       }
     },
+    "tags": {
+      "description": "Tags to filter on",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "info": {
       "description": "Schema of the process information",
       "$ref": "#/definitions/objectSchema"
@@ -39,8 +46,8 @@
       "patternProperties": {
         "^\\w+$": {
           "anyOf": [
-            { "$ref": "#/definitions/objectSchema" },
-            { "type": "array", "items": { "$ref": "#/definitions/objectSchema" } }
+            { "$ref": "http://json-schema.org/draft-07/schema" },
+            { "type": "array", "items": { "$ref": "http://json-schema.org/draft-07/schema" } }
           ],
         }
       }
@@ -80,7 +87,7 @@
     "action": {
       "$id": "#action",
       "title": "Action",
-      "description": "Definition of an action that ca be performed by an actor (manually or automatically)",
+      "description": "Definition of an action that can be performed by an actor (manually or automatically)",
       "type": "object",
       "properties": {
         "$schema": {
@@ -239,7 +246,7 @@
         "select": {
           "description": "A reference to the data in the process that should be updated",
           "type": "string",
-          "pattern": "^(info|actors|assets)\\.\\w+(\\.\\w+|\\[\\?[^\\]]+\\])*$"
+          "pattern": "^(info|actors|assets)\\.\\w+(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
         },
         "patch": {
           "description": "Whether patch or replace existing objects or array",

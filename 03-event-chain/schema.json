@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://livecontracts.io/draft-01/03-event-chain/schema#",
+  "title": "Live Contracts Event Chain schema",
+  "description": "The event chain is an immutable log",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "id": {
+      "description": "Unique identifier for the event chain",
+      "type": "string",
+      "format": "uri"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#event"
+      }
+    }
+  },
+  "required": [ "$schema", "id", "events" ],
+  "definitions": {
+    "event": {
+      "$id": "#event",
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
+
