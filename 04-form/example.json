@@ -1,0 +1,369 @@
+{
+    "definition": [
+        {
+            "label": "All field types",
+            "fields": [
+                {
+                    "type": "text",
+                    "label": "Text",
+                    "name": "text"
+                },
+                {
+                    "type": "password",
+                    "label": "Password",
+                    "name": "password"
+                },
+                {
+                    "type": "number",
+                    "label": "Number",
+                    "name": "number"
+                },
+                {
+                    "type": "amount",
+                    "label": "Number with unit",
+                    "name": "number_with_unit",
+                    "optionValue": [
+                        "unit"
+                    ],
+                    "optionText": [
+                        "units"
+                    ]
+                },
+                {
+                    "type": "money",
+                    "label": "Amount",
+                    "name": "amount"
+                },
+                {
+                    "type": "date",
+                    "label": "Date",
+                    "name": "date"
+                },
+                {
+                    "type": "email",
+                    "label": "E-mail",
+                    "name": "email"
+                },
+                {
+                    "type": "textarea",
+                    "label": "Text area",
+                    "name": "textarea"
+                },
+                {
+                    "type": "select",
+                    "label": "Select",
+                    "name": "select",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "one"
+                        },
+                        {
+                            "value": "2",
+                            "label": "two"
+                        },
+                        {
+                            "value": "3",
+                            "label": "three"
+                        }
+                    ]
+                },
+                {
+                    "type": "group",
+                    "label": "Option group",
+                    "name": "option_group"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Checkbox",
+                    "name": "checkbox",
+                    "text": "Yes or no"
+                },
+                {
+                    "type": "likert",
+                    "label": "Likert",
+                    "name": "likert",
+                    "keys": "Do you like green?\nDo you like blue?\nDo you like red?",
+                    "values": "Hate it\nDislike it\nNeutral\nLike it\nLove it"
+                }
+            ]
+        },
+        {
+            "label": "Expression",
+            "group": "expression",
+            "helptext": "<p>This step shows the use of expressions as well as templating labels and texts. Fill out the first name and you see it being used in the form.</p>",
+            "fields": [
+                {
+                    "type": "text",
+                    "label": "First name",
+                    "name": "first_name"
+                },
+                {
+                    "type": "text",
+                    "label": "Last name of {{ expression.first_name || '...' }}",
+                    "name": "last_name"                },
+                {
+                    "type": "expression",
+                    "name": "name",
+                    "expression": ".first_name + \" \" + .last_name"
+                },
+                {
+                    "type": "select",
+                    "label": "I like {{ expression.name || '...' }}",
+                    "name": "like",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "yes"
+                        },
+                        {
+                            "value": "0",
+                            "label": "no"
+                        }
+                    ]
+                },
+                {
+                    "type": "static",
+                    "name": "static_data",
+                    "content": "<p><strong>Entered user data:</strong></p><p><em>First name:</em> {{ expression.first_name }}</p><p><em>Last name:</em> {{ expression.last_name }}</p>",
+                    "conditions": ".like == 1"
+                },
+                {
+                    "type": "group",
+                    "label": "Option group",
+                    "name": "option_group",
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "one"
+                        },
+                        {
+                            "value": "2",
+                            "label": "two"
+                        },
+                        {
+                            "value": "3",
+                            "label": "three"
+                        }
+                    ],
+                    "conditions": ".like == 1"
+                }
+            ]
+        },
+        {
+            "label": "External",
+            "group": "external",
+            "helptext": "<p>This step will perform an extern request at <a href=\"https://jsonplaceholder.typicode.com\">https://jsonplaceholder.typicode.com</a>.</p><p>Try typing in <code>est</code>.</p>",
+            "fields": [
+                {
+                    "type": "select",
+                    "label": "Post",
+                    "name": "post",
+                    "url": "http://jsonplaceholder.typicode.com/posts",
+                    "optionValue": "id",
+                    "optionText": "title",
+                    "external_source": true
+                },
+                {
+                    "type": "select",
+                    "label": "Comment",
+                    "name": "comment",
+                    "url": "http://jsonplaceholder.typicode.com/posts/{{ external.post }}/comments",
+                    "optionValue": "id",
+                    "optionText": "name",
+                    "external_source": true
+                },
+                {
+                    "type": "select",
+                    "label": "Quote",
+                    "name": "quote",
+                    "url": "http://jsonplaceholder.typicode.com/posts/1",
+                    "optionValue": "id",
+                    "optionText": "value",
+                    "external_source": true,
+                    "jmespath": "[{id: 'title', value: title}, {id: 'body', value: body}]"
+                },
+                {
+                    "type": "number",
+                    "label": "Photo id",
+                    "name": "photo_id",
+                    "value": "",
+                    "helptext": "Between 1 and 5000",
+                    "conditions": "",
+                    "decimals": "0",
+                    "min": "1",
+                    "max": "5000"
+                },
+                {
+                    "type": "external_data",
+                    "name": "photo",
+                    "url": "https://jsonplaceholder.typicode.com/photos/{{ external.photo_id }}",
+                    "conditions": "external.photo_id != \"\""
+                },
+                {
+                    "type": "checkbox",
+                    "label": "{{ external.photo.title }}",
+                    "name": "photo_checkbox",
+                    "text": "{{ external.photo.url }}"
+                }
+            ]
+        },
+        {
+            "label": "Validation",
+            "group": "validation",
+            "helptext": "<p>Please fill out everything correctly to continue.</p>",
+            "fields": [
+                {
+                    "type": "text",
+                    "label": "Required",
+                    "name": "required",
+                    "required": true
+                },
+                {
+                    "type": "select",
+                    "label": "Select required",
+                    "name": "select_required",
+                    "required": true,
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": "one"
+                        },
+                        {
+                            "value": "2",
+                            "label": "two"
+                        },
+                        {
+                            "value": "3",
+                            "label": "three"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "label": "Pattern",
+                    "name": "pattern",
+                    "helptext": "Please enter a lower case letter followed by one or more digits",
+                    "pattern": "[a-z]\\d+"
+                },
+                {
+                    "type": "text",
+                    "label": "Mask",
+                    "name": "mask",
+                    "helptext": "4 digits, 2 letters",
+                    "mask": "9999aa"
+                },
+                {
+                    "type": "password",
+                    "label": "Password",
+                    "name": "password",
+                    "helptext": "Password should be at least 8 symbols long",
+                    "pattern": ".{8,}"
+                },
+                {
+                    "type": "number",
+                    "label": "Even",
+                    "name": "even",
+                    "helptext": "An even number",
+                    "decimals": "0",
+                    "validation": "validation.even % 2 === 0"
+                },
+                {
+                    "type": "number",
+                    "label": "Min/Max",
+                    "name": "min_max",
+                    "helptext": "Between 3 and 7",
+                    "decimals": "0",
+                    "min": "3",
+                    "max": "7"
+                },
+                {
+                    "type": "email",
+                    "label": "E-mail",
+                    "name": "email"
+                },
+                {
+                    "type": "text",
+                    "label": "Show next step",
+                    "name": "show_next_step",
+                    "helptext": "Type 'show' to see the next step"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "",
+                    "name": "continue",
+                    "text": "Please select this to continue",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "label": "Conditional step",
+            "group": "conditional_step",
+            "conditions": "validation.show_next_step == 'show'",
+            "fields": [
+                {
+                    "type": "text",
+                    "label": "Show fields",
+                    "name": "show_fields",
+                    "helptext": "Type 'show' to see the fields"
+                },
+                {
+                    "type": "text",
+                    "label": "Required",
+                    "name": "required",
+                    "conditions": "conditional_step.show_fields != 'show'",
+                    "required": true
+                },
+                {
+                    "type": "text",
+                    "label": "Masked field",
+                    "name": "masked_field",
+                    "conditions": "conditional_step.show_fields == 'show'",
+                    "mask": "999aa"
+                },
+                {
+                    "type": "select",
+                    "label": "Post",
+                    "name": "post",
+                    "url": "http://jsonplaceholder.typicode.com/posts",
+                    "optionValue": "id",
+                    "optionText": "title",
+                    "conditions": "conditional_step.show_fields == 'show'",
+                    "external_source": true
+                },
+                {
+                    "type": "number",
+                    "label": "Photo id",
+                    "name": "photo_id",
+                    "helptext": "Between 1 and 5000",
+                    "conditions": "conditional_step.show_fields == 'show'",
+                    "decimals": "0",
+                    "min": "1",
+                    "max": "5000"
+                },
+                {
+                    "type": "external_data",
+                    "name": "photo",
+                    "url": "https://jsonplaceholder.typicode.com/photos/{{ conditional_step.photo_id }}",
+                    "conditions": "conditional_step.photo_id != \"\" && conditional_step.show_fields == 'show'",
+                    "url_field": "conditional_step.photo-url"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "{{ conditional_step.photo.title }}",
+                    "name": "photo_checkbox",
+                    "text": "{{ conditional_step.photo.url }}",
+                    "conditions": "conditional_step.show_fields == 'show'"
+                }
+            ]
+        },
+        {
+            "label": "Final step",
+            "group": "final",
+            "conditions": "validation.show_next_step == 'show'",
+            "fields": []
+        }
+    ]
+}
+
