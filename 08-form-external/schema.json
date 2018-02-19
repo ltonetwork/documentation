@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://livecontracts.io/draft-01/08-form-external/schema#",
+    "title": "Live Contracts form external data schema",
+    "description": "Field definitions for fetch external data using HTTP GET",
+    "definitions": {
+        "external_select": {
+            "$id": "#select",
+            "label": "External select",
+            "description": "Input control to select from an external source",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "type": "string",
+                    "format": "uri",
+                    "const": "https://livecontracts.io/draft-01/08-form-external/schema#textarea"
+                },
+                "label": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_label" },
+                "name": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_name" },
+                "url": { "$ref": "#field_url" },
+                "optionValue": {
+                    "description": "Property to select as value (JMESPath)",
+                    "type": "string"
+                },
+                "optionText": {
+                    "description": "Property to select as display text (JMESPath)",
+                    "type": "string"
+                },
+                "jmespath": { "$ref": "#field_jmespath" },
+                "helptext": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_helptext" },
+                "conditions": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_conditions" },
+                "validation": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_validation" }
+            },
+            "required": [ "name", "url", "optionText" ]
+        },
+        "external_data": {
+            "$id": "#select",
+            "label": "External data",
+            "description": "Fetch external data",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "type": "string",
+                    "format": "uri",
+                    "const": "https://livecontracts.io/draft-01/08-form-external/schema#external_data"
+                },
+                "name": { "$ref": "https://livecontracts.io/draft-01/04-form#/definitions/field_name" },
+                "url": { "$ref": "#field_url" },
+                "conditions": {
+                    "description": "Expression which need to assert true, before the HTTP request is done",
+                    "type": "string"
+                }
+            },
+            "required": [ "name", "url" ]
+        },
+        
+        "field_url": {
+            "description": "URL to fetch data from",
+            "type": "string",
+            "format": "uri"
+        },
+        "field_jmespath": {
+            "description": "JMESPath transformation on the response data",
+            "type": "string"
+        }
+    }
+}

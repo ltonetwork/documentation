@@ -3,7 +3,7 @@
   "id": "lt:/flow/process/1234/events",
   "events": [
     {
-      "$schema": "https://livecontracts.io/draft-01/09-process/schema#action",
+      "$schema": "https://livecontracts.io/draft-01/10-process/schema#action",
       "key": "lt:/flow/process/1234#/actions/request_review",
       "actor": {
         "key": "lt:/flow/process/1234#/actors/client",
@@ -18,7 +18,7 @@
       }
     },
     {
-      "$schema": "https://livecontracts.io/draft-01/09-process/schema#action",
+      "$schema": "https://livecontracts.io/draft-01/10-process/schema#action",
       "key": "lt:/flow/process/1234#/actions/acknowledge",
       "actor": {
         "key": "lt:/flow/process/1234#/actors/lawyer",

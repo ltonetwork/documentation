@@ -107,7 +107,7 @@
                 "$schema": {
                     "description": "The schema sets the action definition",
                     "type": "string",
-                    "format": "uri"
+                    "format": "uri-reference"
                 },
                 "title": {
                     "description": "Action title (short)",

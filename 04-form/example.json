@@ -1,25 +1,31 @@
 {
+    "$schema": "https://livecontracts.io/draft-01/04-form/schema#",
+    "id": "lt:/forms/demoform",
+    "title": "Demo form",
     "definition": [
         {
             "label": "All field types",
+            "helptext" : "<h1>Overview of all field types</h1><p>These are the available field types</p>",
+            "helptip" : "Please try every field",
+            "article": "#1",
             "fields": [
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Text",
                     "name": "text"
                 },
                 {
-                    "type": "password",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#password",
                     "label": "Password",
                     "name": "password"
                 },
                 {
-                    "type": "number",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#number",
                     "label": "Number",
                     "name": "number"
                 },
                 {
-                    "type": "amount",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#amount",
                     "label": "Number with unit",
                     "name": "number_with_unit",
                     "optionValue": [
@@ -30,27 +36,27 @@
                     ]
                 },
                 {
-                    "type": "money",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#money",
                     "label": "Amount",
                     "name": "amount"
                 },
                 {
-                    "type": "date",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#date",
                     "label": "Date",
                     "name": "date"
                 },
                 {
-                    "type": "email",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#email",
                     "label": "E-mail",
                     "name": "email"
                 },
                 {
-                    "type": "textarea",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#textarea",
                     "label": "Text area",
                     "name": "textarea"
                 },
                 {
-                    "type": "select",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#select",
                     "label": "Select",
                     "name": "select",
                     "options": [
@@ -69,22 +75,32 @@
                     ]
                 },
                 {
-                    "type": "group",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#group",
                     "label": "Option group",
                     "name": "option_group"
                 },
                 {
-                    "type": "checkbox",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#checkbox",
                     "label": "Checkbox",
                     "name": "checkbox",
                     "text": "Yes or no"
                 },
                 {
-                    "type": "likert",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#likert",
                     "label": "Likert",
                     "name": "likert",
-                    "keys": "Do you like green?\nDo you like blue?\nDo you like red?",
-                    "values": "Hate it\nDislike it\nNeutral\nLike it\nLove it"
+                    "keys": [
+                        "Do you like green?",
+                        "Do you like blue?",
+                        "Do you like red?"
+                    ],
+                    "values": [
+                        "Hate it",
+                        "Dislike it",
+                        "Neutral",
+                        "Like it",
+                        "Love it"
+                    ]
                 }
             ]
         },
@@ -94,21 +110,21 @@
             "helptext": "<p>This step shows the use of expressions as well as templating labels and texts. Fill out the first name and you see it being used in the form.</p>",
             "fields": [
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "First name",
                     "name": "first_name"
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Last name of {{ expression.first_name || '...' }}",
                     "name": "last_name"                },
                 {
-                    "type": "expression",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#expression",
                     "name": "name",
                     "expression": ".first_name + \" \" + .last_name"
                 },
                 {
-                    "type": "select",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#select",
                     "label": "I like {{ expression.name || '...' }}",
                     "name": "like",
                     "options": [
@@ -123,13 +139,13 @@
                     ]
                 },
                 {
-                    "type": "static",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#static",
                     "name": "static_data",
                     "content": "<p><strong>Entered user data:</strong></p><p><em>First name:</em> {{ expression.first_name }}</p><p><em>Last name:</em> {{ expression.last_name }}</p>",
                     "conditions": ".like == 1"
                 },
                 {
-                    "type": "group",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#group",
                     "label": "Option group",
                     "name": "option_group",
                     "options": [
@@ -151,76 +167,18 @@
             ]
         },
         {
-            "label": "External",
-            "group": "external",
-            "helptext": "<p>This step will perform an extern request at <a href=\"https://jsonplaceholder.typicode.com\">https://jsonplaceholder.typicode.com</a>.</p><p>Try typing in <code>est</code>.</p>",
-            "fields": [
-                {
-                    "type": "select",
-                    "label": "Post",
-                    "name": "post",
-                    "url": "http://jsonplaceholder.typicode.com/posts",
-                    "optionValue": "id",
-                    "optionText": "title",
-                    "external_source": true
-                },
-                {
-                    "type": "select",
-                    "label": "Comment",
-                    "name": "comment",
-                    "url": "http://jsonplaceholder.typicode.com/posts/{{ external.post }}/comments",
-                    "optionValue": "id",
-                    "optionText": "name",
-                    "external_source": true
-                },
-                {
-                    "type": "select",
-                    "label": "Quote",
-                    "name": "quote",
-                    "url": "http://jsonplaceholder.typicode.com/posts/1",
-                    "optionValue": "id",
-                    "optionText": "value",
-                    "external_source": true,
-                    "jmespath": "[{id: 'title', value: title}, {id: 'body', value: body}]"
-                },
-                {
-                    "type": "number",
-                    "label": "Photo id",
-                    "name": "photo_id",
-                    "value": "",
-                    "helptext": "Between 1 and 5000",
-                    "conditions": "",
-                    "decimals": "0",
-                    "min": "1",
-                    "max": "5000"
-                },
-                {
-                    "type": "external_data",
-                    "name": "photo",
-                    "url": "https://jsonplaceholder.typicode.com/photos/{{ external.photo_id }}",
-                    "conditions": "external.photo_id != \"\""
-                },
-                {
-                    "type": "checkbox",
-                    "label": "{{ external.photo.title }}",
-                    "name": "photo_checkbox",
-                    "text": "{{ external.photo.url }}"
-                }
-            ]
-        },
-        {
             "label": "Validation",
             "group": "validation",
             "helptext": "<p>Please fill out everything correctly to continue.</p>",
             "fields": [
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Required",
                     "name": "required",
                     "required": true
                 },
                 {
-                    "type": "select",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#select",
                     "label": "Select required",
                     "name": "select_required",
                     "required": true,
@@ -240,28 +198,28 @@
                     ]
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Pattern",
                     "name": "pattern",
                     "helptext": "Please enter a lower case letter followed by one or more digits",
                     "pattern": "[a-z]\\d+"
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Mask",
                     "name": "mask",
                     "helptext": "4 digits, 2 letters",
                     "mask": "9999aa"
                 },
                 {
-                    "type": "password",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#password",
                     "label": "Password",
                     "name": "password",
                     "helptext": "Password should be at least 8 symbols long",
                     "pattern": ".{8,}"
                 },
                 {
-                    "type": "number",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#number",
                     "label": "Even",
                     "name": "even",
                     "helptext": "An even number",
@@ -269,7 +227,7 @@
                     "validation": "validation.even % 2 === 0"
                 },
                 {
-                    "type": "number",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#number",
                     "label": "Min/Max",
                     "name": "min_max",
                     "helptext": "Between 3 and 7",
@@ -278,18 +236,18 @@
                     "max": "7"
                 },
                 {
-                    "type": "email",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#email",
                     "label": "E-mail",
                     "name": "email"
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Show next step",
                     "name": "show_next_step",
                     "helptext": "Type 'show' to see the next step"
                 },
                 {
-                    "type": "checkbox",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#checkbox",
                     "label": "",
                     "name": "continue",
                     "text": "Please select this to continue",
@@ -303,37 +261,27 @@
             "conditions": "validation.show_next_step == 'show'",
             "fields": [
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Show fields",
                     "name": "show_fields",
                     "helptext": "Type 'show' to see the fields"
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Required",
                     "name": "required",
                     "conditions": "conditional_step.show_fields != 'show'",
                     "required": true
                 },
                 {
-                    "type": "text",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#text",
                     "label": "Masked field",
                     "name": "masked_field",
                     "conditions": "conditional_step.show_fields == 'show'",
                     "mask": "999aa"
                 },
                 {
-                    "type": "select",
-                    "label": "Post",
-                    "name": "post",
-                    "url": "http://jsonplaceholder.typicode.com/posts",
-                    "optionValue": "id",
-                    "optionText": "title",
-                    "conditions": "conditional_step.show_fields == 'show'",
-                    "external_source": true
-                },
-                {
-                    "type": "number",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#number",
                     "label": "Photo id",
                     "name": "photo_id",
                     "helptext": "Between 1 and 5000",
@@ -343,14 +291,7 @@
                     "max": "5000"
                 },
                 {
-                    "type": "external_data",
-                    "name": "photo",
-                    "url": "https://jsonplaceholder.typicode.com/photos/{{ conditional_step.photo_id }}",
-                    "conditions": "conditional_step.photo_id != \"\" && conditional_step.show_fields == 'show'",
-                    "url_field": "conditional_step.photo-url"
-                },
-                {
-                    "type": "checkbox",
+                    "$schema": "https://livecontracts.io/draft-01/04-form/schema#checkbox",
                     "label": "{{ conditional_step.photo.title }}",
                     "name": "photo_checkbox",
                     "text": "{{ conditional_step.photo.url }}",
@@ -366,4 +307,3 @@
         }
     ]
 }
-
