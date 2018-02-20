@@ -14,13 +14,22 @@
             "type": "string",
             "format": "uri"
         },
-        "title": {
-            "description": "Scenario title (short)",
+        "name": {
+            "description": "Scenario name",
             "type": "string"
         },
         "description": {
             "description": "Long description",
             "type": "string"
+        },
+        "image": {
+            "description": "Schema image",
+            "oneOf": [
+                {
+                    "type": "string",
+                    "formal": "uri"
+                }
+            ]
         },
         "keywords": {
             "description": "Alternative titles or keywords to search on",

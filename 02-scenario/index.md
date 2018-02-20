@@ -49,9 +49,9 @@ A URI as a unique identifier for the scenario. This is typically an [LTRI](http:
 The id MUST point to an immutable version of the scenario. Modifying the scenario SHOULD always result in a new id.
 Previous versions of the scenario SHOULD remain available.
 
-### title
+### name
 
-A short description shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
+The name of the scenario. Shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
 
 ### description
 
