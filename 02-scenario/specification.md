@@ -1,4 +1,4 @@
-# Live Contracts Scenario: A stateless definition of a procedure
+# Scenario
 
 ## Abstract
 
