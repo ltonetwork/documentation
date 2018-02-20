@@ -1,20 +1,18 @@
-# Scenario
+# Live Contracts - Scenario
 
-## Abstract
+### Abstract
 
 A Live Contract scenario is a definition of procedure as a Finite State Machine. As an FSM the scenario can be
 visualized as flowchart and instantiated as a process.
 
-## Note to Readers
+### Note to Readers
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>.
-
-For additional information, see <http://livecontracts.io/>.
+The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>. For additional information, see <http://livecontracts.io/>.
 
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
 editors.
 
-## Copyright Notice
+### Copyright Notice
 
 Copyright (c) 2017 LegalThings One. All rights reserved.
 
@@ -36,20 +34,16 @@ previous interactions.
 Each state defines a default action and each action a default response. Following these defaults results in the golden
 flow.
 
-## Scenario schema
+## Scenario
 
 ### $schema
 
 The Live Contract Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
 To point to this version of the specification use `"$schema": "https://livecontracts.io/draft-01/02-scenario/schema#"`.
 
-_This property is required._
-
 ### id
 
 A URI as a unique identifier for the scenario.
-
-_This property is required._
 
 ### title
 
@@ -102,7 +96,7 @@ The actor schema must define an object.
     "employee": {
       "type": "object",
       "properties": {
-        "id": { "type": "string", "format": "uri" }
+        "id": { "type": "string", "format": "uri" },
         "title": { "type": "string", "const": "Employee" },
         "first_name": { "type": "string" },
         "last_name": { "type": "string" }
@@ -111,8 +105,6 @@ The actor schema must define an object.
   }
 }
 ```
-
-_This property is required._
 
 ### assets
 
@@ -144,15 +136,11 @@ The actor schema must define an object.
 
 Set of the actions of the scenario. The keys of the object is used to reference the action.
 
-_This property is required._
-
 ### states
 
 Set of all states of the scenario. The keys of the object is used to reference the state.
 
-_This property is required._
-
-## Action schema
+## Action
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
 and / or may update the process projection.
@@ -161,8 +149,6 @@ and / or may update the process projection.
 
 The action [JSON schema](http://json-schema.org) URI that describes the JSON structure of the action. This is also be
 used for automation and may be used by the UI.
-
-_This property is required._
 
 ### title
 
@@ -180,8 +166,6 @@ A long description for the action that is shown when the action is performed.
 
 The reference of the actor that may perform this action. If more than one actor may perform the action, set an array of
 actor references.
-
-_This property is required._
 
 ### responses
 
