@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://livecontracts.io/draft-01/03-event-chain/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#",
     "title": "Live Contracts Event Chain schema",
     "description": "The event chain is an immutable log",
     "type": "object",

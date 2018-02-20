@@ -39,11 +39,11 @@ flow.
 ### $schema
 
 The Live Contract Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use `"$schema": "https://livecontracts.io/draft-01/02-scenario/schema#"`.
+To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/02-scenario/schema.json#"`.
 
 ### id
 
-A URI as a unique identifier for the scenario.
+A URI as a unique identifier for the scenario. This is typically and [LTRI](http://specs.livecontracts.io/draft-01/01-/).
 
 ### title
 
@@ -140,10 +140,28 @@ Set of the actions of the scenario. The keys of the object is used to reference 
 
 Set of all states of the scenario. The keys of the object is used to reference the state.
 
+#### Initial state
+
+The state with key `:initial` is the initial state of the FSM. This state is required, except for subscenarios.
+
+The initial state should not have a default action. Instead the initial action is automatically determined, by finding
+an action that the actor that instantiated the process can perform. This actions are checked in order.
+
 ## Action
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
 and / or may update the process projection.
+
+
+```json
+{
+  "actions": {
+    "fill_out_form": {
+        "$schema": ""
+    }
+  }
+}
+```
 
 ### $schema
 
