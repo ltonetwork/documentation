@@ -2,12 +2,13 @@
 
 ### Abstract
 
-A Live Contract scenario is a definition of procedure as a Finite State Machine. As an FSM the scenario can be
+A Live Contract scenario is a definition of procedure as a Finite State Machine (FSM). As an FSM, the scenario can be
 visualized as flowchart and instantiated as a process.
 
 ### Note to Readers
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>. For additional information, see <http://livecontracts.io/>.
+The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>.
+For additional information, see <http://livecontracts.io/>.
 
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
 editors.
@@ -43,7 +44,10 @@ To point to this version of the specification use `"$schema": "http://specs.live
 
 ### id
 
-A URI as a unique identifier for the scenario. This is typically and [LTRI](http://specs.livecontracts.io/draft-01/01-/).
+A URI as a unique identifier for the scenario. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/).
+
+The id MUST point to an immutable version of the scenario. Modifying the scenario SHOULD always result in a new id.
+Previous versions of the scenario SHOULD remain available.
 
 ### title
 
