@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://livecontracts.io/draft-01/01-template/schema#",
+    "title": "Live Contracts template schema",
+    "description": "A definition of a contract template",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "uri"
+        },
+        "id": {
+            "description": "Unique identifier for the template",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "Template name",
+            "type": "string"
+        },
+        "description": {
+            "description": "Long description",
+            "type": "string"
+        },
+        "form": {
+            "description": "Form definition or form id",
+            "anyOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "$ref": "https://livecontracts.io/draft-01/04-form/schema#"
+                }
+            ]
+        },
+        "content": {
+            "description": "Contract in natural language",
+            "type": "string",
+            "contentMediaType": "text/html"
+        },
+        "locale": {
+            "description": "ISO-639 locale",
+            "type": "string",
+            "pattern": "^[a-z]{2}(_[A-Z]{2})?$"
+        },
+        "scenarios": {
+            "description": "Scenarios that are linked to this contract",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "paragraph": {
+                        "type": "string"
+                    }
+                },
+                "required": [ "id" ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

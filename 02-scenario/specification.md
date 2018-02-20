@@ -20,16 +20,36 @@ Copyright (c) 2017 LegalThings One. All rights reserved.
 
 You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
 
-## Schema definition
+## Workflow
+
+A workflow consists of an orchestrated and repeatable pattern of business activity.
+
+A scenario is composed of a set of states and actions. An action can be executed by an actors which may trigger a
+state change.
+
+The scenario can be instantiated to create a process. A scenario is stateless whereas a process is stateful. Stateful
+means that the computer or program keeps track of the state of interaction. Stateless means that there is no record of
+previous interactions.
+
+### Golden flow
+
+Each state defines a default action and each action a default response. Following these defaults results in the golden
+flow.
+
+## Scenario schema
 
 ### $schema
 
-The Live Contract Scenario [JSON schema](http://json-schema.org) that describes the JSON structure of the scenario.
+The Live Contract Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
 To point to this version of the specification use `"$schema": "https://livecontracts.io/draft-01/02-scenario/schema#"`.
+
+_This property is required._
 
 ### id
 
 A URI as a unique identifier for the scenario.
+
+_This property is required._
 
 ### title
 
@@ -92,6 +112,8 @@ The actor schema must define an object.
 }
 ```
 
+_This property is required._
+
 ### assets
 
 Object with JSON schema, defining the properties for each asset. The keys of the object is used to reference the asset.
@@ -118,11 +140,58 @@ The actor schema must define an object.
 }
 ```
 
-### states
-
-Set of all states of the scenario.
-
 ### actions
 
-Set of all possible actions of the scenario.
+Set of the actions of the scenario. The keys of the object is used to reference the action.
 
+_This property is required._
+
+### states
+
+Set of all states of the scenario. The keys of the object is used to reference the state.
+
+_This property is required._
+
+## Action schema
+
+An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
+and / or may update the process projection.
+
+### $schema
+
+The action [JSON schema](http://json-schema.org) URI that describes the JSON structure of the action. This is also be
+used for automation and may be used by the UI.
+
+_This property is required._
+
+### title
+
+A short title for the action.
+
+### label
+
+Label that is shown when picking this action
+
+### description
+
+A long description for the action that is shown when the action is performed.
+
+### actor
+
+The reference of the actor that may perform this action. If more than one actor may perform the action, set an array of
+actor references.
+
+_This property is required._
+
+### responses
+
+A set of possible responses for the action. The keys of the object is used to reference the response.
+
+### default_response
+
+The key of the default response. This is used for the golden flow.
+
+### display
+
+Should the action be displayed in the history? Choose one of the following options "always", "once" or "never". In the
+case of "once", only the latest instance of the action will be displayed.

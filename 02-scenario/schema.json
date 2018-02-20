@@ -47,12 +47,12 @@
                 "^\\w+$": {
                     "anyOf": [
                         {
-                            "$ref": "http://json-schema.org/draft-07/schema"
+                            "$ref": "http://json-schema.org/draft-07/schema#"
                         },
                         {
                             "type": "array",
                             "items": {
-                                "$ref": "http://json-schema.org/draft-07/schema"
+                                "$ref": "http://json-schema.org/draft-07/schema#"
                             }
                         }
                     ]
@@ -62,6 +62,7 @@
         "assets": {
             "description": "Set of asset schemas",
             "type": "object",
+            "default": {},
             "patternProperties": {
                 "^\\w+$": {
                     "anyOf": [
@@ -78,6 +79,15 @@
                 }
             }
         },
+        "actions": {
+            "description": "Set of the actions",
+            "type": "object",
+            "patternProperties": {
+                "^\\w+$": {
+                    "$ref": "#action"
+                }
+            }
+        },
         "states": {
             "description": "Set of all states of the scenario",
             "type": "object",
@@ -86,17 +96,9 @@
                     "$ref": "#state"
                 }
             }
-        },
-        "actions": {
-            "description": "Set of all possible actions",
-            "type": "object",
-            "patternProperties": {
-                "^\\w+$": {
-                    "$ref": "#action"
-                }
-            }
         }
     },
+    "required": [ "$schema", "id", "actors", "actions", "states" ],
     "definitions": {
         "action": {
             "$id": "#action",
@@ -111,6 +113,10 @@
                 },
                 "title": {
                     "description": "Action title (short)",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Label that is shown when picking this action",
                     "type": "string"
                 },
                 "description": {
@@ -134,10 +140,12 @@
                     ]
                 },
                 "responses": {
-                    "description": "Default response for the golden flow",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#response"
+                    "description": "",
+                    "type": "object",
+                    "patternProperties": {
+                        "^\\w+$": {
+                            "$ref": "#response"
+                        }
                     }
                 },
                 "default_response": {
@@ -146,7 +154,7 @@
                     "default": "ok"
                 },
                 "display": {
-                    "description": "Hint for displaying the actions in the UI",
+                    "description": "Show the action in the history?",
                     "type": "string",
                     "enum": ["never", "once", "always"],
                     "default": "always"

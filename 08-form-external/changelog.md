@@ -1,4 +1,4 @@
-### LiveContract Forms - draft 01
+### Live Contracts Form external data - draft 01
 
 * Removed `exernal` property from `select` field. Use `external_select` instead.
 

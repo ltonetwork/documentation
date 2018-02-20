@@ -14,8 +14,8 @@
             "type": "string",
             "format": "uri"
         },
-        "title": {
-            "description": "Form title",
+        "name": {
+            "description": "Form name",
             "type": "string"
         },
         "definition": {

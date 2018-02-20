@@ -1,4 +1,4 @@
-### LiveContract Forms - draft 01
+### Live Contracts Forms - draft 01
 
 * Form definition holds a `$schema`.
 * Step property `article` is renamed to `anchor`.
