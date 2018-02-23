@@ -47,24 +47,14 @@
         },
         "info": {
             "description": "Schema of the process information",
-            "$ref": "#/definitions/objectSchema"
+            "$ref": "http://json-schema.org/draft-07/schema#"
         },
         "actors": {
             "description": "Set of actor schemas",
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "anyOf": [
-                        {
-                            "$ref": "http://json-schema.org/draft-07/schema#"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "http://json-schema.org/draft-07/schema#"
-                            }
-                        }
-                    ]
+                    "$ref": "http://json-schema.org/draft-07/schema#"
                 }
             }
         },
@@ -74,17 +64,7 @@
             "default": {},
             "patternProperties": {
                 "^\\w+$": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/objectSchema"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/objectSchema"
-                            }
-                        }
-                    ]
+                    "$ref": "http://json-schema.org/draft-07/schema#"
                 }
             }
         },
@@ -163,7 +143,7 @@
                     "default": "ok"
                 },
                 "display": {
-                    "description": "Show the action in the history?",
+                    "description": "Project the action in the history?",
                     "type": "string",
                     "enum": ["never", "once", "always"],
                     "default": "always"
@@ -235,7 +215,8 @@
                             "items": {
                                 "type": "string",
                                 "pattern": "^\\w+$"
-                            }
+                            },
+                            "minItems": 1
                         },
                         { "$ref": "#/definitions/di" }
                     ]
@@ -297,7 +278,7 @@
                 "select": {
                     "description": "A reference to the data in the process that should be updated",
                     "$ref": "#/definitions/stringdi",
-                    "pattern": "^(info|actors|assets)\\.\\w+(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
+                    "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
                 },
                 "patch": {
                     "description": "Whether patch or replace existing objects or array",
@@ -315,21 +296,6 @@
             "required": [ "select" ]
         },
         
-        "objectSchema": {
-            "allOf": [
-                {
-                    "$ref": "http://json-schema.org/draft-07/schema#"
-                },
-                {
-                    "properties": {
-                        "type": {
-                            "type": "string",
-                            "const": "object"
-                        }
-                    }
-                }
-            ]
-        },
         "di": {
             "description": "Data instruction",
             "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#"

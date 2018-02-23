@@ -1,0 +1,330 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/10-process/schema.json#",
+    "title": "Live Contracts process schema",
+    "description": "The projected process",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Unique identifier",
+            "type": "string",
+            "format": "uri"
+        },
+        "scenario": {
+            "description": "Identifier of the scenario",
+            "type": "string",
+            "format": "uri"
+        },
+        "created": {
+            "description": "Date and time when the process was created",
+            "type": "string",
+            "format": "date-time"
+        },
+        "info": {
+            "description": "Projected information about the process",
+            "type": "object"
+        },
+        "actors": {
+            "description": "Actors that participate in this process",
+            "type": "object",
+            "patternProperties": {
+                "^\\w+$": {
+                    "$ref": "#actor"
+                }
+            }
+        },
+        "assets": {
+            "description": "Objects that represent an item of process",
+            "type": "object",
+            "patternProperties": {
+                "^\\w+$": {
+                    "$ref": "#asset"
+                }
+            }
+        },
+        "previous": {
+            "description": "History of performed actions",
+            "type": "array",
+            "items": {
+                "$ref": "#action"
+            }
+        },
+        "current": {
+            "description": "The current state",
+            "$ref": "#state"
+        },
+        "next": {
+            "description": "The next states when following the golden flow",
+            "type": "array",
+            "items": {
+                "$ref": "#state"
+            }
+        },
+        "comments": {
+            "description": "User submitted comments from the event chain",
+            "type": "array",
+            "items": {
+                "$ref": "#comment"
+            }
+        }
+    },
+    "required": [ "id", "scenario", "created", "info", "actors", "assets", "previous", "current", "next", "comments" ],
+    "definitions": {
+        "actor": {
+            "$id": "#actor",
+            "description": "A projected actor",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "description": "Actor schema defines the type of actor",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "title": {
+                    "description": "Taken from scenario actor title",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Taken from scenario actor description",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Projected actor name",
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "publickeys": {
+                    "description": "Public keys of the actor",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#publickey"
+                    }
+                },
+                "absent": {
+                    "description": "The actor is not participating in this process",
+                    "type": "boolean"
+                }
+            },
+            "required": [ "label" ],
+            "additionalProperties": true
+        },
+        "publickey": {
+            "$id": "#publickey",
+            "description": "Public cryptographic key or an actor",
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "valid_from": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "valid_until": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "asset": {
+            "$id": "#asset",
+            "description": "A projected asset",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "description": "Asset schema defines the type of asset",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "title": {
+                    "description": "Taken from scenario asset title",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Taken from scenario asset description",
+                    "type": "string"
+                }
+            },
+            "required": [ "label" ],
+            "additionalProperties": true
+        },
+        "action": {
+            "$id": "#action",
+            "description": "A performed action",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "description": "Action schema",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "key": {
+                    "description": "Reference of the action",
+                    "type": "string",
+                    "format": "uri-reference"
+                },
+                "title": {
+                    "description": "Action title",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Action long description",
+                    "type": "string"
+                },
+                "actor": {
+                    "description": "Actor that performed the action",
+                    "$ref": "#actor"
+                },
+                "response": {
+                    "description": "Response key",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "Response data"
+                },
+                "date": {
+                    "description": "Date/time the comment was created",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "signature": {
+                    "description": "Cryptographic signature",
+                    "type": "string"
+                },
+                "receipt": {
+                    "description": "Anchoring receipt",
+                    "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
+                }
+            },
+            "required": [ "$schema", "key", "title", "actor", "response", "date" ]
+        },
+        "state": {
+            "$id": "#state",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "description": "Short title",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description of the state",
+                    "type": "string"
+                },
+                "alt_descriptions": {
+                    "description": "Alternative describtions per actor",
+                    "type": "object",
+                    "patternProperties": {
+                        "^\\w+$": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "actions": {
+                    "description": "Set of possible actions in this state",
+                    "$comment": "Only present for current state",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/current_action"
+                    },
+                    "minItems": 1
+                },
+                "due_date": {
+                    "description": "Date/time that the state will expire",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [ "title" ]
+        },
+        "current_action": {
+            "description": "Action that can be performed in the current state",
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "description": "Action schema",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "key": {
+                    "description": "Reference of the action",
+                    "type": "string",
+                    "format": "uri-reference"
+                },
+                "label": {
+                    "description": "Action label",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Action long description",
+                    "type": "string"
+                },
+                "actor": {
+                    "description": "Actors that may performed the action",
+                    "oneOf": [
+                        {
+                            "description": "Single actor reference",
+                            "type": "string",
+                            "pattern": "^\\w+$"
+                        },
+                        {
+                            "description": "Multiple actors",
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^\\w+$"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [ "$schema", "key", "label", "actor" ]
+        },
+        "comment": {
+            "$id": "#comment",
+            "properties": {
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "image": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "required": [ "name" ],
+                    "additonalProperties": true
+                },
+                "message": {
+                    "type": "string",
+                    "contentMediaType": "text/plain"
+                },
+                "date": {
+                    "description": "Date/time the comment was created",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "signature": {
+                    "description": "Cryptographic signature",
+                    "type": "string"
+                },
+                "receipt": {
+                    "description": "Anchoring receipt",
+                    "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
+                }
+            },
+            "required": [ "user", "message", "date" ]
+        }
+    }
+}

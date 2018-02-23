@@ -20,11 +20,17 @@
             "items": {
                 "$ref": "#event"
             }
+        },
+        "receipts": {
+            "descriptions": "Receipts from anchoring on the blockchain",
+            "type": "array",
+            "items": {
+                "$ref": "#receipt"
+            }
         }
     },
-    "required": [ "$schema", "events" ],
+    "required": [ "$schema", "events", "receipts" ],
     "definitions": {
-        "description": "An event",
         "event": {
             "$id": "#event",
             "type": "object",
@@ -32,9 +38,36 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri"
+                },
+                "date": {
+                    "description": "Date/time the comment was created",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "signature": {
+                    "description": "Cryptographic signature",
+                    "type": "string"
                 }
             },
             "additionalProperties": true
+        },
+        "receipt": {
+            "$id": "#receipt",
+            "type": "object",
+            "properties": {
+                "hash": {
+                    "description": "sh256 hash",
+                    "type": "string"
+                },
+                "system": {
+                    "description": "Blockchain used for anchoring",
+                    "type": "string"
+                },
+                "transaction": {
+                    "description": "Transaction id",
+                    "type": "string"
+                }
+            }
         }
     }
 }
