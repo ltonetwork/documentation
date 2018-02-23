@@ -122,15 +122,15 @@
                 },
                 "title": {
                     "description": "Action title (short)",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "label": {
                     "description": "Label that is shown when picking this action",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "description": {
                     "description": "Long description",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "actor": {
                     "description": "The actor (or actors) that may perform this action",
@@ -159,7 +159,7 @@
                 },
                 "default_response": {
                     "description": "Default response for the golden flow",
-                    "type": "string",
+                    "$ref": "#/definitions/stringdi",
                     "default": "ok"
                 },
                 "display": {
@@ -169,7 +169,8 @@
                     "default": "always"
                 }
             },
-            "required": ["$schema", "actor"]
+            "required": ["$schema", "actor"],
+            "additionalProperties": true
         },
         "response": {
             "$id": "#response",
@@ -211,32 +212,37 @@
             "properties": {
                 "title": {
                     "description": "Short title",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "description": {
                     "description": "Description of the state",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "alt_descriptions": {
                     "description": "Alternative describtions per actor",
                     "type": "object",
                     "patternProperties": {
                         "^\\w+$": {
-                            "type": "string"
+                            "$ref": "#/definitions/stringdi"
                         }
                     }
                 },
                 "actions": {
                     "description": "Set of possible actions in this state",
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "pattern": "^\\w+$"
-                    }
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^\\w+$"
+                            }
+                        },
+                        { "$ref": "#/definitions/di" }
+                    ]
                 },
                 "default_action": {
                     "description": "Reference to the default action (golden flow)",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 },
                 "transitions": {
                     "description": "Set of state transitions resulting from an action response",
@@ -247,7 +253,7 @@
                 },
                 "timeout": {
                     "description": "State timeout as date period",
-                    "type": "string",
+                    "$ref": "#/definitions/stringdi",
                     "pattern": "^\\d+[ymdwhis](\\s\\d+[ymdwhis])*$"
                 }
             }
@@ -269,15 +275,19 @@
                     "pattern": "^\\w+$"
                 },
                 "condition": {
-                    "description": "Condition as simple expression",
-                    "type": "string"
+                    "description": "Condition that must be true",
+                    "oneOf": [
+                        { "type": "boolean" },
+                        { "$ref": "#/definitions/di" }
+                    ]
                 },
                 "transition": {
                     "description": "Reference of the state to transition to",
                     "type": "string",
                     "pattern": "^\\w+$"
                 }
-            }
+            },
+            "required": [ "action", "response", "transition" ]
         },
         "update": {
             "$id": "#update",
@@ -286,7 +296,7 @@
             "properties": {
                 "select": {
                     "description": "A reference to the data in the process that should be updated",
-                    "type": "string",
+                    "$ref": "#/definitions/stringdi",
                     "pattern": "^(info|actors|assets)\\.\\w+(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
                 },
                 "patch": {
@@ -299,11 +309,12 @@
                 },
                 "jmespath": {
                     "description": "Transform the response using JMESPath before updating the process",
-                    "type": "string"
+                    "$ref": "#/definitions/stringdi"
                 }
             },
-            "required": ["select"]
+            "required": [ "select" ]
         },
+        
         "objectSchema": {
             "allOf": [
                 {
@@ -317,6 +328,17 @@
                         }
                     }
                 }
+            ]
+        },
+        "di": {
+            "description": "Data instruction",
+            "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#"
+        },
+        "stringdi": {
+            "description": "A string or a data instruction",
+            "oneOf": [
+                { "type": "string" },
+                { "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#" }
             ]
         }
     }
