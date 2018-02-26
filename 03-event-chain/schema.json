@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#",
-    "title": "Live Contracts Event Chain schema",
+    "title": "Live Contracts event chain schema",
     "description": "The event chain is an immutable log",
     "type": "object",
     "properties": {
@@ -20,16 +20,9 @@
             "items": {
                 "$ref": "#event"
             }
-        },
-        "receipts": {
-            "descriptions": "Receipts from anchoring on the blockchain",
-            "type": "array",
-            "items": {
-                "$ref": "#receipt"
-            }
         }
     },
-    "required": [ "$schema", "events", "receipts" ],
+    "required": [ "$schema", "events" ],
     "definitions": {
         "event": {
             "$id": "#event",
@@ -39,14 +32,40 @@
                     "type": "string",
                     "format": "uri"
                 },
+                "previous": {
+                    "description": "Hash to previous event",
+                    "type": [ "null", "string" ],
+                    "pattern": "[A-F0-9]{64}"
+                },
+                "body": {
+                    "description": "Body of the event like an action or comment",
+                    "type": "object",
+                    "additionalProperties": true,
+                    "not": {
+                        "properties": {
+                            "date": {},
+                            "hash": {},
+                            "signature": {},
+                            "receipt": {}
+                        }
+                    }
+                },
                 "date": {
-                    "description": "Date/time the comment was created",
+                    "description": "Date/time the event was created",
                     "type": "string",
                     "format": "date-time"
                 },
                 "signature": {
                     "description": "Cryptographic signature",
                     "type": "string"
+                },
+                "hash": {
+                    "description": "SHA256 hash of event",
+                    "type": "string",
+                    "pattern": "[A-F0-9]{64}"
+                },
+                "receipt": {
+                    "$ref": "#receipt"
                 }
             },
             "additionalProperties": true
@@ -55,10 +74,6 @@
             "$id": "#receipt",
             "type": "object",
             "properties": {
-                "hash": {
-                    "description": "sh256 hash",
-                    "type": "string"
-                },
                 "system": {
                     "description": "Blockchain used for anchoring",
                     "type": "string"
@@ -66,8 +81,13 @@
                 "transaction": {
                     "description": "Transaction id",
                     "type": "string"
+                },
+                "root": {
+                    "description": "Merkle root",
+                    "type": "string"
                 }
-            }
+            },
+            "required": [ "hash" ]
         }
     }
 }

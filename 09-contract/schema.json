@@ -1,3 +1,108 @@
 {
-    "name": "arnold"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/09-contract/schema.json#",
+    "title": "Live Contracts contract schema",
+    "description": "A contract in natural language with related data and procedures",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "uri"
+        },
+        "id": {
+            "description": "Unique identifier for the contract",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "Scenario name",
+            "type": "string"
+        },
+        "description": {
+            "description": "Long description",
+            "type": "string"
+        },
+        "date": {
+            "description": "Date of this version of the contract",
+            "type": "string",
+            "format": "date-time"
+        },
+        "tags": {
+            "description": "Tags to filter on",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "locale": {
+            "description": "ISO-639 locale",
+            "type": "string",
+            "pattern": "^[a-z]{2}(_[A-Z]{2})?$"
+        },
+        "template": {
+            "description": "Template used to create this contract",
+            "type": [ "null", "string" ],
+            "format": "uri"
+        },
+        "data": {
+            "description": "Structured data representation of the contract",
+            "type": "object",
+            "additionalProperties": true
+        },
+        "body": {
+            "description": "The content of the document in different media types",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "oneOf": [
+                    {
+                        "description": "Link to the content",
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "media_type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [ "url", "format" ]
+                    },
+                    {
+                        "description": "The full content",
+                        "properties": {
+                            "content": {
+                                "type": "string"
+                            },
+                            "media_type": {
+                                "type": "string"
+                            },
+                            "media_encoding": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [ "url", "format" ]
+                    }
+                ]
+            }
+        },
+        "event_chain": {
+            "description": "Identifier of the event chain of the contract",
+            "type": "string",
+            "format": "uri"
+        },
+        "hash": {
+            "description": "SHA256 hash",
+            "type": "string",
+            "pattern": "[A-F0-9]{64}"
+        },
+        "signature": {
+            "description": "Cryptographic signature",
+            "type": "string"
+        },
+        "receipt": {
+            "description": "Anchoring receipt",
+            "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
+        }
+    }
 }

@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/10-comment/schema.json#",
+    "title": "Live Contracts comment schema",
+    "description": "A logged comment",
+    "type": "object",
+    "properties": {
+        "user": {
+            "description": "Process the comment applies to",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "User's unique identifier",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": [ "name" ],
+            "additonalProperties": true
+        },
+        "message": {
+            "type": "string"
+        },
+        "content_type": {
+            "type": "string",
+            "default": "text/plain"
+        },
+        "date": {
+            "description": "Date/time the comment was created",
+            "type": "string",
+            "format": "date-time"
+        },
+        "hash": {
+            "description": "SHA256 hash",
+            "type": "string",
+            "pattern": "[A-F0-9]{64}"
+        },
+        "signature": {
+            "description": "Cryptographic signature",
+            "type": "string"
+        },
+        "receipt": {
+            "description": "Anchoring receipt",
+            "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
+        }
+    },
+    "required": [ "user", "message" ]
+}

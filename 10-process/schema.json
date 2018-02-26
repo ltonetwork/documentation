@@ -15,6 +15,11 @@
             "type": "string",
             "format": "uri"
         },
+        "event_chain": {
+            "description": "Identifier of the event chain",
+            "type": "string",
+            "format": "uri"
+        },
         "created": {
             "description": "Date and time when the process was created",
             "type": "string",
@@ -64,7 +69,7 @@
             "description": "User submitted comments from the event chain",
             "type": "array",
             "items": {
-                "$ref": "#comment"
+                "$ref": "http://specs.livecontracts.io/draft-01/10-comment/schema.json#"
             }
         }
     },
@@ -80,6 +85,11 @@
                     "type": "string",
                     "format": "uri"
                 },
+                "key": {
+                    "description": "Reference of the actor",
+                    "type": "string",
+                    "format": "uri-reference"
+                },
                 "title": {
                     "description": "Taken from scenario actor title",
                     "type": "string"
@@ -88,11 +98,17 @@
                     "description": "Taken from scenario actor description",
                     "type": "string"
                 },
+                "id": {
+                    "description": "Projected actor's unique identifier",
+                    "type": "string",
+                    "format": "uri"
+                },
                 "name": {
-                    "description": "Projected actor name",
+                    "description": "Projected actor's name",
                     "type": "string"
                 },
                 "image": {
+                    "description": "Projected actor's image",
                     "type": "string",
                     "format": "uri"
                 },
@@ -183,7 +199,16 @@
                 },
                 "actor": {
                     "description": "Actor that performed the action",
-                    "$ref": "#actor"
+                    "oneOf": [
+                        {
+                            "description": "Key of actor",
+                            "type": "string",
+                            "format": "uri-reference"
+                        },
+                        {
+                            "$ref": "#actor"
+                        }
+                    ]
                 },
                 "response": {
                     "description": "Response key",
@@ -193,9 +218,13 @@
                     "description": "Response data"
                 },
                 "date": {
-                    "description": "Date/time the comment was created",
+                    "description": "Date/time the response was given",
                     "type": "string",
                     "format": "date-time"
+                },
+                "hash": {
+                    "description": "SHA256 hash",
+                    "type": "string"
                 },
                 "signature": {
                     "description": "Cryptographic signature",
@@ -206,7 +235,8 @@
                     "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
                 }
             },
-            "required": [ "$schema", "key", "title", "actor", "response", "date" ]
+            "required": [ "$schema", "key", "title", "actor", "response" ],
+            "additonalProperties": true
         },
         "state": {
             "$id": "#state",
@@ -288,43 +318,6 @@
                 }
             },
             "required": [ "$schema", "key", "label", "actor" ]
-        },
-        "comment": {
-            "$id": "#comment",
-            "properties": {
-                "user": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "image": {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    },
-                    "required": [ "name" ],
-                    "additonalProperties": true
-                },
-                "message": {
-                    "type": "string",
-                    "contentMediaType": "text/plain"
-                },
-                "date": {
-                    "description": "Date/time the comment was created",
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "signature": {
-                    "description": "Cryptographic signature",
-                    "type": "string"
-                },
-                "receipt": {
-                    "description": "Anchoring receipt",
-                    "$ref": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#receipt"
-                }
-            },
-            "required": [ "user", "message", "date" ]
         }
     }
 }

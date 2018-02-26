@@ -22,15 +22,6 @@
             "description": "Long description",
             "type": "string"
         },
-        "image": {
-            "description": "Schema image",
-            "oneOf": [
-                {
-                    "type": "string",
-                    "formal": "uri"
-                }
-            ]
-        },
         "keywords": {
             "description": "Alternative titles or keywords to search on",
             "type": "array",

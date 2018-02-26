@@ -13,3 +13,4 @@
 * Current state has all possible actions (not just a reference).
 * Action of current state may have multiple actors.
 * Comments have a `signature` and a `receipt`.
+* Added `event_chain` property, which is a link to the event chain.

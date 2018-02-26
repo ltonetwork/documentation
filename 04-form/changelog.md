@@ -9,8 +9,3 @@
 * The `group` field has an `options` property, instead of `optionsValue` and `optionsText`.
 * The `group` field must also support `options_selected`.
 * The `likert` field uses arrays for the `keys` and `values` properties rather than multiline text.
-
-
-### LegalForms
-
-* Initial format

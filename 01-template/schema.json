@@ -45,16 +45,22 @@
             "pattern": "^[a-z]{2}(_[A-Z]{2})?$"
         },
         "scenarios": {
-            "description": "Scenarios that are linked to this contract",
+            "description": "Scenarios that are linked to this template",
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
                     "id": {
+                        "description": "Scenario id",
                         "type": "string",
                         "format": "uri"
                     },
+                    "name": {
+                        "description": "Scenario name",
+                        "type": "string"
+                    },
                     "paragraph": {
+                        "description": "Reference to the paragraph this scenario applies to",
                         "type": "string"
                     }
                 },
