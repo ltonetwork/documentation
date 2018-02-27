@@ -226,10 +226,6 @@
                     "description": "SHA256 hash",
                     "type": "string"
                 },
-                "signature": {
-                    "description": "Cryptographic signature",
-                    "type": "string"
-                },
                 "receipt": {
                     "description": "Anchoring receipt",
                     "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"

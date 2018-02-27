@@ -27,6 +27,10 @@
             "type": "string",
             "format": "date-time"
         },
+        "creator": {
+            "description": "The person that created this version of the contract",
+            "$ref": "http://specs.livecontracts.io/draft-01/12-identity/schema.json#"
+        },
         "tags": {
             "description": "Tags to filter on",
             "type": "array",
@@ -66,6 +70,10 @@
             "type": "string",
             "format": "uri"
         },
+        "content_hash": {
+            "description": "Hash of the content",
+            "type": "string"
+        },
         "versions": {
             "description": "IDs of all versions of the contract",
             "type": "array",
@@ -82,10 +90,6 @@
             "description": "SHA256 hash",
             "type": "string",
             "pattern": "[A-F0-9]{64}"
-        },
-        "signature": {
-            "description": "Cryptographic signature",
-            "type": "string"
         },
         "receipt": {
             "description": "Anchoring receipt",

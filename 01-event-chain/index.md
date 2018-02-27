@@ -8,7 +8,7 @@ event chains.
 
 ### Note to Readers
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>.
+The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
 For additional information, see <http://livecontracts.io/>.
 
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
@@ -24,7 +24,7 @@ You may use this specification under the [Creative Commons Attribution 4.0 Inter
 
 ### $schema
 
-The Live Contract Event Chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
+The Live Contracts Event Chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
 chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#"`.
 
 ### id

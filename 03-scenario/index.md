@@ -7,7 +7,7 @@ visualized as flowchart and instantiated as a process.
 
 ### Note to Readers
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specifications/issues>.
+The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
 For additional information, see <http://livecontracts.io/>.
 
 To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
@@ -39,7 +39,7 @@ flow.
 
 ### $schema
 
-The Live Contract Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
+The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
 To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/03-scenario/schema.json#"`.
 
 ### id

@@ -1,55 +1,44 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/10-comment/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#",
     "title": "Live Contracts comment schema",
     "description": "A logged comment",
     "type": "object",
     "properties": {
-        "user": {
-            "description": "Process the comment applies to",
-            "type": "object",
-            "properties": {
-                "id": {
-                    "description": "User's unique identifier",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "image": {
-                    "type": "string",
-                    "format": "uri"
-                }
-            },
-            "required": [ "name" ],
-            "additonalProperties": true
-        },
-        "message": {
-            "type": "string"
-        },
-        "content_type": {
+        "$schema": {
             "type": "string",
-            "default": "text/plain"
+            "format": "uri"
+        },
+        "creator": {
+            "description": "The person that created the comment",
+            "$ref": "http://specs.livecontracts.io/draft-01/12-identity/schema.json#"
         },
         "date": {
             "description": "Date/time the comment was created",
             "type": "string",
             "format": "date-time"
         },
+        "content_media_type": {
+            "description": "The media type of the content",
+            "type": "string",
+            "default": "text/plain"
+        },
+        "content_encoding": {
+            "description": "Method that was used to encode the content",
+            "type": "string"
+        },
+        "content": {
+            "description": "The comment message",
+            "type": "string"
+        },
         "hash": {
             "description": "SHA256 hash",
             "type": "string",
             "pattern": "[A-F0-9]{64}"
         },
-        "signature": {
-            "description": "Cryptographic signature",
-            "type": "string"
-        },
         "receipt": {
             "description": "Anchoring receipt",
             "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
         }
-    },
-    "required": [ "user", "message" ]
+    }
 }
