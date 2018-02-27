@@ -49,41 +49,28 @@
             "type": "object",
             "additionalProperties": true
         },
-        "body": {
-            "description": "The content of the document in different media types",
+        "content_media_type": {
+            "description": "The media type of the content",
+            "type": "string"
+        },
+        "content_encoding": {
+            "description": "Method that was used to encode the content",
+            "type": "string"
+        },
+        "content": {
+            "description": "The full content",
+            "type": "string"
+        },
+        "content_url": {
+            "description": "A link to the content",
+            "type": "string",
+            "format": "uri"
+        },
+        "versions": {
+            "description": "IDs of all versions of the contract",
             "type": "array",
             "items": {
-                "type": "object",
-                "oneOf": [
-                    {
-                        "description": "Link to the content",
-                        "properties": {
-                            "url": {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            "media_type": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [ "url", "format" ]
-                    },
-                    {
-                        "description": "The full content",
-                        "properties": {
-                            "content": {
-                                "type": "string"
-                            },
-                            "media_type": {
-                                "type": "string"
-                            },
-                            "media_encoding": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [ "url", "format" ]
-                    }
-                ]
+                "type": "string"
             }
         },
         "event_chain": {
