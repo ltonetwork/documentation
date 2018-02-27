@@ -32,6 +32,11 @@
                     "type": "string",
                     "format": "uri"
                 },
+                "id": {
+                    "description": "Projection id",
+                    "type": "string",
+                    "format": "uri"
+                },
                 "body": {
                     "description": "Body of the event",
                     "type": "string",

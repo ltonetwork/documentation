@@ -29,8 +29,8 @@ chain. To point to this version of the specification use `"$schema": "http://spe
 
 ### id
 
-A URI as a unique identifier for the event chain. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/)
-using a random UUID-4; `ltri:/event-chains/<uuid-4>`.
+A URI as a globally unique identifier for the event chain. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/)
+using a random UUID-4; `lt:/event-chains/<uuid-4>`.
 
 The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains
 SHOULD NOT be versioned.
@@ -46,6 +46,10 @@ The array of events.
 The event schema is an URL to a JSON schema that defines the type of event. This is typically one of schema's in the
 live contracts specifications, but you MAY add custom event types using custom schemas.
 
+### id
+
+The id uri for an event that applies to a specific projection like a contract or a process.
+
 ### previous
 
 The base58 encoded SHA256 hash of the previous event. This is the way events are chained.
@@ -55,7 +59,7 @@ The first event of the chain has a hash of the event chain id as `previous`.
 ### body
 
 The event body is the information about the event that's specific to this event type. Information that can be calculated
-or projected should be omitted from the event.
+or projected should be omitted from the event. The body should also not contain an id, if the event id is used.
 
 The body is a base64 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
 signature due to differences in JSON encoders.

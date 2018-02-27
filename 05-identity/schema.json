@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#",
+    "title": "Live Contracts contract schema",
+    "description": "A contract in natural language with related data and procedures",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "uri"
+        },
+        "id": {
+            "description": "Unique identifier",
+            "type": "string",
+            "format": "uri"
+        },
+        "name": {
+            "description": "User's name",
+            "type": "string"
+        },
+        "email": {
+            "description": "User's email address",
+            "type": "string",
+            "format": "email"
+        },
+        "image": {
+            "description": "Identity image",
+            "type": "string",
+            "format": "uri"
+        },
+        "node": {
+            "description": "Node the user wants to run the live contract on",
+            "type": "string"
+        },
+        "privileges": {
+            "description": "List of privileges",
+            "type": "array",
+            "items": {
+                "$ref": "privilege"
+            }
+        },
+        "signkeys": {
+            "$ref": "#signkeys"
+        }
+    },
+    "definitions": {
+        "signkeys": {
+            "$id": "#signkeys",
+            "description": "Public cryptographic keys",
+            "type": "object",
+            "patternProperties": {
+                "^\\w+$": {
+                    "type": "string"
+                }
+            }
+        },
+        "privilege": {
+            "id": "#privilege",
+            "description": "Privilege given to this identity",
+            "type": "object",
+            "properties": {
+                "schema": {
+                    "description": "Only add events with this schema",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "id": {
+                    "description": "Privilege only applies to this projection",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "only": {
+                    "description": "Body is filtered to only include these properties for projection",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "not": {
+                    "description": "Body is filtered not to include these properties for projection",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "signkey": {
+                    "description": "Only this key type may be used",
+                    "type": "string"
+                }
+            },
+            "required": [ "schema" ]
+        }
+    }
+}

@@ -5,7 +5,7 @@
     "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "events": [
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/12-identity/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#",
             "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
             "body": ""
         },

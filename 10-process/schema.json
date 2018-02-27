@@ -99,58 +99,29 @@
                     "type": "string"
                 },
                 "id": {
-                    "description": "Projected actor's unique identifier",
+                    "description": "Identity ID",
                     "type": "string",
                     "format": "uri"
                 },
                 "name": {
-                    "description": "Projected actor's name",
+                    "description": "Identity name",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "Identity email",
                     "type": "string"
                 },
                 "image": {
-                    "description": "Projected actor's image",
+                    "description": "Identity image",
                     "type": "string",
                     "format": "uri"
                 },
-                "publickeys": {
-                    "description": "Public keys of the actor",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#publickey"
-                    }
-                },
-                "absent": {
-                    "description": "The actor is not participating in this process",
-                    "type": "boolean"
+                "signkeys": {
+                    "description": "Public keys of the identity",
+                    "$ref": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#signkeys"
                 }
             },
-            "required": [ "label" ],
             "additionalProperties": true
-        },
-        "publickey": {
-            "$id": "#publickey",
-            "description": "Public cryptographic key or an actor",
-            "type": "object",
-            "properties": {
-                "label": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string",
-                    "format": "uri"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "valid_from": {
-                    "type": "string",
-                    "format": "date"
-                },
-                "valid_until": {
-                    "type": "string",
-                    "format": "date"
-                }
-            }
         },
         "asset": {
             "$id": "#asset",
@@ -186,8 +157,7 @@
                 },
                 "key": {
                     "description": "Reference of the action",
-                    "type": "string",
-                    "format": "uri-reference"
+                    "type": "string"
                 },
                 "title": {
                     "description": "Action title",
@@ -199,16 +169,7 @@
                 },
                 "actor": {
                     "description": "Actor that performed the action",
-                    "oneOf": [
-                        {
-                            "description": "Key of actor",
-                            "type": "string",
-                            "format": "uri-reference"
-                        },
-                        {
-                            "$ref": "#actor"
-                        }
-                    ]
+                    "$ref": "#actor"
                 },
                 "response": {
                     "description": "Response key",
@@ -231,7 +192,7 @@
                     "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
                 }
             },
-            "required": [ "$schema", "key", "title", "actor", "response" ],
+            "required": [ "key", "actor", "response" ],
             "additonalProperties": true
         },
         "state": {
