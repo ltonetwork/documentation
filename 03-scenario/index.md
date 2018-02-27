@@ -40,7 +40,7 @@ flow.
 ### $schema
 
 The Live Contract Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/02-scenario/schema.json#"`.
+To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/03-scenario/schema.json#"`.
 
 ### id
 

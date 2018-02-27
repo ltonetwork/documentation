@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/01-template/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/02-template/schema.json#",
     "title": "Live Contracts template schema",
     "description": "A definition of a contract template",
     "type": "object",

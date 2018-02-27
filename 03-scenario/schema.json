@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/02-scenario/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/03-scenario/schema.json#",
     "title": "Live Contracts scenario schema",
     "description": "The scenario is a stateless definition of a procedure",
     "type": "object",

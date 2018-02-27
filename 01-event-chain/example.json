@@ -1,6 +1,6 @@
 {
-    "$schema": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#",
-    "id": "lt:/flow/process/1234/events",
+    "$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
+    "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "events": [
         {
             "$schema": "http://specs.livecontracts.io/draft-01/09-contract/schema.json#",
@@ -15,9 +15,14 @@
                         "media_type": "text/plain",
                         "body": "Aliquam mauris augue, malesuada at mattis sed, finibus quis urna."
                     }
-                ]
+                ],
+                "date": "2018-01-27T03:12:24"
             },
-            "date": "2018-01-27T03:12:24"
+            "signature": "",
+            "hash": "",
+            "receipt": {
+                
+            }
         },
         {
             "$schema": "http://specs.livecontracts.io/draft-01/10-process/schema.json#action",
@@ -32,9 +37,9 @@
                 "data": {
                     "description": "Please review this contract",
                     "urgency": "medium"
-                }
-            },
-            "date": "2018-01-29T18:36:18"
+                },
+                "date": "2018-01-29T18:36:18"
+            }
         },
         {
             "$schema": "http://specs.livecontracts.io/draft-01/10-process/schema.json#action",
@@ -45,9 +50,9 @@
                     "key": "lt:/processes/1234#/actors/lawyer",
                     "id": "403f8456-03c7-4da3-9361-8e44495eea65"
                 },
-                "response": "ok"
-            },
-            "date": "2018-01-30T10:27:06"
+                "response": "ok",
+                "date": "2018-01-30T10:27:06"
+            }
         },
         {
             "$schema": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#",
@@ -56,9 +61,9 @@
                     "id": "403f8456-03c7-4da3-9361-8e44495eea65"
                 },
                 "message": "The contract is just lorem ipsum. What do you want me to do?",
-                "content_type": "text/plain"
-            },
-            "date": "2018-01-30T10:30:47"
+                "content_type": "text/plain",
+                "date": "2018-01-30T10:30:47"
+            }
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/03-event-chain/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
     "title": "Live Contracts event chain schema",
     "description": "The event chain is an immutable log",
     "type": "object",
@@ -43,17 +43,11 @@
                     "additionalProperties": true,
                     "not": {
                         "properties": {
-                            "date": {},
                             "hash": {},
                             "signature": {},
                             "receipt": {}
                         }
                     }
-                },
-                "date": {
-                    "description": "Date/time the event was created",
-                    "type": "string",
-                    "format": "date-time"
                 },
                 "signature": {
                     "description": "Cryptographic signature",
