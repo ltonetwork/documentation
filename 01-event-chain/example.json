@@ -1,27 +1,24 @@
 {
+    "$comment": "TODO: first create all the schemes and than come back to this example",
+    
     "$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
     "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "events": [
         {
+            "$schema": "http://specs.livecontracts.io/draft-01/12-identity/schema.json#",
+            "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
+            "body": ""
+        },
+        {
             "$schema": "http://specs.livecontracts.io/draft-01/09-contract/schema.json#",
-            "body": {
-                "id": "lt:/contracts/57498?v=1",
-                "name": "Lorem ipsum",
-                "creator": {
-                    "id": "ab3b4bd5-7d2f-42e2-89ea-a9f25a6ddcd0"
-                },
-                "body": [
-                    {
-                        "media_type": "text/plain",
-                        "body": "Aliquam mauris augue, malesuada at mattis sed, finibus quis urna."
-                    }
-                ],
-                "date": "2018-01-27T03:12:24"
-            },
-            "signature": "",
-            "hash": "",
+            "body": "ewogICAgImlkIjogImx0Oi9jb250cmFjdHMvNTc0OTg/dj0xIiwKICAgICJuYW1lIjogIkxvcmVtIGlwc3VtIiwKICAgICJjcmVhdG9yIjogewogICAgICAgICJpZCI6ICJhYjNiNGJkNS03ZDJmLTQyZTItODllYS1hOWYyNWE2ZGRjZDAiCiAgICB9LAogICAgImJvZHkiOiBbCiAgICAgICAgewogICAgICAgICAgICAibWVkaWFfdHlwZSI6ICJ0ZXh0L3BsYWluIiwKICAgICAgICAgICAgImJvZHkiOiAiQWxpcXVhbSBtYXVyaXMgYXVndWUsIG1hbGVzdWFkYSBhdCBtYXR0aXMgc2VkLCBmaW5pYnVzIHF1aXMgdXJuYS4iCiAgICAgICAgfQogICAgXSwKICAgICJkYXRlIjogIjIwMTgtMDEtMjdUMDM6MTI6MjQiCn0=",
+            "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
+            "signkey": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
+            "signature": "5zk7MGmATLsdbW1C1kiZASuxtN7graME5FBcD6Uti9TGd21i9jgzEYHF9Qaz9cYVV6ZoHg2kPAyiukTtSCW36EuZ",
+            "hash": "9TK4fRbqJKWrkh85yzX9iTzDjFU392R14aNi67CQteiA",
             "receipt": {
-                
+                "system": "waves",
+                "transaction": "EczCo931TgCoFbzE3FqhGzGMGoHRXZMXKvWzrfPUeeC5"
             }
         },
         {

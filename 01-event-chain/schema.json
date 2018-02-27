@@ -32,44 +32,41 @@
                     "type": "string",
                     "format": "uri"
                 },
+                "body": {
+                    "description": "Body of the event",
+                    "type": "string",
+                    "contentEncoding": "base64",
+                    "contentMediaType": "application/json"
+                },
                 "previous": {
                     "description": "Hash to previous event",
-                    "type": [ "null", "string" ],
+                    "type": "string",
                     "pattern": "[A-F0-9]{64}"
                 },
-                "body": {
-                    "description": "Body of the event like an action or comment",
-                    "type": "object",
-                    "additionalProperties": true,
-                    "not": {
-                        "properties": {
-                            "hash": {},
-                            "signature": {},
-                            "receipt": {}
-                        }
-                    }
+                "signkey": {
+                    "description": "Public key for signature",
+                    "type": "string"
                 },
                 "signature": {
                     "description": "Cryptographic signature",
                     "type": "string"
                 },
                 "hash": {
-                    "description": "SHA256 hash of event",
-                    "type": "string",
-                    "pattern": "[A-F0-9]{64}"
+                    "description": "Hash of the event",
+                    "type": "string"
                 },
                 "receipt": {
                     "$ref": "#receipt"
                 }
-            },
-            "additionalProperties": true
+            }
         },
         "receipt": {
             "$id": "#receipt",
+            "description": "Receipt for anchoring",
             "type": "object",
             "properties": {
                 "system": {
-                    "description": "Blockchain used for anchoring",
+                    "description": "Blockchain used",
                     "type": "string"
                 },
                 "transaction": {
@@ -81,7 +78,7 @@
                     "type": "string"
                 }
             },
-            "required": [ "hash" ]
+            "required": [ "system", "transaction" ]
         }
     }
 }
