@@ -100,3 +100,57 @@ here are ignored. This doesn't go more than one level deep.
 ### signkey
 
 If specified, only this type / these types of sign keys may be used to sign the event.
+
+## Example
+
+```json
+{
+    "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+    "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "node": "app.legalthings.one",
+    "privileges": [
+        {
+            "schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+            "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
+            "not": [ "privileges" ],
+            "signkey": [ "user", "registration" ]
+        },
+        {
+            "schema": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+            "id": "lt:/contracts/c9ddeeca-ad2f-4204-92da-eda18ed0bd21"
+        },
+        {
+            "schema": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#",
+            "signkey": "user"
+        }
+    ],
+    "signkeys": {
+        "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
+        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
+    }
+}
+```
+
+### Identity for invitation to the event chain
+
+```json
+{
+    "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+    "id": "lt:/identities/3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
+    "name": "Arnold",
+    "email": "arnold@jasny.net",
+    "privileges": [
+        {
+            "schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+            "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
+            "not": [ "privileges" ],
+            "signkey": [ "user", "registration" ]
+        }
+    ],
+    "signkeys": {
+        "registration": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ"
+    }
+}
+```
