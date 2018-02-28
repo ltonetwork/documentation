@@ -1,25 +1,9 @@
 # Live Contracts - Identity
 
-### Abstract
-
 An identity within the event chain. The identity is used for authentication and authorization. An identity is not a
 user, a user has an identity for each event chain it's participating in.
 
-### Note to Readers
-
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
-For additional information, see <http://livecontracts.io/>.
-
-To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
-editors.
-
-### Copyright Notice
-
-Copyright (c) 2017 LegalThings One. All rights reserved.
-
-You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
-
-## Registration
+### Registration
 
 The first event on the event chain MUST be an identity. This event enables the user or organization to add subsequent
 events on the chain. This is the initiator of the chain.
@@ -58,7 +42,7 @@ broadcasted, but send to the nodes of the active identities extracted from the e
 
 ### privileges
 
-A list of privileges.
+A list of [privileges](#privilege).
 
 ### signkeys
 

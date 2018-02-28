@@ -3,6 +3,20 @@
 _Contracts and laws are not something static, but something that is dynamic and can be automation and allow for
 participation and are understandable by people without legal knowledge._
 
+### Note to Readers
+
+The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
+For additional information, see <http://livecontracts.io/>.
+
+To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
+editors.
+
+### Copyright Notice
+
+Copyright (c) 2017 LegalThings One. All rights reserved.
+
+You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
+
 ## General
 
 ### Cryptography
