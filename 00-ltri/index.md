@@ -1,8 +1,7 @@
 # LegalThings Resource Identifier (LTRI) Scheme
 
-The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural.
-
-An HTTP URL identifies the system where the resource can be found. The LTRI identifies a resource within a system.
+The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural. The LTRI
+does not identify the system, but it identifies a resource within a system.
 
 ### Scheme syntax
 

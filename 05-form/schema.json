@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/04-form/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/05-form/schema.json#",
     "title": "Live Contracts form schema",
     "description": "A definition of a form",
     "type": "object",
@@ -84,7 +84,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#text"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#text"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -109,7 +109,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#password"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#password"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -133,7 +133,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#number"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#number"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -158,7 +158,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#amount"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#amount"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -194,7 +194,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#money"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#money"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -219,7 +219,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#date"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#date"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -254,7 +254,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#email"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#email"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -278,7 +278,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#textarea"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#textarea"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -297,7 +297,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#select"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#select"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -319,7 +319,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#group"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#group"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -341,7 +341,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#checkbox"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#checkbox"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -368,7 +368,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#likert"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#likert"
                 },
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
@@ -401,7 +401,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#expression"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#expression"
                 },
                 "name": { "$ref": "#/definitions/field_name" },
                 "expression": {
@@ -420,7 +420,7 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/04-form/schema.json#static"
+                    "const": "http://specs.livecontracts.io/draft-01/05-form/schema.json#static"
                 },
                 "content": {
                     "description": "HTML static content",

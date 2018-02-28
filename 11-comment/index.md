@@ -28,7 +28,7 @@ To point to this version of the specification use `"$schema": "http://specs.live
 
 ### creator
 
-The information about who wrote this comment, following the [identity specs](http://specs.livecontracts.io/draft-01/05-identity).
+The information about who wrote this comment, following the [identity specs](http://specs.livecontracts.io/draft-01/02-identity).
 
 ### date
 

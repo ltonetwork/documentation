@@ -19,12 +19,20 @@ Copyright (c) 2017 LegalThings One. All rights reserved.
 
 You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
 
+## Registration
+
+The first event on the event chain MUST be an identity. This event enables the user or organization to add subsequent
+events on the chain. This is the initiator of the chain.
+
+This initial identity can start adding other identities on the chain. If it knows the public key(s) of, it can simply
+add them and notify the user about this new chain. If the public key is unknown a new key pair may be generated.
+
 ## Identity
 
 ### $schema
 
 The Live Contracts Identity [JSON schema](http://json-schema.org) URI that describes the JSON structure of the identity.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#"`.
+To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"`.
 
 ### id
 
@@ -91,4 +99,4 @@ here are ignored. This doesn't go more than one level deep.
 
 ### signkey
 
-If specified, only this type of sign keys may be used to sign the event.
+If specified, only this type / these types of sign keys may be used to sign the event.

@@ -5,12 +5,13 @@
     "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "events": [
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
             "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
             "body": ""
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/09-contract/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+            "id": "",
             "body": "ewogICAgImlkIjogImx0Oi9jb250cmFjdHMvNTc0OTg/dj0xIiwKICAgICJuYW1lIjogIkxvcmVtIGlwc3VtIiwKICAgICJjcmVhdG9yIjogewogICAgICAgICJpZCI6ICJhYjNiNGJkNS03ZDJmLTQyZTItODllYS1hOWYyNWE2ZGRjZDAiCiAgICB9LAogICAgImJvZHkiOiBbCiAgICAgICAgewogICAgICAgICAgICAibWVkaWFfdHlwZSI6ICJ0ZXh0L3BsYWluIiwKICAgICAgICAgICAgImJvZHkiOiAiQWxpcXVhbSBtYXVyaXMgYXVndWUsIG1hbGVzdWFkYSBhdCBtYXR0aXMgc2VkLCBmaW5pYnVzIHF1aXMgdXJuYS4iCiAgICAgICAgfQogICAgXSwKICAgICJkYXRlIjogIjIwMTgtMDEtMjdUMDM6MTI6MjQiCn0=",
             "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
             "signkey": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
@@ -22,9 +23,9 @@
             }
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/10-process/schema.json#action",
+            "$schema": "http://specs.livecontracts.io/draft-01/09-process/schema.json#action",
             "body": {
-                "$schema": "http://specs.livecontracts.io/draft-01/06-action/schema.json#form",
+                "$schema": "http://specs.livecontracts.io/draft-01/10-action/schema.json#form",
                 "key": "lt:/processes/1234#/actions/request_review",
                 "actor": {
                     "key": "lt:/processes/1234#/actors/client",
@@ -39,9 +40,9 @@
             }
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/10-process/schema.json#action",
+            "$schema": "http://specs.livecontracts.io/draft-01/09-process/schema.json#action",
             "body": {
-                "$schema": "http://specs.livecontracts.io/draft-01/06-action/schema.json#acknowledge",
+                "$schema": "http://specs.livecontracts.io/draft-01/10-action/schema.json#acknowledge",
                 "key": "lt:/processes/1234#/actions/acknowledge",
                 "actor": {
                     "key": "lt:/processes/1234#/actors/lawyer",

@@ -11,7 +11,7 @@
         },
         "creator": {
             "description": "The person that created the comment",
-            "$ref": "http://specs.livecontracts.io/draft-01/05-identity/schema.json#"
+            "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
         },
         "date": {
             "description": "Date/time the comment was created",

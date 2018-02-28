@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/03-scenario/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#",
     "title": "Live Contracts scenario schema",
     "description": "The scenario is a stateless definition of a procedure",
     "type": "object",
@@ -85,7 +85,6 @@
     "definitions": {
         "action": {
             "$id": "#action",
-            "title": "Action",
             "description": "Definition of an action that can be performed by an actor (manually or automatically)",
             "type": "object",
             "properties": {
@@ -148,39 +147,32 @@
         },
         "response": {
             "$id": "#response",
-            "title": "Response",
             "description": "Instructions for a response of an action",
             "type": "object",
-            "patternProperties": {
-                "^\\w+$": {
-                    "type": "object",
-                    "properties": {
-                        "transition": {
-                            "description": "Hard-wired transition for an action response",
-                            "type": "string",
-                            "pattern": "^\\w+$"
+            "properties": {
+                "transition": {
+                    "description": "Hard-wired transition for an action response",
+                    "type": "string",
+                    "pattern": "^\\w+$"
+                },
+                "update": {
+                    "description": "Update instruction or set of instructions",
+                    "oneOf": [
+                        {
+                            "$ref": "#update"
                         },
-                        "update": {
-                            "description": "Update instruction or set of instructions",
-                            "oneOf": [
-                                {
-                                    "$ref": "#update"
-                                },
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#update"
-                                    }
-                                }
-                            ]
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#update"
+                            }
                         }
-                    }
+                    ]
                 }
             }
         },
         "state": {
             "$id": "#state",
-            "title": "State",
             "description": "Definition of state a process can be in",
             "type": "object",
             "properties": {
@@ -235,13 +227,12 @@
         },
         "transition": {
             "$id": "#transition",
-            "title": "Transition",
             "description": "Declaration of a state transition",
             "type": "object",
             "properties": {
                 "action": {
                     "description": "Action reference",
-                    "type": "string",
+                    "type": [ "null", "string" ],
                     "pattern": "^\\w+$"
                 },
                 "response": {
@@ -259,14 +250,13 @@
                 "transition": {
                     "description": "Reference of the state to transition to",
                     "type": "string",
-                    "pattern": "^\\w+$"
+                    "pattern": "^:?\\w+$"
                 }
             },
             "required": [ "action", "response", "transition" ]
         },
         "update": {
             "$id": "#update",
-            "title": "Update instruction",
             "description": "Instruction to update process information, an actor or an asset",
             "properties": {
                 "select": {
@@ -312,6 +302,10 @@
                             "description": "Identity ID",
                             "type": "string",
                             "format": "uri"
+                        },
+                        "name": {
+                            "description": "Identity name",
+                            "type": "string"
                         },
                         "signkey": {
                             "description": "Sign key type",

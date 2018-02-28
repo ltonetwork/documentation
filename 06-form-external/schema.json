@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/08-form-external/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/06-form-external/schema.json#",
     "title": "Live Contracts form external data schema",
     "description": "Field definitions for fetch external data using HTTP GET",
     "definitions": {
@@ -13,10 +13,10 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/08-form-external/schema.json#textarea"
+                    "const": "http://specs.livecontracts.io/draft-01/06-form-external/schema.json#textarea"
                 },
-                "label": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_label" },
-                "name": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_name" },
+                "label": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_label" },
+                "name": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_name" },
                 "url": { "$ref": "#field_url" },
                 "optionValue": {
                     "description": "Property to select as value (JMESPath)",
@@ -27,9 +27,9 @@
                     "type": "string"
                 },
                 "jmespath": { "$ref": "#field_jmespath" },
-                "helptext": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_helptext" },
-                "conditions": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_conditions" },
-                "validation": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_validation" }
+                "helptext": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_helptext" },
+                "conditions": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_conditions" },
+                "validation": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_validation" }
             },
             "required": [ "name", "url", "optionText" ]
         },
@@ -42,9 +42,9 @@
                 "$schema": {
                     "type": "string",
                     "format": "uri",
-                    "const": "http://specs.livecontracts.io/draft-01/08-form-external/schema.json#external_data"
+                    "const": "http://specs.livecontracts.io/draft-01/06-form-external/schema.json#external_data"
                 },
-                "name": { "$ref": "http://specs.livecontracts.io/draft-01/04-form#/definitions/field_name" },
+                "name": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_name" },
                 "url": { "$ref": "#field_url" },
                 "conditions": {
                     "description": "Expression which need to assert true, before the HTTP request is done",

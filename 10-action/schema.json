@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/10-action/schema.json#",
+    "title": "Live Contracts Action schema",
+    "description": "A performed action",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "Action schema",
+            "type": "string",
+            "format": "uri"
+        },
+        "key": {
+            "description": "Reference of the action",
+            "type": "string"
+        },
+        "title": {
+            "description": "Action title",
+            "type": "string"
+        },
+        "description": {
+            "description": "Action long description",
+            "type": "string"
+        },
+        "actor": {
+            "description": "Actor that performed the action",
+            "$ref": "#actor"
+        },
+        "response": {
+            "description": "Response key",
+            "type": "string"
+        },
+        "data": {
+            "description": "Response data"
+        },
+        "date": {
+            "description": "Date/time the response was given",
+            "type": "string",
+            "format": "date-time"
+        },
+        "hash": {
+            "description": "SHA256 hash",
+            "type": "string"
+        },
+        "receipt": {
+            "description": "Anchoring receipt",
+            "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
+        }
+    },
+    "additonalProperties": true
+}

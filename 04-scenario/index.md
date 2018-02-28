@@ -40,7 +40,7 @@ flow.
 ### $schema
 
 The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/03-scenario/schema.json#"`.
+To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#"`.
 
 ### id
 
@@ -92,18 +92,19 @@ The actor schema must define an object.
   "actors": {
     "employer": {
       "type": "object",
+      "title": "Employer",
       "properties": {
-        "title": { "type": "string", "const": "Employer" },
-        "company": { "type": "string" }
+        "id": { "type": "string", "format": "uri" },
+        "name": { "type": "string" }
       }
     },
     "employee": {
       "type": "object",
+      "title": "Employee",
       "properties": {
         "id": { "type": "string", "format": "uri" },
-        "title": { "type": "string", "const": "Employee" },
-        "first_name": { "type": "string" },
-        "last_name": { "type": "string" }
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" }
       }
     }
   }
@@ -156,21 +157,13 @@ an action that the actor that instantiated the process can perform. This actions
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
 and / or may update the process projection.
 
-
-```json
-{
-  "actions": {
-    "fill_out_form": {
-        "$schema": ""
-    }
-  }
-}
-```
-
 ### $schema
 
 The action [JSON schema](http://json-schema.org) URI that describes the JSON structure of the action. This is also be
 used for automation and may be used by the UI.
+
+[10-action specs](http://specs.livecontracts.io/draft-01/10-action/) contains a number of actions that SHOULD be
+supported on any LegalThings One system.
 
 ### title
 
@@ -178,11 +171,11 @@ A short title for the action.
 
 ### label
 
-Label that is shown when picking this action
+Label that is shown when picking this action.
 
 ### description
 
-A long description for the action that is shown when the action is performed.
+A long description for the action that is shown when the action has been performed.
 
 ### actor
 
@@ -201,3 +194,77 @@ The key of the default response. This is used for the golden flow.
 
 Should the action be displayed in the history? Choose one of the following options "always", "once" or "never". In the
 case of "once", only the latest instance of the action will be displayed.
+
+## response
+
+Instructions for a response of an action.
+
+### transition
+
+Hard-wired transition for an action response to a specific state. This can be used for actions that always transition to
+a specific state regardless of the state the process is now in.
+
+The value must be the key of an action listed in the actions array.
+
+### update
+
+Update instructions or array of update instructions.
+
+## state
+
+The state a process that's instantiated from this scenario can be in.
+
+### title
+
+A short title for the state.
+
+### description
+
+A long description for the action that is shown when if the state is current or part of the golden flow.
+
+### alt_descriptions
+
+An alternative description that can be specific per actor. This is an object where the keys correspond with the actor
+keys.
+
+```json
+{
+  "employee": "Fill out this form",
+  "employer": "Waiting for employee to fill out the form"
+}
+```
+
+### actions
+
+An array with the keys of all actions that may be performed in this state.
+
+### default_action
+
+The default action that is followed when determining the golden flow.
+
+If no user interaction is required, the default action MAY be automatically executed by the system of the actor, without
+the actor explictly choosing this action.
+
+### transitions
+
+Set of dynamic transitions from this state to the next.
+
+### timeout
+
+State timeout as date period. The format is a decimal and than
+
+```
+y year
+m month
+d day
+l working day
+w week
+h hour
+i minute
+s second
+```
+
+These can be combined, for instance `3l12h` means 3 working days and 12 hours.
+
+The timeout counts from transferring into the state until transferring out of the state. Actions that do not trigger a
+state change does not affect the time out.

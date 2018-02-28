@@ -75,6 +75,7 @@ signed. Each line is separated by a single `\n` character.
 
 ```
 <schema>
+<id>
 <body>
 <previous>
 <signkey>
