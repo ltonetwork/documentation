@@ -22,7 +22,7 @@ The Live Contracts specifications are described as [JSON schema](http://json-sch
 The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural. The LTRI
 does not identify the system, but it identifies a resource within a system.
 
-[Read the specifications](http://specs.livecontracts.io/00-ltri/)
+[Read more](http://specs.livecontracts.io/00-ltri/)
 
 ### 01 - Event chain
 
@@ -30,53 +30,53 @@ The event chain is a miniature blockchain that is shared between parties involve
 is signed and that added referencing the previous event, forming a chain. All information of the system is derived from
 event chains.
 
-[Read the specifications](http://specs.livecontracts.io/01-event-chain/)
+[Read more](http://specs.livecontracts.io/01-event-chain/)
 
 ### 02 - Identity
 
 An identity within the event chain. The identity is used for authentication and authorization. An identity is not a
 user, a user has an identity for each event chain it's participating in.
 
-[Read the specifications](http://specs.livecontracts.io/02-identity/)
+[Read more](http://specs.livecontracts.io/02-identity/)
 
 ### 03 - Template
 
-[Read the specifications](http://specs.livecontracts.io/03-template/)
+[Read more](http://specs.livecontracts.io/03-template/)
 
 ### 04 Scenario
 
 A Live Contract scenario is a definition of procedure as a Finite State Machine (FSM). As an FSM, the scenario can be
 visualized as flowchart and instantiated as a process.
 
-[Read the specifications](http://specs.livecontracts.io/04-scenario/)
+[Read more](http://specs.livecontracts.io/04-scenario/)
 
 ### 05 - Form
 
-[Read the specifications](http://specs.livecontracts.io/05-form/)
+[Read more](http://specs.livecontracts.io/05-form/)
 
 ### 06 - Form external
 
-[Read the specifications](http://specs.livecontracts.io/06-form-external/)
+[Read more](http://specs.livecontracts.io/06-form-external/)
 
 ### 07 - Data instruction
 
 Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using
 data from the projected process.
 
-[Read the specifications](http://specs.livecontracts.io/07-data-instruction/)
+[Read more](http://specs.livecontracts.io/07-data-instruction/)
 
 ### 08 - Contract
 
-[Read the specifications](http://specs.livecontracts.io/08-contract/)
+[Read more](http://specs.livecontracts.io/08-contract/)
 
 ### 09 - Process
 
-[Read the specifications](http://specs.livecontracts.io/09-process/)
+[Read more](http://specs.livecontracts.io/09-process/)
 
 ### 10 - Action
 
-[Read the specifications](http://specs.livecontracts.io/10-action/)
+[Read more](http://specs.livecontracts.io/10-action/)
 
 ### 11 - Comment
 
-[Read the specifications](http://specs.livecontracts.io/11-comment/)
+[Read more](http://specs.livecontracts.io/11-comment/)
