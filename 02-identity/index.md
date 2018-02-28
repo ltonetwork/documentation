@@ -16,6 +16,20 @@ events on the chain. This is the initiator of the chain.
 This initial identity can start adding other identities on the chain. If it knows the public key(s) of, it can simply
 add them and notify the user about this new chain. If the public key is unknown a new key pair may be generated.
 
+### Authentication
+
+Possibly the new identity might need to go to an authentication process before it can participate in a process, get
+write access to a contract, etc. In that case the system of the initiator is responsible of granting additional
+privileges at the end of the authentication process.
+
+### Removal
+
+Any identity that can overwrite other identities of the event chain, may remove that identity by clearing the
+`node`, `encryptkey` and `signkeys` property. That way the user no longer receives new events and is unable to fetch
+the chain.
+
+Note that it's not possible to force a node or user to delete an event chain that has already been received.
+
 ## Example
 
 ```json
@@ -44,7 +58,8 @@ add them and notify the user about this new chain. If the public key is unknown 
     "signkeys": {
         "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
         "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
-    }
+    },
+    "encryptkey": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
 }
 ```
 
@@ -62,6 +77,11 @@ add them and notify the user about this new chain. If the public key is unknown 
             "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
             "not": [ "privileges" ],
             "signkey": [ "user", "registration" ]
+        },
+        {
+            "schema": "http://specs.livecontracts.io/draft-01/10-action/schema.json#",
+            "id": "lt:/identities/cdab4c34-3fb6-41a6-aa58-921358b7677c",
+            "signkey": "user"
         }
     ],
     "signkeys": {
@@ -107,7 +127,7 @@ A list of [privileges](#privilege).
 
 ### signkeys
 
-The public encryption keys that the identity uses for signing events. It's an object where the key is the type.
+The public keys that the identity uses for signing events. It's an object where the key is the type.
 
 Common types are `user` and `system`. The `user` key is kept client side, so you can be sure that the user takes that
 action. The system key doesn't belong to the user but to the node the user is running on. It can be specified for an
@@ -119,6 +139,11 @@ automated step.
     "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
 }
 ```
+
+### encryptkey
+
+The public key for encrypting data for the identity. The private encrypt key is typically hold and kept secret by the
+node which is responsible for encrypting and decrypting events.
 
 ## Privilege schema
 

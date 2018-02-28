@@ -1,23 +1,27 @@
 # Cryptography
 
-## Abstract
-
 Live Contracts uses the `SHA256`, `Blake2b256` and `Keccak256` algorithms to create a cryptographic hashes. The
-`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures and to encrypt and decrypt
-data. `Base58` is used to create the string from of bytes.
+`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures. `ChaCha20` is used to encrypt
+and decrypt data. `Base58` is used to create the string from of bytes.
 
-If you want to create an application, you should find the implementation of these algorithms on your programming language.
+If you want to create an application, you should find the implementation of these algorithms on your programming
+language.
 
-## Bytes encoding Base58
+## Base58
 
-In order to ease human readable, all arrays of bytes in the project are encoded by Base58 algorithm with Bitcoin
-alphabet.
+In order to ease human readable, all arrays of bytes in the project are encoded by [Base58 algorithm with Bitcoin
+alphabet](https://en.bitcoin.it/wiki/Base58Check_encoding).
 
-### Example 
+#### Example 
 The string `teststring` are coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`.
 The bytes `[1, 2, 3, 4, 5]` are coded into the string `7bWpTW`.
 
-## Creating a private key from a seed
+## Signatures
+
+Live Contracts uses `Curve25519` - `ED25519` signatures with X25519 keys (Montgomery form). This is the same method
+used by the [Waves platform](https://wavesplatform.com/).
+
+### Creating a private key from a seed
 
 A seed string is a representation of entropy, from which you can re-create deterministically all the private keys for
 an account. It should be long enough so that the probability of selection was a unrealistic negligible.
@@ -36,10 +40,8 @@ of 0 and increases every time you create the new account. We use this array of b
 `keccak256(blake2b256(bytes))`. This resulting array of bytes we call `account seed`, from it you can generate a private
 and public key pair. This is then converted to a public and private key pair for the `Curve25519` algorithm.
 
-Live Contracts uses `Curve25519` - `ED25519` signatures with X25519 keys (Montgomery form). Unfortunately most of
-embedded cryptography devices and libraries don't support X25519 keys. However there are the libraries with conversion
-functions from ED25519 keys to X25519 (Curve25519) crypto_sign_ed25519_pk_to_curve25519(curve25519_pk, ed25519_pk) for
-public key and crypto_sign_ed25519_sk_to_curve25519(curve25519_sk, ed25519_skpk) for private key like
+Unfortunately most of embedded cryptography devices and libraries don't support X25519 keys. However there are the
+libraries with conversion functions from ED25519 keys to X25519 (Curve25519) like
 [libsodium](https://download.libsodium.org/doc/advanced/ed25519-curve25519.html).
 
 [Here is an example of conversion using libsodium for ED25519 keys and signature to Curve25519](https://gist.github.com/Tolsi/d64fcb09db4ead75e5eeeab445284c93).
@@ -59,7 +61,7 @@ Also some `Curve25519` libraries (as the one used in our project) have the `SHA2
 (such as most of c/c++/python libraries), so you may need to apply it manually. Note that private key is clamped, so not
 any random 32 bytes can be a valid private key.
 
-### Example
+#### Example
 
 Brainwallet seed string
 ```
@@ -101,7 +103,7 @@ Created public key
 HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
 ```
 
-## Signing
+### Signing
 
 `Curve25519` is used for all the signatures in the project.
 
@@ -112,3 +114,7 @@ Validation of signature requires the signature, the message and the public key.
 
 Do not forget that there are many valid (not unique!) signatures for a one message. Also you should should not rely on
 any information before the hash and/or signature are checked.
+
+## Encryption
+
+_TODO: Write about encryption with ChaCha20_
