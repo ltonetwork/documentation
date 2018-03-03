@@ -36,8 +36,18 @@
         },
         "content": {
             "description": "Contract in natural language",
-            "type": "string",
-            "contentMediaType": "text/html"
+            "oneOf": [
+                { "type": "string" },
+                { "$ref": "#linked_content" }
+            ]
+        },
+        "content_type": {
+            "description": "Media type of the content",
+            "type": "string"
+        },
+        "content_encoding": {
+            "description": "Encoding of the content",
+            "type": "string"
         },
         "locale": {
             "description": "ISO-639 locale",
@@ -48,25 +58,51 @@
             "description": "Scenarios that are linked to this template",
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "description": "Scenario id",
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "name": {
-                        "description": "Scenario name",
-                        "type": "string"
-                    },
-                    "paragraph": {
-                        "description": "Reference to the paragraph this scenario applies to",
-                        "type": "string"
-                    }
-                },
-                "required": [ "id" ]
+                "$ref": "#scenario"
             }
         }
     },
-    "additionalProperties": true
+    "dependencies": {
+        "content": [ "content_type" ]
+    },
+    "additionalProperties": true,
+    "definitions": {
+        "linked_content": {
+            "$id": "#linked_content",
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "decryptkey": {
+                    "type": "string"
+                }
+            },
+            "required": [ "url", "hash" ]
+        },
+        "scenario": {
+            "$id": "#scenario",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Scenario id",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "name": {
+                    "description": "Scenario name",
+                    "type": "string"
+                },
+                "paragraph": {
+                    "description": "Reference to the paragraph this scenario applies to",
+                    "type": "string"
+                }
+            },
+            "required": [ "id" ]
+        }
+    }
 }

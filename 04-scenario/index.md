@@ -1,23 +1,7 @@
 # Live Contracts - Scenario
 
-### Abstract
-
 A Live Contract scenario is a definition of procedure as a Finite State Machine (FSM). As an FSM, the scenario can be
 visualized as flowchart and instantiated as a process.
-
-### Note to Readers
-
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
-For additional information, see <http://livecontracts.io/>.
-
-To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
-editors.
-
-### Copyright Notice
-
-Copyright (c) 2017 LegalThings One. All rights reserved.
-
-You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
 
 ## Workflow
 
@@ -36,6 +20,8 @@ Each state defines a default action and each action a default response. Followin
 flow.
 
 ## Scenario
+
+[JSON Schema](http://specs.livecontracts.io/draft-01/04-scenario/schema.json#)
 
 ### $schema
 

@@ -55,6 +55,9 @@ user, a user has an identity for each event chain it's participating in.
 
 ### 03 - Template
 
+The Live Contract template can be instantiated to create a contract. It holds a templated version of the natural
+language text, a form definition to collect the data and links to associated scenarios of the digitized procedures.
+
 [Read more](http://specs.livecontracts.io/03-template/)
 
 ### 04 Scenario
