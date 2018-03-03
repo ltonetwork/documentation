@@ -1,25 +1,15 @@
 # Live Contracts - Comment
 
-### Abstract
-
 A comment is an arbitrary message that can be added to the event chain. It MAY be used for a chat-like feature, where
 messages are stored as part of the event chain. Everybody who has access to the event chain can read the comments.
 
-### Note to Readers
+## Schemas
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
-For additional information, see <http://livecontracts.io/>.
+* [Comment](#comment-schema)
 
-To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
-editors.
+## Comment schema
 
-### Copyright Notice
-
-Copyright (c) 2017 LegalThings One. All rights reserved.
-
-You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
-
-## Comment
+[JSON Schema](http://specs.livecontracts.io/draft-01/12-comment/schema.json)
 
 ### $schema
 
@@ -48,9 +38,10 @@ The message of the comment.
 
 ### hash
 
-A base58 encoded sha256 hash of the event. It can be used as identifier to find the corresponding event on the event
+A base58 encoded SHA256 hash of the event. It can be used as identifier to find the corresponding event on the event
 chain.
 
 ### receipt
 
-The receipt for anchoring the comment to a global blockchain. See the [event chain specs](http://specs.livecontracts.io/draft-01/01-event-chain).
+The [receipt](http://specs.livecontracts.io/draft-01/01-event-chain/#receipt-schema) for anchoring the comment to a
+global blockchain.

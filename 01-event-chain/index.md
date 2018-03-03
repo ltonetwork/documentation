@@ -1,26 +1,18 @@
 # Live Contracts - Event Chain
 
-### Abstract
-
 The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event
 is signed and that added referencing the previous event, forming a chain. All information of the system is derived from
 event chains.
 
-### Note to Readers
+## Schemas
 
-The issues list for this draft can be found at <https://github.com/legalthings/livecontracts-specs/issues>.
-For additional information, see <http://livecontracts.io/>.
+* [Event chain](#event-chain-schema)
+* [Event](#event-schema)
+* [Receipt](#receipt-schema)
 
-To provide feedback, use this issue tracker, the communication methods listed on the homepage, or email the document
-editors.
+## Event chain schema
 
-### Copyright Notice
-
-Copyright (c) 2017 LegalThings One. All rights reserved.
-
-You may use this specification under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE).
-
-## Event chain
+[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#)
 
 ### $schema
 
@@ -39,7 +31,9 @@ SHOULD NOT be versioned.
 
 The array of events.
 
-## Event
+## Event schema
+
+[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#event)
 
 ### $schema
 
@@ -90,7 +84,9 @@ A base58 encoded SHA256 hash of the event. To create the hash use the same messa
 A receipt for anchoring the event to a global blockchain. With anchoring the hash is written as attachment of a
 transaction. This is done as proof of existence and for timestamping.
 
-## Receipt
+## Receipt schema
+
+[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#receipt)
 
 ### system
 

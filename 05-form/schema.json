@@ -302,7 +302,22 @@
                 "label": { "$ref": "#/definitions/field_label" },
                 "name": { "$ref": "#/definitions/field_name" },
                 "options": { "$ref": "#/defintions/field_options" },
-                "options_selected": { "$ref": "#/defintions/field_options_selected" },
+                "value": {
+                    "description": "Default value",
+                    "oneOf": [
+                        {
+                            "$comment": "Single select",
+                            "type": [ "string", "number", "integer" ]
+                        },
+                        {
+                            "$comment": "Multi select",
+                            "type": "array",
+                            "items": {
+                                "type": [ "string", "number", "integer" ]
+                            }
+                        }
+                    ]
+                },
                 "multiselect": { "$ref": "#/defintions/multiselect" },
                 "helptext": { "$ref": "#/definitions/field_helptext" },
                 "conditions": { "$ref": "#/definitions/field_conditions" },
@@ -489,20 +504,6 @@
                     }
                 }
             }
-        },
-        "field_options_selected": {
-            "description": "Options that are selected by default",
-            "oneOf": [
-                {
-                    "type": "array",
-                    "items": {
-                        "type": [ "string", "number", "integer" ]
-                    }
-                },
-                {
-                    "type": [ "string", "number", "integer" ]
-                }
-            ]
         },
         "field_multiselect": {
             "description": "Can multiple options be selected?",

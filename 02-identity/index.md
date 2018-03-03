@@ -35,7 +35,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 ```json
 {
     "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
-    "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
+    "id": "75baa885-5862-4f81-80f4-60df746ff002",
     "name": "John Doe",
     "email": "john.doe@example.com",
     "node": "app.legalthings.one",
@@ -68,7 +68,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 ```json
 {
     "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
-    "id": "lt:/identities/3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
+    "id": "3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
     "name": "Arnold",
     "email": "arnold@jasny.net",
     "privileges": [
@@ -101,8 +101,7 @@ To point to this version of the specification use `"$schema": "http://specs.live
 
 ### id
 
-A URI as a globally unique identifier for the identity. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/)
-using a random UUID-4; `lt:/identities/<uuid-4>`.
+A unique identifier for the identity within the event chain using UUID-4.
 
 ### name
 
@@ -112,9 +111,12 @@ The name of the user that has taken this identity.
 
 The email address of the user that has taken this identity.
 
-### image
+### info
 
-A URL to a (publicly available) image of the user.
+The `info` object contains additional information about the user. The `$schema` property defines the other properties
+of `info`. The schema for this is not defined by the Live Contracts specification. Having the user info in a schema that
+both systems understands means that a user can skip steps where it's asked to identity itself. The info may also hold
+properties that can be used for authentication.
 
 ### node
 

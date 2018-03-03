@@ -109,12 +109,14 @@
                     "description": "The actor (or actors) that may perform this action",
                     "anyOf": [
                         {
-                            "type": "string"
+                            "type": "string",
+                            "pattern": "^\\w+$"
                         },
                         {
                             "type": "array",
                             "items": {
-                                "type": "string"
+                                "type": "string",
+                                "pattern": "^\\w+$"
                             },
                             "minItems": 1,
                             "uniqueItems": true

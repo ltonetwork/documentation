@@ -87,8 +87,7 @@
                 },
                 "key": {
                     "description": "Reference of the actor",
-                    "type": "string",
-                    "format": "uri-reference"
+                    "type": "string"
                 },
                 "title": {
                     "description": "Taken from scenario actor title",

@@ -24,7 +24,7 @@
         },
         "actor": {
             "description": "Actor that performed the action",
-            "$ref": "#actor"
+            "$ref": "http://specs.livecontracts.io/draft-01/09-process/schema.json#actor"
         },
         "response": {
             "description": "Response key",

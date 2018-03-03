@@ -12,7 +12,7 @@
         "id": {
             "description": "Unique identifier",
             "type": "string",
-            "format": "uri"
+            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
         },
         "name": {
             "description": "User's name",
@@ -23,10 +23,17 @@
             "type": "string",
             "format": "email"
         },
-        "image": {
-            "description": "Identity image",
-            "type": "string",
-            "format": "uri"
+        "info": {
+            "description": "User info",
+            "properties": {
+                "$schema": {
+                    "description": "Info follows specific schema",
+                    "type": "string",
+                    "format": "uri",
+                    "readOnly": true
+                },
+                "additionalProperties": true
+            }
         },
         "node": {
             "description": "Node the user wants to run the live contract on",
@@ -69,27 +76,34 @@
                     "format": "uri"
                 },
                 "id": {
-                    "description": "Privilege only applies to this projection",
-                    "type": "string",
-                    "format": "uri"
+                    "description": "Privilege only applies to this resource",
+                    "type": "string"
                 },
                 "only": {
-                    "description": "Body is filtered to only include these properties for projection",
+                    "description": "Body is filtered to only include these properties",
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
                 },
                 "not": {
-                    "description": "Body is filtered not to include these properties for projection",
+                    "description": "Body is filtered not to include these properties",
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
                 },
                 "signkey": {
-                    "description": "Only this key type may be used",
-                    "type": "string"
+                    "description": "Only this key type(s) may be used",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": "string"
+                        }
+                    ]
                 }
             },
             "required": [ "schema" ]
