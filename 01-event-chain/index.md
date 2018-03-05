@@ -58,6 +58,10 @@ or projected should be omitted from the event. The body should also not contain 
 The body is a base64 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
 signature due to differences in JSON encoders.
 
+### timestamp
+
+A Unix timestamp (seconds since EPOCH). This is the date and time that the event occurred according to the signer.
+
 ### signkey
 
 The signer's public key, base58 encoded. This identifies the signer and MUST be used to verify the signature.
@@ -71,6 +75,7 @@ signed. Each line is separated by a single `\n` character.
 <schema>
 <id>
 <body>
+<timestamp>
 <previous>
 <signkey>
 ```

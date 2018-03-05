@@ -97,3 +97,7 @@ data from the projected process.
 ### 11 - Comment
 
 [Read more](http://specs.livecontracts.io/11-comment/)
+
+### 12 - Conflict resolution
+
+[Read more](http://specs.livecontracts.io/12-conflict-resolution/)

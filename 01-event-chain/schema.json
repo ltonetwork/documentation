@@ -43,6 +43,10 @@
                     "contentEncoding": "base64",
                     "contentMediaType": "application/json"
                 },
+                "timestamp": {
+                    "description": "Time of the event",
+                    "type": "integer"
+                },
                 "previous": {
                     "description": "Hash to previous event",
                     "type": "string",
