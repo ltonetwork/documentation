@@ -1,11 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/06-form-external/schema.json#",
-    "title": "Live Contracts form external data schema",
+    "title": "Live Contracts Form external schema",
     "description": "Field definitions for fetch external data using HTTP GET",
     "definitions": {
         "external_select": {
-            "$id": "#select",
+            "$id": "#external-select",
             "label": "External select",
             "description": "Input control to select from an external source",
             "type": "object",
@@ -34,7 +34,7 @@
             "required": [ "name", "url", "optionText" ]
         },
         "external_data": {
-            "$id": "#select",
+            "$id": "#external-data",
             "label": "External data",
             "description": "Fetch external data",
             "type": "object",

@@ -1,4 +1,4 @@
-# Live Contracts - Event Chain
+# Live Contracts - Event chain
 
 The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event
 is signed and that added referencing the previous event, forming a chain. All information of the system is derived from
@@ -16,7 +16,7 @@ event chains.
 
 ### $schema
 
-The Live Contracts Event Chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
+The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
 chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#"`.
 
 ### id
@@ -60,7 +60,7 @@ signature due to differences in JSON encoders.
 
 ### timestamp
 
-A Unix timestamp (seconds since EPOCH). This is the date and time that the event occurred according to the signer.
+The is the date and time, in ISO 8601 format, that the event occurred according to the signer.
 
 ### signkey
 

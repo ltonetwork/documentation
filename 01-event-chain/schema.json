@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
-    "title": "Live Contracts event chain schema",
+    "title": "Live Contracts Event chain schema",
     "description": "The event chain is an immutable log",
     "type": "object",
     "properties": {
@@ -33,7 +33,7 @@
                     "format": "uri"
                 },
                 "id": {
-                    "description": "Projection id",
+                    "description": "Resource id",
                     "type": "string",
                     "format": "uri"
                 },
@@ -45,7 +45,8 @@
                 },
                 "timestamp": {
                     "description": "Time of the event",
-                    "type": "integer"
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "previous": {
                     "description": "Hash to previous event",
@@ -67,7 +68,8 @@
                 "receipt": {
                     "$ref": "#receipt"
                 }
-            }
+            },
+            "required": [ "$schema", "body", "timestamp", "previous", "signkey", "signature", "hash" ]
         },
         "receipt": {
             "$id": "#receipt",
