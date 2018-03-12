@@ -60,7 +60,7 @@ The request can't be validated it's denied.
 
 ## Chain request schema
 
-[JSON Schema](http://specs.livecontracts.io/01-draft/12-chain-request/schema.json#)
+[JSON Schema](schema.json#)
 
 ### $schema
 
@@ -71,7 +71,7 @@ chain request. To point to this version of the specification use
 ### id
 
 The globally unique identifier of the event chain you're requesting. This is typically an
-[LTRI](http://specs.livecontracts.io/draft-01/00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
+[LTRI](../00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
 
 ### body
 
@@ -117,7 +117,7 @@ last of event in the chain. The last event of the other node has signed is the l
 chains are identical and didn't branch.
 
 If a node finds out a the chain was branched it needs to handle it through
-[conflict resolution](http://specs.livecontracts.io/draft-01/13-conflict-resolution/).
+[conflict resolution](../13-conflict-resolution/).
 
 ### encryptkey
 
@@ -129,7 +129,7 @@ unencrypted event chain as response.
 
 ## Denied response schema
 
-[JSON Schema](http://specs.livecontracts.io/01-draft/12-chain-request/schema.json#)
+[JSON Schema](schema.json#)
 
 ### $schema
 
@@ -140,11 +140,11 @@ response. To point to this version of the specification use
 ### id
 
 The globally unique identifier of the event chain you're requesting. This is typically an
-[LTRI](http://specs.livecontracts.io/draft-01/00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
+[LTRI](../00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
 
 ### body
 
-The body is a base64 encoded JSON string of a [comment](http://specs.livecontracts.io/draft-01/11-comment/) explaining
+The body is a base64 encoded JSON string of a [comment](../11-comment/) explaining
 why the request is denied.
 
 ### timestamp

@@ -41,6 +41,10 @@
                     "description": "Variable name for grouping field values",
                     "type": "string"
                 },
+                "repeat": {
+                    "description": "Expression defining how often the step should appear",
+                    "type": [ "string", "integer" ]
+                },
                 "anchor": {
                     "description": "Link to anchor within linked template",
                     "type": "string"

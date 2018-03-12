@@ -7,7 +7,6 @@
             "label": "All field types",
             "helptext" : "<h1>Overview of all field types</h1><p>These are the available field types</p>",
             "helptip" : "Please try every field",
-            "article": "#1",
             "fields": [
                 {
                     "$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#text",

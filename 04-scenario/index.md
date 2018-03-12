@@ -3,6 +3,15 @@
 A Live Contract scenario is a definition of procedure as a Finite State Machine (FSM). As an FSM, the scenario can be
 visualized as flowchart and instantiated as a process.
 
+## Schemas
+
+* [Scenario](#scenario-schema)
+* [Action](#action-schema)
+* [Response](#response-schema)
+* [State](#state-schema)
+* [Transition](#transition-schema)
+* [Update instruction](#update-instruction-schema)
+
 ## Workflow
 
 A workflow consists of an orchestrated and repeatable pattern of business activity.
@@ -19,9 +28,29 @@ previous interactions.
 Each state defines a default action and each action a default response. Following these defaults results in the golden
 flow.
 
-## Scenario
+### Implicit states
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/04-scenario/schema.json#)
+Scenarios have a number of implicit states. Except for `:initial`, these don't need to be defined in the scenario. You
+may define these not the less to set things like descriptions.
+
+#### Initial state
+
+The state with key `:initial` is the initial state of the FSM. This state is required, except for subscenarios.
+
+The initial state should not have a default action. Instead the initial action is automatically determined, by finding
+an action that the actor that instantiated the process can perform. This actions are checked in order.
+
+#### Success state
+
+The `:success` state is an end state indicating that the process has been completed successfully.
+
+#### Failed state
+
+The `:failed` state is an end state indicating that the process has not been completed successfully.
+
+## Scenario schema
+
+[JSON Schema](schema.json#)
 
 ### $schema
 
@@ -30,7 +59,7 @@ To point to this version of the specification use `"$schema": "http://specs.live
 
 ### id
 
-A URI as a unique identifier for the scenario. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/).
+A URI as a unique identifier for the scenario. This is typically an [LTRI](../00-ltri/).
 
 The id MUST point to an immutable version of the scenario. Modifying the scenario SHOULD always result in a new id.
 Previous versions of the scenario SHOULD remain available.
@@ -131,13 +160,6 @@ Set of the actions of the scenario. The keys of the object is used to reference 
 
 Set of all states of the scenario. The keys of the object is used to reference the state.
 
-#### Initial state
-
-The state with key `:initial` is the initial state of the FSM. This state is required, except for subscenarios.
-
-The initial state should not have a default action. Instead the initial action is automatically determined, by finding
-an action that the actor that instantiated the process can perform. This actions are checked in order.
-
 ## Action
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
@@ -148,7 +170,7 @@ and / or may update the process projection.
 The action [JSON schema](http://json-schema.org) URI that describes the JSON structure of the action. This is also be
 used for automation and may be used by the UI.
 
-[10-action specs](http://specs.livecontracts.io/draft-01/10-action/) contains a number of actions that SHOULD be
+[10-action specs](../10-action/) contains a number of actions that SHOULD be
 supported on any LegalThings One system.
 
 ### title
@@ -194,7 +216,7 @@ The value must be the key of an action listed in the actions array.
 
 ### update
 
-Update instructions or array of update instructions.
+[Update instruction](#update-instruction-schema) or array of update instructions.
 
 ## state
 
@@ -243,14 +265,57 @@ State timeout as date period. The format is a decimal and than
 y year
 m month
 d day
-l working day
+b business day (mon-fri, including holidays)
 w week
 h hour
 i minute
 s second
 ```
 
-These can be combined, for instance `3l12h` means 3 working days and 12 hours.
+These can be combined, for instance `3b12h` means 3 business days and 12 hours.
 
 The timeout counts from transferring into the state until transferring out of the state. Actions that do not trigger a
 state change does not affect the time out.
+
+## State schema
+
+## title
+
+Short title of the state. This may be displayed in an overview of the process.
+
+## description
+
+A long description of the state.
+
+## 
+
+An object with instructions for the state per actor. These instructions may be show when this state is current. The
+key of this object is an actor reference.
+
+```json
+{
+  "employee": "Please accept the procedure",
+  "employer": "Wait for the employee to accept the procedure or cancel"
+}
+```
+
+## actions
+
+A list of references of allowed [actions](../10-action/). Actions that are not allowed in the state SHOULD NOT be
+executed. If such an action is executed, the result MUST NOT trigger a state change, nor change the process projection.
+
+## default_action
+
+The default action is used to determine the golden flow. Additionally, a system MAY execute this action without it being
+explictly being invoked by the user, given it's a system action (may be signed using the system signkey).
+
+## transitions
+
+Specific transitions if an action is executed in this state. Transitions defined here overrule the transition defined in
+the action response.
+
+The [transition object](#transition-schema) can specify conditions 
+
+## Update instruction schema
+
+

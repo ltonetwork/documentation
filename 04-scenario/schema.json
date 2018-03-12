@@ -161,7 +161,7 @@
                     "description": "Update instruction or set of instructions",
                     "oneOf": [
                         {
-                            "$ref": "#update"
+                            "$ref": "#update-instruction"
                         },
                         {
                             "type": "array",
@@ -186,8 +186,8 @@
                     "description": "Description of the state",
                     "$ref": "#/definitions/stringdi"
                 },
-                "alt_descriptions": {
-                    "description": "Alternative describtions per actor",
+                "instructions": {
+                    "description": "Instructions per actor",
                     "type": "object",
                     "patternProperties": {
                         "^\\w+$": {
@@ -257,8 +257,8 @@
             },
             "required": [ "action", "response", "transition" ]
         },
-        "update": {
-            "$id": "#update",
+        "update_instruction": {
+            "$id": "#update-instruction",
             "description": "Instruction to update process information, an actor or an asset",
             "properties": {
                 "select": {
@@ -266,16 +266,8 @@
                     "$ref": "#/definitions/stringdi",
                     "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
                 },
-                "patch": {
-                    "description": "Whether patch or replace existing objects or array",
-                    "type": "boolean",
-                    "default": false
-                },
-                "data": {
-                    "description": "Use explicit data instead of action response data"
-                },
-                "jmespath": {
-                    "description": "Transform the response using JMESPath before updating the process",
+                "query": {
+                    "description": "JMESPath query to apply before updating the process",
                     "$ref": "#/definitions/stringdi"
                 }
             },

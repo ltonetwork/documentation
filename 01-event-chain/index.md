@@ -12,16 +12,17 @@ event chains.
 
 ## Event chain schema
 
-[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#)
+[JSON Schema](schema.json#)
 
 ### $schema
 
 The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
-chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#"`.
+chain. To point to this version of the specification use
+`"$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#"`.
 
 ### id
 
-A URI as a globally unique identifier for the event chain. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/)
+A URI as a globally unique identifier for the event chain. This is typically an [LTRI](../00-ltri/)
 using a random UUID-4; `lt:/event-chains/<uuid-4>`.
 
 The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains
@@ -33,7 +34,7 @@ The array of events.
 
 ## Event schema
 
-[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#event)
+[JSON Schema](schema.json#event)
 
 ### $schema
 
@@ -91,17 +92,36 @@ transaction. This is done as proof of existence and for timestamping.
 
 ## Receipt schema
 
-[JSON Schema](http://schema.livecontracts.io/event-chain/schema.json#receipt)
+[JSON Schema](schema.json#receipt)
 
-### system
+The receipt follows the [Chainpoint specification v2](https://chainpoint.org/).
 
-The blockchain or system that was used for anchoring.
+_The formatting differs from other structures in the Live Contracts specs, because this is a 3th party specification._
 
-### transaction
+### @context
 
-The transaction id where the event hash can be found.
+The [JSON-LD](https://json-ld.org/) context for the receipt. This is a constant an must be
+`https://w3id.org/chainpoint/v2`.
 
-### root
+### type
 
-In case multiple hashes are combined in a merkle tree for anchoring, the merkle root is required to verify that the
-hash.
+Receipt type definition specifying hash method and version. This SHOULD be `ChainpointSHA256v2`.
+
+### targetHash
+
+The hash value being anchored to the blockchain. This SHOULD be the event hash.
+
+### merkleRoot
+
+Merkle tree root value that is anchored to the blockchain. In case multiple hashes are combined in a merkle tree, the
+merkle root is required to verify that a hash is part of the tree.
+
+### proof
+
+Merkle proof establishing link from the `targetHash` to the `merkleRoot`. In a merkle tree, the proof is required to
+verify that a hash is part of the tree.
+
+### anchors
+
+Array with anchors. Each anchor is a transaction in on a blockchain. An anchor is an object with a `type` field which
+determines the network / transaction type and a `sourceId` field that contains the transaction id.

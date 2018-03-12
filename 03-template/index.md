@@ -11,7 +11,7 @@ language text, a form definition to collect the data and links to associated sce
 
 ## Template schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/03-template/schema.json#)
+[JSON Schema](schema.json#)
 
 ### $schema
 
@@ -65,7 +65,7 @@ or procedures that apply to the contract.
 
 ## Linked content schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/03-template/schema.json#linked_content)
+[JSON Schema](schema.json#linked_content)
 
 Linking the content rather embedding it reduces the size of the event.
 
@@ -95,7 +95,7 @@ used to decrypt the content.
 
 ## Related scenario schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/03-template/schema.json#scenario)
+[JSON Schema](schema.json#scenario)
 
 ### id
 

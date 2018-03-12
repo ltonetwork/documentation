@@ -76,20 +76,54 @@
             "description": "Receipt for anchoring",
             "type": "object",
             "properties": {
-                "system": {
-                    "description": "Blockchain used",
+                "@context": {
+                    "description": "The JSON-LD context for the receipt",
+                    "type": "string",
+                    "format": "uri",
+                    "const": "https://w3id.org/chainpoint/v2"
+                },
+                "type": {
+                    "description": "Receipt type definition specifying hash method and version",
                     "type": "string"
                 },
-                "transaction": {
-                    "description": "Transaction id",
+                "targetHash": {
+                    "description": "Hash value being anchored to the blockchain",
                     "type": "string"
                 },
-                "root": {
-                    "description": "Merkle root",
+                "merkleRoot": {
+                    "description": "Merkle tree root value that is anchored to the blockchain",
                     "type": "string"
+                },
+                "proof": {
+                    "description": "Merkle proof establishing link from the target hash to the merkle root",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "left": { "type": "string" },
+                            "right": { "type": "string" }
+                        }
+                    }
+                },
+                "anchors": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "description": "System specific transaction type",
+                                "type": "string"
+                            },
+                            "sourceId": {
+                                "description": "Identifier, such as a transaction id, used to locate anchored data",
+                                "type": "string"
+                            }
+                        },
+                        "required": [ "type", "sourceId" ]
+                    }
                 }
             },
-            "required": [ "system", "transaction" ]
+            "required": [ "@context", "type", "targetHash", "" ]
         }
     }
 }

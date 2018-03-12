@@ -92,7 +92,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ## Identity schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/02-identity/schema.json#)
+[JSON Schema](schema.json#)
 
 ### $schema
 
@@ -149,7 +149,7 @@ node which is responsible for encrypting and decrypting events.
 
 ## Privilege schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/02-identity/schema.json#privilege)
+[JSON Schema](schema.json#privilege)
 
 A privilege grant the identity to add one type events to the event chain.
 
