@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
-    "title": "Live Contracts contract schema",
-    "description": "A contract in natural language with related data and procedures",
+    "title": "Live Contracts Document schema",
+    "description": "A document in natural language with related data and procedures",
     "type": "object",
     "properties": {
         "$schema": {
@@ -10,7 +10,7 @@
             "format": "uri"
         },
         "id": {
-            "description": "Unique identifier for the contract",
+            "description": "Unique identifier for the document",
             "type": "string",
             "format": "uri"
         },
@@ -23,12 +23,12 @@
             "type": "string"
         },
         "date": {
-            "description": "Date of this version of the contract",
+            "description": "Date of this version of the document",
             "type": "string",
             "format": "date-time"
         },
         "creator": {
-            "description": "The person that created this version of the contract",
+            "description": "The person that created this version of the document",
             "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
         },
         "tags": {
@@ -44,12 +44,12 @@
             "pattern": "^[a-z]{2}(_[A-Z]{2})?$"
         },
         "template": {
-            "description": "Template used to create this contract",
-            "type": [ "null", "string" ],
+            "description": "Template used to create this document",
+            "type": "string",
             "format": "uri"
         },
         "data": {
-            "description": "Structured data representation of the contract",
+            "description": "Structured data representation of the document",
             "type": "object",
             "additionalProperties": true
         },
@@ -88,7 +88,7 @@
             ]
         },
         "versions": {
-            "description": "IDs of all versions of the contract",
+            "description": "IDs of all versions of the document",
             "type": "array",
             "items": {
                 "type": "string"

@@ -67,7 +67,7 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "#action"
+                    "$ref": "http://specs.livecontracts.io/draft-01/10-action/schema.json#definition"
                 }
             }
         },
@@ -81,11 +81,10 @@
             }
         }
     },
-    "required": [ "$schema", "id", "actors", "actions", "states" ],
     "definitions": {
         "action": {
             "$id": "#action",
-            "description": "Definition of an action that can be performed by an actor (manually or automatically)",
+            "description": "Definition of an action that can be performed by an actor",
             "type": "object",
             "properties": {
                 "$schema": {
@@ -93,16 +92,8 @@
                     "type": "string",
                     "format": "uri-reference"
                 },
-                "title": {
-                    "description": "Action title (short)",
-                    "$ref": "#/definitions/stringdi"
-                },
                 "label": {
                     "description": "Label that is shown when picking this action",
-                    "$ref": "#/definitions/stringdi"
-                },
-                "description": {
-                    "description": "Long description",
                     "$ref": "#/definitions/stringdi"
                 },
                 "actor": {
@@ -139,16 +130,8 @@
                     "description": "Default response for the golden flow",
                     "$ref": "#/definitions/stringdi",
                     "default": "ok"
-                },
-                "display": {
-                    "description": "Project the action in the history?",
-                    "type": "string",
-                    "enum": [ "never", "once", "always" ],
-                    "default": "always"
                 }
-            },
-            "required": [ "$schema", "actor" ],
-            "additionalProperties": true
+            }
         },
         "response": {
             "$id": "#response",
@@ -156,17 +139,14 @@
             "type": "object",
             "properties": {
                 "title": {
-                    "description": "Overwrite the `title` property of the action for given response",
-                    "$ref": "#/definitions/stringdi"
-                },
-                "description": {
-                    "description": "Overwrite the `title` property of the action for given response",
+                    "description": "The title displayed for an executed action",
                     "$ref": "#/definitions/stringdi"
                 },
                 "display": {
-                    "description": "Overwrite the `display` property of the action for given response",
-                    "type": [ "null", "string" ],
-                    "enum": [ "never", "once", "always" ]
+                    "description": "Show the response",
+                    "type": "string",
+                    "enum": [ "never", "once", "always" ],
+                    "default": "always"
                 },
                 "transition": {
                     "description": "Hard-wired transition for an action response",
@@ -282,29 +262,12 @@
                     "$ref": "#/definitions/stringdi",
                     "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
                 },
-                "query": {
-                    "description": "JMESPath query to apply before updating the process",
+                "data": {
+                    "description": "Data to set",
                     "$ref": "#/definitions/stringdi"
                 }
             },
             "required": [ "select" ]
-        },
-        
-        "upload_action": {
-            "$id": "#upload-action",
-            "allOf": [
-                { "$ref": "#action" },
-                {
-                    "properties": {
-                        "accept": {
-                            "description": "The type of files that are accepted, in MIME format",
-                            "type": [ "string", "array" ],
-                            "items": "string"
-                        }
-                    },
-                    "additionalProperties": true
-                }
-            ]
         },
         
         "di": {

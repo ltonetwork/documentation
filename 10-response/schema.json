@@ -1,34 +1,34 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/10-action/schema.json#",
-    "title": "Live Contracts Action schema",
+    "$id": "http://specs.livecontracts.io/draft-01/10-response/schema.json#",
+    "title": "Live Contracts Response schema",
     "description": "A performed action",
     "type": "object",
     "properties": {
-        "$schema": {
-            "description": "Action schema",
+        "id": {
+            "description": "Unique identifier for the process, action and response",
             "type": "string",
             "format": "uri"
         },
         "key": {
-            "description": "Reference of the action",
+            "description": "Reference response",
             "type": "string"
+        },
+        "action": {
+            "$ref": "http://specs.livecontracts.io/draft-01/09-process/schema.json#action"
         },
         "title": {
             "description": "Action title",
-            "type": "string"
-        },
-        "description": {
-            "description": "Action long description",
             "type": "string"
         },
         "actor": {
             "description": "Actor that performed the action",
             "$ref": "http://specs.livecontracts.io/draft-01/09-process/schema.json#actor"
         },
-        "response": {
-            "description": "Response key",
-            "type": "string"
+        "display": {
+            "description": "Show the response",
+            "type": [ "null", "string" ],
+            "enum": [ "never", "once", "always" ]
         },
         "data": {
             "description": "Response data"

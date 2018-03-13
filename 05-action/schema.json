@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/05-action/schema.json#",
+    "title": "Live Contracts Action schema",
+    "description": "Action that has be performed or can be performed",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "Action schema",
+            "type": "string",
+            "format": "uri"
+        },
+        "key": {
+            "description": "Reference of the action",
+            "type": "string",
+            "format": "uri-reference"
+        },
+        "label": {
+            "description": "Action label",
+            "type": "string"
+        },
+        "description": {
+            "description": "Action long description",
+            "type": "string"
+        },
+        "actor": {
+            "description": "Actors that may performed the action",
+            "oneOf": [
+                {
+                    "description": "Single actor reference",
+                    "type": "string",
+                    "pattern": "^\\w+$"
+                },
+                {
+                    "description": "Multiple actors",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^\\w+$"
+                    }
+                }
+            ]
+        }
+    },
+    "additionalProperties": true,
+    "definitions": {
+        "upload": {
+            "$id": "#upload",
+            "allOf": [
+                { "$ref": "#" },
+                {
+                    "properties": {
+                        "accept": {
+                            "description": "The type of files that are accepted, in MIME format",
+                            "type": [ "string", "array" ],
+                            "items": "string"
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#",
+    "title": "Live Contracts Actor schema",
+    "description": "An actor as part of a process",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "Actor schema defines the type of actor",
+            "type": "string",
+            "format": "uri"
+        },
+        "key": {
+            "description": "Reference of the actor",
+            "type": "string"
+        },
+        "title": {
+            "description": "Taken from scenario actor title",
+            "type": "string"
+        },
+        "description": {
+            "description": "Taken from scenario actor description",
+            "type": "string"
+        }
+    },
+    "additionalProperties": true,
+    "definitions": {
+        "identity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "Unique identifier of the identity",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "name": {
+                    "description": "Full name / company name",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "E-mail address",
+                    "type": "string",
+                    "format": "email"
+                },
+                "phone": {
+                    "description": "Phone number",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "Link to avatar image",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "signkeys": {
+                    "description": "Public keys of the identity",
+                    "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#signkeys"
+                }
+            }
+        },
+        
+        "individual": {
+            "allOf": [
+                { "$ref": "#" },
+                { "$ref": "#/definitions/identity" }
+            ]
+        },
+        "organization": {
+            "allOf": [
+                { "$ref": "#" },
+                { "$ref": "#/definitions/identity" }
+            ]
+        },
+        "employee": {
+            "allOf": [
+                { "$ref": "#individual" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "organization": {
+                            "$ref": "#organization"
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            ]
+        },
+        "team": {
+            "type": "object",
+            "properties": {
+                "members": {
+                    "type": "array",
+                    "items": { "$ref": "#employee" }
+                },
+                "additionalProperties": true
+            }
+        }
+    }
+}

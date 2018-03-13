@@ -36,32 +36,26 @@ The array of events.
 
 [JSON Schema](schema.json#event)
 
-### $schema
+### body
 
-The event schema is an URL to a JSON schema that defines the type of event. This is typically one of schema's in the
-live contracts specifications, but you MAY add custom event types using custom schemas.
+The event body is the information about the event that's specific to this event type. Information that can be calculated
+or projected should be omitted from the event.
 
-### id
+The body is a base64 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
+signature due to differences in JSON encoders.
 
-The id uri for an event that applies to a specific projection like a contract or a process.
+The body MUST contain a `$schema` property. This is used to determine how to handle the event and if the identity is
+authorized to add the event. Typically the body also contains an `id` property with an [LTRI](../00-ltri/).
+
+### timestamp
+
+The is the date and time, in ISO 8601 format, that the event occurred according to the signer.
 
 ### previous
 
 The base58 encoded SHA256 hash of the previous event. This is the way events are chained.
 
 The first event of the chain has a hash of the event chain id as `previous`.
-
-### body
-
-The event body is the information about the event that's specific to this event type. Information that can be calculated
-or projected should be omitted from the event. The body should also not contain an id, if the event id is used.
-
-The body is a base64 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
-signature due to differences in JSON encoders.
-
-### timestamp
-
-The is the date and time, in ISO 8601 format, that the event occurred according to the signer.
 
 ### signkey
 
@@ -73,8 +67,6 @@ A base58 encoded `Curve25519` signature of the event. To create the signature, f
 signed. Each line is separated by a single `\n` character.
 
 ```
-<schema>
-<id>
 <body>
 <timestamp>
 <previous>

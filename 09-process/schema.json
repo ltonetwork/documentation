@@ -51,18 +51,18 @@
             "description": "History of performed actions",
             "type": "array",
             "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/10-action/schema.json#"
+                "$ref": "http://specs.livecontracts.io/draft-01/10-response/schema.json#"
             }
         },
         "current": {
             "description": "The current state",
-            "$ref": "#state"
+            "$ref": "http://specs.livecontracts.io/draft-01/05-scenario/schema.json#state"
         },
         "next": {
             "description": "The next states when following the golden flow",
             "type": "array",
             "items": {
-                "$ref": "#state"
+                "$ref": "http://specs.livecontracts.io/draft-01/05-scenario/schema.json#state"
             }
         },
         "comments": {
@@ -73,55 +73,7 @@
             }
         }
     },
-    "required": [ "id", "scenario", "created", "info", "actors", "assets", "previous", "current", "next", "comments" ],
     "definitions": {
-        "actor": {
-            "$id": "#actor",
-            "description": "A projected actor",
-            "type": "object",
-            "properties": {
-                "$schema": {
-                    "description": "Actor schema defines the type of actor",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "key": {
-                    "description": "Reference of the actor",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "Taken from scenario actor title",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Taken from scenario actor description",
-                    "type": "string"
-                },
-                "id": {
-                    "description": "Identity ID",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "name": {
-                    "description": "Identity name",
-                    "type": "string"
-                },
-                "email": {
-                    "description": "Identity email",
-                    "type": "string"
-                },
-                "image": {
-                    "description": "Identity image",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "signkeys": {
-                    "description": "Public keys of the identity",
-                    "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#signkeys"
-                }
-            },
-            "additionalProperties": true
-        },
         "asset": {
             "$id": "#asset",
             "description": "A projected asset",
@@ -141,89 +93,7 @@
                     "type": "string"
                 }
             },
-            "required": [ "label" ],
             "additionalProperties": true
-        },
-        "state": {
-            "$id": "#state",
-            "type": "object",
-            "properties": {
-                "title": {
-                    "description": "Short title",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Description of the state",
-                    "type": "string"
-                },
-                "alt_descriptions": {
-                    "description": "Alternative describtions per actor",
-                    "type": "object",
-                    "patternProperties": {
-                        "^\\w+$": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "actions": {
-                    "description": "Set of possible actions in this state",
-                    "$comment": "Only present for current state",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/current_action"
-                    },
-                    "minItems": 1
-                },
-                "due_date": {
-                    "description": "Date/time that the state will expire",
-                    "type": "string",
-                    "format": "date-time"
-                }
-            },
-            "required": [ "title" ]
-        },
-        "current_action": {
-            "description": "Action that can be performed in the current state",
-            "type": "object",
-            "properties": {
-                "$schema": {
-                    "description": "Action schema",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "key": {
-                    "description": "Reference of the action",
-                    "type": "string",
-                    "format": "uri-reference"
-                },
-                "label": {
-                    "description": "Action label",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Action long description",
-                    "type": "string"
-                },
-                "actor": {
-                    "description": "Actors that may performed the action",
-                    "oneOf": [
-                        {
-                            "description": "Single actor reference",
-                            "type": "string",
-                            "pattern": "^\\w+$"
-                        },
-                        {
-                            "description": "Multiple actors",
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "pattern": "^\\w+$"
-                            }
-                        }
-                    ]
-                }
-            },
-            "required": [ "$schema", "key", "label", "actor" ]
         }
     }
 }
