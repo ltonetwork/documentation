@@ -210,7 +210,7 @@
         },
         "apply": {
             "$id": "#apply",
-            "description": "Apply JMESPath query to data",
+            "description": "Apply JSON Expressions to data",
             "type": "object",
             "properties": {
                 "<apply>": {
@@ -220,12 +220,12 @@
                             "description": "Input data",
                             "$ref": "#/definitions/objectdi"
                         },
-                        "query": {
-                            "description": "JMESPath query",
+                        "expression": {
+                            "description": "JSON expression",
                             "$ref": "#/definitions/stringdi"
                         }
                     },
-                    "required": [ "input", "query" ]
+                    "required": [ "input", "expression" ]
                 }
             },
             "required": [ "<apply>" ]

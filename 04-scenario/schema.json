@@ -44,12 +44,7 @@
             "description": "Set of actor schemas",
             "type": "object",
             "patternProperties": {
-                "^\\w+$": {
-                    "allOf": [
-                        { "$ref": "http://json-schema.org/draft-07/schema#" },
-                        { "$ref": "#/definitions/actor_required_properties" }
-                    ]
-                }
+                "^\\w+$": { "$ref": "http://json-schema.org/draft-07/schema#" }
             }
         },
         "assets": {
@@ -61,6 +56,11 @@
                     "$ref": "http://json-schema.org/draft-07/schema#"
                 }
             }
+        },
+        "definitions": {
+            "description": "Constant values and predefined objects",
+            "type": "object",
+            "additionalProperties": true
         },
         "actions": {
             "description": "Set of the actions",
@@ -130,6 +130,9 @@
                         "^\\w+$": {
                             "$ref": "#response"
                         }
+                    },
+                    "default": {
+                        "ok": { }
                     }
                 },
                 "default_response": {
@@ -140,11 +143,11 @@
                 "display": {
                     "description": "Project the action in the history?",
                     "type": "string",
-                    "enum": ["never", "once", "always"],
+                    "enum": [ "never", "once", "always" ],
                     "default": "always"
                 }
             },
-            "required": ["$schema", "actor"],
+            "required": [ "$schema", "actor" ],
             "additionalProperties": true
         },
         "response": {
@@ -152,6 +155,19 @@
             "description": "Instructions for a response of an action",
             "type": "object",
             "properties": {
+                "title": {
+                    "description": "Overwrite the `title` property of the action for given response",
+                    "$ref": "#/definitions/stringdi"
+                },
+                "description": {
+                    "description": "Overwrite the `title` property of the action for given response",
+                    "$ref": "#/definitions/stringdi"
+                },
+                "display": {
+                    "description": "Overwrite the `display` property of the action for given response",
+                    "type": [ "null", "string" ],
+                    "enum": [ "never", "once", "always" ]
+                },
                 "transition": {
                     "description": "Hard-wired transition for an action response",
                     "type": "string",
@@ -255,7 +271,7 @@
                     "pattern": "^:?\\w+$"
                 }
             },
-            "required": [ "action", "response", "transition" ]
+            "required": [ "transition" ]
         },
         "update_instruction": {
             "$id": "#update-instruction",
@@ -274,6 +290,23 @@
             "required": [ "select" ]
         },
         
+        "upload_action": {
+            "$id": "#upload-action",
+            "allOf": [
+                { "$ref": "#action" },
+                {
+                    "properties": {
+                        "accept": {
+                            "description": "The type of files that are accepted, in MIME format",
+                            "type": [ "string", "array" ],
+                            "items": "string"
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            ]
+        },
+        
         "di": {
             "description": "Data instruction",
             "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#"
@@ -284,33 +317,6 @@
                 { "type": "string" },
                 { "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#" }
             ]
-        },
-        
-        "actor_required_properties": {
-            "type": "object",
-            "properties": {
-                "properties": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "description": "Identity ID",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "name": {
-                            "description": "Identity name",
-                            "type": "string"
-                        },
-                        "signkey": {
-                            "description": "Sign key type",
-                            "type": "string"
-                        }
-                    },
-                    "required": [ "id" ],
-                    "additionalProperties": true
-                }
-            },
-            "additionalProperties": true
         }
     }
 }

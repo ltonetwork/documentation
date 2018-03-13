@@ -15,7 +15,7 @@
             "format": "uri"
         },
         "name": {
-            "description": "Scenario name",
+            "description": "Contract name",
             "type": "string"
         },
         "description": {
@@ -62,17 +62,30 @@
             "type": "string"
         },
         "content": {
-            "description": "The full content",
-            "type": "string"
-        },
-        "content_url": {
-            "description": "A link to the content",
-            "type": "string",
-            "format": "uri"
-        },
-        "content_hash": {
-            "description": "Hash of the content",
-            "type": "string"
+            "description": "The full content or a link to the content",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "description": "URL to retrieve the content",
+                            "type": "string",
+                            "fomat": "uri"
+                        },
+                        "hash": {
+                            "description": "base58 encoded SHA256 hash of the content",
+                            "type": "string"
+                        },
+                        "decryptkey": {
+                            "description": "Public key to decrypt the content",
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
         },
         "versions": {
             "description": "IDs of all versions of the contract",

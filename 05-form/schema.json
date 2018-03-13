@@ -24,12 +24,14 @@
             "pattern": "^[a-z]_[A-Z]$"
         },
         "apply_in": {
-            "description": "JMESPath query to transform input data",
-            "type": "string"
+            "description": "Expression to transform input data",
+            "type": "string",
+            "format": "json-expression"
         },
         "apply_out": {
-            "description": "JMESPath query to transform output data",
-            "type": "string"
+            "description": "Expression to transform output data",
+            "type": "string",
+            "format": "json-expression"
         },
         "definition": {
             "description": "Steps or groups of the form",

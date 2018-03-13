@@ -18,15 +18,17 @@
                 "label": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_label" },
                 "name": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_name" },
                 "url": { "$ref": "#field_url" },
+                "expression": { "$ref": "#field_expression" },
                 "optionValue": {
-                    "description": "Property to select as value (JMESPath)",
-                    "type": "string"
+                    "description": "Property or expression to select as value",
+                    "type": "string",
+                    "format": "json-expression"
                 },
                 "optionText": {
-                    "description": "Property to select as display text (JMESPath)",
-                    "type": "string"
+                    "description": "Property or expression to select as display text",
+                    "type": "string",
+                    "format": "json-expression"
                 },
-                "jmespath": { "$ref": "#field_jmespath" },
                 "helptext": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_helptext" },
                 "conditions": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_conditions" },
                 "validation": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_validation" }
@@ -46,6 +48,7 @@
                 },
                 "name": { "$ref": "http://specs.livecontracts.io/draft-01/05-form#/definitions/field_name" },
                 "url": { "$ref": "#field_url" },
+                "expression": { "$ref": "#field_expression" },
                 "conditions": {
                     "description": "Expression which need to assert true, before the HTTP request is done",
                     "type": "string"
@@ -59,9 +62,10 @@
             "type": "string",
             "format": "uri"
         },
-        "field_jmespath": {
-            "description": "JMESPath transformation on the response data",
-            "type": "string"
+        "field_expression": {
+            "description": "JSON expression to apply on the response data",
+            "type": "string",
+            "format": "json-expression"
         }
     }
 }

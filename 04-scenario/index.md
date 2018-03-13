@@ -35,7 +35,7 @@ may define these not the less to set things like descriptions.
 
 #### Initial state
 
-The state with key `:initial` is the initial state of the FSM. This state is required, except for subscenarios.
+The state with key `:initial` is the initial state of the FSM.
 
 The initial state should not have a default action. Instead the initial action is automatically determined, by finding
 an action that the actor that instantiated the process can perform. This actions are checked in order.
@@ -48,6 +48,331 @@ The `:success` state is an end state indicating that the process has been comple
 
 The `:failed` state is an end state indicating that the process has not been completed successfully.
 
+## Example
+
+In this scenario a supplier provides a quotation for a client to accept. The process can be started either by the client
+or by the supplier.
+
+If the client starts the process, the golden flow is
+
+1. Client selects the supplier and describes the service he would like a quotation for
+2. Client invites the supplier to participate in the process
+3. Supplier uploads a quote (due date depends on `urgency`)
+4. Client accepts the quote
+5. _done_
+
+If the supplier starts the process, the golden flow is
+
+1. Supplier enters the client information
+2. Supplier uploads a quote
+3. Supplier invites the client to participate in the process
+4. Client accepts the quote
+5. _done_
+
+Both the client and the supplier can cancel the process at any time.
+
+```json
+{
+    "$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#",
+    "id": "lt:/scenarios/fe659ffa-537d-461a-abd7-aa0f3643d5ee",
+    "title": "Accept quotation",
+    "description": "Accept or reject a quotation",
+    "actors": {
+        "supplier": {
+            "title": "Supplier",
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "email": { "type": "string" },
+                "phone": { "type": "string" }
+            }
+        },
+        "client": {
+            "title": "Client",
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" }
+                "name": { "type": "string" },
+                "email": { "type": "string" }
+            }
+        }
+    },
+    "assets": {
+        "request": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "urgency": {
+                    "type": "string",
+                    "enum": [ "normal", "high", "critical" ]
+                }
+            }
+        }
+        "quotation": { "$ref": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#" }
+    },
+    "definitions": {
+        "request_form": {
+            "title": "Quotation request form",
+            "definition": [
+                {
+                    "fields": [
+                        {
+                            "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#external-select",
+                            "label": "Supplier",
+                            "name": "supplier",
+                            "url": "https://jsonplaceholder.typicode.com/users",
+                            "optionText": "name",
+                            "optionValue": "{ name, email, phone }",
+                            "required": true
+                        },
+                        {
+                            "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#textarea",
+                            "label": "Description",
+                            "name": "description",
+                            "helptip": "Which service would you like a quotation for?"
+                        },
+                        {
+                            "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#select",
+                            "label": "Urgency",
+                            "name": "urgency",
+                            "options": [
+                                { "value": "normal", "label": "Normal" },
+                                { "value": "high", "label": "High" },
+                                { "value": "critical", "label": "Critical" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "client_form": {
+            "title": "Enter client information",
+            "definition": [
+                {
+                    "fields": [
+                        {
+                            "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#text",
+                            "label": "Name",
+                            "name": "name",
+                            "required": true
+                        },
+                        {
+                            "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#email",
+                            "label": "E-mail",
+                            "name": "email",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    "actions": {
+        "request_quotation": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#form-action",
+            "actor": "client",
+            "form": { "<ref>": "definitions.request_form" },
+            "title": "Quote quested by client"
+        },
+        "invite_supplier": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#invite-action",
+            "actor": "client",
+            "invite": "supplier",
+            "responses": {
+                "ok": {
+                    "display": "never"
+                },
+                "error": {
+                    "display": "always",
+                    "title": "Failed to invite the supplier",
+                    "description": { "response.data.message" }
+                }
+            }
+        },
+        "enter_client": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#form-action",
+            "actor": "supplier",
+            "form": { "<ref>": "definitions.request_form" },
+            "display": "never"
+        },
+        "invite_client": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#invite-action",
+            "actor": "supplier",
+            "invite": "client",
+            "responses": {
+                "ok": {
+                    "display": "never"
+                },
+                "error": {
+                    "display": "always",
+                    "title": "Failed to invite the supplier",
+                    "description": { "response.data.message" }
+                }
+            }
+        },
+        "upload": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#upload-action",
+            "actor": "supplier",
+            "label": "Upload",
+            "accept": "application/pdf",
+            "responses": {
+                "ok": {
+                    "title": "Uploaded quotation",
+                    "update": {
+                        "select": "assets.quotation",
+                        "data": {
+                            "$schema": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+                            "name": { "<tpl>": "Quotation {{ actors.client.name }} {{ response.date }}" },
+                            "date": { "<ref>": "response.date" },
+                            "content_media_type": { "<ref>": "response.data.media_type" },
+                            "content_encoding": { "<ref>": "response.data.encoding" },
+                            "content": {
+                                "url": { "<ref>": "response.data.url" },
+                                "hash": { "<ref>": "response.data.hash" },
+                                "decryptkey": { "<ref>": "response.data.decryptkey" }
+                            }
+                        }
+                    }
+                },
+                "error": {
+                    "label": "Failed to upload quotation",
+                    "display": "once"
+                }
+            }
+        },
+        "review": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#review-document-action",
+            "actor": "client",
+            "document": {
+                "<ref>": "assets.quotation"
+            },
+            "responses": {
+                "accept": {
+                    "label": "Accept",
+                    "title": "Accepted quotation"
+                },
+                "reject": {
+                    "label": "Reject",
+                    "title": "Rejected quotation"
+                }
+            },
+            "default_response": "approve"
+        },
+        "cancel": {
+            "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#action",
+            "actor": [ "client", "supplier" ],
+            "label": "Quotation withdrawn",
+            "responses": {
+                "ok": {
+                    "transition": ":failed"
+                }
+            }
+        }
+    },
+    "states": {
+        ":initial": {
+            "actions": [ "request_quotation", "enter_client" ],
+            "transitions": [
+                {
+                    "action": "request_quotation",
+                    "transition": "invite_supplier"
+                },
+                {
+                    "action": "enter_client",
+                    "transition": "provide_quote"
+                },
+            ]
+        },
+        "invite_supplier": {
+            "title": "Waiting on the supplier to participate in this process",
+            "actions": [ "invite_supplier", "cancel" ],
+            "default_action": "invite_supplier",
+            "transitions": [
+                {
+                    "action": "invite_supplier",
+                    "response": "ok",
+                    "transition": "wait_for_quote"
+                }
+            ]
+        },
+        "provide_quote": {
+            "title": "Prepare quotation",
+            "actions": [ "upload", "cancel" ],
+            "default_action": "upload",
+            "transitions": [
+                {
+                    "action": "upload",
+                    "response": "ok",
+                    "transition": "invite_client"
+                }
+            ],
+        },
+        "invite_client": {
+            "title": "Waiting on the client to participate in this process",
+            "actions": [ "invite_client", "cancel" ],
+            "default_action": "invite_client",
+            "transitions": [
+                {
+                    "action": "invite_client",
+                    "response": "ok",
+                    "transition": "wait_for_review"
+                }
+            ]
+        },
+        "wait_for_quote": {
+            "title": "Prepare quotation",
+            "instructions": {
+                "supplier": { "<tpl>": "{{ assets.request.description }} ({{ assets.request.urgency }} urgency)" }
+            },
+            "actions": [ "upload", "cancel" ],
+            "default_action": "upload",
+            "transitions": [
+                {
+                    "action": "upload",
+                    "response": "ok",
+                    "transition": "wait_for_review"
+                }
+            ],
+            "timeout": {
+                "<switch>": {
+                    "on": { "<ref>": "assets.request.urgency" },
+                    "options": {
+                        "normal": "3b",
+                        "high": "1b",
+                        "critical": "6h"
+                    }
+                }
+            }
+        },
+        "wait_for_review": {
+            "title": "Review quotation",
+            "instructions": {
+                "client": "Please review and accept the quotation",
+                "supplier": "Please wait for the client to review the quotation."
+            },
+            "actions": [ "review", "cancel" ],
+            "default_action": "review",
+            "timeout": "7d",
+            "transitions": [
+                {
+                    "action": "review",
+                    "response": "accept",
+                    "transition": ":success"
+                },
+                {
+                    "action": "review",
+                    "response": "deny",
+                    "transition": ":failed"
+                }
+            ]
+        }
+    }
+}
+```
+
 ## Scenario schema
 
 [JSON Schema](schema.json#)
@@ -55,7 +380,8 @@ The `:failed` state is an end state indicating that the process has not been com
 ### $schema
 
 The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#"`.
+To point to this version of the specification use
+`"$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#"`.
 
 ### id
 
@@ -66,7 +392,7 @@ Previous versions of the scenario SHOULD remain available.
 
 ### name
 
-The name of the scenario. Shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
+The name of the scenario. Shown when listing scenarios. The name SHOULD be unique within your set of scenarios.
 
 ### description
 
@@ -151,6 +477,14 @@ The actor schema must define an object.
   }
 }
 ```
+
+### definitions
+
+An object with constant values and predefined objects. This can be used to define things needed in multiple actions
+and/or states.
+
+Even if it's only used in a single action or state, using definitions helps to keep actions and states small and
+readable.
 
 ### actions
 
