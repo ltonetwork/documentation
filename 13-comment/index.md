@@ -14,7 +14,7 @@ messages are stored as part of the event chain. Everybody who has access to the 
 ### $schema
 
 The Live Contracts Comment [JSON schema](http://json-schema.org) URI that describes the JSON structure of the comment.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#"`.
+To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#"`.
 
 ### creator
 

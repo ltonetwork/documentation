@@ -47,11 +47,11 @@ Note that it's not possible to force a node or user to delete an event chain tha
             "signkey": [ "user", "registration" ]
         },
         {
-            "schema": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+            "schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
             "id": "lt:/contracts/c9ddeeca-ad2f-4204-92da-eda18ed0bd21"
         },
         {
-            "schema": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#",
+            "schema": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#",
             "signkey": "user"
         }
     ],

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/09-process/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/11-process/schema.json#",
     "title": "Live Contracts Process schema",
     "description": "The projected process",
     "type": "object",
@@ -51,7 +51,7 @@
             "description": "History of performed actions",
             "type": "array",
             "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/10-response/schema.json#"
+                "$ref": "http://specs.livecontracts.io/draft-01/12-response/schema.json#"
             }
         },
         "current": {

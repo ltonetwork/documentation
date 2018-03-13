@@ -26,7 +26,7 @@ form and fields can be rendered directly to HTML or to JavaScript enabled widget
 
 ```json
 {
-    "$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#",
+    "$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#",
     "id": "lt:/forms/0184c1a5-ecaa-4241-857c-74150d48f48d",
     "title": "Purchase",
     "definition": [
@@ -34,12 +34,12 @@ form and fields can be rendered directly to HTML or to JavaScript enabled widget
             "label": "Register",
             "fields": [
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#text",
+                    "$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#text",
                     "label": "Name",
                     "name": "name"
                 },
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#password",
+                    "$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#password",
                     "label": "Password",
                     "name": "password"
                 },
@@ -49,7 +49,7 @@ form and fields can be rendered directly to HTML or to JavaScript enabled widget
             "label": "Order",
             "fields": [
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#number",
+                    "$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#number",
                     "label": "Amount",
                     "name": "amount"
                 }
@@ -210,7 +210,7 @@ A one-line text input field. In HTML it MAY be rendered as
 
 ### $schema
 
-For a text field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#text"`.
+For a text field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#text"`.
 
 ### label
 
@@ -266,7 +266,7 @@ A password input field. In HTML it MAY be rendered as
 
 ### $schema
 
-For a password field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#password"`.
+For a password field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#password"`.
 
 ### label
 
@@ -311,7 +311,7 @@ A number input field. In HTML it MAY be rendered as
 
 ### $schema
 
-For a number field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#number"`.
+For a number field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#number"`.
 
 ### label
 
@@ -363,7 +363,7 @@ The amount field is a number with a unit as suffix. Example `3 hours` or `17 pro
 
 ### $schema
 
-For an amount field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#amount"`.
+For an amount field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#amount"`.
 
 ### label
 
@@ -438,7 +438,7 @@ _If you need to choose the currency per field, use the [amount field](#amount-sc
 
 ### $schema
 
-For a money field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#money"`.
+For a money field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#money"`.
 
 ### label
 
@@ -485,7 +485,7 @@ form.
 
 ### $schema
 
-For a date field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#date"`.
+For a date field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#date"`.
 
 ### label
 
@@ -533,7 +533,7 @@ An input field for an email address. In HTML this MAY be rendered as
 
 ### $schema
 
-For an email field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#email"`.
+For an email field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#email"`.
 
 ### label
 
@@ -573,7 +573,7 @@ A multi-line text input control. In HTML this MAY be rendered as
 
 ### $schema
 
-For a textarea field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#textarea"`.
+For a textarea field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#textarea"`.
 
 ### label
 
@@ -612,7 +612,7 @@ Input control to select on of the specified options. In HTML this MAY be rendere
 
 ### $schema
 
-For a select field use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#select"`.
+For a select field use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#select"`.
 
 ### label
 
@@ -678,7 +678,7 @@ SHOULD be rendered differently.
 ### $schema
 
 For a checkbox / radio button group use
-`"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#select-group"`.
+`"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#select-group"`.
 
 ### label
 
@@ -746,7 +746,7 @@ A single checkbox. In HTML this MAY be rendered as
 
 ### $schema
 
-For a checkbox use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#checkbox"`.
+For a checkbox use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#checkbox"`.
 
 ### label
 
@@ -800,7 +800,7 @@ answered the value is `null`.
 
 ### $schema
 
-For a likert use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#likert"`.
+For a likert use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#likert"`.
 
 ### label
 
@@ -851,7 +851,7 @@ to other variables in the form.
 
 ### $schema
 
-For an expression use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#expression"`.
+For an expression use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#expression"`.
 
 ### name
 
@@ -874,7 +874,7 @@ Static HTML, for display purpose only.
 
 ### $schema
 
-For static HTML use `"$schema": "http://specs.livecontracts.io/draft-01/05-form/schema.json#static"`.
+For static HTML use `"$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#static"`.
 
 ### content
 

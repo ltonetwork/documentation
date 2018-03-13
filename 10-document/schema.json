@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
     "title": "Live Contracts Document schema",
     "description": "A document in natural language with related data and procedures",
     "type": "object",

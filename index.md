@@ -72,11 +72,11 @@ visualized as flowchart and instantiated as a process.
 A Live Contracts form defines an input form with steps containing fields. Filling out fields results in a data set. The
 form and fields can be rendered directly to HTML or to JavaScript enabled widgets as with Angular or React.
 
-[Read more](05-form/)
+[Read more](08-form/)
 
 ### 06 - Form external
 
-[Read more](06-form-external/)
+[Read more](09-form-external/)
 
 ### 07 - Data instruction
 
@@ -87,11 +87,11 @@ data from the projected process.
 
 ### 08 - Contract
 
-[Read more](08-contract/)
+[Read more](10-document/)
 
 ### 09 - Process
 
-[Read more](09-process/)
+[Read more](11-process/)
 
 ### 10 - Action
 
@@ -99,7 +99,7 @@ data from the projected process.
 
 ### 11 - Comment
 
-[Read more](11-comment/)
+[Read more](13-comment/)
 
 ### 12 - Chain request
 
@@ -107,14 +107,14 @@ A node may request a chain or a portion of a chain. When an identity is register
 chain for that identity. If a node receives an event, but can't find the corresponding previous event, it will request
 the missing event
 
-[Read more](12-chain-request/)
+[Read more](14-chain-request/)
 
 ### 13 - Rejection
 
 A node is required to validate if an event is valid before adding it to the event chain. Events that are invalid may
 be rejected.
 
-[Read more](13-rejection/)
+[Read more](15-rejection/)
 
 ### 14 - Conflict resolution
 
@@ -122,4 +122,4 @@ In any decentralized system conflicts can arise. Multiple nodes may add an event
 an event causing it to branch the chain. Because an event represents something that happened off-chain, we can't simply
 drop events instead they need to be added in such a way that it's visible that a conflict occurred.
 
-[Read more](14-conflict-resolution/)
+[Read more](16-conflict-resolution/)

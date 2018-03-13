@@ -98,7 +98,7 @@ Both the client and the supplier can cancel the process at any time.
         }
       }
     }
-    "quotation": { "$ref": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#" }
+    "quotation": { "$ref": "http://specs.livecontracts.io/draft-01/10-document/schema.json#" }
   },
   "definitions": {
     "request_form": {
@@ -107,7 +107,7 @@ Both the client and the supplier can cancel the process at any time.
         {
           "fields": [
             {
-              "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#external-select",
+              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#external-select",
               "label": "Supplier",
               "name": "supplier",
               "url": "https://jsonplaceholder.typicode.com/users",
@@ -116,13 +116,13 @@ Both the client and the supplier can cancel the process at any time.
               "required": true
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#textarea",
+              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#textarea",
               "label": "Description",
               "name": "description",
               "helptip": "Which service would you like a quotation for?"
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#select",
+              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#select",
               "label": "Urgency",
               "name": "urgency",
               "options": [
@@ -141,13 +141,13 @@ Both the client and the supplier can cancel the process at any time.
         {
           "fields": [
             {
-              "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#text",
+              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#text",
               "label": "Name",
               "name": "name",
               "required": true
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/05-form/schema.json#email",
+              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#email",
               "label": "E-mail",
               "name": "email",
               "required": true
@@ -222,7 +222,7 @@ Both the client and the supplier can cancel the process at any time.
           "update": {
             "select": "assets.quotation",
             "data": {
-              "$schema": "http://specs.livecontracts.io/draft-01/08-contract/schema.json#",
+              "$schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
               "name": { "<tpl>": "Quotation {{ actors.client.name }} {{ response.date }}" },
               "date": { "<ref>": "response.date" },
               "content_media_type": { "<ref>": "response.data.media_type" },

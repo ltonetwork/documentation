@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/11-comment/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#",
     "title": "Live Contracts comment schema",
     "description": "A logged comment",
     "type": "object",

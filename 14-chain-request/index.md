@@ -22,7 +22,7 @@ doesn't validate or if the `signkey` doesn't belong to an identity, the request 
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/12-chain-request/schema.json#",
+  "$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#",
   "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
   "body": "ew0KICAiaWQiOiAibHQ6L2V2ZW50LWNoYWlucy9kMjlkMDQ5Ni1hZDQyLTRlZDctYWEzNy1iZTMxYTg3ZWE5M2UiLA0KICAiZnJvbSI6IFsNCiAgICAiOVRLNGZSYnFKS1dya2g4NXl6WDlpVHpEakZVMzkyUjE0YU5pNjdDUXRlaUEiLA0KICAgICI3bktzUnNGNGN1am9ORjluODdXMnkxV0ZjNm5DQUVnbzEzbmJneHdhZVl4NSIsDQogICAgIjc3SkQ1ZWJucmtDalJSYzNobVNjMmZaZHBRNzQ2emI0Y21YQjd6a2Z2amZDIg0KICBdLA0KICAiZW5jcnlwdGtleSI6ICJMNkZzZ0h4M2VpdHlOTFZmbmZLR3NwOFBUN2tKTzRuZVJCaEg2dVEyRUFrbCINCn0=",
   "timestamp": "2018-03-04T00:00:00+00:00",
@@ -48,7 +48,7 @@ The body is a base64 encoded JSON string of the request
 The request can't be validated it's denied.
 
 ```json
-  "$schema": "http://specs.livecontracts.io/draft-01/12-chain-request/schema.json#denied-response",
+  "$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#denied-response",
   "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
   "body": "",
   "timestamp": "",
@@ -66,7 +66,7 @@ The request can't be validated it's denied.
 
 The Live Contracts Chain request [JSON schema](http://json-schema.org) URI that describes the JSON structure of the
 chain request. To point to this version of the specification use
-`"$schema": "http://specs.livecontracts.io/draft-01/12-chain-request/schema.json#"`.
+`"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#"`.
 
 ### id
 
@@ -135,7 +135,7 @@ unencrypted event chain as response.
 
 The Live Contracts Denied response [JSON schema](http://json-schema.org) URI that describes the JSON structure of the
 response. To point to this version of the specification use
-`"$schema": "http://specs.livecontracts.io/draft-01/12-chain-request/schema.json#denied-response"`.
+`"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#denied-response"`.
 
 ### id
 
@@ -144,7 +144,7 @@ The globally unique identifier of the event chain you're requesting. This is typ
 
 ### body
 
-The body is a base64 encoded JSON string of a [comment](../11-comment/) explaining
+The body is a base64 encoded JSON string of a [comment](../13-comment/) explaining
 why the request is denied.
 
 ### timestamp

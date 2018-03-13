@@ -15,7 +15,7 @@ If there is a conflict on an event chain, two (or more) branches of the chain ex
 those branches back to a single event chain.
 
 An identity can start a branch after the last event it has signed. This is a point up until we can prove that the
-identity has received the events. Trying to fork before this point MUST result in a [rejection](../13-rejection/).
+identity has received the events. Trying to fork before this point MUST result in a [rejection](../15-rejection/).
 
 ### Stitching
 

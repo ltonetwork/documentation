@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/10-response/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/12-response/schema.json#",
     "title": "Live Contracts Response schema",
     "description": "A performed action",
     "type": "object",
@@ -15,7 +15,7 @@
             "type": "string"
         },
         "action": {
-            "$ref": "http://specs.livecontracts.io/draft-01/09-process/schema.json#action"
+            "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#action"
         },
         "title": {
             "description": "Action title",
@@ -23,7 +23,7 @@
         },
         "actor": {
             "description": "Actor that performed the action",
-            "$ref": "http://specs.livecontracts.io/draft-01/09-process/schema.json#actor"
+            "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor"
         },
         "display": {
             "description": "Show the response",

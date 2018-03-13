@@ -30,7 +30,7 @@
                     "format": "uri"
                 },
                 {
-                    "$ref": "http://specs.livecontracts.io/draft-01/05-form/schema.json#"
+                    "$ref": "http://specs.livecontracts.io/draft-01/08-form/schema.json#"
                 }
             ]
         },
