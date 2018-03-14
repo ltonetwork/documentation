@@ -1,63 +1,205 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/05-action/schema.json#",
-    "title": "Live Contracts Action schema",
-    "description": "Action that has be performed or can be performed",
-    "type": "object",
-    "properties": {
-        "$schema": {
-            "description": "Action schema",
-            "type": "string",
-            "format": "uri"
-        },
-        "key": {
-            "description": "Reference of the action",
-            "type": "string",
-            "format": "uri-reference"
-        },
-        "label": {
-            "description": "Action label",
-            "type": "string"
-        },
-        "description": {
-            "description": "Action long description",
-            "type": "string"
-        },
-        "actor": {
-            "description": "Actors that may performed the action",
-            "oneOf": [
-                {
-                    "description": "Single actor reference",
-                    "type": "string",
-                    "pattern": "^\\w+$"
-                },
-                {
-                    "description": "Multiple actors",
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "pattern": "^\\w+$"
-                    }
-                }
-            ]
-        }
-    },
-    "additionalProperties": true,
+    "title": "Live Contracts Action types",
+    "description": "Different types of action that can be performed",
     "definitions": {
-        "upload": {
-            "$id": "#upload",
-            "allOf": [
-                { "$ref": "#" },
-                {
-                    "properties": {
-                        "accept": {
-                            "description": "The type of files that are accepted, in MIME format",
-                            "type": [ "string", "array" ],
-                            "items": "string"
-                        }
-                    },
-                    "additionalProperties": true
+        "form": {
+            "type": "object",
+            "properties": {
+                "form": {
+                    "oneOf": [
+                        { "$ref": "#/definitions/di" },
+                        { "$ref": "http://specs.livecontracts.io/draft-01/08-form/schema.json#" }
+                    ]
                 }
+            },
+            "additionalProperties": true
+        },
+        "upload": {
+            "type": "object",
+            "properties": {
+                "accept": {
+                    "description": "The type of files that are accepted, in MIME format",
+                    "$ref": "#/definitions/stringdi"
+                }
+            },
+            "additionalProperties": true
+        },
+        "review": {
+            "type": "object",
+            "properties": {
+                "document": {
+                    "oneOf": [
+                        { "$ref": "#/definitions/di" },
+                        { "$ref": "http://specs.livecontracts.io/draft-01/10-document/schema.json#" }
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "edit": {
+            "type": "object",
+            "properties": {
+                "form": {
+                    "oneOf": [
+                        { "$ref": "#/definitions/di" },
+                        { "$ref": "http://specs.livecontracts.io/draft-01/10-document/schema.json#" }
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "follow": {
+            "type": "object",
+            "properties": {
+                "url": { "$ref": "#/definitions/stringdi" }
+            },
+            "additionalProperties": true
+        },
+        
+        "http": {
+            "allOf": [
+                { "$ref": "#/definitions/http_request" },
+                { "$ref": "#/definitions/http_multirequest" }
+            ]
+        },
+        "http_request": {
+            "description": "Definition for parallel HTTP requests",
+            "type": "object",
+            "properties": {
+                "url": {
+                    "description": "HTTP URL",
+                    "$ref": "stringdi"
+                },
+                "method": {
+                    "description": "HTTP method",
+                    "$ref": "stringdi"
+                },
+                "query": {
+                    "description": "HTTP query parameters",
+                    "anyOf": [
+                        { "$ref": "#/definitions/di" },
+                        {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    ]
+                },
+                "method": {
+                    "description": "HTTP method",
+                    "$ref": "stringdi"
+                },
+                "headers": {
+                    "description": "HTTP headers",
+                    "anyOf": [
+                        { "$ref": "#/definitions/di" },
+                        {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    ]
+                },
+                "auth": {
+                    "description": "HTTP authentication",
+                    "type": "object"
+                },
+                "data": {
+                    "description": "HTTP request body data"
+                }
+            }
+        },
+        "http_multirequest": {
+            "type": "object",
+            "properties": {
+                "requests": {
+                    "description": "Parallel requests",
+                    "anyOf": [
+                        { "$ref": "#/definitions/di" },
+                        {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    { "$ref": "#/definitions/di" },
+                                    { "$ref": "#/definitions/http_request" }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },        
+        
+        "manual_action": {
+            "$id": "#manual",
+            "description": "Choose from one of the responses",
+            "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action"
+        },
+        "form_action": {
+            "$id": "#form",
+            "description": "Fill out a form",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/form" }
+            ]
+        },
+        "upload_action": {
+            "$id": "#upload",
+            "description": "Upload a file",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/upload" }
+            ]
+        },
+        "review_action": {
+            "$id": "#review",
+            "description": "Review a document",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/review" }
+            ]
+        },
+        "edit_action": {
+            "$id": "#edit",
+            "description": "Edit a document",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/edit" }
+            ]
+        },
+        "follow_action": {
+            "$id": "follow",
+            "description": "Follow a hyperlink",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/follow" }
+            ]
+        },
+        
+        "nop_action": {
+            "$id": "#nop",
+            "description": "Automated action with no operation",
+            "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action"
+        },
+        "http_action": {
+            "$id": "#http",
+            "description": "Do an HTTP request",
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "#/definitions/http" }
+            ]
+        },
+        
+        "di": {
+            "description": "Data instruction",
+            "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#"
+        },
+        "stringdi": {
+            "description": "A string or a data instruction",
+            "oneOf": [
+                { "type": "string" },
+                { "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#" }
             ]
         }
     }

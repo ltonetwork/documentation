@@ -55,22 +55,26 @@
                     "description": "Public keys of the identity",
                     "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#signkeys"
                 }
-            }
+            },
+            "additionalProperties": true
         },
         
         "individual": {
+            "$id": "#individual",
             "allOf": [
                 { "$ref": "#" },
                 { "$ref": "#/definitions/identity" }
             ]
         },
         "organization": {
+            "$id": "#organization",
             "allOf": [
                 { "$ref": "#" },
                 { "$ref": "#/definitions/identity" }
             ]
         },
         "employee": {
+            "$id": "#employee",
             "allOf": [
                 { "$ref": "#individual" },
                 {
@@ -85,14 +89,20 @@
             ]
         },
         "team": {
-            "type": "object",
-            "properties": {
-                "members": {
-                    "type": "array",
-                    "items": { "$ref": "#employee" }
-                },
-                "additionalProperties": true
-            }
+            "$id": "#team",
+            "allOf": [
+                { "$ref": "#" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "members": {
+                            "type": "array",
+                            "items": { "$ref": "#employee" }
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            ]
         }
     }
 }

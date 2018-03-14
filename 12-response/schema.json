@@ -11,11 +11,23 @@
             "format": "uri"
         },
         "key": {
-            "description": "Reference response",
+            "description": "Reference of the response within the action",
             "type": "string"
         },
         "action": {
-            "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#action"
+            "allOf": [
+                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "key": {
+                            "description": "Reference of the action within the process",
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            ]
         },
         "title": {
             "description": "Action title",

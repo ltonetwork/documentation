@@ -22,8 +22,8 @@ You may use this specification under the [Creative Commons Attribution 4.0 Inter
 ### Cryptography
 
 Live Contracts uses the `SHA256`, `Blake2b256` and `Keccak256` algorithms to create a cryptographic hashes. The
-`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures and to encrypt and decrypt
-data. `Base58` is used to create the string from of bytes.
+`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures. `ChaCha20` is used to encrypt
+and decrypt data. `Base58` is used to create the string from of bytes.
 
 [Read more](cryptography.html)
 
@@ -67,16 +67,17 @@ visualized as flowchart and instantiated as a process.
 
 [Read more](04-scenario/)
 
-### 05 - Form
+### 05 Action
 
-A Live Contracts form defines an input form with steps containing fields. Filling out fields results in a data set. The
-form and fields can be rendered directly to HTML or to JavaScript enabled widgets as with Angular or React.
+In a process an actionmay be performed to trigger a state change or to update the process projection. For each action in
+the scenario, the `$schema` property MUST be set which is used to execute an action of to display it correctly in the
+UI.
 
-[Read more](08-form/)
+[Read more](05-action/)
 
-### 06 - Form external
+### 06 Actor
 
-[Read more](09-form-external/)
+[Read more](06-actor/)
 
 ### 07 - Data instruction
 
@@ -85,23 +86,34 @@ data from the projected process.
 
 [Read more](07-data-instruction/)
 
-### 08 - Contract
+### 08 - Form
+
+A Live Contracts form defines an input form with steps containing fields. Filling out fields results in a data set. The
+form and fields can be rendered directly to HTML or to JavaScript enabled widgets as with Angular or React.
+
+[Read more](08-form/)
+
+### 09 - Form external
+
+[Read more](09-form-external/)
+
+### 10 - Document
 
 [Read more](10-document/)
 
-### 09 - Process
+### 11 - Process
 
 [Read more](11-process/)
 
-### 10 - Action
+### 12 - Response
 
-[Read more](10-action/)
+[Read more](12-response/)
 
-### 11 - Comment
+### 13 - Comment
 
 [Read more](13-comment/)
 
-### 12 - Chain request
+### 14 - Chain request
 
 A node may request a chain or a portion of a chain. When an identity is registers, a node might request the full event
 chain for that identity. If a node receives an event, but can't find the corresponding previous event, it will request
@@ -109,14 +121,14 @@ the missing event
 
 [Read more](14-chain-request/)
 
-### 13 - Rejection
+### 15 - Rejection
 
 A node is required to validate if an event is valid before adding it to the event chain. Events that are invalid may
 be rejected.
 
 [Read more](15-rejection/)
 
-### 14 - Conflict resolution
+### 16 - Conflict resolution
 
 In any decentralized system conflicts can arise. Multiple nodes may add an event at the same time or a node might miss
 an event causing it to branch the chain. Because an event represents something that happened off-chain, we can't simply

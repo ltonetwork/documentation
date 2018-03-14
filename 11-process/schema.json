@@ -34,7 +34,7 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "#actor"
+                    "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#"
                 }
             }
         },
@@ -43,12 +43,13 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "#asset"
+                    "type": "object",
+                    "additionalProperties": true
                 }
             }
         },
         "previous": {
-            "description": "History of performed actions",
+            "description": "Responses of performed actions",
             "type": "array",
             "items": {
                 "$ref": "http://specs.livecontracts.io/draft-01/12-response/schema.json#"
@@ -71,29 +72,6 @@
             "items": {
                 "$ref": "http://specs.livecontracts.io/draft-01/10-comment/schema.json#"
             }
-        }
-    },
-    "definitions": {
-        "asset": {
-            "$id": "#asset",
-            "description": "A projected asset",
-            "type": "object",
-            "properties": {
-                "$schema": {
-                    "description": "Asset schema defines the type of asset",
-                    "type": "string",
-                    "format": "uri"
-                },
-                "title": {
-                    "description": "Taken from scenario asset title",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "Taken from scenario asset description",
-                    "type": "string"
-                }
-            },
-            "additionalProperties": true
         }
     }
 }

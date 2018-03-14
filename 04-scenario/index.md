@@ -25,8 +25,10 @@ previous interactions.
 
 ### Golden flow
 
-Each state defines a default action and each action a default response. Following these defaults results in the golden
-flow.
+Each state MAY define a default action and each action MUST define a default response. Following these defaults results
+in the golden flow.
+
+Omit a default action to wait for the timeout by default.
 
 ### Implicit states
 
@@ -227,22 +229,18 @@ Both the client and the supplier can cancel the process at any time.
               "date": { "<ref>": "response.date" },
               "content_media_type": { "<ref>": "response.data.media_type" },
               "content_encoding": { "<ref>": "response.data.encoding" },
-              "content": {
-                "url": { "<ref>": "response.data.url" },
-                "hash": { "<ref>": "response.data.hash" },
-                "decryptkey": { "<ref>": "response.data.decryptkey" }
-              }
+              "content": { "<ref>": "response.data.content" }
             }
           }
         },
         "error": {
-          "label": "Failed to upload quotation",
+          "label": "An error occurred when uploading the quotation",
           "display": "once"
         }
       }
     },
     "review": {
-      "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#review-document-action",
+      "$schema": "http://specs.legalthings.one/draft-01/05-action/schema.json#review",
       "actor": "client",
       "document": {
         "<ref>": "assets.quotation"
@@ -260,11 +258,12 @@ Both the client and the supplier can cancel the process at any time.
       "default_response": "approve"
     },
     "cancel": {
-      "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#action",
+      "$schema": "http://specs.legalthings.one/draft-01/05-action/schema.json#choose",
       "actor": [ "client", "supplier" ],
-      "label": "Quotation withdrawn",
       "responses": {
         "ok": {
+          "label": "Cancel",
+          "title": "Quotation withdrawn",
           "transition": ":failed"
         }
       }
@@ -518,6 +517,8 @@ Set of all states of the scenario. The keys of the object are used as reference 
 
 ## Action
 
+[JSON Schema](schema.json#action)
+
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
 and / or may update the process projection.
 
@@ -559,9 +560,23 @@ The key of the default response. This is used for the golden flow.
 Should the action be displayed in the history? Choose one of the following options "always", "once" or "never". In the
 case of "once", only the latest instance of the action will be displayed.
 
-## response
+## Response schema
+
+[JSON Schema](schema.json#response)
 
 Instructions for a response of an action.
+
+### label
+
+The label that will be displayed in the process if the action is performed.
+
+### display
+
+Property to determine if the response should be shown in the history (`prev`) of the process. Options
+
+* never - Never show the response
+* once - If there are multiple successive responses of the same action, only show the latest
+* always - Always show all the response
 
 ### transition
 
@@ -574,7 +589,9 @@ The value must be the key of an action listed in the actions array.
 
 [Update instruction](#update-instruction-schema) or array of update instructions.
 
-## state
+## State schema
+
+[JSON Schema](schema.json#state)
 
 The state a process that's instantiated from this scenario can be in.
 
@@ -608,6 +625,8 @@ The default action that is followed when determining the golden flow.
 If no user interaction is required, the default action MAY be automatically executed by the system of the actor, without
 the actor explictly choosing this action.
 
+Omit the default action to have the state wait on the timeout by default.
+
 ### transitions
 
 Set of dynamic transitions from this state to the next.
@@ -632,46 +651,12 @@ These can be combined, for instance `3b12h` means 3 business days and 12 hours.
 The timeout counts from transferring into the state until transferring out of the state. Actions that do not trigger a
 state change does not affect the time out.
 
-## State schema
-
-## title
-
-Short title of the state. This may be displayed in an overview of the process.
-
-## description
-
-A long description of the state.
-
-## 
-
-An object with instructions for the state per actor. These instructions may be show when this state is current. The
-key of this object is an actor reference.
-
-```json
-{
-  "employee": "Please accept the procedure",
-  "employer": "Wait for the employee to accept the procedure or cancel"
-}
-```
-
-## actions
-
-A list of references of allowed [actions](../10-action/). Actions that are not allowed in the state SHOULD NOT be
-executed. If such an action is executed, the result MUST NOT trigger a state change, nor change the process projection.
-
-## default_action
-
-The default action is used to determine the golden flow. Additionally, a system MAY execute this action without it being
-explictly being invoked by the user, given it's a system action (may be signed using the system signkey).
-
-## transitions
-
-Specific transitions if an action is executed in this state. Transitions defined here overrule the transition defined in
-the action response.
-
-The [transition object](#transition-schema) can specify conditions 
+By default no state change occurs on a timeout. Add a transition with no action selected and `:timeout` selected as
+response to specify a state transition in case of a timeout.
 
 ## Update instruction schema
+
+[JSON Schema](schema.json#update-instruction)
 
 After a response is given, the projection of the process may be updated. Update instructions can update the process
 information, assets or actors.

@@ -12,6 +12,9 @@
 * Removed `legalform` property. If the process is started with a form, that should be the action in the `:initial` state.
 * Removed `contracts` property. Instead use the `scenarios` property in a template.
 * Replaced `internal_description` with `instructions`. Instructions can be set per actor.
+* Moved the `label` property from action to response.
+* Moved the `display` property from action to response.
+* A state without a default action an a `timeout` may specify a transition with a timeout response.
 
 #### Explicit states
 
