@@ -1,4 +1,6 @@
-# Live Contracts - Scenario
+[[← back](../)]
+
+# Scenario
 
 A Live Contract scenario is a definition of procedure as a Finite State Machine (FSM). As an FSM, the scenario can be
 visualized as flowchart and instantiated as a process.

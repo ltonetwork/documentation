@@ -1,3 +1,5 @@
+[[← back](../)]
+
 ## Action
 
 In a process an [action](../04-scenario/#action-schema) may be performed to trigger a state change or to update the

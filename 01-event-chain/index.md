@@ -1,4 +1,6 @@
-# Live Contracts - Event chain
+[[← back](../)]
+
+# Event chain
 
 The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event
 is signed and that added referencing the previous event, forming a chain. All information of the system is derived from

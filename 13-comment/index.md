@@ -1,4 +1,6 @@
-# Live Contracts - Comment
+[[← back](../)]
+
+# Comment
 
 A comment is an arbitrary message that can be added to the event chain. It MAY be used for a chat-like feature, where
 messages are stored as part of the event chain. Everybody who has access to the event chain can read the comments.

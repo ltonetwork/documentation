@@ -1,4 +1,6 @@
-# Live Contracts - Identity
+[[← back](../)]
+
+# Identity
 
 An identity within the event chain. The identity is used for authentication and authorization. An identity is not a
 user, a user has an identity for each event chain it's participating in.

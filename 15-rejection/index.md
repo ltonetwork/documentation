@@ -1,4 +1,6 @@
-# Live Contracts - Rejection
+[[← back](../)]
+
+# Rejection
 
 A node is required to validate if an event is valid before adding it to the event chain. Events that are invalid may
 be rejected.

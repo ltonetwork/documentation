@@ -1,4 +1,6 @@
-# Live Contracts - Chain request
+[[← back](../)]
+
+# Chain request
 
 A node may request a chain or a portion of a chain. When an identity is registers, a node might request the full event
 chain for that identity. If a node receives an event, but can't find the corresponding previous event, it will request

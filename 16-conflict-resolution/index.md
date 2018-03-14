@@ -1,4 +1,6 @@
-# Live Contracts - Conflict resolution
+[[← back](../)]
+
+# Conflict resolution
 
 In any decentralized system conflicts can arise. Multiple nodes may add an event at the same time or a node might miss
 an event causing it to branch the chain. Because an event represents something that happened off-chain, we can't simply
