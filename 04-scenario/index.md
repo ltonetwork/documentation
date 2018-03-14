@@ -406,15 +406,17 @@ in contrary to the information about actors and assets.
 
 ```json
 {
-  "type": "object",
-  "properties": {
-    "involved": {
-      "type": "array",
-      "items": { "type": "string" }
-    },
-    "status": {
-      "type": "string",
-      "enum": [ "ready", "waiting", "completed" ]
+  "info": {
+    "type": "object",
+    "properties": {
+      "involved": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "status": {
+        "type": "string",
+        "enum": [ "ready", "waiting", "completed" ]
+      }
     }
   }
 }
