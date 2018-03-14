@@ -169,6 +169,22 @@
                 }
             }
         },
+        "update_instruction": {
+            "$id": "#update-instruction",
+            "description": "Instruction to update process information, an actor or an asset",
+            "properties": {
+                "select": {
+                    "description": "A reference to the data in the process that should be updated",
+                    "$ref": "#/definitions/stringdi",
+                    "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
+                },
+                "data": {
+                    "description": "Data to set",
+                    "$ref": "#/definitions/stringdi"
+                }
+            },
+            "required": [ "select" ]
+        },
         "state": {
             "$id": "#state",
             "description": "Definition of state a process can be in",
@@ -252,22 +268,6 @@
                 }
             },
             "required": [ "transition" ]
-        },
-        "update_instruction": {
-            "$id": "#update-instruction",
-            "description": "Instruction to update process information, an actor or an asset",
-            "properties": {
-                "select": {
-                    "description": "A reference to the data in the process that should be updated",
-                    "$ref": "#/definitions/stringdi",
-                    "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"
-                },
-                "data": {
-                    "description": "Data to set",
-                    "$ref": "#/definitions/stringdi"
-                }
-            },
-            "required": [ "select" ]
         },
         
         "di": {

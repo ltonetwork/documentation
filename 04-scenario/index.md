@@ -444,13 +444,7 @@ If the actor represents multiple identities, it SHOULD have a `members` property
       }
     },
     "employee": {
-      "type": "object",
-      "title": "Employee",
-      "properties": {
-        "id": { "type": "string", "format": "uri" },
-        "name": { "type": "string" },
-        "email": { "type": "string", "format": "email" }
-      }
+      "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#employee"
     },
     "team": {
       "type": "object",
@@ -473,7 +467,7 @@ If the actor represents multiple identities, it SHOULD have a `members` property
 }
 ```
 
-You MAY define your own actor types inline. For interoperability it's recommended to use a `$schema`.
+You MAY define your own actor types inline. For interoperability it's recommended to refer to a `$schema` instead.
 
 ### assets
 
@@ -591,6 +585,39 @@ The value must be the key of an action listed in the actions array.
 
 [Update instruction](#update-instruction-schema) or array of update instructions.
 
+
+## Update instruction schema
+
+[JSON Schema](schema.json#update-instruction)
+
+After a response is given, the projection of the process may be updated. Update instructions can update the process
+information, assets or actors.
+
+## select
+
+A reference to the item in the process that should be updated. This MUST be a property of `info`, `assets` or `actors`.
+
+This can't be a full JSON expression, instead it should be it's a simplified notation using the object and array
+notation (eg `assets.stock.items[3]`).
+
+## data
+
+The data to which the items should be updated. By default, this is the `data` of the response.
+
+It's typically useful to use a [data instructions](../07-data-instruction/) for data. While processing a response, the
+process has an additional property `response` which may be referenced.
+
+```json
+{
+  "select": "assets.document",
+  "data": {
+    "id": { "<tpl>": "lt:/documents/{{ response.data.id }}" },
+    "content": { "<ref>": "response.data.body" },
+    "content_media_type": "text/html"
+  }
+}
+```
+
 ## State schema
 
 [JSON Schema](schema.json#state)
@@ -656,34 +683,28 @@ state change does not affect the time out.
 By default no state change occurs on a timeout. Add a transition with no action selected and `:timeout` selected as
 response to specify a state transition in case of a timeout.
 
-## Update instruction schema
+## Transition
 
-[JSON Schema](schema.json#update-instruction)
+[JSON Schema](schema.json#transition)
 
-After a response is given, the projection of the process may be updated. Update instructions can update the process
-information, assets or actors.
+A transition defines the change from one state to the next. State transition definitions are more dynamic than the
+transition you can set in the response object.
 
-## select
+Transitions are evaluated in order. If multiple transitions apply, only the first one is used.
 
-A reference to the item in the process that should be updated. This MUST be a property of `info`, `assets` or `actors`.
+### action
 
-This can't be a full JSON expression, instead it should be it's a simplified notation using the object and array
-notation (eg `assets.stock.items[3]`).
+Key of the action that must be performed for this transition to be selected.
 
-## data
+### response
 
-The data to which the items should be updated. By default, this is the `data` of the response.
+Key of the response for which this transition would be selected.
 
-It's typically useful to use a [data instructions](../07-data-instruction/) for data. While processing a response, the
-process has an additional property `response` which may be referenced.
+### condition
 
-```json
-{
-  "select": "assets.document",
-  "data": {
-    "id": { "<tpl>": "lt:/documents/{{ response.data.id }}" },
-    "content": { "<ref>": "response.data.body" },
-    "content_media_type": "text/html"
-  }
-}
-```
+An boolean that must be true for the transition to be selected. This is typically a
+[data instruction](../07-data-instruction).
+
+### transition
+
+Key of the state where to transition to.
