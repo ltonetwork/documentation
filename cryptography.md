@@ -1,3 +1,5 @@
+[← back](./)
+
 # Cryptography
 
 Live Contracts uses the `SHA256`, `Blake2b256` and `Keccak256` algorithms to create a cryptographic hashes. The
