@@ -1,0 +1,26 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+  background-color: #231d39;
+  background-image: url(../img/header.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #231d39;
+}
+
+.main-content .highlight pre,
+.main-content pre {
+  max-height: 600px;
+}
+
