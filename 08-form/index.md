@@ -92,11 +92,11 @@ The ISO-639 locale for the form. This determines the input format for numbers an
 
 The array of [steps](#step-schema).
 
-## apply_in
+### apply_in
 
 A [JMESPath query](http://jmespath.org/) to transform data which is offered as input to the form.
 
-## apply_out
+### apply_out
 
 A [JMESPath query](http://jmespath.org/) to transform data when outputted from the form.
 
