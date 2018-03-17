@@ -21,9 +21,9 @@ You may use this specification under the [Creative Commons Attribution 4.0 Inter
 
 ### Cryptography
 
-Live Contracts uses the `SHA256`, `Blake2b256` and `Keccak256` algorithms to create a cryptographic hashes. The
-`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures. `ChaCha20` is used to encrypt
-and decrypt data. `Base58` is used to create the string from of bytes.
+Live Contracts uses the `SHA256` to create a cryptographic hashes. The `Blake2b256` and `Keccak256` hashing algorithms
+are used for creating public/secret key pairs. The `ED25519` (with X25519 keys) scheme is applied to create and verify
+signatures. `X25519` is used to encrypt and decrypt data. `Base58` is used to create the string from of bytes.
 
 [Read more](cryptography.html)
 

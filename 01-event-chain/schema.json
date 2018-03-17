@@ -28,19 +28,10 @@
             "$id": "#event",
             "type": "object",
             "properties": {
-                "$schema": {
-                    "type": "string",
-                    "format": "uri"
-                },
-                "id": {
-                    "description": "Resource id",
-                    "type": "string",
-                    "format": "uri"
-                },
                 "body": {
                     "description": "Body of the event",
                     "type": "string",
-                    "contentEncoding": "base64",
+                    "contentEncoding": "base58",
                     "contentMediaType": "application/json"
                 },
                 "timestamp": {
@@ -69,7 +60,7 @@
                     "$ref": "#receipt"
                 }
             },
-            "required": [ "$schema", "body", "timestamp", "previous", "signkey", "signature", "hash" ]
+            "required": [ "body", "timestamp", "previous", "signkey", "signature", "hash" ]
         },
         "receipt": {
             "$id": "#receipt",
@@ -84,7 +75,8 @@
                 },
                 "type": {
                     "description": "Receipt type definition specifying hash method and version",
-                    "type": "string"
+                    "type": "string",
+                    "const": "ChainpointSHA256v2"
                 },
                 "targetHash": {
                     "description": "Hash value being anchored to the blockchain",

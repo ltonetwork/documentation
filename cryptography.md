@@ -2,9 +2,10 @@
 
 # Cryptography
 
-Live Contracts uses the `SHA256`, `Blake2b256` and `Keccak256` algorithms to create a cryptographic hashes. The
-`Curve25519` (ED25519 with X25519 keys) scheme is applied to create and verify signatures. `ChaCha20` is used to encrypt
-and decrypt data. `Base58` is used to create the string from of bytes.
+Live Contracts uses the `SHA256` to create a cryptographic hashes. The `Blake2b256` and `Keccak256` hashing algorithms
+are used for creating public/secret key pairs. The `ED25519` (with X25519 keys) scheme is applied to create and verify
+signatures. `X25519` is used to for asymmetric encryption. For symmetric encrypt use `AES256` in Galois/Counter Mode
+(gcm). `Base58` is used to create the string from of bytes.
 
 If you want to create an application, you should find the implementation of these algorithms on your programming
 language.
@@ -15,13 +16,13 @@ In order to ease human readable, all arrays of bytes in the project are encoded 
 alphabet](https://en.bitcoin.it/wiki/Base58Check_encoding).
 
 #### Example 
-The string `teststring` are coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`.
-The bytes `[1, 2, 3, 4, 5]` are coded into the string `7bWpTW`.
+The string `teststring` are coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`. The bytes `[1, 2, 3, 4, 5]` are
+coded into the string `7bWpTW`.
 
-## Signatures
+## Key pairs
 
-Live Contracts uses `Curve25519` - `ED25519` signatures with X25519 keys (Montgomery form). This is the same method
-used by the [Waves platform](https://wavesplatform.com/).
+Live Contracts uses X25519 (Montgomery form) for encryption and signing (via ED25519). This is the same method used by
+the [Waves platform](https://wavesplatform.com/).
 
 ### Creating a private key from a seed
 
@@ -54,6 +55,7 @@ Curve25519 libraries and be sure to make a test of the ability to sign data with
 public key, however obvious this test might seem.*
 
 There are valid Curve25519 realizations for different languages:
+- [PHP](http://php.net/manual/en/book.sodium.php)
 - [Java](https://github.com/signalapp/curve25519-java/)
 - [C](https://github.com/signalapp/curve25519-java/tree/master/android/jni)
 - [Python](https://github.com/tgalal/python-axolotl-curve25519)
@@ -105,18 +107,27 @@ Created public key
 HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
 ```
 
-### Signing
+## Signing
 
-`Curve25519` is used for all the signatures in the project.
+**ED25519** with (X25519 keys) is used for all the signatures in the project.
 
-The process is as follows: create the message for signing (for an event, you can find it [here](http://schema.livecontract.io/event-chain/#signature)),
-then create a signature from this message using the private key.
+The process is as follows: create the message for signing (for an event, you can find it
+[here](http://schema.livecontract.io/event-chain/#signature)), then create a signature from this message using the
+private key.
 
 Validation of signature requires the signature, the message and the public key.
 
 Do not forget that there are many valid (not unique!) signatures for a one message. Also you should should not rely on
 any information before the hash and/or signature are checked.
 
-## Encryption
+## Public key encryption
 
-_TODO: Write about encryption with ChaCha20_
+Live Contracts uses `X25519` to encrypt data. This is a public key encryption schema, where the public key is used to
+encrypt data and the private key is used to decrypt data.
+
+## Symmetric encrypt
+
+`AES256` in Galois/Counter Mode (gcm) may also be used to encrypt data. This is a symmetric encryption schema, where the
+same key is used to encrypt and decrypt data.
+
+Symmetric encryption SHOULD be applied when linking to external content in a template, document or comment.

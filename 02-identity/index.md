@@ -27,7 +27,7 @@ privileges at the end of the authentication process.
 ### Removal
 
 Any identity that can overwrite other identities of the event chain, may remove that identity by clearing the
-`node`, `encryptkey` and `signkeys` property. That way the user no longer receives new events and is unable to fetch
+`node`, `keys` property. That way the user no longer receives new events and is unable to fetch
 the chain.
 
 Note that it's not possible to force a node or user to delete an event chain that has already been received.
@@ -59,9 +59,9 @@ Note that it's not possible to force a node or user to delete an event chain tha
     ],
     "signkeys": {
         "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
-        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
-    },
-    "encryptkey": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
+        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj",
+        "node": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
+    }
 }
 ```
 
@@ -133,21 +133,22 @@ A list of [privileges](#privilege).
 
 The public keys that the identity uses for signing events. It's an object where the key is the type.
 
-Common types are `user` and `system`. The `user` key is kept client side, so you can be sure that the user takes that
-action. The system key doesn't belong to the user but to the node the user is running on. It can be specified for an
-automated step.
+Common types are `user`, `system` and `node`. The `user` key is kept client side, so you can be sure that the user takes
+that action. The `system` key doesn't belong to the user but to the system the user is running on. It can be specified
+for an automated step.
+
+The `node` keys is specific to the node. This is typically the same as the `system` key, but may differ is one node
+serves multiple systems. The `node` public key is used for encrypting data for the identity. The private encrypt key
+SHOULD be hold and kept secret by the node which is responsible for encrypting and decrypting events.
+
 
 ```json
 {
     "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
-    "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
+    "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj",
+    "node": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
 }
 ```
-
-### encryptkey
-
-The public key for encrypting data for the identity. The private encrypt key is typically hold and kept secret by the
-node which is responsible for encrypting and decrypting events.
 
 ## Privilege schema
 

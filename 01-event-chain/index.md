@@ -43,7 +43,7 @@ The array of events.
 The event body is the information about the event that's specific to this event type. Information that can be calculated
 or projected should be omitted from the event.
 
-The body is a base64 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
+The body is a base58 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
 signature due to differences in JSON encoders.
 
 The body MUST contain a `$schema` property. This is used to determine how to handle the event and if the identity is
@@ -94,12 +94,11 @@ _The formatting differs from other structures in the Live Contracts specs, becau
 
 ### @context
 
-The [JSON-LD](https://json-ld.org/) context for the receipt. This is a constant an must be
-`https://w3id.org/chainpoint/v2`.
+The [JSON-LD](https://json-ld.org/) context for the receipt. This MUST be `https://w3id.org/chainpoint/v2`.
 
 ### type
 
-Receipt type definition specifying hash method and version. This SHOULD be `ChainpointSHA256v2`.
+Receipt type definition specifying hash method and version. This MUST be `ChainpointSHA256v2`.
 
 ### targetHash
 

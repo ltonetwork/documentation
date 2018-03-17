@@ -48,16 +48,12 @@
         },
         "signkeys": {
             "$ref": "#signkeys"
-        },
-        "encryptkey": {
-            "description": "Public cryptographic key for encryption",
-            "type": "string"
         }
     },
     "definitions": {
         "signkeys": {
             "$id": "#signkeys",
-            "description": "Public cryptographic keys for signing",
+            "description": "Public cryptographic keys",
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
