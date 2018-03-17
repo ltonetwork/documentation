@@ -3,9 +3,9 @@
 # Cryptography
 
 Live Contracts uses the `SHA256` to create a cryptographic hashes. The `Blake2b256` and `Keccak256` hashing algorithms
-are used for creating public/secret key pairs. The `ED25519` (with X25519 keys) scheme is applied to create and verify
-signatures. `X25519` is used to for asymmetric encryption. For symmetric encrypt use `AES256` in Galois/Counter Mode
-(gcm). `Base58` is used to create the string from of bytes.
+are used for creating public/secret key pairs. The `Curve25519` (`ED25519` with X25519 keys) scheme is applied to create
+and verify signatures. `X25519` is used to for asymmetric encryption. For symmetric encrypt use `AES256` in
+Galois/Counter Mode (gcm). `Base58` is used to create the string from of bytes.
 
 If you want to create an application, you should find the implementation of these algorithms on your programming
 language.
@@ -19,10 +19,10 @@ alphabet](https://en.bitcoin.it/wiki/Base58Check_encoding).
 The string `teststring` are coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`. The bytes `[1, 2, 3, 4, 5]` are
 coded into the string `7bWpTW`.
 
-## Key pairs
+## Asymmetric encryption
 
-Live Contracts uses X25519 (Montgomery form) for encryption and signing (via ED25519). This is the same method used by
-the [Waves platform](https://wavesplatform.com/).
+Live Contracts uses `Curve25519` (Montgomery form) for encryption (`X25519`) and signing (`ED25519` with X25519 keys).
+This is the same method used by the [Waves platform](https://wavesplatform.com/).
 
 ### Creating a private key from a seed
 
@@ -107,7 +107,7 @@ Created public key
 HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
 ```
 
-## Signing
+### Signing
 
 **ED25519** with (X25519 keys) is used for all the signatures in the project.
 
@@ -120,7 +120,7 @@ Validation of signature requires the signature, the message and the public key.
 Do not forget that there are many valid (not unique!) signatures for a one message. Also you should should not rely on
 any information before the hash and/or signature are checked.
 
-## Public key encryption
+### Encryption
 
 Live Contracts uses `X25519` to encrypt data. This is a public key encryption schema, where the public key is used to
 encrypt data and the private key is used to decrypt data.
