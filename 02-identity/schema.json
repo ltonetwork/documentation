@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
-    "title": "Live Contracts contract schema",
+    "title": "Live Contracts Identity schema",
     "description": "A contract in natural language with related data and procedures",
     "type": "object",
     "properties": {
@@ -41,10 +41,18 @@
         },
         "privileges": {
             "description": "List of privileges",
-            "type": "array",
-            "items": {
-                "$ref": "privilege"
-            }
+            "oneOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "privilege"
+                    }
+                },
+                {
+                    "type": "string",
+                    "const": "*"
+                }
+            ]
         },
         "signkeys": {
             "$ref": "#signkeys"
@@ -53,11 +61,12 @@
     "definitions": {
         "signkeys": {
             "$id": "#signkeys",
-            "description": "Public cryptographic keys",
+            "description": "Cryptographic (X25519) public keys",
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "type": "string"
+                    "type": "string",
+                    "contentEncoding": "base58"
                 }
             }
         },

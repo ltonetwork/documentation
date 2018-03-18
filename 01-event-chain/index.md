@@ -16,6 +16,9 @@ event chains.
 
 [JSON Schema](schema.json#)
 
+The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains
+SHOULD NOT be versioned.
+
 ### $schema
 
 The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
@@ -24,11 +27,24 @@ chain. To point to this version of the specification use
 
 ### id
 
-A URI as a globally unique identifier for the event chain. This is typically an [LTRI](../00-ltri/)
-using a random UUID-4; `lt:/event-chains/<uuid-4>`.
+A globally unique identifier for the event chain.
 
-The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains
-SHOULD NOT be versioned.
+The event chain id MUST be calculated from public key used to sign the genesis event of the chain. The `id` is a
+base58 encoded value from the following data structure:
+
+| # | Field name | Type | Position | Length |
+| ---: | :--- | :---: | ---: | ---: |
+| 1 | Version (0x01) | Byte | 0 | 1 |
+| 2 | Random number | Long | 1 | 8 |
+| 3 | Public key hash | Bytes | 2 | 20 |
+| 4 | Checksum | Bytes | 22 | 4 |
+
+Public key hash is first 20 bytes of _SecureHash_ of public key bytes.
+Checksum is first 4 bytes of _SecureHash_ of version, random and hash bytes.
+SecureHash is hash function `Keccak256(Blake2b256(data))`.
+
+_This structure is similar to
+[data structures of the Waves Platform](https://github.com/wavesplatform/Waves/wiki/Data-Structures)._
 
 ### events
 
@@ -61,7 +77,7 @@ The first event of the chain has a hash of the event chain id as `previous`.
 
 ### signkey
 
-The signer's public key, base58 encoded. This identifies the signer and MUST be used to verify the signature.
+The signer's X25519 public key, base58 encoded. This identifies the signer and MUST be used to verify the signature.
 
 ### signature
 
@@ -81,7 +97,7 @@ A base58 encoded SHA256 hash of the event. To create the hash use the same messa
 
 ### receipt
 
-A receipt for anchoring the event to a global blockchain. With anchoring the hash is written as attachment of a
+A receipt for anchoring the event to a global (public) blockchain. With anchoring the hash is written as attachment of a
 transaction. This is done as proof of existence and for timestamping.
 
 ## Receipt schema
@@ -118,3 +134,9 @@ verify that a hash is part of the tree.
 
 Array with anchors. Each anchor is a transaction in on a blockchain. An anchor is an object with a `type` field which
 determines the network / transaction type and a `sourceId` field that contains the transaction id.
+
+Supported anchor types are
+
+* `BTCOpReturn` - Anchored to a Bitcoin transaction within an OP_RETURN output.
+* `ETHData` - Anchored to an Ethereum transaction within the data field.
+* `WAVESData` - Anchored to an Waves data transaction.

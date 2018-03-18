@@ -11,14 +11,20 @@
         },
         "id": {
             "description": "Unique identifier for the event chain",
-            "type": "string",
-            "format": "uri"
+            "type": "string"
         },
         "events": {
             "description": "Chained events",
             "type": "array",
             "items": {
                 "$ref": "#event"
+            }
+        },
+        "identities": {
+            "description": "Projected list of identities that participate on the chain",
+            "type": "array",
+            "items": {
+                "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
             }
         }
     },
@@ -40,21 +46,24 @@
                     "format": "date-time"
                 },
                 "previous": {
-                    "description": "Hash to previous event",
+                    "description": "SHA256 hash to previous event",
                     "type": "string",
-                    "pattern": "[A-F0-9]{64}"
+                    "contentEncoding": "base58"
                 },
                 "signkey": {
-                    "description": "Public key for signature",
-                    "type": "string"
+                    "description": "Public key (X25519) for signature",
+                    "type": "string",
+                    "contentEncoding": "base58"
                 },
                 "signature": {
                     "description": "Cryptographic signature",
-                    "type": "string"
+                    "type": "string",
+                    "contentEncoding": "base58"
                 },
                 "hash": {
-                    "description": "Hash of the event",
-                    "type": "string"
+                    "description": "SHA256 hash of the event",
+                    "type": "string",
+                    "contentEncoding": "base58"
                 },
                 "receipt": {
                     "$ref": "#receipt"

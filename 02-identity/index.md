@@ -34,6 +34,25 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ## Example
 
+### Initiating identity
+
+```json
+{
+    "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+    "id": "4a88f56a-5bb2-4fa7-8615-c75d5ec7b1d4",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "node": "app.legalthings.one",
+    "signkeys": {
+        "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
+        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
+    },
+    "encryptkey": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
+}
+```
+
+### Identity with specific privileges.
+
 ```json
 {
     "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
@@ -59,9 +78,9 @@ Note that it's not possible to force a node or user to delete an event chain tha
     ],
     "signkeys": {
         "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
-        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj",
-        "node": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
-    }
+        "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
+    },
+    "encryptkey": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
 }
 ```
 
@@ -131,24 +150,25 @@ A list of [privileges](#privilege).
 
 ### signkeys
 
-The public keys that the identity uses for signing events. It's an object where the key is the type.
+The X25519 public keys that the identity uses for signing events. It's an object where the key is the type.
 
 Common types are `user`, `system` and `node`. The `user` key is kept client side, so you can be sure that the user takes
 that action. The `system` key doesn't belong to the user but to the system the user is running on. It can be specified
 for an automated step.
 
-The `node` keys is specific to the node. This is typically the same as the `system` key, but may differ is one node
-serves multiple systems. The `node` public key is used for encrypting data for the identity. The private encrypt key
-SHOULD be hold and kept secret by the node which is responsible for encrypting and decrypting events.
-
-
 ```json
 {
     "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
-    "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj",
-    "node": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
+    "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
 }
 ```
+
+### encryptkey
+
+The `encryptkey` is an X25519 public key used for encrypting data for the identity. The private encrypt key SHOULD be
+hold and kept secret by the node which is responsible for encrypting and decrypting events.
+
+This is key typically the same as the `system` signkey, but may differ is one node serves multiple systems. 
 
 ## Privilege schema
 
