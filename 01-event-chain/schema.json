@@ -51,7 +51,7 @@
                     "contentEncoding": "base58"
                 },
                 "signkey": {
-                    "description": "Public key (X25519) for signature",
+                    "description": "URI of the public key used to sign the event",
                     "type": "string",
                     "contentEncoding": "base58"
                 },

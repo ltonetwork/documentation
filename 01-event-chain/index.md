@@ -8,13 +8,15 @@ event chains.
 
 ## Schemas
 
+[JSON Schema](schema.json) - http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#
+
 * [Event chain](#event-chain-schema)
 * [Event](#event-schema)
 * [Receipt](#receipt-schema)
 
 ## Event chain schema
 
-[JSON Schema](schema.json#)
+`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#`
 
 The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains
 SHOULD NOT be versioned.
@@ -52,7 +54,7 @@ The array of events.
 
 ## Event schema
 
-[JSON Schema](schema.json#event)
+`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#event`
 
 ### body
 
@@ -63,7 +65,11 @@ The body is a base58 encoded JSON string. Having this as structured data, could 
 signature due to differences in JSON encoders.
 
 The body MUST contain a `$schema` property. This is used to determine how to handle the event and if the identity is
-authorized to add the event. Typically the body also contains an `id` property with an [LTRI](../00-ltri/).
+authorized to add the event.
+
+Typically the body also contains an `id` property as [LTRI](../00-ltri/). In that case a version number will
+automatically be appended. This version number is the first 8 characters of the base58 encoded SHA256 hash of the
+event `body` string.
 
 ### timestamp
 
@@ -81,7 +87,7 @@ The signer's X25519 public key, base58 encoded. This identifies the signer and M
 
 ### signature
 
-A base58 encoded `Curve25519` signature of the event. To create the signature, first create the message that needs to be
+A base58 encoded `ED25519` signature of the event. To create the signature, first create the message that needs to be
 signed. Each line is separated by a single `\n` character.
 
 ```
@@ -102,7 +108,7 @@ transaction. This is done as proof of existence and for timestamping.
 
 ## Receipt schema
 
-[JSON Schema](schema.json#receipt)
+`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt`
 
 The receipt follows the [Chainpoint specification v2](https://chainpoint.org/).
 

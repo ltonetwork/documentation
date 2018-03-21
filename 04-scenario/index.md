@@ -7,6 +7,8 @@ visualized as flowchart and instantiated as a process.
 
 ## Schemas
 
+[JSON Schema](schema.json) - http://specs.livecontracts.io/draft-01/04-scenario/schema.json#
+
 * [Scenario](#scenario-schema)
 * [Action](#action-schema)
 * [Response](#response-schema)
@@ -374,13 +376,11 @@ Both the client and the supplier can cancel the process at any time.
 
 ## Scenario schema
 
-[JSON Schema](schema.json#)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#`
 
 ### $schema
 
 The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use
-`"$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#"`.
 
 ### id
 
@@ -515,7 +515,7 @@ Set of all states of the scenario. The keys of the object are used as reference 
 
 ## Action
 
-[JSON Schema](schema.json#action)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action`
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition
 and / or may update the process projection.
@@ -560,7 +560,7 @@ case of "once", only the latest instance of the action will be displayed.
 
 ## Response schema
 
-[JSON Schema](schema.json#response)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#response`
 
 Instructions for a response of an action.
 
@@ -590,7 +590,7 @@ The value must be the key of an action listed in the actions array.
 
 ## Update instruction schema
 
-[JSON Schema](schema.json#update-instruction)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#update-instruction`
 
 After a response is given, the projection of the process may be updated. Update instructions can update the process
 information, assets or actors.
@@ -622,7 +622,7 @@ process has an additional property `response` which may be referenced.
 
 ## State schema
 
-[JSON Schema](schema.json#state)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#state`
 
 The state a process that's instantiated from this scenario can be in.
 
@@ -687,7 +687,7 @@ response to specify a state transition in case of a timeout.
 
 ## Transition
 
-[JSON Schema](schema.json#transition)
+`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#transition`
 
 A transition defines the change from one state to the next. State transition definitions are more dynamic than the
 transition you can set in the response object.

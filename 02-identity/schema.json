@@ -11,8 +11,7 @@
         },
         "id": {
             "description": "Unique identifier",
-            "type": "string",
-            "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+            "type": "string"
         },
         "name": {
             "description": "User's name",
@@ -56,12 +55,17 @@
         },
         "signkeys": {
             "$ref": "#signkeys"
+        },
+        "encryptkey": {
+            "description": "Cryptographic (X25519) public key",
+            "type": "string",
+            "contentEncoding": "base58"
         }
     },
     "definitions": {
         "signkeys": {
             "$id": "#signkeys",
-            "description": "Cryptographic (X25519) public keys",
+            "description": "Cryptographic (ED25519) public keys",
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {

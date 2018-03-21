@@ -7,33 +7,64 @@ language text, a form definition to collect the data and links to associated sce
 
 ## Schemas
 
+[JSON Schema](schema.json) - http://specs.livecontracts.io/01-draft/02-template/schema.json#
+
 * [Template](#template-schema)
 * [Linked content](#linked-content-schema)
 * [Related scenario](#related-scenario-schema)
 
+## Example
+
+```json
+{
+  "$schema": "http://specs.livecontracts.io/01-draft/02-template/schema.json#",
+  "id": "lt:/templates/ac19b51f-4cd2-413e-b283-a51c533580ad?v=GKot5hBs",
+  "name": "NDA US",
+  "description": "A general non-disclosure agreement legally enforcable in the United States of America",
+  "form": "lt:/forms/3c7c628f-e586-4362-9162-8a0e089a9d06?v=d81kMupN",
+  "content": {
+    "url": "http://s3.amazonaws.com/exmpale-docs/AZ9Xug4RctZgXnDtTgEPnAg2wSYCs53dsRcVXvPP8234.html",
+    "hash: "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "encryptkey": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ"
+  },
+  "content_type": "text/html",
+  "locale": "en_US",
+  "scenarios": [
+    {
+      "id": "lt:/scenarios/d2e147fb-cb62-4070-9575-8a672d35724a?v=HECPrZDs",
+      "name": "Sign document"
+    },
+    {
+      "id": "lt:/scenarios/0f379b89-1a41-4b97-a9f8-30433fe3c30d?v=8cWTaKQL",
+      "name": "NDA violated",
+      "paragraph": "#2"
+    }
+  ]
+}
+```
+
 ## Template schema
 
-[JSON Schema](schema.json#)
+`http://specs.livecontracts.io/01-draft/02-template/schema.json#`
 
 ### $schema
 
 The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#"`.
 
 ### id
 
-A URI as a unique identifier for the template. This is typically an [LTRI](http://specs.livecontracts.io/draft-01/00-ltri/).
+A URI as a unique identifier for the template. This is typically an [LTRI](../00-ltri/).
 
 The id MUST point to an immutable version of the template. Modifying the template SHOULD always result in a new id.
 Previous versions of the template SHOULD remain available.
 
 ### name
 
-The name of the scenario. Shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
+The name of the template. Shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
 
 ### description
 
-A description of the procedure shown as scenario details.
+A description of the document shown as template details.
 
 ### form
 
@@ -62,12 +93,11 @@ The language of the template as ISO-639 locale.
 
 ### scenarios
 
-A list of scenarios that are related to this template. These are either procedures that are described in the contract
-or procedures that apply to the contract.
+A list of [scenarios that are related](#related-scenario-schema) to this template. 
 
 ## Linked content schema
 
-[JSON Schema](schema.json#linked_content)
+`http://specs.livecontracts.io/01-draft/02-template/schema.json#linked-content`
 
 Linking the content rather embedding it reduces the size of the event.
 
@@ -89,15 +119,18 @@ available.
 
 A base58 encoded SHA256 hash of the content. The hash should be of the unencrypted content.
 
-### decryptkey
+### encryptkey
 
-The file SHOULD be encrypted. Encryption MUST be done using the [ChaCha20](http://specs.livecontracts.io/draft-01/cryptography.md#Encryption)
-algorithm. If the content is encrypted, the `decryptkey` property contains the base58 encoded public key which can be
-used to decrypt the content.
+The file SHOULD be encrypted. Encryption MUST be done using the [AES256 gcm](../cryptography.md#symmetric-encryption)
+algorithm. If the content is encrypted, the `encryptkey` property contains the base58 encoded encryption key which can
+be used to decrypt the content.
 
 ## Related scenario schema
 
-[JSON Schema](schema.json#scenario)
+`http://specs.livecontracts.io/01-draft/02-template/schema.json#related-scenarios`
+
+A link to a scenario that relates to this schema. This is either a procedure that is described in the contract or a
+procedure that applies to the contract.
 
 ### id
 

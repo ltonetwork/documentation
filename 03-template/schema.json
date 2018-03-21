@@ -38,7 +38,7 @@
             "description": "Contract in natural language",
             "oneOf": [
                 { "type": "string" },
-                { "$ref": "#linked_content" }
+                { "$ref": "#linked-content" }
             ]
         },
         "content_type": {
@@ -58,7 +58,7 @@
             "description": "Scenarios that are linked to this template",
             "type": "array",
             "items": {
-                "$ref": "#scenario"
+                "$ref": "#related-scenario"
             }
         }
     },
@@ -68,24 +68,29 @@
     "additionalProperties": true,
     "definitions": {
         "linked_content": {
-            "$id": "#linked_content",
+            "$id": "#linked-content",
             "type": "object",
             "properties": {
                 "url": {
+                    "description": "URL where to get the content",
                     "type": "string",
                     "format": "uri"
                 },
                 "hash": {
-                    "type": "string"
+                    "description": "SHA256 hash of the unencrypted content",
+                    "type": "string",
+                    "contentEncoding": "base58"
                 },
-                "decryptkey": {
-                    "type": "string"
+                "encryptkey": {
+                    "description": "AES256 encryption keys used to encrypt the content",
+                    "type": "string",
+                    "contentEncoding": "base58"
                 }
             },
             "required": [ "url", "hash" ]
         },
-        "scenario": {
-            "$id": "#scenario",
+        "related_scenario": {
+            "$id": "#related-scenario",
             "type": "object",
             "properties": {
                 "id": {

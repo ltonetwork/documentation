@@ -22,11 +22,15 @@
                 "accept": {
                     "description": "The type of files that are accepted, in MIME format",
                     "$ref": "#/definitions/stringdi"
+                },
+                "multiple": {
+                    "type": "boolean",
+                    "default": false
                 }
             },
             "additionalProperties": true
         },
-        "review": {
+        "view_document": {
             "type": "object",
             "properties": {
                 "document": {
@@ -38,7 +42,7 @@
             },
             "additionalProperties": true
         },
-        "edit": {
+        "edit_document": {
             "type": "object",
             "properties": {
                 "form": {
@@ -50,7 +54,7 @@
             },
             "additionalProperties": true
         },
-        "follow": {
+        "follow_link": {
             "type": "object",
             "properties": {
                 "url": { "$ref": "#/definitions/stringdi" }
@@ -86,10 +90,6 @@
                         }
                     ]
                 },
-                "method": {
-                    "description": "HTTP method",
-                    "$ref": "stringdi"
-                },
                 "headers": {
                     "description": "HTTP headers",
                     "anyOf": [
@@ -102,10 +102,19 @@
                 },
                 "auth": {
                     "description": "HTTP authentication",
-                    "type": "object"
+                    "type": [ "object", "string" ],
+                    "properties": {
+                        "username": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        }
+                    }
                 },
                 "data": {
-                    "description": "HTTP request body data"
+                    "description": "HTTP request body data",
+                    "type": [ "object", "string" ]
                 }
             }
         },
@@ -131,8 +140,8 @@
             "additionalProperties": true
         },        
         
-        "manual_action": {
-            "$id": "#manual",
+        "choose_action": {
+            "$id": "#choose",
             "description": "Choose from one of the responses",
             "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action"
         },
@@ -152,28 +161,28 @@
                 { "$ref": "#/definitions/upload" }
             ]
         },
-        "review_action": {
-            "$id": "#review",
-            "description": "Review a document",
+        "view_document_action": {
+            "$id": "#view-document",
+            "description": "View a document",
             "allOf": [
                 { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
-                { "$ref": "#/definitions/review" }
+                { "$ref": "#/definitions/view_document" }
             ]
         },
-        "edit_action": {
-            "$id": "#edit",
+        "edit_document_action": {
+            "$id": "#edit-document",
             "description": "Edit a document",
             "allOf": [
                 { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
-                { "$ref": "#/definitions/edit" }
+                { "$ref": "#/definitions/edit_document" }
             ]
         },
-        "follow_action": {
-            "$id": "follow",
+        "follow_link_action": {
+            "$id": "follow-link",
             "description": "Follow a hyperlink",
             "allOf": [
                 { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
-                { "$ref": "#/definitions/follow" }
+                { "$ref": "#/definitions/follow_link" }
             ]
         },
         
