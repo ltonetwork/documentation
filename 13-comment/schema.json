@@ -28,8 +28,11 @@
             "type": "string"
         },
         "content": {
-            "description": "The comment message",
-            "type": "string"
+            "description": "The full content or a link to the content",
+            "anyOf": [
+                { "type": "string" },
+                { "$ref": "#linked-content" }
+            ]
         },
         "hash": {
             "description": "SHA256 hash",
@@ -40,5 +43,29 @@
             "description": "Anchoring receipt",
             "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
         }
-    }
+    },
+    "definitions": {
+        "linked_content": {
+            "$id": "#linked-content",
+            "type": "object",
+            "properties": {
+                "url": {
+                    "description": "URL where to get the content",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "hash": {
+                    "description": "SHA256 hash of the unencrypted content",
+                    "type": "string",
+                    "contentEncoding": "base58"
+                },
+                "encryptkey": {
+                    "description": "AES256 encryption keys used to encrypt the content",
+                    "type": "string",
+                    "contentEncoding": "base58"
+                }
+            },
+            "required": [ "url", "hash" ]
+        }
+    }    
 }

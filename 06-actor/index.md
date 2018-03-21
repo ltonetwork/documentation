@@ -7,8 +7,6 @@ and instantiated for the process.
 
 ## Schemas
 
-* [Actor](#actor-schema)
-
-## Actor schema
-
 [JSON Schema](schema.json#)
+
+* Actor

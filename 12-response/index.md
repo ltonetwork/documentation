@@ -8,8 +8,8 @@ transition.
 
 ## Schemas
 
-[Response](#response-schema)
-
-## Response schema
-
 [JSON Schema](schema.json#)
+
+* Response
+
+_Please checkout the [JSON Schema](schema.json#) for more information. Documentation will be added._

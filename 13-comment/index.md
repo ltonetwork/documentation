@@ -7,20 +7,37 @@ messages are stored as part of the event chain. Everybody who has access to the 
 
 ## Schemas
 
+[JSON Schema](schema.json) - http://specs.livecontracts.io/01-draft/12-comment/schema.json
+
 * [Comment](#comment-schema)
+* [Linked content](#linked-content-schema)
+
+## Example
+
+```json
+{
+  "$schema": "http://specs.livecontracts.io/01-draft/12-comment/schema.json#",
+  "creator": {
+    "$schema": "http://specs.livecontracts.io/01-draft/02-identity/schema.json#",
+    "id": "1bb5a451-d496-42b9-97c3-e57404d2984f"
+  },
+  "data": "2018-03-01T00:00:00+00:00",
+  "content_media_type": "text/plain",
+  "content": "Holding this procedure until we called"
+}
+```
 
 ## Comment schema
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/12-comment/schema.json)
+`http://specs.livecontracts.io/01-draft/12-comment/schema.json#`
 
 ### $schema
 
 The Live Contracts Comment [JSON schema](http://json-schema.org) URI that describes the JSON structure of the comment.
-To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#"`.
 
 ### creator
 
-The information about who wrote this comment, following the [identity specs](http://specs.livecontracts.io/draft-01/02-identity).
+The information about who wrote this comment, following the [identity specs](../02-identity/).
 
 ### date
 
@@ -32,18 +49,46 @@ The media type (MIME) of the content. This defaults to `text/plain`.
 
 ### content_encoding
 
-Method that was used to encode the content (typically none or `base64`). I case of binary content, it must be encoded.
+Method that was used to encode the content (typically none, `base58` or `base64`). I case of binary content, it must be
+encoded.
 
 ### content
 
-The message of the comment.
+The message of the comment as string.
 
-### hash
-
-A base58 encoded SHA256 hash of the event. It can be used as identifier to find the corresponding event on the event
-chain.
+Alternatively the content may not be embedded, but linked. In this case `content` is an object following the
+[linked content schema](#linked-content-schema).
 
 ### receipt
 
-The [receipt](http://specs.livecontracts.io/draft-01/01-event-chain/#receipt-schema) for anchoring the comment to a
-global blockchain.
+The [receipt](../01-event-chain/#receipt-schema) for anchoring the comment to a global blockchain.
+
+## Linked content schema
+
+`http://specs.livecontracts.io/01-draft/12-comment/schema.json#linked-content`
+
+Linking the content rather embedding it reduces the size of the event.
+
+```json
+{
+  "url": "https://example.com/2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f.html",
+  "hash": "2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f",
+  "decryptkey": "A9FN0apAXVgica00XpJmTUOdJVsVE6Y9JukxAWpkGLfN"
+}
+```
+
+### url
+
+The URL to the file holding the content of the template. It's recommended to use the hash as filename. All nodes that
+are allow to participate in the event chain MUST be able access the file. This might mean that the file is publicly
+available.
+
+### hash
+
+A base58 encoded SHA256 hash of the content. The hash should be of the unencrypted content.
+
+### encryptkey
+
+The file SHOULD be encrypted. Encryption MUST be done using the [AES256 gcm](../cryptography.md#symmetric-encryption)
+algorithm. If the content is encrypted, the `encryptkey` property contains the base58 encoded encryption key which can
+be used to decrypt the content.

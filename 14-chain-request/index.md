@@ -8,9 +8,9 @@ the missing events.
 
 ## Schemas
 
-[Chain request](#chain-request-schema)
-[Request body](#request-body-schema)
-[Denied response](#denied-response-schema)
+* [Chain request](#chain-request-schema)
+* [Request body](#request-body-schema)
+* [Denied response](#denied-response-schema)
 
 ## Request and response
 
