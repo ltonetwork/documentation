@@ -7,7 +7,7 @@ language text, a form definition to collect the data and links to associated sce
 
 ## Schemas
 
-[JSON Schema](schema.json) - http://specs.livecontracts.io/01-draft/02-template/schema.json#
+[JSON Schema](schema.json) - http://specs.livecontracts.io/01-draft/03-template/schema.json#
 
 * [Template](#template-schema)
 * [Linked content](#linked-content-schema)
