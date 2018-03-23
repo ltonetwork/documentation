@@ -22,9 +22,9 @@ You may use this specification under the [Creative Commons Attribution 4.0 Inter
 ### Cryptography
 
 Live Contracts uses the `SHA256` to create a cryptographic hashes. The `Blake2b256` and `Keccak256` hashing algorithms
-are used for creating public/secret key pairs. The `Curve25519` (`ED25519` with X25519 keys) scheme is applied to create
-and verify signatures. `X25519` is used to for asymmetric encryption. For symmetric encrypt use `AES256` in
-Galois/Counter Mode (gcm). `Base58` is used to create the string from of bytes.
+are used for creating public/secret key pairs. The `ED25519` scheme is applied to create and verify signatures. `X25519`
+is used to for asymmetric encryption. For symmetric encrypt use `AES256` in Galois/Counter Mode (gcm). `Base58` is used
+to create the string from of bytes.
 
 [Read more](cryptography.html)
 
