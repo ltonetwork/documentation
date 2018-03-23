@@ -42,7 +42,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
     "id": "4a88f56a-5bb2-4fa7-8615-c75d5ec7b1d4",
     "name": "John Doe",
     "email": "john.doe@example.com",
-    "node": "app.legalthings.one",
+    "node": "amqps://app.legalthings.one",
     "signkeys": {
         "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
         "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
@@ -59,7 +59,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
     "id": "75baa885-5862-4f81-80f4-60df746ff002",
     "name": "John Doe",
     "email": "john.doe@example.com",
-    "node": "app.legalthings.one",
+    "node": "amqps://app.legalthings.one",
     "privileges": [
         {
             "schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
@@ -141,8 +141,10 @@ properties that can be used for authentication.
 
 ### node
 
-The domain name of the LegalThings One node that the user is running the chain on. Additions to the chain are not
-broadcasted, but send to the nodes of the active identities extracted from the event chain.
+The uri of node that the identity is using to participate on this chain. This SHOULD be an
+[ampq URI](https://www.rabbitmq.com/uri-spec.html).
+
+Note that additions to the chain are not broadcasted to all node, but only send to the nodes of the active identities.
 
 ### privileges
 
@@ -152,7 +154,7 @@ A list of [privileges](#privilege).
 
 The X25519 public keys that the identity uses for signing events. It's an object where the key is the type.
 
-Common types are `user`, `system` and `node`. The `user` key is kept client side, so you can be sure that the user takes
+Common types are `user` and `system`. The `user` key is kept client side, so you can be sure that the user takes
 that action. The `system` key doesn't belong to the user but to the system the user is running on. It can be specified
 for an automated step.
 

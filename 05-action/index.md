@@ -35,12 +35,14 @@ This action allows the actor to pick one of the responses.
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#choose",
   "actor": "client",
   "responses": {
-    "approve": { "title": "Approve" },
-    "reject": { "title": "Reject" }
+    "approve": { "label": "Approve" },
+    "reject": { "label": "Reject" }
   },
   "default_response": "approve"
 }
 ```
+
+A choose action SHOULD NOT have a `label`, instead the labels of each response is presented to the actor (as button).
 
 ## Form action
 
@@ -53,7 +55,6 @@ Display [a form](../08-form/) to the actor to fill out information.
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#form",
   "actor": "client",
   "form": {
-    "$schema": "http://specs.livecontracts.io/draft-01/08-form/schema.json#",
     "id": "lt:/forms/a45f0b2f-21b8-4d09-8295-1665f38e17c7?v=BaM88e44"
   },
   "responses": {
@@ -66,9 +67,14 @@ Display [a form](../08-form/) to the actor to fill out information.
 }
 ```
 
+Submitting the form will trigger an 'ok' response.
+
 ### form
 
-A form definition.
+A form definition. The form MAY be a complete form, or only the `id` of a form.
+
+If it's only an id, the form SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server
+side.
 
 ## Upload action
 
@@ -108,12 +114,11 @@ View or review a [document](../10-document/). Allow the user to pick one of the 
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#view-document",
   "actor": "client",
   "document": {
-    "$schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
-    "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06?v=8TffQS6U"
+    "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06"
   },
   "responses": {
-    "approve": { "title": "Approve" },
-    "reject": { "title": "Reject" }
+    "approve": { "label": "Approve" },
+    "reject": { "label": "Reject" }
   },
   "default_response": "approve"
 }
@@ -121,28 +126,50 @@ View or review a [document](../10-document/). Allow the user to pick one of the 
 
 ### document
 
-A document definition.
+A document definition. The document MAY just be a complete document, or only the `id` of a document.
+
+If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched
+server side.
 
 ## Edit document schema
 
 `http://specs.livecontracts.io/draft-01/05-action/schema.json#edit-document`
 
-Edit a [document](../10-document/). Also, allows the user to pick one of the responses.
+Edit a [document](../10-document/). Also, allow the user to pick one of the responses.
 
 ```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#edit-document",
   "actor": "client",
   "document": {
-    "$schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
-    "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06?v=8TffQS6U"
+    "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06"
+  },
+  "responses": {
+    "ok": {
+      "label": "Done",
+      "update": {
+        "set": "assets.document",
+        "data": {
+          "<merge>": [
+            { "<ref>": "assets.document" },
+            { "<ref>": "response.data" }
+          ]
+        }
+      },
+    }
   }
 }
 ```
 
+The response data MUST be the latest version of document. It MAY only include the `id` with a version number without
+content, data or metadata.
+
 ### document
 
-A document definition.
+A document definition. The document MAY just be a complete document, or only the `id` of a document.
+
+If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched
+server side.
 
 ## Follow link schema
 

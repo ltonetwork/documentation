@@ -65,13 +65,6 @@
             "items": {
                 "$ref": "http://specs.livecontracts.io/draft-01/05-scenario/schema.json#state"
             }
-        },
-        "comments": {
-            "description": "User submitted comments from the event chain",
-            "type": "array",
-            "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/10-comment/schema.json#"
-            }
         }
     }
 }

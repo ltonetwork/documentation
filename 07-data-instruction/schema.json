@@ -10,7 +10,7 @@
         { "$ref": "#match" },
         { "$ref": "#if" },
         { "$ref": "#switch" },
-        { "$ref": "#src" },
+        { "$ref": "#sum" },
         { "$ref": "#merge" },
         { "$ref": "#enrich" },
         { "$ref": "#tpl" },
@@ -128,24 +128,26 @@
             },
             "required": [ "<switch>" ]
         },
-        "src": {
-            "$id": "#src",
-            "description": "Fetch data using an HTTP GET request",
+        "sum": {
+            "$id": "#sum",
+            "description": "Calculate the sum",
             "type": "object",
             "properties": {
-                "<src>": {
-                    "$ref": "#/definitions/stringdi",
+                "<sum>": {
                     "oneOf": [
-                        { "type": "string", "format": "uri" },
+                        {
+                            "type": "array",
+                            "items": { "type": "number" }
+                        },
                         { "$ref": "#" }
                     ]
                 }
             },
-            "required": [ "<src>" ]
+            "required": [ "<sum>" ]
         },
         "merge": {
             "$id": "#merge",
-            "description": "Merge multiple  arrays or objects",
+            "description": "Merge multiple arrays or objects",
             "type": "object",
             "properties": {
                 "<merge>": {
@@ -210,7 +212,7 @@
         },
         "apply": {
             "$id": "#apply",
-            "description": "Apply JSON Expressions to data",
+            "description": "Apply JMESPath expressions to data",
             "type": "object",
             "properties": {
                 "<apply>": {
@@ -221,7 +223,7 @@
                             "$ref": "#/definitions/objectdi"
                         },
                         "expression": {
-                            "description": "JSON expression",
+                            "description": "JMESPath expression",
                             "$ref": "#/definitions/stringdi"
                         }
                     },

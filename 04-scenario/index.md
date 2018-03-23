@@ -595,11 +595,11 @@ The value must be the key of an action listed in the actions array.
 After a response is given, the projection of the process may be updated. Update instructions can update the process
 information, assets or actors.
 
-## select
+## set
 
 A reference to the item in the process that should be updated. This MUST be a property of `info`, `assets` or `actors`.
 
-This can't be a full JSON expression, instead it should be it's a simplified notation using the object and array
+This can't be a full JMESPath expression, instead it should be it's a simplified notation using the object and array
 notation (eg `assets.stock.items[3]`).
 
 ## data

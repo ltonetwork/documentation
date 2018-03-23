@@ -28,6 +28,13 @@ Galois/Counter Mode (gcm). `Base58` is used to create the string from of bytes.
 
 [Read more](cryptography.html)
 
+### Network
+
+Live Contracts relies on message brokers to share event chains between nodes. The message broker MUST use the
+`AMQP 0-9-1` to communicate and SHOULD be available over a secured connection.
+
+[Read more](network.html)
+
 ## Specifications
 
 The Live Contracts specifications are described as [JSON schema](http://json-schema.org/).

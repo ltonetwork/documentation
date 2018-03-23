@@ -21,10 +21,25 @@
             }
         },
         "identities": {
-            "description": "Projected list of identities that participate on the chain",
+            "description": "Projected set of identities that participate on the chain",
             "type": "array",
             "items": {
                 "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
+            }
+        },
+        "comments": {
+            "description": "List of comments on this chain",
+            "type": "array",
+            "items": {
+                "$ref": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#"
+            }
+        },
+        "resources": {
+            "description": "Set of id's of the resources using in this chain",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
             }
         }
     },

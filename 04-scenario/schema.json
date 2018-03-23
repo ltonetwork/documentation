@@ -173,7 +173,7 @@
             "$id": "#update-instruction",
             "description": "Instruction to update process information, an actor or an asset",
             "properties": {
-                "select": {
+                "set": {
                     "description": "A reference to the data in the process that should be updated",
                     "$ref": "#/definitions/stringdi",
                     "pattern": "^(info|actors|assets)(\\.\\w+|\\[(\\?[^\\]]+|\\d+)\\])*$"

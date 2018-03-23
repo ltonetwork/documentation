@@ -10,8 +10,8 @@ transitions of the scenario.
 
 ## Schemas
 
-[Process](#process-schema)
-
-## Process schema
-
 [JSON Schema](schema.json#)
+
+* Process
+
+_Please checkout the [JSON Schema](schema.json#) for more information. Documentation will be added._

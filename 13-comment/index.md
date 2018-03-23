@@ -17,11 +17,13 @@ messages are stored as part of the event chain. Everybody who has access to the 
 ```json
 {
   "$schema": "http://specs.livecontracts.io/01-draft/12-comment/schema.json#",
-  "creator": {
+  "identity": {
     "$schema": "http://specs.livecontracts.io/01-draft/02-identity/schema.json#",
-    "id": "1bb5a451-d496-42b9-97c3-e57404d2984f"
+    "id": "1bb5a451-d496-42b9-97c3-e57404d2984f",
+    "name": "John Doe",
+    "email": "john.doe@example.com"
   },
-  "data": "2018-03-01T00:00:00+00:00",
+  "timestamp": "2018-03-01T00:00:00+00:00",
   "content_media_type": "text/plain",
   "content": "Holding this procedure until we called"
 }
@@ -35,13 +37,13 @@ messages are stored as part of the event chain. Everybody who has access to the 
 
 The Live Contracts Comment [JSON schema](http://json-schema.org) URI that describes the JSON structure of the comment.
 
-### creator
+### identity
 
-The information about who wrote this comment, following the [identity specs](../02-identity/).
+The [identity](../02-identity/) who wrote this comment. Information like name and e-mail MAY be snapshot.
 
-### date
+### timestamp
 
-The date when the comment was created.
+The date and time when the comment was created.
 
 ### content_media_type
 

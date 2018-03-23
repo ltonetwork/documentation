@@ -9,11 +9,11 @@
             "type": "string",
             "format": "uri"
         },
-        "creator": {
+        "identity": {
             "description": "The person that created the comment",
             "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
         },
-        "date": {
+        "timestamp": {
             "description": "Date/time the comment was created",
             "type": "string",
             "format": "date-time"
@@ -33,11 +33,6 @@
                 { "type": "string" },
                 { "$ref": "#linked-content" }
             ]
-        },
-        "hash": {
-            "description": "SHA256 hash",
-            "type": "string",
-            "pattern": "[A-F0-9]{64}"
         },
         "receipt": {
             "description": "Anchoring receipt",

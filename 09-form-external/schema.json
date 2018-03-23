@@ -63,7 +63,7 @@
             "format": "uri"
         },
         "field_expression": {
-            "description": "JSON expression to apply on the response data",
+            "description": "JMESPath expression to apply on the response data",
             "type": "string",
             "format": "json-expression"
         }

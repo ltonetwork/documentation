@@ -35,7 +35,17 @@
         },
         "actor": {
             "description": "Actor that performed the action",
-            "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor"
+            "oneOf": [
+                {
+                    "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor"
+                },
+                {
+                    "description": "Possible actors that performed the actor",
+                    "$comment": "Only when posting a response",
+                    "type": "array",
+                    "items": { "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor" }
+                }
+            ]
         },
         "display": {
             "description": "Show the response",
@@ -49,10 +59,6 @@
             "description": "Date/time the response was given",
             "type": "string",
             "format": "date-time"
-        },
-        "hash": {
-            "description": "SHA256 hash",
-            "type": "string"
         },
         "receipt": {
             "description": "Anchoring receipt",
