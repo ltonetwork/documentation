@@ -52,6 +52,14 @@ _This structure is similar to
 
 The array of events.
 
+### identities
+
+A projected set of identities that participate on the chain.
+
+### messages
+
+
+
 ## Event schema
 
 `http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#event`
