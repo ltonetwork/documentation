@@ -1,7 +1,7 @@
 # Live Contracts specifications
 
-_Contracts and laws are not something static, but something that is dynamic and can be automation and allow for
-participation and are understandable by people without legal knowledge._
+_Contracts and laws should not be static pieces of paper, full of legal lingo that takes years to learn and understand. It
+should be dynamic, interactive and understandable for all parties involved._
 
 ### Note to Readers
 
