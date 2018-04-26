@@ -1,4 +1,4 @@
-### draft 01
+# draft 01
 
 * Data instructions are always objects with only the instruction as property. This removes the arbitrary order of execution.
 * `<ref>` now takes a JMESPath query instead. Dot notation will also work as JMESPath query.
@@ -25,3 +25,4 @@
 * New serialize / unserialize method `url`. This creates an URL Query from an object.
 * Added `<encrypt>` and `<decrypt>` instructions.
 * Added `<sign>` and `<verify>` to create and verify a cryptographic signature.
+

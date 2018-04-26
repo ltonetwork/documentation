@@ -1,28 +1,26 @@
+# index
+
 [← back](../)
 
-# Chain request
+## Chain request
 
-A node may request a chain or a portion of a chain. When an identity is registers, a node might request the full event
-chain for that identity. If a node receives an event, but can't find the corresponding previous event, it will request
-the missing events.
+A node may request a chain or a portion of a chain. When an identity is registers, a node might request the full event chain for that identity. If a node receives an event, but can't find the corresponding previous event, it will request the missing events.
 
-## Schemas
+### Schemas
 
-* [Chain request](#chain-request-schema)
-* [Request body](#request-body-schema)
-* [Denied response](#denied-response-schema)
+* [Chain request](index.md#chain-request-schema)
+* [Request body](index.md#request-body-schema)
+* [Denied response](index.md#denied-response-schema)
 
-## Request and response
+### Request and response
 
-A node can request a complete chain or a portion of the chain. A chain request is discarded when processed and not
-stored on the event chain. The node will validate the request and send an event chain with only the missing events. 
+A node can request a complete chain or a portion of the chain. A chain request is discarded when processed and not stored on the event chain. The node will validate the request and send an event chain with only the missing events.
 
-It needs to sign the request using a `signkey` that matches with an identity that is on the chain. If the request
-doesn't validate or if the `signkey` doesn't belong to an identity, the request will be denied.
+It needs to sign the request using a `signkey` that matches with an identity that is on the chain. If the request doesn't validate or if the `signkey` doesn't belong to an identity, the request will be denied.
 
-## Example
+### Example
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#",
   "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
@@ -36,7 +34,7 @@ doesn't validate or if the `signkey` doesn't belong to an identity, the request 
 
 The body is a base64 encoded JSON string of the request
 
-```json
+```javascript
 {
   "from": [
     "9TK4fRbqJKWrkh85yzX9iTzDjFU392R14aNi67CQteiA",
@@ -49,7 +47,7 @@ The body is a base64 encoded JSON string of the request
 
 The request can't be validated it's denied.
 
-```json
+```javascript
   "$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#denied-response",
   "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
   "body": "",
@@ -60,39 +58,35 @@ The request can't be validated it's denied.
   "hash": ""
 ```
 
-## Chain request schema
+### Chain request schema
 
-[JSON Schema](schema.json#)
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/14-chain-request/schema.json)
 
-### $schema
+#### $schema
 
-The Live Contracts Chain request [JSON schema](http://json-schema.org) URI that describes the JSON structure of the
-chain request. To point to this version of the specification use
-`"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#"`.
+The Live Contracts Chain request [JSON schema](http://json-schema.org) URI that describes the JSON structure of the chain request. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#"`.
 
-### id
+#### id
 
-The globally unique identifier of the event chain you're requesting. This is typically an
-[LTRI](../00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
+The globally unique identifier of the event chain you're requesting. This is typically an [LTRI](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/00-ltri/README.md) with an UUID-4; `lt:/event-chains/<uuid-4>`.
 
-### body
+#### body
 
-The body is a base64 encoded JSON string of the [request body](#request-body-schema).
+The body is a base64 encoded JSON string of the [request body](index.md#request-body-schema).
 
-### timestamp
+#### timestamp
 
 The is the date and time, in ISO 8601 format, of the request occurred according to the signer.
 
-### signkey
+#### signkey
 
 The signer's public key, base58 encoded. This identifies the signer and MUST be used to verify the signature.
 
-### signature
+#### signature
 
-A base58 encoded `Curve25519` signature of the event. To create the signature, first create the message that needs to be
-signed. Each line is separated by a single `\n` character.
+A base58 encoded `Curve25519` signature of the event. To create the signature, first create the message that needs to be signed. Each line is separated by a single `\n` character.
 
-```
+```text
 <schema>
 <id>
 <body>
@@ -100,73 +94,61 @@ signed. Each line is separated by a single `\n` character.
 <signkey>
 ```
 
-_This is similar to the message of an event, however the chain request doesn't have a `previous` field._
+_This is similar to the message of an event, however the chain request doesn't have a _`previous`_ field._
 
-### hash
+#### hash
 
 A base58 encoded SHA256 hash of the event. To create the hash use the same message as was created to sign the request.
 
-## Request body schema
+### Request body schema
 
-### from
+#### from
 
-A hash or an array of hashes that function as starting point of the events the nodes need to receive. To receive the
-complete chain `from` must be the base58 encoded SHA256 hash of the event id.
+A hash or an array of hashes that function as starting point of the events the nodes need to receive. To receive the complete chain `from` must be the base58 encoded SHA256 hash of the event id.
 
-A node can't match a received event, because the hash in `previous` doesn't match any events in the event chain it
-holds. In that case `from` SHOULD be an array with the last event an identity of the other node has signed up to the
-last of event in the chain. The last event of the other node has signed is the latest point to where you can be sure the
-chains are identical and didn't branch.
+A node can't match a received event, because the hash in `previous` doesn't match any events in the event chain it holds. In that case `from` SHOULD be an array with the last event an identity of the other node has signed up to the last of event in the chain. The last event of the other node has signed is the latest point to where you can be sure the chains are identical and didn't branch.
 
-If a node finds out a the chain was branched it needs to handle it through
-[conflict resolution](../13-conflict-resolution/).
+If a node finds out a the chain was branched it needs to handle it through [conflict resolution](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/13-conflict-resolution/README.md).
 
-### encryptkey
+#### encryptkey
 
-The public key for encrypting the response data. The private decrypt key is hold and kept secret by the node which is
-doing the request.
+The public key for encrypting the response data. The private decrypt key is hold and kept secret by the node which is doing the request.
 
-If `encryptkey` isn't specified, the identity's encryptkey is used to encrypt the response. Nodes SHOULD NOT send an
-unencrypted event chain as response.
+If `encryptkey` isn't specified, the identity's encryptkey is used to encrypt the response. Nodes SHOULD NOT send an unencrypted event chain as response.
 
-## Denied response schema
+### Denied response schema
 
-[JSON Schema](schema.json#)
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/14-chain-request/schema.json)
 
-### $schema
+#### $schema
 
-The Live Contracts Denied response [JSON schema](http://json-schema.org) URI that describes the JSON structure of the
-response. To point to this version of the specification use
-`"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#denied-response"`.
+The Live Contracts Denied response [JSON schema](http://json-schema.org) URI that describes the JSON structure of the response. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/14-chain-request/schema.json#denied-response"`.
 
-### id
+#### id
 
-The globally unique identifier of the event chain you're requesting. This is typically an
-[LTRI](../00-ltri/) with an UUID-4; `lt:/event-chains/<uuid-4>`.
+The globally unique identifier of the event chain you're requesting. This is typically an [LTRI](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/00-ltri/README.md) with an UUID-4; `lt:/event-chains/<uuid-4>`.
 
-### body
+#### body
 
-The body is a base64 encoded JSON string of a [comment](../13-comment/) explaining
-why the request is denied.
+The body is a base64 encoded JSON string of a [comment](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/13-comment/README.md) explaining why the request is denied.
 
-### timestamp
+#### timestamp
 
 The is the date and time, in ISO 8601 format, of the response occurred according to the signer.
 
-### previous
+#### previous
 
 The hash of the request for which this is the response.
 
-### signkey
+#### signkey
 
 The signer's public key, base58 encoded. This identifies the signer and MUST be used to verify the signature.
 
-### signature
+#### signature
 
-A base58 encoded `Curve25519` signature of the event. To create the signature, first create the message that needs to be
-signed. Each line is separated by a single `\n` character.
+A base58 encoded `Curve25519` signature of the event. To create the signature, first create the message that needs to be signed. Each line is separated by a single `\n` character.
 
-```
+```text
 <schema>
 <id>
 <body>
@@ -175,6 +157,7 @@ signed. Each line is separated by a single `\n` character.
 <signkey>
 ```
 
-### hash
+#### hash
 
 A base58 encoded SHA256 hash of the event. To create the hash use the same message as was created to sign the response.
+

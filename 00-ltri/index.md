@@ -1,11 +1,10 @@
-# LegalThings Resource Identifier (LTRI) Scheme
+# LegalThings Resource Identifier \(LTRI\) Scheme
 
-The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural. The LTRI
-does not identify the system, but it identifies a resource within a system.
+The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural. The LTRI does not identify the system, but it identifies a resource within a system.
 
 ### Scheme syntax
 
-LegalThings-URI = "lt:" [username ":" password "@"] [ service-name ":" ] "/" resource-collection "/" [ resource-id [ "/" sub-resource-collection "/" [ sub-resource-id ] ] ] [ "?" query ]
+LegalThings-URI = "lt:" \[username ":" password "@"\] \[ service-name ":" \] "/" resource-collection "/" \[ resource-id \[ "/" sub-resource-collection "/" \[ sub-resource-id \] \] \] \[ "?" query \]
 
 ### Versioning
 
@@ -21,12 +20,11 @@ The query parament `v` SHOULD be used to differentiate between versions of a res
 * lt:/documents/hzVZmgeE/events/
 * lt:/documents/hzVZmgeE/events/feNq1KBj
 
-
 ## Deprecation warning
 
-Using the service name is deprecated. When using micro services, there SHOULD be mapping for the resource collection to
-the specific service.
+Using the service name is deprecated. When using micro services, there SHOULD be mapping for the resource collection to the specific service.
 
 * lt:dms/documents/
 * lt:dms/documents/hzVZmgeE
 * lt:some-user:secret-password@dms/documents/hzVZmgeE
+

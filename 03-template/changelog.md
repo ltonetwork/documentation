@@ -1,7 +1,10 @@
-### Live Contracts Template - draft 01
+# changelog
+
+## Live Contracts Template - draft 01
 
 * Added `scenarios` property to specify the procedures of the contract.
 
-### LegalForms
+## LegalForms
 
 * Initial format
+

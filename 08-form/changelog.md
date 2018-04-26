@@ -1,4 +1,4 @@
-### draft 01
+# draft 01
 
 * Form definition holds a `$schema`.
 * Step property `article` is renamed to `anchor`.
@@ -18,3 +18,4 @@
 * Added `checked` property to a `checkbox` field.
 * Renamed `jmespath_in` to `apply_in`.
 * Renamed `jmespath_out` to `apply_out`.
+

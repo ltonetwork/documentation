@@ -1,28 +1,27 @@
+# index
+
 [← back](../)
 
 ## Action
 
-In a process an [action](../04-scenario/#action-schema) may be performed to trigger a state change or to update the
-process projection. For each action in the scenario, the `$schema` property MUST be set.
+In a process an [action](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/04-scenario/README.md#action-schema) may be performed to trigger a state change or to update the process projection. For each action in the scenario, the `$schema` property MUST be set.
 
-The base schema of an action is `http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action-schema`. These
-schemas are specify the type of action. The action type is used to execute an action of to display it correctly in the
-UI.
+The base schema of an action is `http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action-schema`. These schemas are specify the type of action. The action type is used to execute an action of to display it correctly in the UI.
 
 _Basic properties of all actions are not described here._
 
 ## Schemas
 
-[JSON Schema](schema.json) - http://specs.livecontracts.io/draft-01/06-action/schema.json#
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/05-action/schema.json) - [http://specs.livecontracts.io/draft-01/06-action/schema.json\#](http://specs.livecontracts.io/draft-01/06-action/schema.json#)
 
-* [Choose action](#choose-schema)
-* [Form action](#form-schema)
-* [Upload action](#upload-schema)
-* [View document action](#view-document-schema)
-* [Edit action](#edit-schema)
-* [Follow link action](#follow-link-schema)
-* [NOP action](#nop-schema)
-* [HTTP action](#http-schema)
+* [Choose action](index.md#choose-schema)
+* [Form action](index.md#form-schema)
+* [Upload action](index.md#upload-schema)
+* [View document action](index.md#view-document-schema)
+* [Edit action](index.md#edit-schema)
+* [Follow link action](index.md#follow-link-schema)
+* [NOP action](index.md#nop-schema)
+* [HTTP action](index.md#http-schema)
 
 ## Choose schema
 
@@ -30,7 +29,7 @@ _Basic properties of all actions are not described here._
 
 This action allows the actor to pick one of the responses.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#choose",
   "actor": "client",
@@ -42,15 +41,15 @@ This action allows the actor to pick one of the responses.
 }
 ```
 
-A choose action SHOULD NOT have a `label`, instead the labels of each response is presented to the actor (as button).
+A choose action SHOULD NOT have a `label`, instead the labels of each response is presented to the actor \(as button\).
 
 ## Form action
 
 `http://specs.livecontracts.io/draft-01/05-action/schema.json#choose`
 
-Display [a form](../08-form/) to the actor to fill out information.
+Display [a form](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/08-form/README.md) to the actor to fill out information.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#form",
   "actor": "client",
@@ -73,8 +72,7 @@ Submitting the form will trigger an 'ok' response.
 
 A form definition. The form MAY be a complete form, or only the `id` of a form.
 
-If it's only an id, the form SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server
-side.
+If it's only an id, the form SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server side.
 
 ## Upload action
 
@@ -82,7 +80,7 @@ side.
 
 Ask the actor to upload one or more files. The event body SHOULD be encoded as `multipart/form-data`.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#upload",
   "label": "Upload documents",
@@ -107,9 +105,9 @@ Boolean flag to allow uploading multiple files at once.
 
 `http://specs.livecontracts.io/draft-01/05-action/schema.json#view-document`
 
-View or review a [document](../10-document/). Allow the user to pick one of the responses.
+View or review a [document](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/10-document/README.md). Allow the user to pick one of the responses.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#view-document",
   "actor": "client",
@@ -128,16 +126,15 @@ View or review a [document](../10-document/). Allow the user to pick one of the 
 
 A document definition. The document MAY just be a complete document, or only the `id` of a document.
 
-If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched
-server side.
+If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server side.
 
 ## Edit document schema
 
 `http://specs.livecontracts.io/draft-01/05-action/schema.json#edit-document`
 
-Edit a [document](../10-document/). Also, allow the user to pick one of the responses.
+Edit a [document](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/10-document/README.md). Also, allow the user to pick one of the responses.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#edit-document",
   "actor": "client",
@@ -161,15 +158,13 @@ Edit a [document](../10-document/). Also, allow the user to pick one of the resp
 }
 ```
 
-The response data MUST be the latest version of document. It MAY only include the `id` with a version number without
-content, data or metadata.
+The response data MUST be the latest version of document. It MAY only include the `id` with a version number without content, data or metadata.
 
 ### document
 
 A document definition. The document MAY just be a complete document, or only the `id` of a document.
 
-If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched
-server side.
+If it's only an id, the document SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server side.
 
 ## Follow link schema
 
@@ -185,9 +180,9 @@ The URL to go to.
 
 `http://specs.livecontracts.io/draft-01/05-action/schema.json#nop`
 
-No operation (automated action).
+No operation \(automated action\).
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#nop",
   "actor": "client",
@@ -208,7 +203,7 @@ No operation (automated action).
 
 Automated action to do a HTTP GET or POST request.
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#http",
   "actor": "client",
@@ -236,7 +231,7 @@ Automated action to do a HTTP GET or POST request.
 
 Multiple parallel HTTP requests
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/draft-01/05-action/schema.json#http",
   "actor": "client",
@@ -283,10 +278,9 @@ Either object with `username` and `password` or string for the `Authorization` h
 
 ### data
 
-HTTP POST body. This is typically a string. If the `Content-Type` is json, the data may be an object which will
-automatically be encoded.
+HTTP POST body. This is typically a string. If the `Content-Type` is json, the data may be an object which will automatically be encoded.
 
 ### requests
 
-Array with for parallel requests. Each request object can have an `url`, `method`, `query`, `headers`, `auth` and `data`
-property. For omitted properties, the property of the http action is used instead.
+Array with for parallel requests. Each request object can have an `url`, `method`, `query`, `headers`, `auth` and `data` property. For omitted properties, the property of the http action is used instead.
+

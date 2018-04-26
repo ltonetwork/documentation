@@ -1,42 +1,21 @@
+# index
+
 [← back](../)
 
-# Data instructions
+## Data instructions
 
-Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using
-data from the projected process.
+Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using data from the projected process.
 
-## Schemas
+### Schemas
 
-[JSON Schema](schema.json#)
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/07-data-instruction/schema.json)
 
-* <ref>
-* <equal>
-* <match>
-* <if>
-* <switch>
-* <src>
-* <merge>
-* <enrich>
-* <tpl>
-* <apply>
-* <replace>
-* <join>
-* <dateformat>
-* <hash>
-* <encode>
-* <decode>
-* <serialize>
-* <unserialize>
-* <encrypt>
-* <decrypt>
-* <sign>
-* <verify>
+* * * * * * * * * * * * * * * * * * * * * * 
+_Please checkout the _[_JSON Schema_](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/07-data-instruction/schema.json)_ for more information. Documentation will be added._
 
-_Please checkout the [JSON Schema](schema.json#) for more information. Documentation will be added._
+### Example
 
-## Example
-
-```json
+```javascript
 {
     "foo": {
         "bar": {
@@ -97,3 +76,4 @@ _Please checkout the [JSON Schema](schema.json#) for more information. Documenta
     }
 }
 ```
+

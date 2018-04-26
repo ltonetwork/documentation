@@ -1,21 +1,22 @@
+# index
+
 [← back](../)
 
-# Template
+## Template
 
-The Live Contract template can be instantiated to create a contract. It holds a templated version of the natural
-language text, a form definition to collect the data and links to associated scenarios of the digitized procedures.
+The Live Contract template can be instantiated to create a contract. It holds a templated version of the natural language text, a form definition to collect the data and links to associated scenarios of the digitized procedures.
 
-## Schemas
+### Schemas
 
-[JSON Schema](schema.json) - http://specs.livecontracts.io/01-draft/03-template/schema.json#
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/03-template/schema.json) - [http://specs.livecontracts.io/01-draft/03-template/schema.json\#](http://specs.livecontracts.io/01-draft/03-template/schema.json#)
 
-* [Template](#template-schema)
-* [Linked content](#linked-content-schema)
-* [Related scenario](#related-scenario-schema)
+* [Template](index.md#template-schema)
+* [Linked content](index.md#linked-content-schema)
+* [Related scenario](index.md#related-scenario-schema)
 
-## Example
+### Example
 
-```json
+```javascript
 {
   "$schema": "http://specs.livecontracts.io/01-draft/02-template/schema.json#",
   "id": "lt:/templates/ac19b51f-4cd2-413e-b283-a51c533580ad?v=GKot5hBs",
@@ -43,65 +44,61 @@ language text, a form definition to collect the data and links to associated sce
 }
 ```
 
-## Template schema
+### Template schema
 
 `http://specs.livecontracts.io/01-draft/02-template/schema.json#`
 
-### $schema
+#### $schema
 
 The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that describes the JSON structure of the scenario.
 
-### id
+#### id
 
-A URI as a unique identifier for the template. This is typically an [LTRI](../00-ltri/).
+A URI as a unique identifier for the template. This is typically an [LTRI](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/00-ltri/README.md).
 
-The id MUST point to an immutable version of the template. Modifying the template SHOULD always result in a new id.
-Previous versions of the template SHOULD remain available.
+The id MUST point to an immutable version of the template. Modifying the template SHOULD always result in a new id. Previous versions of the template SHOULD remain available.
 
-### name
+#### name
 
 The name of the template. Shown when listing scenarios. The title SHOULD be unique within your set of scenarios.
 
-### description
+#### description
 
 A description of the document shown as template details.
 
-### form
+#### form
 
-A form definition or the id of a form definition. When creating a contract, the user is asked to fill out this form in
-order to gather the contract information.
+A form definition or the id of a form definition. When creating a contract, the user is asked to fill out this form in order to gather the contract information.
 
-### content
+#### content
 
-The template content in natural language. Typically the template content contains fields that are filled in using the
-information collected from filling out the form.
+The template content in natural language. Typically the template content contains fields that are filled in using the information collected from filling out the form.
 
-Alternatively the content may not be embedded, but linked. In this case `content` is an object following the
-[linked content schema](#linked-content-schema).
+Alternatively the content may not be embedded, but linked. In this case `content` is an object following the [linked content schema](index.md#linked-content-schema).
 
-### content_type
+#### content\_type
 
 The MIME type of the content. It the template has content, the content type must be set.
 
-### content_encoding
+#### content\_encoding
 
 If specified the string SHOULD be interpreted as binary data and decoded using the encoding named by this property.
 
-### locale
+#### locale
 
 The language of the template as ISO-639 locale.
 
-### scenarios
+#### scenarios
 
-A list of [scenarios that are related](#related-scenario-schema) to this template. 
+A list of [scenarios that are related](index.md#related-scenario-schema) to this template.
 
-## Linked content schema
+### Linked content schema
 
 `http://specs.livecontracts.io/01-draft/02-template/schema.json#linked-content`
 
 Linking the content rather embedding it reduces the size of the event.
 
-```json
+```javascript
 {
   "url": "https://example.com/2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f.html",
   "hash": "2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f",
@@ -109,37 +106,33 @@ Linking the content rather embedding it reduces the size of the event.
 }
 ```
 
-### url
+#### url
 
-The URL to the file holding the content of the template. It's recommended to use the hash as filename. All nodes that
-are allow to participate in the event chain MUST be able access the file. This might mean that the file is publicly
-available.
+The URL to the file holding the content of the template. It's recommended to use the hash as filename. All nodes that are allow to participate in the event chain MUST be able access the file. This might mean that the file is publicly available.
 
-### hash
+#### hash
 
 A base58 encoded SHA256 hash of the content. The hash should be of the unencrypted content.
 
-### encryptkey
+#### encryptkey
 
-The file SHOULD be encrypted. Encryption MUST be done using the [AES256 gcm](../cryptography.md#symmetric-encryption)
-algorithm. If the content is encrypted, the `encryptkey` property contains the base58 encoded encryption key which can
-be used to decrypt the content.
+The file SHOULD be encrypted. Encryption MUST be done using the [AES256 gcm](../cryptography.md#symmetric-encryption) algorithm. If the content is encrypted, the `encryptkey` property contains the base58 encoded encryption key which can be used to decrypt the content.
 
-## Related scenario schema
+### Related scenario schema
 
 `http://specs.livecontracts.io/01-draft/02-template/schema.json#related-scenarios`
 
-A link to a scenario that relates to this schema. This is either a procedure that is described in the contract or a
-procedure that applies to the contract.
+A link to a scenario that relates to this schema. This is either a procedure that is described in the contract or a procedure that applies to the contract.
 
-### id
+#### id
 
 The scenario id as URI, typically an LTRI.
 
-### name
+#### name
 
 The scenario name.
 
-### paragraph
+#### paragraph
 
 The paragraph anchor, if scenario references a particular paragraph of the contract.
+

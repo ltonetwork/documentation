@@ -1,4 +1,4 @@
-### draft 01
+# draft 01
 
 * **Explicit states**
 * Added `$schema` property, which can be consulted for the specification version.
@@ -16,19 +16,15 @@
 * Moved the `display` property from action to response.
 * A state without a default action an a `timeout` may specify a transition with a timeout response.
 
-#### Explicit states
+## Explicit states
 
-In the previous version, states were implicit. We would identify the current action and the current state always be
-'waiting on user to perform current action'. Alternative actions were specific with the default action.
+In the previous version, states were implicit. We would identify the current action and the current state always be 'waiting on user to perform current action'. Alternative actions were specific with the default action.
 
-Now states are explicit. This means the same action is available from different states. Also, an action doesn't always
-cause a state change.
+Now states are explicit. This means the same action is available from different states. Also, an action doesn't always cause a state change.
 
-The state definition declares all actions that are possible from that state. The `default_action` property is used to
-determine the default action. This is useful for the golden flow. The default may be performed automatically (trigger)
-or shown as default.
+The state definition declares all actions that are possible from that state. The `default_action` property is used to determine the default action. This is useful for the golden flow. The default may be performed automatically \(trigger\) or shown as default.
 
-You may still define a state change and update instruction with an action. However you can also define a conditional
-state change with states. This reduces the need of `nop` and `validation` triggers.
+You may still define a state change and update instruction with an action. However you can also define a conditional state change with states. This reduces the need of `nop` and `validation` triggers.
 
 The previous events of a process consist of actions. For the process `current` and `next`, states are used.
+
