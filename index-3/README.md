@@ -1,4 +1,4 @@
-# index
+# Template
 
 [← back](../)
 
@@ -10,9 +10,9 @@ The Live Contract template can be instantiated to create a contract. It holds a 
 
 [JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/03-template/schema.json) - [http://specs.livecontracts.io/01-draft/03-template/schema.json\#](http://specs.livecontracts.io/01-draft/03-template/schema.json#)
 
-* [Template](index.md#template-schema)
-* [Linked content](index.md#linked-content-schema)
-* [Related scenario](index.md#related-scenario-schema)
+* [Template](./#template-schema)
+* [Linked content](./#linked-content-schema)
+* [Related scenario](./#related-scenario-schema)
 
 ### Example
 
@@ -74,7 +74,7 @@ A form definition or the id of a form definition. When creating a contract, the 
 
 The template content in natural language. Typically the template content contains fields that are filled in using the information collected from filling out the form.
 
-Alternatively the content may not be embedded, but linked. In this case `content` is an object following the [linked content schema](index.md#linked-content-schema).
+Alternatively the content may not be embedded, but linked. In this case `content` is an object following the [linked content schema](./#linked-content-schema).
 
 #### content\_type
 
@@ -90,7 +90,7 @@ The language of the template as ISO-639 locale.
 
 #### scenarios
 
-A list of [scenarios that are related](index.md#related-scenario-schema) to this template.
+A list of [scenarios that are related](./#related-scenario-schema) to this template.
 
 ### Linked content schema
 

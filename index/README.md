@@ -1,4 +1,8 @@
-# LegalThings Resource Identifier \(LTRI\) Scheme
+---
+description: LegalThings Resource Identifier
+---
+
+# LTRI
 
 The LTRI follows a RESTful path structure to identify a resource. The resource collection is always plural. The LTRI does not identify the system, but it identifies a resource within a system.
 

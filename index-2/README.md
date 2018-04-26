@@ -1,4 +1,4 @@
-# index
+# Identity
 
 [← back](../)
 
@@ -8,8 +8,8 @@ An identity within the event chain. The identity is used for authentication and 
 
 ### Schemas
 
-* [Identity](index.md#identity-schema)
-* [Privilege](index.md#privilege-schema)
+* [Identity](./#identity-schema)
+* [Privilege](./#privilege-schema)
 
 ### Registration
 
@@ -138,7 +138,7 @@ Note that additions to the chain are not broadcasted to all node, but only send 
 
 #### privileges
 
-A list of [privileges](index.md#privilege).
+A list of [privileges](./#privilege).
 
 #### signkeys
 

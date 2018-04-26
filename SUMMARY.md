@@ -4,21 +4,17 @@
 * [Live Contracts specifications](index-1.md)
 * [network](network.md)
 * [cryptography](cryptography.md)
-* 00-ltri
-  * [draft 01](00-ltri/changelog.md)
-  * [LegalThings Resource Identifier \(LTRI\) Scheme](00-ltri/index.md)
-* 01-event-chain
-  * [Event Chain](01-event-chain/index.md)
-  * [Draft 01](01-event-chain/changelog.md)
-* 02-identity
-  * [draft 01](02-identity/changelog.md)
-  * [index](02-identity/index.md)
-* 03-template
-  * [changelog](03-template/changelog.md)
-  * [index](03-template/index.md)
+* [LTRI](index/README.md)
+  * [changelog](index/changelog.md)
+* [Event Chain](index-1-1/README.md)
+  * [changelog](index-1-1/changelog.md)
+* [Identity](index-2/README.md)
+  * [changelog](index-2/changelog.md)
+* [Template](index-3/README.md)
+  * [changelog](index-3/changelog.md)
+* [index](index-4/README.md)
+  * [changelog](index-4/changelog.md)
 * 04-scenario
-  * [draft 01](04-scenario/changelog.md)
-  * [index](04-scenario/index.md)
 * 05-action
   * [index](05-action/index.md)
 * 06-actor

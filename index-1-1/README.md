@@ -1,26 +1,24 @@
 # Event Chain
 
-## Event chain
-
 The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event is signed and that added referencing the previous event, forming a chain. All information of the system is derived from event chains.
 
 ### Schemas
 
-[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/01-event-chain/schema.json) - [http://specs.livecontracts.io/draft-01/event-chain/schema.json\#](http://specs.livecontracts.io/draft-01/event-chain/schema.json#)
+[http://specs.livecontracts.io/draft-01/event-chain/schema.json](http://specs.livecontracts.io/draft-01/event-chain/schema.json#)
 
-* [Event chain](index.md#event-chain-schema)
-* [Event](index.md#event-schema)
-* [Receipt](index.md#receipt-schema)
+* [Event chain](./#event-chain-schema)
+* [Event](./#event-schema)
+* [Receipt](./#receipt-schema)
 
 ### Event chain schema
 
-`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#`
+`http://specs.livecontracts.io/draft-01/event-chain/schema.json#`
 
 The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains SHOULD NOT be versioned.
 
 #### $schema
 
-The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#"`.
+The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#"`.
 
 #### id
 
@@ -51,7 +49,7 @@ A projected set of identities that participate on the chain.
 
 ### Event schema
 
-`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#event`
+`http://specs.livecontracts.io/draft-01/event-chain/schema.json#event`
 
 #### body
 
@@ -98,7 +96,7 @@ A receipt for anchoring the event to a global \(public\) blockchain. With anchor
 
 ### Receipt schema
 
-`http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt`
+`http://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt`
 
 The receipt follows the [Chainpoint specification v2](https://chainpoint.org/).
 

@@ -1,4 +1,6 @@
-# draft 01
+# changelog
+
+## draft 01
 
 * **Explicit states**
 * Added `$schema` property, which can be consulted for the specification version.
@@ -16,7 +18,7 @@
 * Moved the `display` property from action to response.
 * A state without a default action an a `timeout` may specify a transition with a timeout response.
 
-## Explicit states
+### Explicit states
 
 In the previous version, states were implicit. We would identify the current action and the current state always be 'waiting on user to perform current action'. Alternative actions were specific with the default action.
 

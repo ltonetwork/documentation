@@ -10,12 +10,12 @@ A Live Contract scenario is a definition of procedure as a Finite State Machine 
 
 [JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/04-scenario/schema.json) - [http://specs.livecontracts.io/draft-01/04-scenario/schema.json\#](http://specs.livecontracts.io/draft-01/04-scenario/schema.json#)
 
-* [Scenario](index.md#scenario-schema)
-* [Action](index.md#action-schema)
-* [Response](index.md#response-schema)
-* [State](index.md#state-schema)
-* [Transition](index.md#transition-schema)
-* [Update instruction](index.md#update-instruction-schema)
+* [Scenario](./#scenario-schema)
+* [Action](./#action-schema)
+* [Response](./#response-schema)
+* [State](./#state-schema)
+* [Transition](./#transition-schema)
+* [Update instruction](./#update-instruction-schema)
 
 ### Workflow
 
@@ -566,7 +566,7 @@ The value must be the key of an action listed in the actions array.
 
 #### update
 
-[Update instruction](index.md#update-instruction-schema) or array of update instructions.
+[Update instruction](./#update-instruction-schema) or array of update instructions.
 
 ### Update instruction schema
 
