@@ -8,7 +8,7 @@
   * [draft 01](00-ltri/changelog.md)
   * [LegalThings Resource Identifier \(LTRI\) Scheme](00-ltri/index.md)
 * 01-event-chain
-  * [index](01-event-chain/index.md)
+  * [Event Chain](01-event-chain/index.md)
   * [Draft 01](01-event-chain/changelog.md)
 * 02-identity
   * [draft 01](02-identity/changelog.md)

@@ -1,6 +1,4 @@
-# index
-
-[← back](../)
+# Event Chain
 
 ## Event chain
 
@@ -8,7 +6,7 @@ The event chain is a miniature blockchain that is shared between parties involve
 
 ### Schemas
 
-[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/01-event-chain/schema.json) - [http://specs.livecontracts.io/draft-01/01-event-chain/schema.json\#](http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#)
+[JSON Schema](https://github.com/legalthings/livecontracts-specs/tree/1f2cef267dfdf6fb694c3f8e878eb0af9a5cc284/01-event-chain/schema.json) - [http://specs.livecontracts.io/draft-01/event-chain/schema.json\#](http://specs.livecontracts.io/draft-01/event-chain/schema.json#)
 
 * [Event chain](index.md#event-chain-schema)
 * [Event](index.md#event-schema)
