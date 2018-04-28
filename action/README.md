@@ -4,18 +4,18 @@ In a process an [action](../scenario/#action-schema) may be performed to trigger
 
 The base schema of an action is `http://specs.livecontracts.io/draft-01/scenario/schema.json#action-schema`. These schemas are specify the type of action. The action type is used to execute an action of to display it correctly in the UI.
 
-_Basic properties of all actions are not described here._
+_**Basic properties than all actions have, are not described here.**_
 
-## Schemas
+### Schemas
 
-* [Choose action](README.md#choose-schema)
-* [Form action](README.md#form-schema)
-* [Upload action](README.md#upload-schema)
-* [View document action](README.md#view-document-schema)
-* [Edit action](README.md#edit-schema)
-* [Follow link action](README.md#follow-link-schema)
-* [NOP action](README.md#nop-schema)
-* [HTTP action](README.md#http-schema)
+* [Choose action](#choose-schema)
+* [Form action](#form-schema)
+* [Upload action](#upload-schema)
+* [View document action](#view-document-schema)
+* [Edit action](#edit-schema)
+* [Follow link action](#follow-link-schema)
+* [NOP action](#nop-schema)
+* [HTTP action](#http-schema)
 
 [JSON Schema](schema.json) | [changelog](changelog.md)
 
@@ -25,7 +25,7 @@ _Basic properties of all actions are not described here._
 
 This action allows the actor to pick one of the responses.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#choose",
   "actor": "client",
@@ -39,13 +39,13 @@ This action allows the actor to pick one of the responses.
 
 A choose action SHOULD NOT have a `label`, instead the labels of each response is presented to the actor \(as button\).
 
-## Form action
+## Form action schema
 
 `http://specs.livecontracts.io/draft-01/action/schema.json#choose`
 
 Display a [form](../form/) to the actor to fill out information.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#form",
   "actor": "client",
@@ -64,19 +64,19 @@ Display a [form](../form/) to the actor to fill out information.
 
 Submitting the form will trigger an 'ok' response.
 
-### form
+### form schema
 
 A form definition. The form MAY be a complete form, or only the `id` of a form.
 
 If it's only an id, the form SHOULD be fetched client side when the action is activated. It WILL NOT be fetched server side.
 
-## Upload action
+## Upload action schema
 
 `http://specs.livecontracts.io/draft-01/action/schema.json#upload`
 
 Ask the actor to upload one or more files. The event body SHOULD be encoded as `multipart/form-data`.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#upload",
   "label": "Upload documents",
@@ -89,11 +89,13 @@ Ask the actor to upload one or more files. The event body SHOULD be encoded as `
 }
 ```
 
-### accept
+### Properties
+
+#### accept
 
 The type of files that are accepted, in MIME format. Use `*` as wildcard.
 
-### multiple
+#### multiple
 
 Boolean flag to allow uploading multiple files at once.
 
@@ -101,9 +103,9 @@ Boolean flag to allow uploading multiple files at once.
 
 `http://specs.livecontracts.io/draft-01/action/schema.json#view-document`
 
-View or review a [document](../10-document/README.md). Allow the user to pick one of the responses.
+View or review a [document](../document/). Allow the user to pick one of the responses.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#view-document",
   "actor": "client",
@@ -118,7 +120,9 @@ View or review a [document](../10-document/README.md). Allow the user to pick on
 }
 ```
 
-### document
+### Properties
+
+#### document
 
 A document definition. The document MAY just be a complete document, or only the `id` of a document.
 
@@ -128,9 +132,9 @@ If it's only an id, the document SHOULD be fetched client side when the action i
 
 `http://specs.livecontracts.io/draft-01/action/schema.json#edit-document`
 
-Edit a [document](../10-document/README.md). Also, allow the user to pick one of the responses.
+Edit a [document](../document/). Also, allow the user to pick one of the responses.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#edit-document",
   "actor": "client",
@@ -148,7 +152,7 @@ Edit a [document](../10-document/README.md). Also, allow the user to pick one of
             { "<ref>": "response.data" }
           ]
         }
-      },
+      }
     }
   }
 }
@@ -156,7 +160,9 @@ Edit a [document](../10-document/README.md). Also, allow the user to pick one of
 
 The response data MUST be the latest version of document. It MAY only include the `id` with a version number without content, data or metadata.
 
-### document
+### Properties
+
+#### document
 
 A document definition. The document MAY just be a complete document, or only the `id` of a document.
 
@@ -178,7 +184,7 @@ The URL to go to.
 
 No operation \(automated action\).
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#nop",
   "actor": "client",
@@ -199,7 +205,7 @@ No operation \(automated action\).
 
 Automated action to do a HTTP GET or POST request.
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#http",
   "actor": "client",
@@ -227,7 +233,7 @@ Automated action to do a HTTP GET or POST request.
 
 Multiple parallel HTTP requests
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#http",
   "actor": "client",
@@ -252,31 +258,32 @@ Multiple parallel HTTP requests
 }
 ```
 
-### url
+### Properties
+
+#### url
 
 HTTP URL of the request.
 
-### method
+#### method
 
 HTTP method of the request. Typically `GET` or `POST`.
 
-### query
+#### query
 
 HTTP Query as object. This will be URL encoded.
 
-### headers
+#### headers
 
 HTTP headers as key/value pairs.
 
-### auth
+#### auth
 
 Either object with `username` and `password` or string for the `Authorization` header.
 
-### data
+#### data
 
 HTTP POST body. This is typically a string. If the `Content-Type` is json, the data may be an object which will automatically be encoded.
 
-### requests
+#### requests
 
 Array with for parallel requests. Each request object can have an `url`, `method`, `query`, `headers`, `auth` and `data` property. For omitted properties, the property of the http action is used instead.
-

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#",
     "title": "Live Contracts Event chain schema",
     "description": "The event chain is an immutable log",
     "type": "object",
@@ -24,14 +24,14 @@
             "description": "Projected set of identities that participate on the chain",
             "type": "array",
             "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
+                "$ref": "http://specs.livecontracts.io/draft-01/identity/schema.json#"
             }
         },
         "comments": {
             "description": "List of comments on this chain",
             "type": "array",
             "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#"
+                "$ref": "http://specs.livecontracts.io/draft-01/comment/schema.json#"
             }
         },
         "resources": {

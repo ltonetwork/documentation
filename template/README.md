@@ -8,7 +8,7 @@ The Live Contract template can be instantiated to create a contract. It holds a 
 
 ### Schemas
 
-[JSON Schema](../03-template/schema.json) - [http://specs.livecontracts.io/01-draft/03-template/schema.json\#](http://specs.livecontracts.io/01-draft/03-template/schema.json#)
+[JSON Schema](../template/schema.json) - [http://specs.livecontracts.io/01-draft/template/schema.json\#](http://specs.livecontracts.io/01-draft/template/schema.json#)
 
 * [Template](./#template-schema)
 * [Linked content](./#linked-content-schema)
@@ -16,7 +16,7 @@ The Live Contract template can be instantiated to create a contract. It holds a 
 
 ### Example
 
-```javascript
+```json
 {
   "$schema": "http://specs.livecontracts.io/01-draft/02-template/schema.json#",
   "id": "lt:/templates/ac19b51f-4cd2-413e-b283-a51c533580ad?v=GKot5hBs",
@@ -54,7 +54,7 @@ The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that descr
 
 #### id
 
-A URI as a unique identifier for the template. This is typically an [LTRI](../00-ltri/README.md).
+A URI as a unique identifier for the template. This is typically an [LTRI](../ltri/README.md).
 
 The id MUST point to an immutable version of the template. Modifying the template SHOULD always result in a new id. Previous versions of the template SHOULD remain available.
 
@@ -98,7 +98,7 @@ A list of [scenarios that are related](./#related-scenario-schema) to this templ
 
 Linking the content rather embedding it reduces the size of the event.
 
-```javascript
+```json
 {
   "url": "https://example.com/2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f.html",
   "hash": "2ejVRPkvyC9q3s5g1t2HWjN9Cf5KxM1BHyrYahevSJ8f",

@@ -4,7 +4,7 @@
 
 ## Network
 
-Live Contracts relies on message brokers to share [event chains](../01-event-chains/README.md) between nodes. The message broker MUST use the [`AMQP 0-9-1`](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf) to communicate and SHOULD be available over a secured connection.
+Live Contracts relies on message brokers to share [event chains](../event-chains/README.md) between nodes. The message broker MUST use the [`AMQP 0-9-1`](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf) to communicate and SHOULD be available over a secured connection.
 
 New events on a chain are pushes to all nodes designated by the participating [identities](../02-identities/README.md). Nodes may also [request an event chain](../chain-requests/README.md) for instance when a user of the node is invited on a chain.
 

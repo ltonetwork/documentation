@@ -5,7 +5,7 @@
 * Replaced field `type` with field `$schema`.
 * The `amount` field now has an `options` property. This is an array of objects with a `singular` and `plural` property.
 * Removed `exernal` property from `select` field. Use `external_select` instead.
-* Moved select from external source and `external_data` to own specification `09-form-external`.
+* Moved select from external source and `external_data` to own specification `form-external`.
 * Renamed `group` field to `select-group`.
 * The `select-group` field has an `options` property, instead of `optionsValue` and `optionsText`.
 * The `select-group` field must also support `default`.

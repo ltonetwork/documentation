@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/scenario/schema.json#",
     "title": "Live Contracts scenario schema",
     "description": "The scenario is a stateless definition of a procedure",
     "type": "object",
@@ -272,13 +272,13 @@
         
         "di": {
             "description": "Data instruction",
-            "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#"
+            "$ref": "http://specs.livecontracts.io/draft-01/data-instruction/schema.json#"
         },
         "stringdi": {
             "description": "A string or a data instruction",
             "oneOf": [
                 { "type": "string" },
-                { "$ref": "http://specs.livecontracts.io/draft-01/07-data-instructions/schema.json#" }
+                { "$ref": "http://specs.livecontracts.io/draft-01/data-instruction/schema.json#" }
             ]
         }
     }

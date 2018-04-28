@@ -1,21 +1,17 @@
-# index
+# Data instructions
 
-[← back](../)
-
-## Data instructions
-
-Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using data from the projected process.
+Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using data
+from the projected process.
 
 ### Schemas
 
-[JSON Schema](../07-data-instruction/schema.json)
+[JSON Schema](schema.json) | [changelog](changelog.md)
 
-* * * * * * * * * * * * * * * * * * * * * * 
-_Please checkout the _[_JSON Schema_](../07-data-instruction/schema.json)_ for more information. Documentation will be added._
+_Please checkout the [JSON Schema](schema.json) for more information. Documentation will be added._
 
 ### Example
 
-```javascript
+```json
 {
     "foo": {
         "bar": {

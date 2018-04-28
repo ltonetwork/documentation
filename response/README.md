@@ -8,9 +8,9 @@ Executing an action in a process always yields a response. This is regardless of
 
 ### Schemas
 
-[JSON Schema](../12-response/schema.json)
+[JSON Schema](../response/schema.json)
 
 * Response
 
-_Please checkout the _[_JSON Schema_](../12-response/schema.json)_ for more information. Documentation will be added._
+_Please checkout the _[_JSON Schema_](../response/schema.json)_ for more information. Documentation will be added._
 

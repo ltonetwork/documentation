@@ -1,16 +1,16 @@
 {
     "$comment": "TODO: first create all the schemes and than come back to this example",
     
-    "$schema": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#",
+    "$schema": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#",
     "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "events": [
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/identity/schema.json#",
             "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
             "body": ""
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/document/schema.json#",
             "id": "",
             "body": "ewogICAgImlkIjogImx0Oi9jb250cmFjdHMvNTc0OTg/dj0xIiwKICAgICJuYW1lIjogIkxvcmVtIGlwc3VtIiwKICAgICJjcmVhdG9yIjogewogICAgICAgICJpZCI6ICJhYjNiNGJkNS03ZDJmLTQyZTItODllYS1hOWYyNWE2ZGRjZDAiCiAgICB9LAogICAgImJvZHkiOiBbCiAgICAgICAgewogICAgICAgICAgICAibWVkaWFfdHlwZSI6ICJ0ZXh0L3BsYWluIiwKICAgICAgICAgICAgImJvZHkiOiAiQWxpcXVhbSBtYXVyaXMgYXVndWUsIG1hbGVzdWFkYSBhdCBtYXR0aXMgc2VkLCBmaW5pYnVzIHF1aXMgdXJuYS4iCiAgICAgICAgfQogICAgXSwKICAgICJkYXRlIjogIjIwMTgtMDEtMjdUMDM6MTI6MjQiCn0=",
             "previous": "J5wkvYuMoYoXGZw3f743mzkXaqAwRhVtANh1BhaWCksy",
@@ -23,7 +23,7 @@
             }
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/11-process/schema.json#action",
+            "$schema": "http://specs.livecontracts.io/draft-01/process/schema.json#action",
             "body": {
                 "$schema": "http://specs.livecontracts.io/draft-01/10-action/schema.json#form",
                 "key": "lt:/processes/1234#/actions/request_review",
@@ -40,7 +40,7 @@
             }
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/11-process/schema.json#action",
+            "$schema": "http://specs.livecontracts.io/draft-01/process/schema.json#action",
             "body": {
                 "$schema": "http://specs.livecontracts.io/draft-01/10-action/schema.json#acknowledge",
                 "key": "lt:/processes/1234#/actions/acknowledge",
@@ -53,7 +53,7 @@
             }
         },
         {
-            "$schema": "http://specs.livecontracts.io/draft-01/13-comment/schema.json#",
+            "$schema": "http://specs.livecontracts.io/draft-01/comment/schema.json#",
             "body": {
                 "user": {
                     "id": "403f8456-03c7-4da3-9361-8e44495eea65"

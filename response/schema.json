@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/12-response/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/response/schema.json#",
     "title": "Live Contracts Response schema",
     "description": "A performed action",
     "type": "object",
@@ -16,7 +16,7 @@
         },
         "action": {
             "allOf": [
-                { "$ref": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action" },
+                { "$ref": "http://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
                 {
                     "type": "object",
                     "properties": {
@@ -37,13 +37,13 @@
             "description": "Actor that performed the action",
             "oneOf": [
                 {
-                    "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor"
+                    "$ref": "http://specs.livecontracts.io/draft-01/process/schema.json#actor"
                 },
                 {
                     "description": "Possible actors that performed the actor",
                     "$comment": "Only when posting a response",
                     "type": "array",
-                    "items": { "$ref": "http://specs.livecontracts.io/draft-01/11-process/schema.json#actor" }
+                    "items": { "$ref": "http://specs.livecontracts.io/draft-01/process/schema.json#actor" }
                 }
             ]
         },
@@ -62,7 +62,7 @@
         },
         "receipt": {
             "description": "Anchoring receipt",
-            "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
+            "$ref": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt"
         }
     },
     "additonalProperties": true

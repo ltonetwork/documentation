@@ -1,21 +1,17 @@
-# index
-
-[← back](../)
-
-## Scenario
+# Scenario
 
 A Live Contract scenario is a definition of procedure as a Finite State Machine \(FSM\). As an FSM, the scenario can be visualized as flowchart and instantiated as a process.
 
 ### Schemas
 
-[JSON Schema](../04-scenario/schema.json) - [http://specs.livecontracts.io/draft-01/04-scenario/schema.json\#](http://specs.livecontracts.io/draft-01/04-scenario/schema.json#)
+* [Scenario](#scenario-schema)
+* [Action](#action-schema)
+* [Response](#response-schema)
+* [State](#state-schema)
+* [Transition](#transition-schema)
+* [Update instruction](#update-instruction-schema)
 
-* [Scenario](./#scenario-schema)
-* [Action](./#action-schema)
-* [Response](./#response-schema)
-* [State](./#state-schema)
-* [Transition](./#transition-schema)
-* [Update instruction](./#update-instruction-schema)
+[JSON Schema](schema.json) | [changelog](changelog.md)
 
 ### Workflow
 
@@ -71,18 +67,18 @@ If the supplier starts the process, the golden flow is
 
 Both the client and the supplier can cancel the process at any time.
 
-```javascript
+```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/04-scenario/schema.json#",
+  "$schema": "http://specs.livecontracts.io/draft-01/scenario/schema.json#",
   "id": "lt:/scenarios/fe659ffa-537d-461a-abd7-aa0f3643d5ee",
   "title": "Accept quotation",
   "description": "Accept or reject a quotation",
   "actors": {
     "supplier": {
-      "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#organization"
+      "$ref": "http://specs.livecontracts.io/draft-01/actor/schema.json#organization"
     },
     "client": {
-      "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#individual"
+      "$ref": "http://specs.livecontracts.io/draft-01/actor/schema.json#individual"
     }
   },
   "assets": {
@@ -98,7 +94,7 @@ Both the client and the supplier can cancel the process at any time.
         }
       }
     }
-    "quotation": { "$ref": "http://specs.livecontracts.io/draft-01/10-document/schema.json#" }
+    "quotation": { "$ref": "http://specs.livecontracts.io/draft-01/document/schema.json#" }
   },
   "definitions": {
     "request_form": {
@@ -107,7 +103,7 @@ Both the client and the supplier can cancel the process at any time.
         {
           "fields": [
             {
-              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#external-select",
+              "$schema": "http://specs.legalthings.one/draft-01/form/schema.json#external-select",
               "label": "Supplier",
               "name": "supplier",
               "url": "https://jsonplaceholder.typicode.com/users",
@@ -116,13 +112,13 @@ Both the client and the supplier can cancel the process at any time.
               "required": true
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#textarea",
+              "$schema": "http://specs.legalthings.one/draft-01/form/schema.json#textarea",
               "label": "Description",
               "name": "description",
               "helptip": "Which service would you like a quotation for?"
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#select",
+              "$schema": "http://specs.legalthings.one/draft-01/form/schema.json#select",
               "label": "Urgency",
               "name": "urgency",
               "options": [
@@ -141,13 +137,13 @@ Both the client and the supplier can cancel the process at any time.
         {
           "fields": [
             {
-              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#text",
+              "$schema": "http://specs.legalthings.one/draft-01/form/schema.json#text",
               "label": "Name",
               "name": "name",
               "required": true
             },
             {
-              "$schema": "http://specs.legalthings.one/draft-01/08-form/schema.json#email",
+              "$schema": "http://specs.legalthings.one/draft-01/form/schema.json#email",
               "label": "E-mail",
               "name": "email",
               "required": true
@@ -184,7 +180,7 @@ Both the client and the supplier can cancel the process at any time.
       }
     },
     "enter_client": {
-      "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#form-action",
+      "$schema": "http://specs.legalthings.one/draft-01/scenario/schema.json#form-action",
       "actor": "supplier",
       "form": { "<ref>": "definitions.request_form" },
       "responses": {
@@ -197,7 +193,7 @@ Both the client and the supplier can cancel the process at any time.
       }
     },
     "invite_client": {
-      "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#invite-action",
+      "$schema": "http://specs.legalthings.one/draft-01/scenario/schema.json#invite-action",
       "actor": "supplier",
       "invite": "client",
       "responses": {
@@ -212,7 +208,7 @@ Both the client and the supplier can cancel the process at any time.
       }
     },
     "upload": {
-      "$schema": "http://specs.legalthings.one/draft-01/04-scenario/schema.json#upload-action",
+      "$schema": "http://specs.legalthings.one/draft-01/scenario/schema.json#upload-action",
       "actor": "supplier",
       "label": "Upload",
       "accept": "application/pdf",
@@ -222,7 +218,7 @@ Both the client and the supplier can cancel the process at any time.
           "update": {
             "select": "assets.quotation",
             "data": {
-              "$schema": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
+              "$schema": "http://specs.livecontracts.io/draft-01/document/schema.json#",
               "name": { "<tpl>": "Quotation {{ actors.client.name }} {{ response.date }}" },
               "date": { "<ref>": "response.date" },
               "content_media_type": { "<ref>": "response.data.media_type" },
@@ -370,7 +366,7 @@ Both the client and the supplier can cancel the process at any time.
 
 ### Scenario schema
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#`
 
 #### $schema
 
@@ -378,7 +374,7 @@ The Live Contracts Scenario [JSON schema](http://json-schema.org) URI that descr
 
 #### id
 
-A URI as a unique identifier for the scenario. This is typically an [LTRI](../00-ltri/README.md).
+A URI as a unique identifier for the scenario. This is typically an [LTRI](../ltri/README.md).
 
 The id MUST point to an immutable version of the scenario. Modifying the scenario SHOULD always result in a new id. Previous versions of the scenario SHOULD remain available.
 
@@ -398,7 +394,7 @@ An array with alternative titles or keywords to search on.
 
 JSON schema of the process information. This information is typically shared when requisting a list of processes, in contrary to the information about actors and assets.
 
-```javascript
+```json
 {
   "info": {
     "type": "object",
@@ -424,7 +420,7 @@ An actor SHOULD at least an `id` property to link it to an identity and a `name`
 
 If the actor represents multiple identities, it SHOULD have a `members` property with objects that have an `id` and `name` property.
 
-```javascript
+```json
 {
   "actors": {
     "employer": {
@@ -436,7 +432,7 @@ If the actor represents multiple identities, it SHOULD have a `members` property
       }
     },
     "employee": {
-      "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#employee"
+      "$ref": "http://specs.livecontracts.io/draft-01/actor/schema.json#employee"
     },
     "team": {
       "type": "object",
@@ -465,7 +461,7 @@ You MAY define your own actor types inline. For interoperability it's recommende
 
 Object with JSON schema, defining the properties for each asset. The keys of the object is used to reference the asset. The asset schema must define an object.
 
-```javascript
+```json
 {
   "assets": {
     "contract": {
@@ -502,7 +498,7 @@ Set of all states of the scenario. The keys of the object are used as reference 
 
 ### Action
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#action`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#action`
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition and / or may update the process projection.
 
@@ -542,7 +538,7 @@ Should the action be displayed in the history? Choose one of the following optio
 
 ### Response schema
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#response`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#response`
 
 Instructions for a response of an action.
 
@@ -570,7 +566,7 @@ The value must be the key of an action listed in the actions array.
 
 ### Update instruction schema
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#update-instruction`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#update-instruction`
 
 After a response is given, the projection of the process may be updated. Update instructions can update the process information, assets or actors.
 
@@ -584,9 +580,9 @@ This can't be a full JMESPath expression, instead it should be it's a simplified
 
 The data to which the items should be updated. By default, this is the `data` of the response.
 
-It's typically useful to use a [data instructions](../07-data-instruction/README.md) for data. While processing a response, the process has an additional property `response` which may be referenced.
+It's typically useful to use a [data instructions](..//data-instruction/README.md) for data. While processing a response, the process has an additional property `response` which may be referenced.
 
-```javascript
+```json
 {
   "select": "assets.document",
   "data": {
@@ -599,7 +595,7 @@ It's typically useful to use a [data instructions](../07-data-instruction/README
 
 ### State schema
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#state`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#state`
 
 The state a process that's instantiated from this scenario can be in.
 
@@ -615,7 +611,7 @@ A long description for the action that is shown when if the state is current or 
 
 Instructions that can be specific per actor. This is an object where the keys correspond with the actor keys.
 
-```javascript
+```json
 {
   "employee": "Fill out this form",
   "employer": "Waiting for employee to fill out the form"
@@ -661,7 +657,7 @@ By default no state change occurs on a timeout. Add a transition with no action 
 
 ### Transition
 
-`http://specs.livecontracts.io/draft-01/04-scenario/schema.json#transition`
+`http://specs.livecontracts.io/draft-01/scenario/schema.json#transition`
 
 A transition defines the change from one state to the next. State transition definitions are more dynamic than the transition you can set in the response object.
 
@@ -677,7 +673,7 @@ Key of the response for which this transition would be selected.
 
 #### condition
 
-An boolean that must be true for the transition to be selected. This is typically a [data instruction](../07-data-instruction/README.md).
+An boolean that must be true for the transition to be selected. This is typically a [data instruction](..//data-instruction/README.md).
 
 #### transition
 

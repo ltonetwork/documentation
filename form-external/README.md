@@ -1,29 +1,67 @@
-# index
-
-[← back](../)
-
-## Form external
+# Form external
 
 Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
 
 ### Schemas
 
-[JSON Schema](../09-form-external/schema.json) - `http://specs.livecontracts.io/draft-01/09-form-external/schema.json#`
+* [External select](#external-select-schema)
+* [External data](#external-data-schema)
 
-* [External select](index.md#external-select-schema)
-* [External data](index.md#external-data-schema)
+[JSON Schema](schema.json) | [changelog](changelog.md)
 
-_Please checkout the _[_JSON Schema_](../09-form-external/schema.json)_ for more information. Documentation will be added._
+### Example
+
+```json
+{
+    "$schema": "http://specs.livecontracts.io/draft-01/form/schema.json#",
+    "id": "lt:/forms/6140f806-c4e6-4c22-ba3e-f0291a486cd5",
+    "definition": [
+        {
+            "fields": [
+                {
+                    "$schema": "http://specs.livecontracts.io/draft-01/form-external/schema.json#external_select",
+                    "label": "Post",
+                    "name": "post",
+                    "url": "http://jsonplaceholder.typicode.com/posts",
+                    "optionValue": "id",
+                    "optionText": "title"
+                },
+                {
+                    "$schema": "http://specs.livecontracts.io/draft-01/form/schema.json#number",
+                    "label": "Photo id",
+                    "name": "photo_id",
+                    "helptext": "Between 1 and 5000",
+                    "conditions": "conditional_step.show_fields == 'show'",
+                    "decimals": "0",
+                    "min": "1",
+                    "max": "5000"
+                },
+                {
+                    "$schema": "http://specs.livecontracts.io/draft-01/form-external/schema.json#external_data",
+                    "name": "photo",
+                    "url": "https://jsonplaceholder.typicode.com/photos/{{ conditional_step.photo_id }}",
+                    "conditions": "conditional_step.photo_id != \"\" && conditional_step.show_fields == 'show'",
+                    "url_field": "conditional_step.photo-url"
+                }
+            ]
+        }
+    ]
+}
+```
+
+#### Full example
+
+[See the full example with all field types](example.md)
 
 ### External Select schema
 
-`http://specs.livecontracts.io/draft-01/09-form-external/schema.json#external-select`
+`http://specs.livecontracts.io/draft-01/form-external/schema.json#external-select`
 
 Input control to select from an external source.
 
 ### External Data schema
 
-`http://specs.livecontracts.io/draft-01/09-form-external/schema.json#external-data`
+`http://specs.livecontracts.io/draft-01/form-external/schema.json#external-data`
 
 Fetch external data. The data is fetched when initiating the form or when `url` parameter changes.
 

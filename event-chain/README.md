@@ -1,30 +1,35 @@
 # Event Chain
 
-The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event is signed and that added referencing the previous event, forming a chain. All information of the system is derived from event chains.
+The event chain is a miniature blockchain that is shared between parties involved in a contract or process. Each event
+is signed and that added referencing the previous event, forming a chain. All information of the system is derived from
+event chains.
 
 ### Schemas
 
-[http://specs.livecontracts.io/draft-01/event-chain/schema.json](http://specs.livecontracts.io/draft-01/event-chain/schema.json#)
+* [Event chain](#event-chain-schema)
+* [Event](#event-schema)
+* [Receipt](#receipt-schema)
 
-* [Event chain](./#event-chain-schema)
-* [Event](./#event-schema)
-* [Receipt](./#receipt-schema)
+[JSON Schema](schema.json) | [changelog](changelog.md)
 
 ### Event chain schema
 
 `http://specs.livecontracts.io/draft-01/event-chain/schema.json#`
 
-The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains SHOULD NOT be versioned.
+The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains SHOULD
+NOT be versioned.
 
 #### $schema
 
-The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event chain. To point to this version of the specification use `"$schema": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#"`.
+The Live Contracts Event chain [JSON schema](http://json-schema.org) URI that describes the JSON structure of the event
+chain.
 
 #### id
 
 A globally unique identifier for the event chain.
 
-The event chain id MUST be calculated from public key used to sign the genesis event of the chain. The `id` is a base58 encoded value from the following data structure:
+The event chain id MUST be calculated from public key used to sign the genesis event of the chain. The `id` is a base58
+encoded value from the following data structure:
 
 | \# | Field name | Type | Position | Length |
 | ---: | :--- | :---: | ---: | ---: |
@@ -33,9 +38,8 @@ The event chain id MUST be calculated from public key used to sign the genesis e
 | 3 | Public key hash | Bytes | 2 | 20 |
 | 4 | Checksum | Bytes | 22 | 4 |
 
-Public key hash is first 20 bytes of _SecureHash_ of public key bytes. Checksum is first 4 bytes of _SecureHash_ of version, random and hash bytes. SecureHash is hash function `Keccak256(Blake2b256(data))`.
-
-_This structure is similar to _[_data structures of the Waves Platform_](https://github.com/wavesplatform/Waves/wiki/Data-Structures)_._
+Public key hash is first 20 bytes of _SecureHash_ of public key bytes. Checksum is first 4 bytes of _SecureHash_ of
+version, random and hash bytes. SecureHash is hash function `Keccak256(Blake2b256(data))`.
 
 #### events
 
@@ -53,13 +57,17 @@ A projected set of identities that participate on the chain.
 
 #### body
 
-The event body is the information about the event that's specific to this event type. Information that can be calculated or projected should be omitted from the event.
+The event body is the information about the event that's specific to this event type. Information that can be calculated
+or projected should be omitted from the event.
 
-The body is a base58 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or signature due to differences in JSON encoders.
+The body is a base58 encoded JSON string. Having this as structured data, could lead to a mismatch of the hash or
+signature due to differences in JSON encoders.
 
-The body MUST contain a `$schema` property. This is used to determine how to handle the event and if the identity is authorized to add the event.
+The body MUST contain a `$schema` property. This is used to determine how to handle the event and if the identity is
+authorized to add the event.
 
-Typically the body also contains an `id` property as [LTRI](../00-ltri/README.md). In that case a version number will automatically be appended. This version number is the first 8 characters of the base58 encoded SHA256 hash of the event `body` string.
+Typically the body also contains an `id` property as [LTRI](../ltri/). In that case a version number will automatically
+be appended. This version number is the first 8 characters of the base58 encoded SHA256 hash of the event `body` string.
 
 #### timestamp
 
@@ -77,7 +85,8 @@ The signer's X25519 public key, base58 encoded. This identifies the signer and M
 
 #### signature
 
-A base58 encoded `ED25519` signature of the event. To create the signature, first create the message that needs to be signed. Each line is separated by a single `\n` character.
+A base58 encoded `ED25519` signature of the event. To create the signature, first create the message that needs to be
+signed. Each line is separated by a single `\n` character.
 
 ```text
 <body>
@@ -92,7 +101,8 @@ A base58 encoded SHA256 hash of the event. To create the hash use the same messa
 
 #### receipt
 
-A receipt for anchoring the event to a global \(public\) blockchain. With anchoring the hash is written as attachment of a transaction. This is done as proof of existence and for timestamping.
+A receipt for anchoring the event to a global \(public\) blockchain. With anchoring the hash is written as attachment of
+a transaction. This is done as proof of existence and for timestamping.
 
 ### Receipt schema
 
@@ -116,19 +126,21 @@ The hash value being anchored to the blockchain. This SHOULD be the event hash.
 
 #### merkleRoot
 
-Merkle tree root value that is anchored to the blockchain. In case multiple hashes are combined in a merkle tree, the merkle root is required to verify that a hash is part of the tree.
+Merkle tree root value that is anchored to the blockchain. In case multiple hashes are combined in a merkle tree, the
+merkle root is required to verify that a hash is part of the tree.
 
 #### proof
 
-Merkle proof establishing link from the `targetHash` to the `merkleRoot`. In a merkle tree, the proof is required to verify that a hash is part of the tree.
+Merkle proof establishing link from the `targetHash` to the `merkleRoot`. In a merkle tree, the proof is required to
+verify that a hash is part of the tree.
 
 #### anchors
 
-Array with anchors. Each anchor is a transaction in on a blockchain. An anchor is an object with a `type` field which determines the network / transaction type and a `sourceId` field that contains the transaction id.
+Array with anchors. Each anchor is a transaction in on a blockchain. An anchor is an object with a `type` field which
+determines the network / transaction type and a `sourceId` field that contains the transaction id.
 
 Supported anchor types are
 
-* `BTCOpReturn` - Anchored to a Bitcoin transaction within an OP\_RETURN output.
+* `BTCOpReturn` - Anchored to a Bitcoin transaction within an `OP_RETURN` output.
 * `ETHData` - Anchored to an Ethereum transaction within the data field.
-* `WAVESData` - Anchored to an Waves data transaction.
-
+* `WAVESAnchor` - Anchored to an Waves data transaction.

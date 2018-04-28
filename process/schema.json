@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/11-process/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/process/schema.json#",
     "title": "Live Contracts Process schema",
     "description": "The projected process",
     "type": "object",
@@ -34,7 +34,7 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "http://specs.livecontracts.io/draft-01/06-actor/schema.json#"
+                    "$ref": "http://specs.livecontracts.io/draft-01/actor/schema.json#"
                 }
             }
         },
@@ -52,7 +52,7 @@
             "description": "Responses of performed actions",
             "type": "array",
             "items": {
-                "$ref": "http://specs.livecontracts.io/draft-01/12-response/schema.json#"
+                "$ref": "http://specs.livecontracts.io/draft-01/response/schema.json#"
             }
         },
         "current": {

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/10-document/schema.json#",
+    "$id": "http://specs.livecontracts.io/draft-01/document/schema.json#",
     "title": "Live Contracts Document schema",
     "description": "A document in natural language with related data and procedures",
     "type": "object",
@@ -29,7 +29,7 @@
         },
         "creator": {
             "description": "The person that created this version of the document",
-            "$ref": "http://specs.livecontracts.io/draft-01/02-identity/schema.json#"
+            "$ref": "http://specs.livecontracts.io/draft-01/identity/schema.json#"
         },
         "tags": {
             "description": "Tags to filter on",
@@ -106,7 +106,7 @@
         },
         "receipt": {
             "description": "Anchoring receipt",
-            "$ref": "http://specs.livecontracts.io/draft-01/01-event-chain/schema.json#receipt"
+            "$ref": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt"
         }
     }
 }
