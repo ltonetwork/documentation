@@ -13,7 +13,7 @@ user, a user has an identity for each event chain it's participating in.
 The first event on the event chain MUST be an identity. This event enables the user or organization to add subsequent 
 events on the chain. This is the initiator of the chain.
 
-This initial identity can start adding other identities on the chain. If it knows the public key\(s\) of, it can simply
+This initial identity can start adding other identities on the chain. If it knows the public key(sa) of, it can simply
 add them and notify the user about this new chain. If the public key is unknown a new key pair may be generated.
 
 #### Authentication
@@ -37,8 +37,10 @@ Note that it's not possible to force a node or user to delete an event chain tha
 {
     "$schema": "http://specs.livecontracts.io/draft-01/identity/schema.json#",
     "id": "4a88f56a-5bb2-4fa7-8615-c75d5ec7b1d4",
-    "name": "John Doe",
-    "email": "john.doe@example.com",
+    "info": {
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+    },
     "node": "amqps://app.legalthings.one",
     "signkeys": {
         "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
@@ -54,8 +56,10 @@ Note that it's not possible to force a node or user to delete an event chain tha
 {
     "$schema": "http://specs.livecontracts.io/draft-01/identity/schema.json#",
     "id": "75baa885-5862-4f81-80f4-60df746ff002",
-    "name": "John Doe",
-    "email": "john.doe@example.com",
+    "info": {
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+    },
     "node": "amqps://app.legalthings.one",
     "privileges": [
         {
@@ -87,8 +91,10 @@ Note that it's not possible to force a node or user to delete an event chain tha
 {
     "$schema": "http://specs.livecontracts.io/draft-01/identity/schema.json#",
     "id": "3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
-    "name": "Arnold",
-    "email": "arnold@jasny.net",
+    "info": {
+        "name": "Arnold",
+        "email": "arnold@example.com"
+    },
     "privileges": [
         {
             "schema": "http://specs.livecontracts.io/draft-01/identity/schema.json#",
@@ -122,20 +128,14 @@ The Live Contracts Identity [JSON schema](http://json-schema.org) URI that descr
 
 A unique identifier for the identity within the event chain using UUID-4.
 
-#### name
-
-The name of the user that has taken this identity.
-
-#### email
-
-The email address of the user that has taken this identity.
-
 #### info
 
-The `info` object contains additional information about the user. The `$schema` property defines the other properties of
-`info`. The schema for this is not defined by the Live Contracts specification. Having the user info in a schema that
-both systems understands means that a user can skip steps where it's asked to identity itself. The info may also hold
-properties that can be used for authentication.
+The `info` object contains additional information about the user. Typically this should hold a `name` and `email` field.
+
+The object may include a `$schema` property to define the other properties of `info`. The schema for this is not defined
+by the Live Contracts specification. Having the user info in a schema that both systems understands means that a user
+can skip steps where it's asked to identity itself. The info may also hold properties that can be used for
+authentication.
 
 #### node
 
@@ -146,7 +146,7 @@ Note that additions to the chain are not broadcasted to all node, but only send 
 
 #### privileges
 
-A list of [privileges](./#privilege).
+A list of [privileges](#privilege).
 
 #### signkeys
 
