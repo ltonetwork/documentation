@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/actor/schema.json#",
+    "$id": "https://specs.livecontracts.io/draft-01/actor/schema.json#",
     "title": "Live Contracts Actor schema",
     "description": "An actor as part of a process",
     "type": "object",
@@ -53,7 +53,7 @@
                 },
                 "signkeys": {
                     "description": "Public keys of the identity",
-                    "$ref": "http://specs.livecontracts.io/draft-01/identity/schema.json#signkeys"
+                    "$ref": "https://specs.livecontracts.io/draft-01/identity/schema.json#signkeys"
                 }
             },
             "additionalProperties": true

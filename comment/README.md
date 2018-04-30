@@ -8,18 +8,20 @@ messages are stored as part of the event chain. Everybody who has access to the 
 * [Comment](#comment-schema)
 * [Linked content](#linked-content-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](http://specs.livecontracts.io/draft-01/comment/schema.json) | [changelog](changelog.md)
 
 ### Example
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/01-draft/comment/schema.json#",
+  "$schema": "https://specs.livecontracts.io/01-draft/comment/schema.json#",
   "identity": {
-    "$schema": "http://specs.livecontracts.io/01-draft/identity/schema.json#",
+    "$schema": "https://specs.livecontracts.io/01-draft/identity/schema.json#",
     "id": "1bb5a451-d496-42b9-97c3-e57404d2984f",
-    "name": "John Doe",
-    "email": "john.doe@example.com"
+    "info": {
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    }
   },
   "timestamp": "2018-03-01T00:00:00+00:00",
   "content_media_type": "text/plain",
@@ -29,7 +31,7 @@ messages are stored as part of the event chain. Everybody who has access to the 
 
 ## Comment schema
 
-`http://specs.livecontracts.io/01-draft/comment/schema.json#`
+`https://specs.livecontracts.io/01-draft/comment/schema.json#`
 
 ### Properties
 
@@ -67,7 +69,7 @@ The [receipt](../event-chain/README.md#receipt-schema) for anchoring the comment
 
 ### Linked content schema
 
-`http://specs.livecontracts.io/01-draft/comment/schema.json#linked-content`
+`https://specs.livecontracts.io/01-draft/comment/schema.json#linked-content`
 
 Linking the content rather embedding it reduces the size of the event.
 

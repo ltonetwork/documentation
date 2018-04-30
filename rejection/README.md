@@ -1,14 +1,12 @@
-# index
+# Rejection
 
-[← back](../)
-
-## Rejection
-
-A node is required to validate if an event is valid before adding it to the event chain. Events that are invalid may be rejected.
+A node is required to validate if an event is valid before adding it to the event chain. Events that are invalid may be
+rejected.
 
 ### Note to all readers
 
-**Live Contracts draft 01 does not yet include specifications for rejects. Events that don't validate are silently dropped. This may give problems in Live Contracts implementations that support distributed contracts.**
+**Live Contracts draft 01 does not yet include specifications for rejects. Events that don't validate are silently
+dropped. This may give problems in Live Contracts implementations that support distributed contracts.**
 
 ### Validation
 

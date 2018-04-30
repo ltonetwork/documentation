@@ -14,7 +14,7 @@ event chains.
 
 ### Event chain schema
 
-`http://specs.livecontracts.io/draft-01/event-chain/schema.json#`
+`https://specs.livecontracts.io/draft-01/event-chain/schema.json#`
 
 The event chain is the only mutable component of Live Contacts in the fact that events may be added. Event chains SHOULD
 NOT be versioned.
@@ -53,7 +53,7 @@ A projected set of identities that participate on the chain.
 
 ### Event schema
 
-`http://specs.livecontracts.io/draft-01/event-chain/schema.json#event`
+`https://specs.livecontracts.io/draft-01/event-chain/schema.json#event`
 
 #### body
 
@@ -106,7 +106,7 @@ a transaction. This is done as proof of existence and for timestamping.
 
 ### Receipt schema
 
-`http://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt`
+`https://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt`
 
 The receipt follows the [Chainpoint specification v2](https://chainpoint.org/).
 

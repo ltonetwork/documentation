@@ -13,13 +13,13 @@ Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
 
 ```json
 {
-    "$schema": "http://specs.livecontracts.io/draft-01/form/schema.json#",
+    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#",
     "id": "lt:/forms/6140f806-c4e6-4c22-ba3e-f0291a486cd5",
     "definition": [
         {
             "fields": [
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/form-external/schema.json#external_select",
+                    "$schema": "https://specs.livecontracts.io/draft-01/form-external/schema.json#external_select",
                     "label": "Post",
                     "name": "post",
                     "url": "http://jsonplaceholder.typicode.com/posts",
@@ -27,7 +27,7 @@ Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
                     "optionText": "title"
                 },
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/form/schema.json#number",
+                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#number",
                     "label": "Photo id",
                     "name": "photo_id",
                     "helptext": "Between 1 and 5000",
@@ -37,7 +37,7 @@ Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
                     "max": "5000"
                 },
                 {
-                    "$schema": "http://specs.livecontracts.io/draft-01/form-external/schema.json#external_data",
+                    "$schema": "https://specs.livecontracts.io/draft-01/form-external/schema.json#external_data",
                     "name": "photo",
                     "url": "https://jsonplaceholder.typicode.com/photos/{{ conditional_step.photo_id }}",
                     "conditions": "conditional_step.photo_id != \"\" && conditional_step.show_fields == 'show'",
@@ -55,13 +55,13 @@ Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
 
 ### External Select schema
 
-`http://specs.livecontracts.io/draft-01/form-external/schema.json#external-select`
+`https://specs.livecontracts.io/draft-01/form-external/schema.json#external-select`
 
 Input control to select from an external source.
 
 ### External Data schema
 
-`http://specs.livecontracts.io/draft-01/form-external/schema.json#external-data`
+`https://specs.livecontracts.io/draft-01/form-external/schema.json#external-data`
 
 Fetch external data. The data is fetched when initiating the form or when `url` parameter changes.
 

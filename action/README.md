@@ -2,7 +2,7 @@
 
 In a process an [action](../scenario/#action-schema) may be performed to trigger a state change or to update the process projection. For each action in the scenario, the `$schema` property MUST be set.
 
-The base schema of an action is `http://specs.livecontracts.io/draft-01/scenario/schema.json#action-schema`. These schemas are specify the type of action. The action type is used to execute an action of to display it correctly in the UI.
+The base schema of an action is `https://specs.livecontracts.io/draft-01/scenario/schema.json#action-schema`. These schemas are specify the type of action. The action type is used to execute an action of to display it correctly in the UI.
 
 _**Basic properties than all actions have, are not described here.**_
 
@@ -17,17 +17,17 @@ _**Basic properties than all actions have, are not described here.**_
 * [NOP action](#nop-schema)
 * [HTTP action](#http-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/draft-01/action/schema.json) | [changelog](changelog.md)
 
 ## Choose schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#choose`
+`https://specs.livecontracts.io/draft-01/action/schema.json#choose`
 
 This action allows the actor to pick one of the responses.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#choose",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#choose",
   "actor": "client",
   "responses": {
     "approve": { "label": "Approve" },
@@ -41,13 +41,13 @@ A choose action SHOULD NOT have a `label`, instead the labels of each response i
 
 ## Form action schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#choose`
+`https://specs.livecontracts.io/draft-01/action/schema.json#choose`
 
 Display a [form](../form/) to the actor to fill out information.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#form",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#form",
   "actor": "client",
   "form": {
     "id": "lt:/forms/a45f0b2f-21b8-4d09-8295-1665f38e17c7?v=BaM88e44"
@@ -72,13 +72,13 @@ If it's only an id, the form SHOULD be fetched client side when the action is ac
 
 ## Upload action schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#upload`
+`https://specs.livecontracts.io/draft-01/action/schema.json#upload`
 
 Ask the actor to upload one or more files. The event body SHOULD be encoded as `multipart/form-data`.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#upload",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#upload",
   "label": "Upload documents",
   "actor": "client",
   "accept": "image/*, application/pdf",
@@ -101,13 +101,13 @@ Boolean flag to allow uploading multiple files at once.
 
 ## View document schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#view-document`
+`https://specs.livecontracts.io/draft-01/action/schema.json#view-document`
 
 View or review a [document](../document/). Allow the user to pick one of the responses.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#view-document",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#view-document",
   "actor": "client",
   "document": {
     "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06"
@@ -130,13 +130,13 @@ If it's only an id, the document SHOULD be fetched client side when the action i
 
 ## Edit document schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#edit-document`
+`https://specs.livecontracts.io/draft-01/action/schema.json#edit-document`
 
 Edit a [document](../document/). Also, allow the user to pick one of the responses.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#edit-document",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#edit-document",
   "actor": "client",
   "document": {
     "id": "lt:/documents/7c403337-a4d6-47a6-89a6-eb989451dc06"
@@ -170,7 +170,7 @@ If it's only an id, the document SHOULD be fetched client side when the action i
 
 ## Follow link schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#follow-link`
+`https://specs.livecontracts.io/draft-01/action/schema.json#follow-link`
 
 Have the user follow a hyperlink.
 
@@ -180,13 +180,13 @@ The URL to go to.
 
 ## NOP schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#nop`
+`https://specs.livecontracts.io/draft-01/action/schema.json#nop`
 
 No operation \(automated action\).
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#nop",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#nop",
   "actor": "client",
   "responses": {
     "ok": {
@@ -201,13 +201,13 @@ No operation \(automated action\).
 
 ## HTTP schema
 
-`http://specs.livecontracts.io/draft-01/action/schema.json#http`
+`https://specs.livecontracts.io/draft-01/action/schema.json#http`
 
 Automated action to do a HTTP GET or POST request.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#http",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#http",
   "actor": "client",
   "url": "https://api.example.com/",
   "method": "POST",
@@ -235,7 +235,7 @@ Multiple parallel HTTP requests
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/action/schema.json#http",
+  "$schema": "https://specs.livecontracts.io/draft-01/action/schema.json#http",
   "actor": "client",
   "method": "POST",
   "headers": {

@@ -10,7 +10,7 @@ the missing events.
 * [Request body](#request-body-schema)
 * [Denied response](#denied-response-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](http://specs.livecontracts.io/draft-01/chain-request/schema.json) | [changelog](changelog.md)
 
 ### Request and response
 
@@ -24,7 +24,7 @@ doesn't validate or if the `signkey` doesn't belong to an identity, the request 
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/chain-request/schema.json#",
+  "$schema": "https://specs.livecontracts.io/draft-01/chain-request/schema.json#",
   "body": "ew0KICAiaWQiOiAibHQ6L2V2ZW50LWNoYWlucy9kMjlkMDQ5Ni1hZDQyLTRlZDctYWEzNy1iZTMxYTg3ZWE5M2UiLA0KICAiZnJvbSI6IFsNCiAgICAiOVRLNGZSYnFKS1dya2g4NXl6WDlpVHpEakZVMzkyUjE0YU5pNjdDUXRlaUEiLA0KICAgICI3bktzUnNGNGN1am9ORjluODdXMnkxV0ZjNm5DQUVnbzEzbmJneHdhZVl4NSIsDQogICAgIjc3SkQ1ZWJucmtDalJSYzNobVNjMmZaZHBRNzQ2emI0Y21YQjd6a2Z2amZDIg0KICBdLA0KICAiZW5jcnlwdGtleSI6ICJMNkZzZ0h4M2VpdHlOTFZmbmZLR3NwOFBUN2tKTzRuZVJCaEg2dVEyRUFrbCINCn0=",
   "timestamp": "2018-03-04T00:00:00+00:00",
   "signkey": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
@@ -37,7 +37,7 @@ The body is a base64 encoded JSON string of the request
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/chain-request/schema.json#body",
+  "$schema": "https://specs.livecontracts.io/draft-01/chain-request/schema.json#body",
   "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
   "from": [
     "9TK4fRbqJKWrkh85yzX9iTzDjFU392R14aNi67CQteiA",
@@ -52,7 +52,7 @@ The request can't be validated it's denied.
 
 ```json
 {
-  "$schema": "http://specs.livecontracts.io/draft-01/chain-request/schema.json#denied-response",
+  "$schema": "https://specs.livecontracts.io/draft-01/chain-request/schema.json#denied-response",
   "request": {
     "id": "lt:/event-chains/d29d0496-ad42-4ed7-aa37-be31a87ea93e",
     "hash": "BAf5XVyzRwB1KNg6Q38RdPaYaRQMbqcXeGoQwj9rKidH"
@@ -67,7 +67,7 @@ The request can't be validated it's denied.
 
 ## Chain request schema
 
-`http://specs.livecontracts.io/draft-01/chain-request/schema.json#`
+`https://specs.livecontracts.io/draft-01/chain-request/schema.json#`
 
 To create a signature and hash, first create the message. Each line is separated by a single `\n` character. There is no
 trailing `\n` at the end of the message.
@@ -110,7 +110,7 @@ A base58 encoded SHA256 hash of the event. To create the hash use the same messa
 
 ## Request body schema
 
-`http://specs.livecontracts.io/draft-01/chain-request/schema.json#body`
+`https://specs.livecontracts.io/draft-01/chain-request/schema.json#body`
 
 ### Properties
 
@@ -147,7 +147,7 @@ unencrypted event chain as response.
 
 ## Denied response schema
 
-`http://specs.livecontracts.io/draft-01/chain-request/schema.json#denied-response`
+`https://specs.livecontracts.io/draft-01/chain-request/schema.json#denied-response`
 
 To create a signature and hash, first create the message. Each line is separated by a single `\n` character. There is no
 trailing `\n` at the end of the message.

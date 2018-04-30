@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "http://specs.livecontracts.io/draft-01/comment/schema.json#",
+    "$id": "https://specs.livecontracts.io/draft-01/comment/schema.json#",
     "title": "Live Contracts comment schema",
     "description": "A logged comment",
     "type": "object",
@@ -11,7 +11,7 @@
         },
         "identity": {
             "description": "The person that created the comment",
-            "$ref": "http://specs.livecontracts.io/draft-01/identity/schema.json#"
+            "$ref": "https://specs.livecontracts.io/draft-01/identity/schema.json#"
         },
         "timestamp": {
             "description": "Date/time the comment was created",
@@ -36,7 +36,7 @@
         },
         "receipt": {
             "description": "Anchoring receipt",
-            "$ref": "http://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt"
+            "$ref": "https://specs.livecontracts.io/draft-01/event-chain/schema.json#receipt"
         }
     },
     "definitions": {
