@@ -1,30 +1,55 @@
 # Cryptography
 
-Live Contracts uses the `SHA256` to create a cryptographic hashes. The `Blake2b256` and `Keccak256` hashing algorithms
+Live Contracts uses the `SHA256` to create a cryptographic hashes. The `BLAKE2b` and `Keccak256` hashing algorithms
 are used for creating public/secret key pairs. The `ED25519` scheme is applied to create and verify signatures. `X25519`
-is used to for asymmetric encryption. For symmetric encrypt use `AES256` in Galois/Counter Mode (gcm). `Base58` is used
-to create the string from of bytes.
+is used for asymmetric encryption as key exchange. `Salsa20` (with `Poly1305`) is used for both asymmetric and symmetric
+encryption. `Base58` is used to create the string from of bytes.
 
 If you want to create an application, you should find the implementation of these algorithms on your programming
 language.
 
+## Encoding
+
 ### Base58
 
-In order to ease human readable, all arrays of bytes in the project are encoded by
-[Base58 algorithm with Bitcoin alphabet].
+Arrays of bytes (like strings and hashes) in the project are encoded by [Base58 algorithm with Bitcoin alphabet].
 
-**Example**
+When encoding a hash, use the raw bytes and not the hexidecimal notation.
 
-The string `teststring` are coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`. The bytes `[1, 2, 3, 4, 5]` are
-coded into the string `7bWpTW`.
+_Note that encoding is not encryption. You can decode a base58 encoded message without the need of any type of key._
+
+**Examples**
+
+* The string `hello world` is encoded as `StV1DL6CwTryKyV`.
+* SHA256 hash `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` is encoded as
+  `GKot5hBsd81kMupNCXHaqbhv3huEbxAFMLnpcX2hniwn` 
 
 [Base58 algorithm with Bitcoin alphabet]: https://en.bitcoin.it/wiki/Base58Check_encoding
 
-### Asymmetric encryption
+## Hashing
+
+### SHA256
+
+In general Live Contracts uses the 256 bit version of SHA-2 for encoding. SHA-2 is one of the most common hashing
+algorithms which means it's available for almost all platforms and programming languages.
+
+### BLAKE2b + Keccak256
+
+When secure hashes are required, a combination of BLAKE2b and Keccak256 are used.
+
+BLAKE2b is supported by libsodium as ['Generic hashing']. It's widely supported across platforms and languages.
+
+Keccak256 is a very secure hashing algorithm, which served as basis for SHA-3. However NIST made some slight
+modifications to the algorithm, causing SHA-3 to yield a different result. Keccak256 is used by many blockchain
+platforms as Ethereum and Waves. You might need to extract it from an SDK or use a user maintained library.
+
+['Generic hashing']: https://download.libsodium.org/doc/hashing/generic_hashing.html
+
+## Asymmetric encryption
 
 Live Contracts uses `Curve25519` (Montgomery form) for encryption (`X25519`) and signing (`ED25519`).
 
-#### Creating a private key from a seed
+### Creating a private key from a seed
 
 A seed string is a representation of entropy, from which you can re-create deterministically all the private keys for an
 account. It should be long enough so that the probability of selection was a unrealistic negligible.
@@ -54,15 +79,16 @@ public key, however obvious this test might seem._
 **Recommended libraries**
 
 * [libsodium]
-* [tweetacl]
+* [NaCl] (or similar like tweetacl or js port)
 
-_Other libraries might work as well, but make sure they yield the same result as the recommended libraries. The Waves
-API library is known to yield another result and shouldn't be used to create an account from seed._
+_[Other encryption libraries] might work as well, but make sure they yield the same result as the recommended libraries.
+The Waves API library is known to yield another result and shouldn't be used to create an account from seed._
 
 [libsodium]: https://download.libsodium.org/doc/
-[tweetacl]: https://github.com/dchest/tweetnacl-js/blob/master/README.md
+[NaCl]: https://nacl.cr.yp.to/
+[Other encryption libraries]: https://en.wikipedia.org/wiki/Comparison_of_cryptography_libraries
 
-##### Example
+#### Example
 
 Brainwallet seed string
 
@@ -82,37 +108,37 @@ Account seed bytes with nonce 0 before apply hash function in Base58
 1111xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q
 ```
 
-blake2b256\(account seed bytes\)
+blake2b256v (account seed bytes)
 
 ```text
 6sKMMHVLyCQN7Juih2e9tbSmeE5Hu7L8XtBRgowJQvU7
 ```
 
-Account seed \( keccak256\(blake2b256\(account seed bytes\)\) \)
+Account seed (`keccak256(blake2b256(account seed bytes))`)
 
 ```text
 H4do9ZcPUASvtFJHvESapnxfmQ8tjBXMU7NtUARk9Jrf
 ```
 
-Account seed after `SHA256` hashing \(optional, if your library does not do it yourself\)
+Account seed after `SHA256` hashing (optional, if your library does not do it yourself)
 
 ```text
 49mgaSSVQw6tDoZrHSr9rFySgHHXwgQbCRwFssboVLWX
 ```
 
-Created private key
+Created private key (using encryption library)
 
 ```text
 3kMEhU5z3v8bmer1ERFUUhW58Dtuhyo9hE5vrhjqAWYT
 ```
 
-Created public key
+Created public key (using encryption library)
 
 ```text
 HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
 ```
 
-#### Signing
+### Signing
 
 **ED25519** is used for all the signatures in the project.
 
@@ -121,22 +147,50 @@ message using the private key.
 
 Validation of signature requires the signature, the message and the public key.
 
-Do not forget that there are many valid (not unique!) signatures for a one message. Also you should should not rely on
-any information before the hash and/or signature are checked.
+Functions for ED25519 are defined as `sign` in [libsodium][libsodium sign] and [nacl][nacl sign].
+
+_Do not forget that there are many valid (not unique!) signatures for a one message. Also you should should not rely on
+any information before the hash and/or signature are checked._
 
 [example for an event]: http://schema.livecontract.io/event-chain/#signature
+[libsodium sign]: https://download.libsodium.org/doc/public-key_cryptography/public-key_signatures.html
+[nacl sign]: https://nacl.cr.yp.to/sign.html
 
-#### Encryption
+### Encryption
 
-Live Contracts uses **X25519** to encrypt data. This is a public key encryption schema, where the public key is used to
-encrypt data and the private key is used to decrypt data.
+There are 3 algorithms involved for asymmetric encryption:
 
-### Symmetric encrypt
+* Key exchange: X25519
+* Encryption: XSalsa20 stream cipher
+* Authentication: Poly1305 MAC
 
-`AES256` in Galois/Counter Mode (gcm) may also be used to encrypt data. This is a symmetric encryption schema, where
-the same key is used to encrypt and decrypt data.
+This is a public key encryption schema, where the public key is used to encrypt data and the private key is used to
+decrypt data.
+
+Functions that use the combination of these algorithms are defined as `box` in [libsodium][libsodium box] and
+[nacl][nacl box].
+
+[libsodium box]: https://download.libsodium.org/doc/public-key_cryptography/authenticated_encryption.html
+[nacl box]: http://nacl.cr.yp.to/box.html
+
+## Symmetric encryption
+
+### Encryption
+
+There are 2 algorithms involved for symmetric encryption:
+
+* Encryption: XSalsa20 stream cipher
+* Authentication: Poly1305 MAC
 
 Symmetric encryption SHOULD be applied when linking to external content in a template, document or comment.
 
 You SHOULD always generate a new random key when using symmetric encryption. While the key SHOULD NOT be shared with
 third parties, anybody that has a copy of the key can still do so.
+
+Typically both access to the chain, as the encryption key are required to gain access to sensitive data.
+
+Functions that use a combination of these algorithms is are defined as `secretbox` in [libsodium][libsodium secretbox]
+and [nacl][nacl secretbox].
+
+[libsodium secretbox]: https://download.libsodium.org/doc/secret-key_cryptography/authenticated_encryption.html
+[nacl secretbox]: http://nacl.cr.yp.to/secretbox.html
