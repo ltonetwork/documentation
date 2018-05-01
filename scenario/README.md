@@ -11,7 +11,7 @@ A Live Contract scenario is a definition of procedure as a Finite State Machine 
 * [Transition](#transition-schema)
 * [Update instruction](#update-instruction-schema)
 
-[JSON Schema](https://specs.livecontracts.io/draft-01/scenario/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/scenario/schema.json) | [changelog](changelog.md)
 
 ### Workflow
 
@@ -69,16 +69,16 @@ Both the client and the supplier can cancel the process at any time.
 
 ```json
 {
-  "$schema": "https://specs.livecontracts.io/draft-01/scenario/schema.json#",
+  "$schema": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#",
   "id": "lt:/scenarios/fe659ffa-537d-461a-abd7-aa0f3643d5ee",
   "title": "Accept quotation",
   "description": "Accept or reject a quotation",
   "actors": {
     "supplier": {
-      "$ref": "https://specs.livecontracts.io/draft-01/actor/schema.json#organization"
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization"
     },
     "client": {
-      "$ref": "https://specs.livecontracts.io/draft-01/actor/schema.json#individual"
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#individual"
     }
   },
   "assets": {
@@ -94,7 +94,7 @@ Both the client and the supplier can cancel the process at any time.
         }
       }
     }
-    "quotation": { "$ref": "https://specs.livecontracts.io/draft-01/document/schema.json#" }
+    "quotation": { "$ref": "https://specs.livecontracts.io/v0.1.0/document/schema.json#" }
   },
   "definitions": {
     "request_form": {
@@ -218,7 +218,7 @@ Both the client and the supplier can cancel the process at any time.
           "update": {
             "select": "assets.quotation",
             "data": {
-              "$schema": "https://specs.livecontracts.io/draft-01/document/schema.json#",
+              "$schema": "https://specs.livecontracts.io/v0.1.0/document/schema.json#",
               "name": { "<tpl>": "Quotation {{ actors.client.name }} {{ response.date }}" },
               "date": { "<ref>": "response.date" },
               "content_media_type": { "<ref>": "response.data.media_type" },
@@ -366,7 +366,7 @@ Both the client and the supplier can cancel the process at any time.
 
 ### Scenario schema
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#`
 
 #### $schema
 
@@ -432,7 +432,7 @@ If the actor represents multiple identities, it SHOULD have a `members` property
       }
     },
     "employee": {
-      "$ref": "https://specs.livecontracts.io/draft-01/actor/schema.json#employee"
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#employee"
     },
     "team": {
       "type": "object",
@@ -498,7 +498,7 @@ Set of all states of the scenario. The keys of the object are used as reference 
 
 ### Action
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#action`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action`
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition and / or may update the process projection.
 
@@ -538,7 +538,7 @@ Should the action be displayed in the history? Choose one of the following optio
 
 ### Response schema
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#response`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#response`
 
 Instructions for a response of an action.
 
@@ -566,7 +566,7 @@ The value must be the key of an action listed in the actions array.
 
 ### Update instruction schema
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#update-instruction`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#update-instruction`
 
 After a response is given, the projection of the process may be updated. Update instructions can update the process information, assets or actors.
 
@@ -595,7 +595,7 @@ It's typically useful to use a [data instructions](..//data-instruction/README.m
 
 ### State schema
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#state`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#state`
 
 The state a process that's instantiated from this scenario can be in.
 
@@ -657,7 +657,7 @@ By default no state change occurs on a timeout. Add a transition with no action 
 
 ### Transition
 
-`https://specs.livecontracts.io/draft-01/scenario/schema.json#transition`
+`https://specs.livecontracts.io/v0.1.0/scenario/schema.json#transition`
 
 A transition defines the change from one state to the next. State transition definitions are more dynamic than the transition you can set in the response object.
 

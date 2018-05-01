@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+    "$id": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
     "title": "Live Contracts Identity schema",
     "description": "A contract in natural language with related data and procedures",
     "type": "object",

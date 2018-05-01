@@ -8,7 +8,7 @@ user, a user has an identity for each event chain it's participating in.
 * [Identity](#identity-schema)
 * [Privilege](#privilege-schema)
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/identity/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/identity/schema.json) | [changelog](changelog.md)
 
 ### Registration
 
@@ -37,7 +37,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ```json
 {
-  "$schema": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+  "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "4a88f56a-5bb2-4fa7-8615-c75d5ec7b1d4",
   "info": {
     "name": "John Doe",
@@ -56,7 +56,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ```json
 {
-  "$schema": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+  "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "75baa885-5862-4f81-80f4-60df746ff002",
   "info": {
     "name": "John Doe",
@@ -65,17 +65,17 @@ Note that it's not possible to force a node or user to delete an event chain tha
   "node": "amqps://app.legalthings.one",
   "privileges": [
     {
-      "schema": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+      "schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
       "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
       "not": [ "privileges" ],
       "signkey": [ "user", "registration" ]
     },
     {
-      "schema": "https://specs.livecontracts.io/draft-01/document/schema.json#",
+      "schema": "https://specs.livecontracts.io/v0.1.0/document/schema.json#",
       "id": "lt:/contracts/c9ddeeca-ad2f-4204-92da-eda18ed0bd21"
     },
     {
-      "schema": "https://specs.livecontracts.io/draft-01/comment/schema.json#",
+      "schema": "https://specs.livecontracts.io/v0.1.0/comment/schema.json#",
       "signkey": "user"
     }
   ],
@@ -91,7 +91,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ```json
 {
-  "$schema": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+  "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
   "info": {
     "name": "Arnold",
@@ -99,13 +99,13 @@ Note that it's not possible to force a node or user to delete an event chain tha
   },
   "privileges": [
     {
-      "schema": "https://specs.livecontracts.io/draft-01/identity/schema.json#",
+      "schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
       "id": "lt:/identities/75baa885-5862-4f81-80f4-60df746ff002",
       "not": [ "privileges" ],
       "signkey": [ "user", "registration" ]
     },
     {
-      "schema": "https://specs.livecontracts.io/draft-01/10-action/schema.json#",
+      "schema": "https://specs.livecontracts.io/v0.1.0/10-action/schema.json#",
       "id": "lt:/identities/cdab4c34-3fb6-41a6-aa58-921358b7677c",
       "signkey": "user"
     }
@@ -118,7 +118,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 ## Identity schema
 
-`https://specs.livecontracts.io/draft-01/identity/schema.json#`
+`https://specs.livecontracts.io/v0.1.0/identity/schema.json#`
 
 ### Properties
 
@@ -174,7 +174,7 @@ This is key typically the same as the `system` signkey, but may differ is one no
 
 ## Privilege schema
 
-`https://specs.livecontracts.io/draft-01/identity/schema.json#privilege`
+`https://specs.livecontracts.io/v0.1.0/identity/schema.json#privilege`
 
 A privilege grant the identity to add one type events to the event chain.
 

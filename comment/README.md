@@ -8,7 +8,7 @@ messages are stored as part of the event chain. Everybody who has access to the 
 * [Comment](#comment-schema)
 * [Linked content](#linked-content-schema)
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/comment/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/comment/schema.json) | [changelog](changelog.md)
 
 ### Example
 

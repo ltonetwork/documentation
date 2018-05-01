@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://specs.livecontracts.io/draft-01/action/schema.json#",
+    "$id": "https://specs.livecontracts.io/v0.1.0/action/schema.json#",
     "title": "Live Contracts Action types",
     "description": "Different types of action that can be performed",
     "definitions": {
@@ -10,7 +10,7 @@
                 "form": {
                     "oneOf": [
                         { "$ref": "#/definitions/di" },
-                        { "$ref": "https://specs.livecontracts.io/draft-01/form/schema.json#" }
+                        { "$ref": "https://specs.livecontracts.io/v0.1.0/form/schema.json#" }
                     ]
                 }
             },
@@ -36,7 +36,7 @@
                 "document": {
                     "oneOf": [
                         { "$ref": "#/definitions/di" },
-                        { "$ref": "https://specs.livecontracts.io/draft-01/document/schema.json#" }
+                        { "$ref": "https://specs.livecontracts.io/v0.1.0/document/schema.json#" }
                     ]
                 }
             },
@@ -48,7 +48,7 @@
                 "form": {
                     "oneOf": [
                         { "$ref": "#/definitions/di" },
-                        { "$ref": "https://specs.livecontracts.io/draft-01/document/schema.json#" }
+                        { "$ref": "https://specs.livecontracts.io/v0.1.0/document/schema.json#" }
                     ]
                 }
             },
@@ -143,13 +143,13 @@
         "choose_action": {
             "$id": "#choose",
             "description": "Choose from one of the responses",
-            "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action"
+            "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action"
         },
         "form_action": {
             "$id": "#form",
             "description": "Fill out a form",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/form" }
             ]
         },
@@ -157,7 +157,7 @@
             "$id": "#upload",
             "description": "Upload a file",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/upload" }
             ]
         },
@@ -165,7 +165,7 @@
             "$id": "#view-document",
             "description": "View a document",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/view_document" }
             ]
         },
@@ -173,7 +173,7 @@
             "$id": "#edit-document",
             "description": "Edit a document",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/edit_document" }
             ]
         },
@@ -181,7 +181,7 @@
             "$id": "follow-link",
             "description": "Follow a hyperlink",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/follow_link" }
             ]
         },
@@ -189,26 +189,26 @@
         "nop_action": {
             "$id": "#nop",
             "description": "Automated action with no operation",
-            "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action"
+            "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action"
         },
         "http_action": {
             "$id": "#http",
             "description": "Do an HTTP request",
             "allOf": [
-                { "$ref": "https://specs.livecontracts.io/draft-01/scenario/schema.json#action" },
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#action" },
                 { "$ref": "#/definitions/http" }
             ]
         },
         
         "di": {
             "description": "Data instruction",
-            "$ref": "https://specs.livecontracts.io/draft-01/data-instruction/schema.json#"
+            "$ref": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#"
         },
         "stringdi": {
             "description": "A string or a data instruction",
             "oneOf": [
                 { "type": "string" },
-                { "$ref": "https://specs.livecontracts.io/draft-01/data-instruction/schema.json#" }
+                { "$ref": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#" }
             ]
         }
     }

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://specs.livecontracts.io/draft-01/template/schema.json#",
+    "$id": "https://specs.livecontracts.io/v0.1.0/template/schema.json#",
     "title": "Live Contracts template schema",
     "description": "A definition of a contract template",
     "type": "object",
@@ -30,7 +30,7 @@
                     "format": "uri"
                 },
                 {
-                    "$ref": "https://specs.livecontracts.io/draft-01/form/schema.json#"
+                    "$ref": "https://specs.livecontracts.io/v0.1.0/form/schema.json#"
                 }
             ]
         },
