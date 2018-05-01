@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://specs.livecontracts.io/draft-01/chain-request/schema.json#",
+    "$id": "https://specs.livecontracts.io/v0.1.0/chain-request/schema.json#",
     "title": "Live Contracts Chain request schema",
     "description": "A request for a (portion of) an event chain",
     "type": "object",

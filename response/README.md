@@ -6,4 +6,4 @@ transition.
 
 ### Schemas
 
-[JSON Schema](https://specs.livecontracts.io/draft-01/response/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/response/schema.json) | [changelog](changelog.md)

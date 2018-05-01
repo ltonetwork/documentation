@@ -5,4 +5,4 @@ and instantiated for the process.
 
 ### Schemas
 
-[JSON Schema](http://specs.livecontracts.io/draft-01/actor/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/actor/schema.json) | [changelog](changelog.md)

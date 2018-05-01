@@ -2,7 +2,7 @@
 
 ```json
 {
-    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#",
+    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#",
     "id": "lt:/forms/dcf13bda-a432-44fb-bdc3-52e37e809018",
     "title": "Demo form for external data",
     "definition": [
@@ -12,7 +12,7 @@
             "helptext": "<p>This step will perform an extern request at <a href=\"https://jsonplaceholder.typicode.com\">https://jsonplaceholder.typicode.com</a>.</p><p>Try typing in <code>est</code>.</p>",
             "fields": [
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form-external/schema.json#external_select",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form-external/schema.json#external_select",
                     "label": "Post",
                     "name": "post",
                     "url": "http://jsonplaceholder.typicode.com/posts",
@@ -20,7 +20,7 @@
                     "optionText": "title"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#external_select",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#external_select",
                     "label": "Comment",
                     "name": "comment",
                     "url": "http://jsonplaceholder.typicode.com/posts/{{ external.post }}/comments",
@@ -28,7 +28,7 @@
                     "optionText": "name"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#external_select",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#external_select",
                     "label": "Quote",
                     "name": "quote",
                     "url": "http://jsonplaceholder.typicode.com/posts/{{ external.post }}",
@@ -37,7 +37,7 @@
                     "expression": "[{id: 'title', value: title}, {id: 'body', value: body}]"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#number",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#number",
                     "label": "Photo id",
                     "name": "photo_id",
                     "value": "",
@@ -48,13 +48,13 @@
                     "max": "5000"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#external_data",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#external_data",
                     "name": "photo",
                     "url": "https://jsonplaceholder.typicode.com/photos/{{ external.photo_id }}",
                     "conditions": "external.photo_id != \"\""
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#checkbox",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#checkbox",
                     "label": "{{ external.photo.title }}",
                     "name": "photo_checkbox",
                     "text": "{{ external.photo.url }}"
@@ -67,13 +67,13 @@
             "conditions": "validation.show_next_step == 'show'",
             "fields": [
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#text",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#text",
                     "label": "Show fields",
                     "name": "show_fields",
                     "helptext": "Type 'show' to see the fields"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form-external/schema.json#external_select",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form-external/schema.json#external_select",
                     "label": "Post",
                     "name": "post",
                     "url": "http://jsonplaceholder.typicode.com/posts",
@@ -82,7 +82,7 @@
                     "conditions": "conditional_step.show_fields == 'show'"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form/schema.json#number",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#number",
                     "label": "Photo id",
                     "name": "photo_id",
                     "helptext": "Between 1 and 5000",
@@ -92,7 +92,7 @@
                     "max": "5000"
                 },
                 {
-                    "$schema": "https://specs.livecontracts.io/draft-01/form-external/schema.json#external_data",
+                    "$schema": "https://specs.livecontracts.io/v0.1.0/form-external/schema.json#external_data",
                     "name": "photo",
                     "url": "https://jsonplaceholder.typicode.com/photos/{{ conditional_step.photo_id }}",
                     "conditions": "conditional_step.photo_id != \"\" && conditional_step.show_fields == 'show'",
