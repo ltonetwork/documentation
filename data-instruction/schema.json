@@ -3,9 +3,9 @@
     "$id": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#",
     "title": "Live Contracts data instructions schema",
     "description": "Data instructions are applied when a scenario state or action is instantiated",
-    "type": "object",
     "oneOf": [
         { "$ref": "#ref" },
+        { "$ref": "#eval" },
         { "$ref": "#equal" },
         { "$ref": "#match" },
         { "$ref": "#if" },
@@ -40,6 +40,18 @@
                 }
             },
             "required": [ "<ref>" ]
+        },
+        "eval": {
+            "$id": "#eval",
+            "description": "Alias of <ref>",
+            "type": "object",
+            "properties": {
+                "<eval>": {
+                    "description": "JMESPath expression",
+                    "$ref": "#/definitions/stringdi"
+                }
+            },
+            "required": [ "<eval>" ]
         },
         "equal": {
             "$id": "#equal",
@@ -212,7 +224,7 @@
         },
         "apply": {
             "$id": "#apply",
-            "description": "Apply JMESPath expressions to data",
+            "description": "Apply JMESPath expression to data",
             "type": "object",
             "properties": {
                 "<apply>": {
