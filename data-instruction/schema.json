@@ -76,16 +76,16 @@
                     "oneOf": [
                         {
                             "properties": {
-                                "input": { "$ref": "#/definitons/stringdi" },
-                                "find": { "$ref": "#/definitons/stringdi" }
+                                "input": { "$ref": "#/definitions/stringdi" },
+                                "find": { "$ref": "#/definitions/stringdi" }
                             },
                             "required": [ "input", "find" ]
                         },
                         {
                             "properties": {
-                                "input": { "$ref": "#/definitons/stringdi" },
-                                "regex": { "$ref": "#/definitons/stringdi" },
-                                "flags": { "$ref": "#/definitons/stringdi" }
+                                "input": { "$ref": "#/definitions/stringdi" },
+                                "regex": { "$ref": "#/definitions/stringdi" },
+                                "flags": { "$ref": "#/definitions/stringdi" }
                             },
                             "required": [ "input", "regex" ]
                         }
@@ -254,18 +254,18 @@
                     "oneOf": [
                         {
                             "properties": {
-                                "input": { "$ref": "#/definitons/stringdi" },
-                                "find": { "$ref": "#/definitons/stringdi" },
-                                "replacement": { "$ref": "#/definitons/stringdi" }
+                                "input": { "$ref": "#/definitions/stringdi" },
+                                "find": { "$ref": "#/definitions/stringdi" },
+                                "replacement": { "$ref": "#/definitions/stringdi" }
                             },
                             "required": [ "input", "find", "replacement" ]
                         },
                         {
                             "properties": {
-                                "input": { "$ref": "#/definitons/stringdi" },
-                                "regex": { "$ref": "#/definitons/stringdi" },
-                                "flags": { "$ref": "#/definitons/stringdi" },
-                                "replacement": { "$ref": "#/definitons/stringdi" }
+                                "input": { "$ref": "#/definitions/stringdi" },
+                                "regex": { "$ref": "#/definitions/stringdi" },
+                                "flags": { "$ref": "#/definitions/stringdi" },
+                                "replacement": { "$ref": "#/definitions/stringdi" }
                             },
                             "required": [ "input", "regex", "replacement" ]
                         }
@@ -336,7 +336,7 @@
                     "input_format": {
                         "description": "Input format",
                         "$comment": "Defaults to ISO-8601",
-                        "$ref": "#/defintions/stringdi"
+                        "$ref": "#/definitions/stringdi"
                     },
                     "format": {
                         "description": "Output format",
