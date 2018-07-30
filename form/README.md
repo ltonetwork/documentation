@@ -22,7 +22,7 @@ form and fields can be rendered directly to HTML or to JavaScript enabled widget
 * [Expression](#expression-schema)
 * [Static](#static-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json) | [changelog](changelog.md)
 
 ### Example
 
@@ -67,7 +67,7 @@ form and fields can be rendered directly to HTML or to JavaScript enabled widget
 
 ### Form schema
 
-[JSON Schema](../form/schema.json)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#)
 
 #### $schema
 
@@ -103,7 +103,7 @@ A [JMESPath query](http://jmespath.org/) to transform data when outputted from t
 
 A form has steps which groups the fields. Steps can be shown one at a time, like a wizard, or all at once.
 
-[JSON Schema](../form/schema.json#step)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/step)
 
 #### label
 
@@ -203,7 +203,7 @@ An expression that is used for validation. This expression may reference any fie
 
 ### Text schema
 
-[JSON Schema](../form/schema.json#text)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/text)
 
 A one-line text input field. In HTML it MAY be rendered as
 
@@ -257,7 +257,7 @@ A - matches a letter (a-z or A-Z)
 
 ### Password schema
 
-[JSON Schema](../form/schema.json#password)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/password)
 
 A password input field. In HTML it MAY be rendered as
 
@@ -300,7 +300,7 @@ error.
 
 ### Number schema
 
-[JSON Schema](../form/schema.json#number)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/number)
 
 A number input field. In HTML it MAY be rendered as
 
@@ -351,7 +351,7 @@ value, it is rounded.
 
 ### Amount schema
 
-[JSON Schema](../form/schema.json#amount)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/amount)
 
 The amount field is a number with a unit as suffix. Example `3 hours` or `17 products`. The value is an object with an
 `amount` and a `unit` property, which may be rendered to a string.
@@ -420,7 +420,7 @@ dropdown.
 
 ### Money schema
 
-[JSON Schema](../form/schema.json#money)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/money)
 
 The money field is a numeric input with fixed currency prefix. When cast to a string, the value is automatically
 prefixed with the currency symbol.
@@ -473,7 +473,7 @@ For a money field use `"$schema": "https://specs.livecontracts.io/v0.1.0/form/sc
 
 ### Date schema
 
-[JSON Schema](../form/schema.json#date)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/date)
 
 An input field for a date. The value of the date is always in ISO-8601 form. The input depends on `locale` set for the
 form.
@@ -520,7 +520,7 @@ For a date field use `"$schema": "https://specs.livecontracts.io/v0.1.0/form/sch
 
 ### email schema
 
-[JSON Schema](../form/schema.json#email)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/email)
 
 An input field for an email address. In HTML this MAY be rendered as
 
@@ -558,7 +558,7 @@ For an email field use `"$schema": "https://specs.livecontracts.io/v0.1.0/form/s
 
 ### textarea schema
 
-[JSON Schema](../form/schema.json#textarea)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/textarea)
 
 A multi-line text input control. In HTML this MAY be rendered as
 
@@ -592,7 +592,7 @@ For a textarea field use `"$schema": "https://specs.livecontracts.io/v0.1.0/form
 
 ### select schema
 
-[JSON Schema](../form/schema.json#select)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/select)
 
 Input control to select on of the specified options. In HTML this MAY be rendered as
 
@@ -658,7 +658,7 @@ If the field is not required, an option SHOULD be added to select and empty valu
 
 ### select group schema
 
-[JSON Schema](../form/schema.json#group)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/group)
 
 Checkbox or radio button group to select on of the specified options. This works similar to a `select` field, only it
 SHOULD be rendered differently.
@@ -725,7 +725,7 @@ If the field is not required, an option SHOULD be added to select and empty valu
 
 ### checkbox schema
 
-[JSON Schema](../form/schema.json#checkbox)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/checkbox)
 
 A single checkbox. In HTML this MAY be rendered as
 
@@ -773,7 +773,7 @@ If the field is not required, an option SHOULD be added to select and empty valu
 
 ### likert schema
 
-[JSON Schema](../form/schema.json#likert)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form/schema.json#/definitions/likert)
 
 A [like scale](https://en.wikipedia.org/wiki/Likert_scale) input. This is a grid input with questions and options. The
 options are the same for each question.

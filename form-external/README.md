@@ -7,13 +7,13 @@ Forms MAY fetch external data through an HTTP GET request from a JSON REST API.
 * [External select](#external-select-schema)
 * [External data](#external-data-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/form-external/schema.json) | [changelog](changelog.md)
 
 ### Example
 
 ```json
 {
-    "$schema": "https://specs.livecontracts.io/v0.1.0/form/schema.json#",
+    "$schema": "https://specs.livecontracts.io/v0.1.0/form-external/schema.json#",
     "id": "lt:/forms/6140f806-c4e6-4c22-ba3e-f0291a486cd5",
     "definition": [
         {

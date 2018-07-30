@@ -5,9 +5,9 @@ from the projected process.
 
 ### Schemas
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json) | [changelog](changelog.md)
 
-_Please checkout the [JSON Schema](schema.json) for more information. Documentation will be added._
+_Please checkout the [JSON Schema](https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json) for more information. Documentation will be added._
 
 ### Example
 
