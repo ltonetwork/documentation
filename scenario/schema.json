@@ -44,7 +44,9 @@
             "description": "Set of actor schemas",
             "type": "object",
             "patternProperties": {
-                "^\\w+$": { "$ref": "http://json-schema.org/draft-07/schema#" }
+                "^\\w+$": {
+                    "$ref": "http://json-schema.org/draft-07/schema#"
+                }
             }
         },
         "assets": {
@@ -67,7 +69,7 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "https://specs.livecontracts.io/v0.1.0/10-action/schema.json#definition"
+                    "$ref": "https://specs.livecontracts.io/v0.1.0/action/schema.json#definitions"
                 }
             }
         },
@@ -76,7 +78,7 @@
             "type": "object",
             "patternProperties": {
                 "^\\w+$": {
-                    "$ref": "#state"
+                    "$ref": "#definitions/state"
                 }
             }
         }
@@ -119,11 +121,11 @@
                     "type": "object",
                     "patternProperties": {
                         "^\\w+$": {
-                            "$ref": "#response"
+                            "$ref": "#/definitions/response"
                         }
                     },
                     "default": {
-                        "ok": { }
+                        "ok": {}
                     }
                 },
                 "default_response": {
@@ -145,7 +147,11 @@
                 "display": {
                     "description": "Show the response",
                     "type": "string",
-                    "enum": [ "never", "once", "always" ],
+                    "enum": [
+                        "never",
+                        "once",
+                        "always"
+                    ],
                     "default": "always"
                 },
                 "transition": {
@@ -157,12 +163,12 @@
                     "description": "Update instruction or set of instructions",
                     "oneOf": [
                         {
-                            "$ref": "#update-instruction"
+                            "$ref": "#/definitions/update_instruction"
                         },
                         {
                             "type": "array",
                             "items": {
-                                "$ref": "#update"
+                                "$ref": "#/definitions/update_instruction"
                             }
                         }
                     ]
@@ -183,7 +189,9 @@
                     "$ref": "#/definitions/stringdi"
                 }
             },
-            "required": [ "select" ]
+            "required": [
+                "select"
+            ]
         },
         "state": {
             "$id": "#state",
@@ -218,7 +226,9 @@
                             },
                             "minItems": 1
                         },
-                        { "$ref": "#/definitions/di" }
+                        {
+                            "$ref": "#/definitions/di"
+                        }
                     ]
                 },
                 "default_action": {
@@ -229,7 +239,7 @@
                     "description": "Set of state transitions resulting from an action response",
                     "type": "array",
                     "items": {
-                        "$ref": "#transition"
+                        "$ref": "#/definitions/transition"
                     }
                 },
                 "timeout": {
@@ -246,19 +256,32 @@
             "properties": {
                 "action": {
                     "description": "Action reference",
-                    "type": [ "null", "string" ],
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "pattern": "^\\w+$"
                 },
                 "response": {
                     "description": "Action response",
-                    "type": "string",
+                    "type": [
+                        "null",
+                        "string"
+                    ],
                     "pattern": "^\\w+$"
                 },
                 "condition": {
                     "description": "Condition that must be true",
                     "oneOf": [
-                        { "type": "boolean" },
-                        { "$ref": "#/definitions/di" }
+                        {
+                            "type": [
+                                "null",
+                                "boolean"
+                            ]
+                        },
+                        {
+                            "$ref": "#/definitions/di"
+                        }
                     ]
                 },
                 "transition": {
@@ -267,9 +290,10 @@
                     "pattern": "^:?\\w+$"
                 }
             },
-            "required": [ "transition" ]
+            "required": [
+                "transition"
+            ]
         },
-        
         "di": {
             "description": "Data instruction",
             "$ref": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#"
@@ -277,8 +301,12 @@
         "stringdi": {
             "description": "A string or a data instruction",
             "oneOf": [
-                { "type": "string" },
-                { "$ref": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#" }
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json#"
+                }
             ]
         }
     }

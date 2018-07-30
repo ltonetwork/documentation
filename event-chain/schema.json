@@ -17,7 +17,7 @@
             "description": "Chained events",
             "type": "array",
             "items": {
-                "$ref": "#event"
+                "$ref": "#/definitions/event"
             }
         },
         "identities": {
@@ -43,7 +43,10 @@
             }
         }
     },
-    "required": [ "$schema", "events" ],
+    "required": [
+        "$schema",
+        "events"
+    ],
     "definitions": {
         "event": {
             "$id": "#event",
@@ -81,10 +84,17 @@
                     "contentEncoding": "base58"
                 },
                 "receipt": {
-                    "$ref": "#receipt"
+                    "$ref": "#/definitions/receipt"
                 }
             },
-            "required": [ "body", "timestamp", "previous", "signkey", "signature", "hash" ]
+            "required": [
+                "body",
+                "timestamp",
+                "previous",
+                "signkey",
+                "signature",
+                "hash"
+            ]
         },
         "receipt": {
             "$id": "#receipt",
@@ -116,8 +126,12 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "left": { "type": "string" },
-                            "right": { "type": "string" }
+                            "left": {
+                                "type": "string"
+                            },
+                            "right": {
+                                "type": "string"
+                            }
                         }
                     }
                 },
@@ -135,11 +149,19 @@
                                 "type": "string"
                             }
                         },
-                        "required": [ "type", "sourceId" ]
+                        "required": [
+                            "type",
+                            "sourceId"
+                        ]
                     }
                 }
             },
-            "required": [ "@context", "type", "targetHash", "" ]
+            "required": [
+                "@context",
+                "type",
+                "targetHash",
+                ""
+            ]
         }
     }
 }

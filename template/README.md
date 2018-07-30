@@ -9,7 +9,7 @@ language text, a form definition to collect the data and links to associated sce
 * [Linked content](#linked-content-schema)
 * [Related scenario](#related-scenario-schema)
 
-[JSON Schema](https://specs.livecontracts.io/01-draft/template/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v1.0.1/template/schema.json) | [changelog](changelog.md)
 
 ### Example
 

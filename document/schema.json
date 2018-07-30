@@ -106,7 +106,7 @@
         },
         "receipt": {
             "description": "Anchoring receipt",
-            "$ref": "https://specs.livecontracts.io/v0.1.0/event-chain/schema.json#receipt"
+            "$ref": "https://specs.livecontracts.io/v0.1.0/event-chain/schema.json#definitions/receipt"
         }
     }
 }

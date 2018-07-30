@@ -30,13 +30,17 @@
         "content": {
             "description": "The full content or a link to the content",
             "anyOf": [
-                { "type": "string" },
-                { "$ref": "#linked-content" }
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "#/definitions/linked_content"
+                }
             ]
         },
         "receipt": {
             "description": "Anchoring receipt",
-            "$ref": "https://specs.livecontracts.io/v0.1.0/event-chain/schema.json#receipt"
+            "$ref": "https://specs.livecontracts.io/v0.1.0/event-chain/schema.json#definitions/receipt"
         }
     },
     "definitions": {
@@ -60,7 +64,10 @@
                     "contentEncoding": "base58"
                 }
             },
-            "required": [ "url", "hash" ]
+            "required": [
+                "url",
+                "hash"
+            ]
         }
-    }    
+    }
 }

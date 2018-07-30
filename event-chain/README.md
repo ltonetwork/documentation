@@ -10,7 +10,7 @@ event chains.
 * [Event](#event-schema)
 * [Receipt](#receipt-schema)
 
-[JSON Schema](schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/event-chain/schema.json) | [changelog](changelog.md)
 
 ### Event chain schema
 
@@ -34,12 +34,13 @@ encoded value from the following data structure:
 | \# | Field name | Type | Position | Length |
 | ---: | :--- | :---: | ---: | ---: |
 | 1 | Version \(0x01\) | Byte | 0 | 1 |
-| 2 | Random number | Long | 1 | 8 |
-| 3 | Public key hash | Bytes | 2 | 20 |
-| 4 | Checksum | Bytes | 22 | 4 |
+| 2 | Random number | Long | 1 | 20 |
+| 3 | Public key hash | Bytes | 21 | 20 |
+| 4 | Checksum | Bytes | 41 | 4 |
 
 Public key hash is first 20 bytes of _SecureHash_ of public key bytes. Checksum is first 4 bytes of _SecureHash_ of
 version, random and hash bytes. SecureHash is hash function `Keccak256(Blake2b256(data))`.
+The random number can be random number or generated from a nonce. This nonce is a `sha256` hash and then the first 20 bytes.
 
 #### events
 

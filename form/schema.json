@@ -37,11 +37,14 @@
             "description": "Steps or groups of the form",
             "type": "array",
             "items": {
-                "$ref": "#step"
+                "$ref": "#/definitions/step"
             }
         }
     },
-    "required": ["$schema", "definition"],
+    "required": [
+        "$schema",
+        "definition"
+    ],
     "additionalProperties": true,
     "definitions": {
         "step": {
@@ -58,7 +61,10 @@
                 },
                 "repeat": {
                     "description": "Expression defining how often the step should appear",
-                    "type": [ "string", "integer" ]
+                    "type": [
+                        "string",
+                        "integer"
+                    ]
                 },
                 "anchor": {
                     "description": "Link to anchor within linked template",
@@ -78,7 +84,7 @@
                     "type": "string"
                 },
                 "fields": {
-                    "description": "Field defintions",
+                    "description": "Field definitions",
                     "type": "array",
                     "items": {
                         "type": "object",
@@ -88,11 +94,13 @@
                                 "format": "uri-reference"
                             }
                         },
-                        "required": [ "$schema" ],
+                        "required": [
+                            "$schema"
+                        ],
                         "additionalProperties": true
                     }
                 }
-            } 
+            }
         },
         "text": {
             "$id": "#text-field",
@@ -105,20 +113,38 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#text"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "type": "string"
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "pattern": { "$ref": "#/definitions/field_pattern" },
-                "mask": { "$ref": "#/definitions/field_mask" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "pattern": {
+                    "$ref": "#/definitions/field_pattern"
+                },
+                "mask": {
+                    "$ref": "#/definitions/field_mask"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "password": {
             "$id": "#password",
@@ -131,19 +157,35 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#password"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "type": "string"
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "pattern": { "$ref": "#/definitions/field_pattern" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "pattern": {
+                    "$ref": "#/definitions/field_pattern"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "number": {
             "$id": "#number",
@@ -156,21 +198,44 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#number"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
-                    "type": [ "number", "integer" ]
+                    "type": [
+                        "number",
+                        "integer"
+                    ]
                 },
-                "decimals": { "$ref": "#/definitions/field_decimals" },
-                "min": { "$ref": "#/definitions/field_min_number" },
-                "max": { "$ref": "#/definitions/field_max_number" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "decimals": {
+                    "$ref": "#/definitions/field_decimals"
+                },
+                "min": {
+                    "$ref": "#/definitions/field_min_number"
+                },
+                "max": {
+                    "$ref": "#/definitions/field_max_number"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "amount": {
             "$id": "#amount",
@@ -183,31 +248,59 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#amount"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
-                    "type": [ "number", "integer" ]
+                    "type": [
+                        "number",
+                        "integer"
+                    ]
                 },
-                "decimals": { "$ref": "#/definitions/field_decimals" },
-                "min": { "$ref": "#/definitions/field_min_number" },
-                "max": { "$ref": "#/definitions/field_max_number" },
+                "decimals": {
+                    "$ref": "#/definitions/field_decimals"
+                },
+                "min": {
+                    "$ref": "#/definitions/field_min_number"
+                },
+                "max": {
+                    "$ref": "#/definitions/field_max_number"
+                },
                 "options": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "singular": { "type": "string" },
-                            "plural": { "type": "string" }
+                            "singular": {
+                                "type": "string"
+                            },
+                            "plural": {
+                                "type": "string"
+                            }
                         }
                     }
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name", "options" ]
+            "required": [
+                "name",
+                "options"
+            ]
         },
         "money": {
             "$id": "#money",
@@ -220,20 +313,38 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#money"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "type": "number"
                 },
-                "min": { "$ref": "#/definitions/field_min_number" },
-                "max": { "$ref": "#/definitions/field_max_number" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "min": {
+                    "$ref": "#/definitions/field_min_number"
+                },
+                "max": {
+                    "$ref": "#/definitions/field_max_number"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "date": {
             "$id": "#date",
@@ -246,8 +357,12 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#date"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "$comment": "as ISO 8601 date",
@@ -264,12 +379,22 @@
                     "type": "string",
                     "format": "date"
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "email": {
             "$id": "#email",
@@ -282,19 +407,33 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#email"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "type": "string",
                     "format": "email"
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "textarea": {
             "$id": "#textarea",
@@ -307,14 +446,28 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#textarea"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name" ]
+            "required": [
+                "name"
+            ]
         },
         "select": {
             "$id": "#select",
@@ -327,32 +480,59 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#select"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "description": "Default value",
                     "oneOf": [
                         {
                             "$comment": "Single select",
-                            "type": [ "string", "number", "integer" ]
+                            "type": [
+                                "string",
+                                "number",
+                                "integer"
+                            ]
                         },
                         {
                             "$comment": "Multi select",
                             "type": "array",
                             "items": {
-                                "type": [ "string", "number", "integer" ]
+                                "type": [
+                                    "string",
+                                    "number",
+                                    "integer"
+                                ]
                             }
                         }
                     ]
                 },
-                "options": { "$ref": "#/defintions/field_options" },
-                "multiselect": { "$ref": "#/defintions/multiselect" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "options": {
+                    "$ref": "#/definitions/field_options"
+                },
+                "multiselect": {
+                    "$ref": "#/definitions/field_multiselect"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name", "options" ]
+            "required": [
+                "name",
+                "options"
+            ]
         },
         "select_group": {
             "$id": "#select-group",
@@ -365,31 +545,58 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#select-group"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "default": {
                     "oneOf": [
                         {
                             "$comment": "Single select",
-                            "type": [ "string", "number", "integer" ]
+                            "type": [
+                                "string",
+                                "number",
+                                "integer"
+                            ]
                         },
                         {
                             "$comment": "Multi select",
                             "type": "array",
                             "items": {
-                                "type": [ "string", "number", "integer" ]
+                                "type": [
+                                    "string",
+                                    "number",
+                                    "integer"
+                                ]
                             }
                         }
                     ]
                 },
-                "options": { "$ref": "#/defintions/field_options" },
-                "multiselect": { "$ref": "#/defintions/multiselect" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "options": {
+                    "$ref": "#/definitions/field_options"
+                },
+                "multiselect": {
+                    "$ref": "#/definitions/field_multiselect"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name", "options" ]
+            "required": [
+                "name",
+                "options"
+            ]
         },
         "checkbox": {
             "$id": "#checkbox",
@@ -402,8 +609,12 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#checkbox"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "checked": {
                     "description": "Should the box be checked by default",
                     "type": "boolean",
@@ -411,19 +622,35 @@
                 },
                 "value": {
                     "description": "The value that the variable holds if the checkbox is selected",
-                    "type": [ "boolean", "string", "number", "integer" ],
+                    "type": [
+                        "boolean",
+                        "string",
+                        "number",
+                        "integer"
+                    ],
                     "default": true
                 },
                 "text": {
                     "description": "The text displayed with the checkbox",
                     "type": "string"
                 },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "required": { "$ref": "#/definitions/field_required" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "required": {
+                    "$ref": "#/definitions/field_required"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name", "text" ]
+            "required": [
+                "name",
+                "text"
+            ]
         },
         "likert": {
             "$id": "#likert",
@@ -436,8 +663,12 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#likert"
                 },
-                "label": { "$ref": "#/definitions/field_label" },
-                "name": { "$ref": "#/definitions/field_name" },
+                "label": {
+                    "$ref": "#/definitions/field_label"
+                },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "keys": {
                     "description": "A set of questions",
                     "type": "array",
@@ -445,12 +676,24 @@
                         "type": "string"
                     }
                 },
-                "options": { "$ref": "#/defintions/field_options" },
-                "helptext": { "$ref": "#/definitions/field_helptext" },
-                "conditions": { "$ref": "#/definitions/field_conditions" },
-                "validation": { "$ref": "#/definitions/field_validation" }
+                "options": {
+                    "$ref": "#/definitions/field_options"
+                },
+                "helptext": {
+                    "$ref": "#/definitions/field_helptext"
+                },
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                },
+                "validation": {
+                    "$ref": "#/definitions/field_validation"
+                }
             },
-            "required": [ "name", "keys", "options" ]
+            "required": [
+                "name",
+                "keys",
+                "options"
+            ]
         },
         "expression": {
             "$id": "#expression",
@@ -463,13 +706,18 @@
                     "format": "uri",
                     "const": "https://specs.livecontracts.io/v0.1.0/form/schema.json#expression"
                 },
-                "name": { "$ref": "#/definitions/field_name" },
+                "name": {
+                    "$ref": "#/definitions/field_name"
+                },
                 "expression": {
                     "description": "Calculated expression",
                     "type": "string"
                 }
             },
-            "required": [ "name", "expression" ]
+            "required": [
+                "name",
+                "expression"
+            ]
         },
         "static": {
             "$id": "#static",
@@ -487,11 +735,15 @@
                     "type": "string",
                     "contentMediaType": "text/html"
                 },
-                "conditions": { "$ref": "#/definitions/field_conditions" }
+                "conditions": {
+                    "$ref": "#/definitions/field_conditions"
+                }
             },
-            "required": [ "name", "content" ]
+            "required": [
+                "name",
+                "content"
+            ]
         },
-        
         "field_label": {
             "description": "Label that is shown with the field",
             "type": "text"
@@ -547,7 +799,11 @@
                 "type": "object",
                 "properties": {
                     "value": {
-                        "type": [ "string", "number", "integer" ]
+                        "type": [
+                            "string",
+                            "number",
+                            "integer"
+                        ]
                     },
                     "label": {
                         "type": "string"
