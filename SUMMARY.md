@@ -1,24 +1,32 @@
 # Table of contents
 
 * [Live Contracts specifications](README.md)
-* [Cryptography](cryptography/README.md)
-* [Network](network/README.md)
-  * [Chain request](chain-request/README.md)
-  * [Response](response/README.md)
-  * [Rejection](rejection/README.md)
-  * [Conflict resolution](conflict-resolution/README.md)
-* [LTRI](ltri/README.md)
-* [Event Chain](event-chain/README.md)
-* [Identity](identity/README.md)
-* [Template](template/README.md)
-* [Scenario](scenario/README.md)
-  * [Action](action/README.md)
-  * [Actor](actor/README.md)
-  * [Data instruction](data-instruction/README.md)
-* [Form](form/README.md)
-  * [External](form-external/README.md)
-* [Document](document/README.md)
-* [Process](process/README.md)
-  * [Resposne](response/README.md)
-* [Comment](comment/README.md)
+* [Cryptography](cryptography.md)
+* [REST API](rest-api/README.md)
+  * [API client libraries](rest-api/api-client-libraries.md)
+
+## Event Chain service
+
+* [Event Chain](event-chain/events/README.md)
+  * [Event](event-chain/events/event.md)
+* [Identity](event-chain/identity.md)
+* [Resource](event-chain/resource.md)
+* [Network](event-chain/network/README.md)
+  * [Chain request](event-chain/network/chain-request.md)
+  * [Conflict resolution](event-chain/network/conflict-resolution.md)
+
+## Workflow Engine
+
+* [Scenario](workflow/scenario/README.md)
+  * [Actor](workflow/scenario/actor.md)
+  * [Asset](workflow/scenario/asset.md)
+  * [Action](workflow/scenario/action.md)
+  * [State](workflow/scenario/state.md)
+  * [Data instruction](workflow/scenario/data-instruction.md)
+* [Process](workflow/process.md)
+* [Response](workflow/response.md)
+* [Trigger](workflow/trigger/README.md)
+  * [HTTP trigger](workflow/trigger/http-trigger.md)
+  * [NOP trigger](workflow/trigger/nop-trigger.md)
+  * [Event trigger](workflow/trigger/event-trigger.md)
 

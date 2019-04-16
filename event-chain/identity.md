@@ -1,33 +1,31 @@
+---
+description: 'An identity within the event chain represents a person, team or organization.'
+---
+
 # Identity
 
-An identity within the event chain. The identity is used for authentication and authorization. An identity is not a
-user, a user has an identity for each event chain it's participating in.
+The identity is used for authentication and authorization. An identity is not a user, a user has an identity for each event chain it's participating in.
 
 ### Schemas
 
-* [Identity](#identity-schema)
-* [Privilege](#privilege-schema)
+* [Identity](identity.md#identity-schema)
+* [Privilege](identity.md#privilege-schema)
 
-[JSON Schema](https://specs.livecontracts.io/v0.1.0/identity/schema.json) | [changelog](changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/identity/schema.json) \| [changelog](https://github.com/legalthings/livecontracts-specs/tree/f138bf7777b31f535d6fa21c0ddad3a4aaea45d5/identity/changelog.md)
 
 ### Registration
 
-The first event on the event chain MUST be an identity. This event enables the user or organization to add subsequent 
-events on the chain. This is the initiator of the chain.
+The first event on the event chain MUST be an identity. This event enables the user or organization to add subsequent events on the chain. This is the initiator of the chain.
 
-This initial identity can start adding other identities on the chain. If it knows the public key(sa) of, it can simply
-add them and notify the user about this new chain. If the public key is unknown a new key pair may be generated.
+This initial identity can start adding other identities on the chain. If it knows the public key\(sa\) of, it can simply add them and notify the user about this new chain. If the public key is unknown a new key pair may be generated.
 
 #### Authentication
 
-Possibly the new identity might need to go to an authentication process before it can participate in a process, get
-write access to a contract, etc. In that case the system of the initiator is responsible of granting additional
-privileges at the end of the authentication process.
+Possibly the new identity might need to go to an authentication process before it can participate in a process, get write access to a contract, etc. In that case the system of the initiator is responsible of granting additional privileges at the end of the authentication process.
 
 #### Removal
 
-Any identity that can overwrite other identities of the event chain, may remove that identity by clearing the `node`,
-`keys` property. That way the user no longer receives new events and is unable to fetch the chain.
+Any identity that can overwrite other identities of the event chain, may remove that identity by clearing the `node`, `keys` property. That way the user no longer receives new events and is unable to fetch the chain.
 
 Note that it's not possible to force a node or user to delete an event chain that has already been received.
 
@@ -35,7 +33,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 #### Initiating identity
 
-```json
+```javascript
 {
   "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "4a88f56a-5bb2-4fa7-8615-c75d5ec7b1d4",
@@ -45,7 +43,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
   },
   "node": "amqps://app.legalthings.one",
   "signkeys": {
-    "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
+    "default": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
     "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
   },
   "encryptkey": "26X04SH0o6JliuiwzT5kclnU1lN8fYaxaquANNIdbpNx"
@@ -54,7 +52,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 #### Identity with specific privileges.
 
-```json
+```javascript
 {
   "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "75baa885-5862-4f81-80f4-60df746ff002",
@@ -89,7 +87,7 @@ Note that it's not possible to force a node or user to delete an event chain tha
 
 #### Identity for invitation to the event chain
 
-```json
+```javascript
 {
   "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
   "id": "3f9bf36c-2245-4fb7-9e0f-e55f1b7ace15",
@@ -128,37 +126,25 @@ The Live Contracts Identity [JSON schema](http://json-schema.org) URI that descr
 
 #### id
 
-A unique identifier for the identity within the event chain using UUID-4.
-
-#### info
-
-The `info` object contains additional information about the user. Typically this should hold a `name` and `email` field.
-
-The object may include a `$schema` property to define the other properties of `info`. The schema for this is not defined
-by the Live Contracts specification. Having the user info in a schema that both systems understands means that a user
-can skip steps where it's asked to identity itself. The info may also hold properties that can be used for
-authentication.
+A unique identifier for the identity within the event chain a resource id.
 
 #### node
 
-The uri of node that the identity is using to participate on this chain. This SHOULD be an
-[ampq URI](https://www.rabbitmq.com/uri-spec.html).
+The uri of node that the identity is using to participate on this chain. This SHOULD be an [ampq URI](https://www.rabbitmq.com/uri-spec.html).
 
 Note that additions to the chain are not broadcasted to all node, but only send to the nodes of the active identities.
 
 #### privileges
 
-A list of [privileges](#privilege).
+A list of [privileges](identity.md#privilege).
 
 #### signkeys
 
 The X25519 public keys that the identity uses for signing events. It's an object where the key is the type.
 
-Common types are `user` and `system`. The `user` key is kept client side, so you can be sure that the user takes that
-action. The `system` key doesn't belong to the user but to the system the user is running on. It can be specified for an
-automated step.
+Common types are `user` and `system`. The `user` key is kept client side, so you can be sure that the user takes that action. The `system` key doesn't belong to the user but to the system the user is running on. It can be specified for an automated step.
 
-```json
+```javascript
 {
   "user": "8MeRTc26xZqPmQ3Q29RJBwtgtXDPwR7P9QNArymjPLVQ",
   "system": "FA2CiSAWUEANTxcffctxm8XQfTugZv7VX5C1Qb59vbxj"
@@ -167,8 +153,7 @@ automated step.
 
 #### encryptkey
 
-The `encryptkey` is an X25519 public key used for encrypting data for the identity. The private encrypt key SHOULD be
-hold and kept secret by the node which is responsible for encrypting and decrypting events.
+The `encryptkey` is an X25519 public key used for encrypting data for the identity. The private encrypt key SHOULD be hold and kept secret by the node which is responsible for encrypting and decrypting events.
 
 This is key typically the same as the `system` signkey, but may differ is one node serves multiple systems.
 
@@ -190,14 +175,13 @@ Set the `id` if the privilege only applies to a specific projection like a proce
 
 #### only
 
-When projecting an item from an event, filter the body so it only contains these properties. Properties listed here are
-ignored. This doesn't go more than one level deep.
+When projecting an item from an event, filter the body so it only contains these properties. Properties listed here are ignored. This doesn't go more than one level deep.
 
 #### not
 
-When projecting an item from an event, filter the body so it does not contains these properties. Properties note listed
-here are ignored. This doesn't go more than one level deep.
+When projecting an item from an event, filter the body so it does not contains these properties. Properties note listed here are ignored. This doesn't go more than one level deep.
 
 #### signkey
 
 If specified, only this type / these types of sign keys may be used to sign the event.
+

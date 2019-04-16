@@ -1,17 +1,20 @@
-# Data instructions
+# Data instruction
 
-Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using data
-from the projected process.
+Data instructions allow you to dynamically set properties of a state or actions when they are instantiated using data from the projected process.
 
-### Schemas
+* `<ref>` - Resolve a reference to another part of the document using a dot key path
+* `<ifset>` - Checks if a reference is null. If so, replace the object by null.
+* `<switch>` - Choose one of the child properties based on a property in the document
+* `<src>` - Load an external resource \(through HTTP\)
+* `<merge>` - Merge a set of objects
+* `<enrich>` - Enrich an object with extra data by matching properties
+* `<tpl>` - Parse text as [Mustache](https://mustache.github.io/) template
+* `<apply>` - Project an object using the [JMESPath](http://jmespath.org/) query language
+* `<dateformat>` - Takes a date and a format \(defaults to `Y-m-d`\) and formats the accordingly. Optionally you can set the timezone if you wish to output timezone information.
 
-[JSON Schema](https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json) | [changelog](changelog.md)
+## Example
 
-_Please checkout the [JSON Schema](https://specs.livecontracts.io/v0.1.0/data-instruction/schema.json) for more information. Documentation will be added._
-
-### Example
-
-```json
+```javascript
 {
     "foo": {
         "bar": {
@@ -42,7 +45,7 @@ _Please checkout the [JSON Schema](https://specs.livecontracts.io/v0.1.0/data-in
     },
     "search_results": {
         "<apply>": {
-            "query": "RelatedTopics[].{url: FirstURL, description: Text}",
+            "projection": "RelatedTopics[].{url: FirstURL, description: Text}",
             "input": {
                 "<src>": {
                     "<tpl>": "http://api.duckduckgo.com/?q={{ foo.term }}&format=json"
@@ -60,9 +63,6 @@ _Please checkout the [JSON Schema](https://specs.livecontracts.io/v0.1.0/data-in
                     "algo": "md5",
                     "input": "foo"
                 }
-            },
-            {
-                "<src>": "https://api.example.com/zoo/99"
             },
             {
                 "apples": 100,
