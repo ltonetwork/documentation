@@ -6,6 +6,44 @@ description: The state a process that's instantiated from this scenario can be i
 
 ## State scenario
 
+All the possible states are described in the `states` section. Each state describes through which `action` it can transition to a new `state`
+
+{% tabs %}
+{% tab title="YAML" %}
+```yaml
+:initial:
+    action: complete
+    transitions:
+      - response: ok
+        transition: :success
+      - response: cancel
+        transition: :failed
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+    ":initial": {
+        "action": "complete"
+        "transitions": [
+            {
+                "response": "ok",
+                "transition": ":success"
+            },
+            {
+                "response": "cancel",
+                "transition": ":failed"
+            }
+        ]
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## State Schema
+
 `https://specs.livecontracts.io/v0.2.0/scenario/schema.json#state`
 
 ### title

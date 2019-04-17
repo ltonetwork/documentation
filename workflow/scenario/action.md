@@ -1,10 +1,54 @@
 # Action
 
-## Action schema
-
-`https://specs.livecontracts.io/v0.2.0/scenario/schema.json#action`
+## Scenario action
 
 An action is something that can be performed by actor or the node of an actor. An action may trigger a state transition and / or may update the process projection.
+
+{% tabs %}
+{% tab title="YAML" %}
+```yaml
+issue:
+  "$schema": https://specs.livecontracts.io/v0.2.0/action/schema.json
+  actor: issuer
+  responses:
+    ok:
+      title: Issued new license
+      update:
+      - select: assets.license
+      - select: assets.available
+        projection: "{shipments: shipments, quantity: quantity}"
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "issue": {
+    "$schema": "https://specs.livecontracts.io/v0.2.0/action/schema.json",
+    "actor": "issuer",
+    "responses": {
+      "ok": {
+        "title": "Issued new license",
+        "update": [
+          {
+            "select": "assets.license"
+          },
+          {
+            "select": "assets.available",
+            "projection": "{shipments: shipments, quantity: quantity}"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Action schema
+
+`https://specs.livecontracts.io/v0.2.0/action/schema.json`
 
 ### $schema
 
@@ -74,7 +118,7 @@ The value must be the key of an action listed in the actions array.
 
 After a response is given, the projection of the process may be updated. Update instructions can update the process information, assets or actors.
 
-## set
+## select
 
 A reference to the item in the process that should be updated. This MUST be a property of `info`, `assets` or `actors`.
 
