@@ -42,6 +42,47 @@ All the possible states are described in the `states` section. Each state descri
 {% endtab %}
 {% endtabs %}
 
+or
+
+{% tabs %}
+{% tab title="YAML" %}
+```yaml
+:initial:
+    actions: 
+      - complete
+      - next
+    transitions:
+      - action: complete
+        transition: :success
+      - action: next
+        transition: next-state
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "initial": {
+    "actions": [
+      "complete",
+      "next"
+    ],
+    "transitions": [
+      {
+        "action": "complete",
+        "transition": "success"
+      },
+      {
+        "action": "next",
+        "transition": "next-state"
+      }
+    ]
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## State Schema
 
 `https://specs.livecontracts.io/v0.2.0/scenario/schema.json#state`

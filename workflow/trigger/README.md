@@ -6,7 +6,7 @@ description: Triggers send are used for automated actions.
 
 ### Configuring custom actions to use trigger
 
-```text
+```yaml
 triggers:
   payment:
     type: http
@@ -15,4 +15,32 @@ triggers:
     method: POST
     projection: "{body: {name: name, amount: quantity * price }}"
 ```
+
+### Using a custom action
+
+{% tabs %}
+{% tab title="YAML" %}
+```yaml
+$schema: "https://specs.psp.example.com/actions/payment/schema.json#"
+title: Step1
+actor: system
+name: Payment1
+quantity: 1
+price: 100
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+  "$schema": "https://specs.psp.example.com/actions/payment/schema.json#",
+  "title": "Step1",
+  "actor": "system",
+  "name": "Payment1",
+  "quantity": 1,
+  "price": 100
+}
+```
+{% endtab %}
+{% endtabs %}
 
