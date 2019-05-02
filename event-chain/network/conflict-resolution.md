@@ -18,19 +18,11 @@ If your branch is abandoned and you're switching to a new branch, your node need
 
 Instead, the whole projection will be deleted and rebuild by replaying all events.
 
-## Resolution methods
+## Resolution
 
-Every node is free to resolve conflicts any way it wants. Behaving in an unexpected way result in a dead lock or dead loop. Therefor there's a recommended way of resolving conflicts.
+Every event is anchored on the public chain. In case of conflict, the anchoring transactions of the two conflicting events are retrieved. Transactions on the public chain are processed sequentially \(and not concurrently\), allowing us to determine which anchor transaction was processed first.
 
-In some cases it's possible to benefit by abusing conflict and the recommended way for conflict resolution. This can be a reason to not adhere to this method.
+If the transactions are in different blocks, the block height determines which event happened first. If both events are in the same block, the transaction order of the block must be followed.
 
-### Recommended resolution
-
-Each event contains a timestamp. This is the time according when event was signed, according to the signer. When determining which branch is used, a node SHOULD use the timestamp of the events that caused this fork. The newer event SHOULD be stitched upon the other branch.
-
-This method does allow backdating. To reduce the period an event can be backdated to, a node SHOULD check the timestamp of the receipt. Depending on the blockchain and system used to anchor the event, this can take up to 15 minutes. Events that are less than 15 minutes old SHOULD be accepted without a receipt. Older events MAY be rejected.
-
-### Dominant identity
-
-An alternative is that one identity is dominant. In case of a conflict, the event chain hold by that identity is considered to be the valid one and other events are always stitched upon this. Such behavior is configured in the node. Note that having multiple identities claim dominance can lead to a dead-lock. An identity SHOULD NOT behave dominant if it did not initiate the event chain.
+The node of the identity that created the conflicting event on the loosing branch, MUST rebase this event and any subsequent events onto the winning branch and broadcast these to the other nodes. All other nodes only switch to the winning branch. If a node is already on the winning branch, no action is taken.
 
