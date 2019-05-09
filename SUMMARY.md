@@ -30,3 +30,10 @@
   * [NOP trigger](workflow/trigger/nop-trigger.md)
   * [Event trigger](workflow/trigger/event-trigger.md)
 
+## Tutorial
+
+* [The basics](tutorial/the-basics.md)
+* [A handshake](tutorial/a-handshake.md)
+* [A proper introduction](tutorial/a-proper-introduction.md)
+* [Inviting friends](tutorial/inviting-friends.md)
+
