@@ -9,7 +9,7 @@ description: Setup a node and run your first Live Contract.
 In these tutorials we're always using the developer build of the LTO full node. This node is run a Docker container.
 
 ```
-$ wget "https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml"
+$ curl "https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml" -o docker-compose.yml
 $ docker-compose up
 ```
 
@@ -234,12 +234,11 @@ In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we s
 
 ### Running the Live contract tester
 
-`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7.2+ with the following extensions: base58, curl, intl, mongodb and sodium. For more installation, please read [the installation guide](../).
+`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions. For more installation, please read [the installation guide](../installation-guide/).
 
 ```text
-$ wget "https://github.com/legalthings/livecontracts-tester/releases/download/v0.1.0/lctest.phar"
-$ chmod+x livecontracts-tester.phar
-$ ./livecontracts-tester.phar basic
+$ wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"
+$ php lctest.phar basic
 ```
 
 The test should succeed, giving the following output:

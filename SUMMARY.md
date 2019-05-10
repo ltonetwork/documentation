@@ -2,6 +2,10 @@
 
 * [Live Contracts specifications](README.md)
 * [Cryptography](cryptography.md)
+* [Installation guide](installation-guide/README.md)
+  * [MacOS](installation-guide/macos.md)
+  * [Windows](installation-guide/windows.md)
+  * [Ubuntu Linux](installation-guide/ubuntu-linux.md)
 * [REST API](rest-api/README.md)
   * [API client libraries](rest-api/api-client-libraries.md)
 
