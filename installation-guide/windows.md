@@ -23,7 +23,7 @@ _Docker Desktop includes docker compose, so it's not needed to install that sepa
 ### LTO full node
 
 {% hint style="success" %}
-1. Download the [composer configuration file](https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml).
+1. Download the [docker composer configuration file](https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml) for LTO full node.
 2. In PowerShell \(or another terminal\) run `docker-composer up`.
 {% endhint %}
 
