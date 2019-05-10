@@ -77,7 +77,7 @@ The title of the actor. This is copied from the actor definition in the scenario
 
 The identity links a person or organization to an actor.
 
-[See Identity specification](../../event-chain/identity.md)
+[See Identity specification](../../event-chain-service/identity.md)
 
 {% hint style="info" %}
 If another party takes over a role, the `identity` property of the actor in the process should change and not the keys of the identity. For instance if there is a change in supplier in the process, don't update the identity keys, but add an identity and switch the identity linked to the actor.

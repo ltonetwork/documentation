@@ -5,30 +5,29 @@
 * [REST API](rest-api/README.md)
   * [API client libraries](rest-api/api-client-libraries.md)
 
-## Event Chain service
+## Key Concepts
 
-* [Event Chain](event-chain/events/README.md)
-  * [Event](event-chain/events/event.md)
-* [Identity](event-chain/identity.md)
-* [Resource](event-chain/resource.md)
-* [Network](event-chain/network/README.md)
-  * [Chain request](event-chain/network/chain-request.md)
-  * [Conflict resolution](event-chain/network/conflict-resolution.md)
-
-## Workflow Engine
-
-* [Scenario](workflow/scenario/README.md)
-  * [Actor](workflow/scenario/actor.md)
-  * [Asset](workflow/scenario/asset.md)
-  * [Action](workflow/scenario/action.md)
-  * [State](workflow/scenario/state.md)
-  * [Data instruction](workflow/scenario/data-instruction.md)
-* [Process](workflow/process.md)
-* [Response](workflow/response.md)
-* [Trigger](workflow/trigger/README.md)
-  * [HTTP trigger](workflow/trigger/http-trigger.md)
-  * [NOP trigger](workflow/trigger/nop-trigger.md)
-  * [Event trigger](workflow/trigger/event-trigger.md)
+* [Workflow Engine](key-concepts/workflow-engine/README.md)
+  * [Scenario](key-concepts/workflow-engine/scenario/README.md)
+    * [Actor](key-concepts/workflow-engine/scenario/actor.md)
+    * [Asset](key-concepts/workflow-engine/scenario/asset.md)
+    * [Action](key-concepts/workflow-engine/scenario/action.md)
+    * [State](key-concepts/workflow-engine/scenario/state.md)
+    * [Data instruction](key-concepts/workflow-engine/scenario/data-instruction.md)
+  * [Process](key-concepts/workflow-engine/process.md)
+  * [Response](key-concepts/workflow-engine/response.md)
+  * [Trigger](key-concepts/workflow-engine/trigger/README.md)
+    * [HTTP trigger](key-concepts/workflow-engine/trigger/http-trigger.md)
+    * [NOP trigger](key-concepts/workflow-engine/trigger/nop-trigger.md)
+    * [Event trigger](key-concepts/workflow-engine/trigger/event-trigger.md)
+* [Event Chain Service](key-concepts/event-chain-service/README.md)
+  * [Event Chain](key-concepts/event-chain-service/events/README.md)
+    * [Event](key-concepts/event-chain-service/events/event.md)
+  * [Identity](key-concepts/event-chain-service/identity.md)
+  * [Resource](key-concepts/event-chain-service/resource.md)
+  * [Network](key-concepts/event-chain-service/network/README.md)
+    * [Chain request](key-concepts/event-chain-service/network/chain-request.md)
+    * [Conflict resolution](key-concepts/event-chain-service/network/conflict-resolution.md)
 
 ## Tutorial
 
