@@ -23,7 +23,7 @@ _Docker Desktop includes docker compose, so it's not needed to install that sepa
 ### LTO full node
 
 {% hint style="success" %}
-1. Download the [docker composer configuration file](https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml) for LTO full node.
+1. Download the [docker composer configuration file](https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml) for LTO full node.
 2. In PowerShell \(or another terminal\) run `docker-composer up`.
 {% endhint %}
 
@@ -45,6 +45,7 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
       2. In the section where there are a bunch of `extension=` lines, uncomment the following lines:
          1. `extension=php_curl.dll`
          2. `extension=php_openssl.dll`
+         3. `extension=php_sodium.dll`
 5. Add `C:\PHP7` to your Windows system path:
    1. Open the System Control Panel.
    2. Click 'Advanced System Settings'.
@@ -60,7 +61,7 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 #### MongoDB
 
 {% hint style="success" %}
-1. Visit [https://windows.php.net/downloads/pecl/releases/mongodb/](https://windows.php.net/downloads/pecl/releases/mongodb/0.3.1/) and choose the latest stable version \(not alpha, beta or RC\).
+1. Visit [https://windows.php.net/downloads/pecl/releases/mongodb/](https://windows.php.net/downloads/pecl/releases/mongodb/) and choose the latest stable version \(not alpha, beta or RC\).
 2. Download the version that matches your PHP installation. For PHP 7.3 64-bit Non-thread-safe, choose the version that ends with `7.3-nts-vc15-x64.zip`.
 3. Extract the zip file into path `C:\PHP7\ext`.
 4. Configure PHP to run correctly on your system and add the following line: `extension=php_mongodb.dll`.
@@ -70,7 +71,7 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 #### Yaml
 
 {% hint style="success" %}
-1. Visit [https://windows.php.net/downloads/pecl/releases/yaml/](https://windows.php.net/downloads/pecl/releases/mongodb/0.3.1/) and choose the latest stable version \(not alpha, beta or RC\).
+1. Visit [https://windows.php.net/downloads/pecl/releases/yaml/](https://windows.php.net/downloads/pecl/releases/yaml/) and choose the latest stable version \(not alpha, beta or RC\).
 2. Download the version that matches your PHP installation. For PHP 7.3 64-bit Non-thread-safe, choose the version that ends with `7.3-nts-vc15-x64.zip`.
 3. Extract the zip file into path `C:\PHP7\ext`.
 4. Configure PHP to run correctly on your system and add the following line: `extension=php_yaml.dll`.
@@ -80,7 +81,7 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 ### lctest.phar
 
 {% hint style="success" %}
-1. Download [https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar](https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar).
+1. Download [lctest.phar](https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar) from the LTO _livecontracs-tester_ repository.
 2. Run `php lctest.phar` to verify it's working correctly.
 {% endhint %}
 

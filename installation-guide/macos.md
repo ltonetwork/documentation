@@ -23,7 +23,7 @@ _Docker Desktop includes docker compose, so it's not needed to install that sepa
 ### LTO full node
 
 ```
-$ curl "https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml" -o docker-compose.yml
+$ curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
 $ docker-compose up
 ```
 
@@ -41,26 +41,17 @@ Verify that you have a correct version of PHP by running `php -v` in the termina
 
 ### PECL extensions for PHP
 
-#### MongoDB
-
-_install mongodb client_ \(@sven\)
-
-```text
-$ pecl install mongodb
 ```
-
-#### Yaml
-
-_install libyaml_ \(@sven\)
-
-```text
+$ pecl install mongodb
 $ pecl install yaml
 ```
 
+_The yaml extension requires_ [_LibYAML_](https://pyyaml.org/wiki/LibYAML)_, which should be pre-installed on your system._ 
+
 ### lctest.phar
 
-{% hint style="success" %}
-1. Download [https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar](https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar).
-2. Run `php lctest.phar` to verify it's working correctly.
-{% endhint %}
+```
+$ curl "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar" -o lctest.phar
+$ php lctest.phar --version
+```
 
