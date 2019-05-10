@@ -11,7 +11,7 @@ The LTO full node is comprised of a set of [Docker](https://www.docker.com/) con
 ### Docker Desktop
 
 {% hint style="success" %}
-1. Download [Docker Desktop for macOs](https://hub.docker.com/editions/community/docker-ce-desktop-mac).
+1. Download [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 2. Double-click `Docker Desktop for Windows Installer.exe` to run the installer.
 3. Docker does not start automatically. To start it, search for `Docker` and select _Docker Desktop for Windows_ in the search results.
 {% endhint %}
