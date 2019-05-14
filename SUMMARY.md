@@ -1,12 +1,9 @@
 # Table of contents
 
 * [Live Contracts specifications](README.md)
-* [Cryptography](cryptography.md)
-* [Installation guide](installation-guide/README.md)
-  * [MacOS](installation-guide/macos.md)
-  * [Windows](installation-guide/windows.md)
-  * [Ubuntu Linux](installation-guide/ubuntu-linux.md)
 * [REST API](rest-api/README.md)
+  * [Event Chain service](rest-api/event-chain-service.md)
+  * [Workflow Engine](rest-api/workflow-engine.md)
   * [API client libraries](rest-api/api-client-libraries.md)
 
 ## Key Concepts
@@ -29,14 +26,24 @@
     * [Event](key-concepts/event-chain-service/events/event.md)
   * [Identity](key-concepts/event-chain-service/identity.md)
   * [Resource](key-concepts/event-chain-service/resource.md)
-  * [Network](key-concepts/event-chain-service/network/README.md)
-    * [Chain request](key-concepts/event-chain-service/network/chain-request.md)
-    * [Conflict resolution](key-concepts/event-chain-service/network/conflict-resolution.md)
 
-## Tutorial
+## Getting started
 
-* [The basics](tutorial/the-basics.md)
-* [A handshake](tutorial/a-handshake.md)
-* [A proper introduction](tutorial/a-proper-introduction.md)
-* [Inviting friends](tutorial/inviting-friends.md)
+* [Installation guide](getting-started/installation-guide/README.md)
+  * [MacOS](getting-started/installation-guide/macos.md)
+  * [Windows](getting-started/installation-guide/windows.md)
+  * [Ubuntu Linux](getting-started/installation-guide/ubuntu-linux.md)
+* [Tutorial](getting-started/tutorial/README.md)
+  * [The basics](getting-started/tutorial/the-basics.md)
+  * [A handshake](getting-started/tutorial/a-handshake.md)
+  * [A proper introduction](getting-started/tutorial/a-proper-introduction.md)
+  * [Inviting friends](getting-started/tutorial/inviting-friends.md)
+
+## Advanced topics
+
+* [Cryptography](advanced-topics/cryptography.md)
+* [Network](advanced-topics/network/README.md)
+  * [Chain request](advanced-topics/network/chain-request.md)
+  * [Rejection](advanced-topics/network/rejection.md)
+  * [Conflict resolution](advanced-topics/network/conflict-resolution.md)
 

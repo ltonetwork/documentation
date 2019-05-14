@@ -19,7 +19,7 @@ The developer build **SHOULD NEVER** be used in a production environment or be p
 
 To check that the node is correctly up visit [https://localhost:3000](https://localhost:3000). You'll see a JSON response containing information about the LTO services.
 
-![](../.gitbook/assets/screenshot-localhost-3000-2019.05.06-15-19-12.png)
+![](../../.gitbook/assets/screenshot-localhost-3000-2019.05.06-15-19-12.png)
 
 ### Project directory structure
 
@@ -35,7 +35,7 @@ $ cd livecontracts-tutorial
 
 ## Creating a scenario
 
-A Live Contract must contain of one or more [scenarios](../key-concepts/workflow-engine/scenario/) that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
+A Live Contract must contain of one or more [scenarios](../../key-concepts/workflow-engine/scenario/) that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
 
 {% hint style="success" %}
 Create file `scenario.yml` \(or `scenario.json`\) in the `basic` directory.
@@ -65,7 +65,7 @@ title: The basics
 
 ### Defining actors
 
-[Actors](../key-concepts/workflow-engine/scenario/actor.md) are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
+[Actors](../../key-concepts/workflow-engine/scenario/actor.md) are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -102,7 +102,7 @@ The key `initiator` is used to reference the actor. The title must be defined, b
 
 ### Defining actions
 
-All [actions](../key-concepts/workflow-engine/scenario/action.md) that any actor can perform within the process must be defined at forehand in the scenario.
+All [actions](../../key-concepts/workflow-engine/scenario/action.md) that any actor can perform within the process must be defined at forehand in the scenario.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -146,7 +146,7 @@ The _complete_ action can be performed by the _initiator_ actor. The intend of t
 
 ### The initial state
 
-When a process is started, it's in the _initial_ [state](../key-concepts/workflow-engine/scenario/state.md). From this state in can transition to other states, until the process is completed.
+When a process is started, it's in the _initial_ [state](../../key-concepts/workflow-engine/scenario/state.md). From this state in can transition to other states, until the process is completed.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -243,11 +243,11 @@ $ php lctest.phar basic
 
 The test should succeed, giving the following output:
 
-![](../.gitbook/assets/screenshot-www.ostechnix.com-2019.05.07-00-34-49-2.png)
+![](../../.gitbook/assets/screenshot-www.ostechnix.com-2019.05.07-00-34-49-2.png)
 
 ## Congratulations!
 
 You've successfully created and tested your first Live Contract.
 
-![](../.gitbook/assets/sheep-clap.gif)
+![](../../.gitbook/assets/sheep-clap.gif)
 
