@@ -4,13 +4,13 @@ description: Use response data and data instructions.
 
 # A proper introduction
 
-In the [previous tutorial](a-handshake.md) two actors greeted each other and could have a small conversation. In this tutorial we have a similar premise. The `initiator` is now at a conference, where he strikes a conversation introducing himself.
+In the [previous tutorial](a-handshake.md) two actors greeted each other and could have a small conversation. In this tutorial we have a similar premise. The _initiator_ is now at a conference, where he strikes a conversation introducing himself.
 
 {% hint style="success" %}
 Create a new subdirectory named `introduction`.
 {% endhint %}
 
-To keep it simple we're not modeling all kind of different responses in this tutorial. For that take a look at the ["A handshake" tutorial](a-handshake.md).
+_To keep it simple we're not modeling all kind of different responses in this tutorial. For that take a look at the_ [_"A handshake" tutorial_](a-handshake.md)_._
 
 ## Introduce yourself
 
@@ -53,8 +53,10 @@ actors:
 
 actions:
   introduce_initiator:
+    title: Greet the person you're meeting
     actor: initiator
   introduce_recipient:
+    title: Reply to the initiator
     actor: recipient
 
 states:
@@ -240,6 +242,8 @@ Feature: Two actors meet at a conference and exchange information.
 
 The process doesn't automatically update the actor information. We need to supply update instructions for each action.
 
+Adding an `update` property to an action or response will update the selected object with the data that's send by the client.
+
 {% tabs %}
 {% tab title="YAML" %}
 ```yaml
@@ -267,13 +271,13 @@ actors:
 
 actions:
   introduce_initiator:
+    title: Greet the person you're meeting
     actor: initiator
-    update:
-      select: actors.initiator
+    update: actors.initiator
   introduce_recipient:
+    title: Reply to the initiator
     actor: recipient
-    update:
-      select: actors.recipient
+    update: actors.recipient
 
 states:
   initial:
@@ -286,8 +290,6 @@ states:
 {% endtab %}
 
 {% tab title="JSON" %}
-
-
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
@@ -319,9 +321,62 @@ states:
                 }
             }
         }
+    },
+    "actions": {
+        "introduce_initiator": {
+            "title": "Greet the person you're meeting",
+            "actor": "initiator",
+            "update": "actors.initiator"
+        },
+        "introduce_recipient": {
+            "title": "Reply to the initiator",
+            "actor": "initiator",
+            "update": "actors.initiator"
+        }
+    },
+    "states": {
+        "initial": {
+            "action": "introduce_initiator",
+            "transition": "wait_on_recipient"
+        },
+        "wait_on_recipient": {
+            "action": "introduce_recipient",
+            "transition": ":success"
+        }
     }
 }
 ```
 {% endtab %}
 {% endtabs %}
+
+## Using the actor's name
+
+Once we know the name of the actor, we can use it in the process. Rather than saying "Reply to the initiator", we could say "Reply to Joe Smith".
+
+The [`<tpl>` data instruction](../../key-concepts/workflow-engine/scenario/data-instruction.md) parses a mustache template, injecting process data.
+
+{% tabs %}
+{% tab title="YAML" %}
+```yaml
+introduce_recipient:
+  title: !tpl Reply to {{ actors.initiator }}
+  actor: recipient
+  update: actors.recipient
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+"introduce_recipient": {
+    "title": {
+        "<tpl>": "Reply to {{ actors.initiator }}"
+    }
+    "actor": "initiator",
+    "update": "actors.initiator"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
 
