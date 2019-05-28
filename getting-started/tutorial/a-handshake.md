@@ -741,7 +741,7 @@ In other words; The _initiator_ can respond with _no good_, after witch the proc
 1. Create a new test file named `initiator-not-good.feature`
 2. The `Before` section should go through the process all the way to the state where we _wait on the the initiator_.
 3. The initiator should then respond with _no good_, after witch the process transitions to a new state where we _expect an acknowledgement_ from the recipient.
-4. Create a new test Scenario for this use case.
+4. Create a new test _Scenario_ section for this use case.
 5. Modify the scenario so the new test succeeds.
 {% endhint %}
 

@@ -7,7 +7,7 @@ description: Use conditions for actions and transitions.
 The [previous tutorial](a-proper-introduction.md) had our two actors introducing themselves. In that scenario we defined an action and a state for each actor. When scenarios becomes more complex and the number of actors increase, having to define actions and states per actor quickly adds up.
 
 {% hint style="success" %}
-Create a new subdirectory named `condition` and copy the files from `introduction`.
+Create a new subdirectory named `condition` .
 {% endhint %}
 
 Since both actors need to perform the same action, we can reduce the scenario by creating a single _introduce_ action that can be performed by both actors.
@@ -39,7 +39,7 @@ Feature: Two actors meet at a conference and exchange information.
     And the "main" process is completed
 ```
 
-## Multiple actors for an action
+### Multiple actors for an action
 
 Allowing 2 actors to perform an action can be done by replacing the `actor` with a list of `actors`.
 
@@ -337,7 +337,7 @@ The _introduce_ action can already be performed by both actors in the initial st
 {% tabs %}
 {% tab title="YAML" %}
 ```yaml
-title: A proper introduction
+title: Under one condition
 
 actors:
   initiator:
@@ -438,4 +438,19 @@ states:
 ```
 {% endtab %}
 {% endtabs %}
+
+## Now you!
+
+In the ["A proper introduction" tutorial](a-proper-introduction.md), you modified the scenario adding steps for asking the e-mail address from the _recipient_.
+
+In that scenario, we only want to only consider the process to successfully completed if the _recipient_ has given her e-mail address. If the ini_t_iator ends the conversation or if the _recipient_ doesn't give her e-mail address, the process is _cancelled_.
+
+Rather than making an separate action or response for the recipient to skip not give the e-mail address, use a condition to check to transition to ":success" or ":cancelled".
+
+{% hint style="success" %}
+1. Copy the introduction scenario and test file you modified as the previous assignment.
+2. Edit main.feature, specifying that the process is _cancelled_ if it's completed by the _initiator_.
+3. Add a third `Scenario` section, copying the second. Change the last action so the _reply_ of _recipient_ on the request doesn't have any data. In this case the process should also be cancelled.
+4. Modify the scenario so the new test succeeds.
+{% endhint %}
 

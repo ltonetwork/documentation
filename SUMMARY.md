@@ -38,7 +38,7 @@
   * [A handshake](getting-started/tutorial/a-handshake.md)
   * [A proper introduction](getting-started/tutorial/a-proper-introduction.md)
   * [Under one condition](getting-started/tutorial/under-one-condition.md)
-  * [Inviting friends](getting-started/tutorial/inviting-friends.md)
+  * [Invitation by e-mail](getting-started/tutorial/inviting-friends.md)
   * [It's an app](getting-started/tutorial/its-an-app.md)
 
 ## Advanced topics

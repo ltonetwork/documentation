@@ -21,7 +21,7 @@ Feature: Two actors meet at a conference and exchange information.
 
   Background:
     Given a chain is created by "Joe"
-    Given "Joe" creates the "main" process using the "handshake" scenario
+    Given "Joe" creates the "main" process using the "introduction" scenario
     And   "Joe" is the "initiator" actor of the "main" process
     And   "Jane" is the "recipient" actor of the "main" process
 
@@ -216,7 +216,7 @@ Feature: Two actors meet at a conference and exchange information.
 
   Background:
     Given a chain is created by "Joe"
-    Given "Joe" creates the "main" process using the "handshake" scenario
+    Given "Joe" creates the "main" process using the "introduction" scenario
     And   "Joe" is the "initiator" actor of the "main" process
     And   "Jane" is the "recipient" actor of the "main" process
 
@@ -378,5 +378,22 @@ introduce_recipient:
 {% endtab %}
 {% endtabs %}
 
+## Now you!
 
+We only get the name and organization of the recipient. To contact her, we'd also like to know her e-mail address.
+
+In the process, she won't give it while introducing herself. Instead the initiator may ask the information after the introduction. If he doesn't ask, the conversation is over.
+
+_To keep it simple, we'll assume she's always willing to give her e-mail address._
+
+{% hint style="success" %}
+1. Edit`Scenario` section of the `main.feature` test file. The process isn't completed after the introduction. Instead it's in the _wait on initiator_ state. The initiator will give run the _complete_ action to finish the process.
+2. Add a second `Scenario` section. The first steps are the same as the original `Scenario`. On _wait on initiator_, the _initiator_ will _ask for email_.
+3. The _recipient_ will _reply_ on email the request with her e-mail address. Her address is added to the actor information. This will complete the process.
+4. Modify the scenario so the new test succeeds.
+{% endhint %}
+
+## More data next
+
+Process data can be utilized for much more than just being displayed in titles and instructions. In the upcoming tutorials we'll see how data can alter the flow using conditions and how it can be used when communicating with externals system.
 
