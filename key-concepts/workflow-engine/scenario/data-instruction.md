@@ -5,7 +5,6 @@ Data instructions allow you to dynamically set properties of a state or actions 
 * `<ref>` - Resolve a reference to another part of the document using a dot key path
 * `<ifset>` - Checks if a reference is null. If so, replace the object by null.
 * `<switch>` - Choose one of the child properties based on a property in the document
-* `<src>` - Load an external resource \(through HTTP\)
 * `<merge>` - Merge a set of objects
 * `<enrich>` - Enrich an object with extra data by matching properties
 * `<tpl>` - Parse text as [Mustache](https://mustache.github.io/) template
