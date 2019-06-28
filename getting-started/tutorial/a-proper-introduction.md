@@ -31,7 +31,7 @@ Feature: Two actors meet at a conference and exchange information.
       | organization | LTO Network   |
     Then the "main" process is in the "wait_on_recipient" state
     
-    When "Joe" runs the "introduce_recipient" action of the "main" process with:
+    When "Jane" runs the "introduce_recipient" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
     Then the "main" process is completed
@@ -61,7 +61,7 @@ actions:
 
 states:
   initial:
-    action: introduct_initiator
+    action: introduce_initiator
     transition: wait_on_recipient
   wait_on_recipient:
     action: introduce_recipient
@@ -76,7 +76,7 @@ states:
     "title": "A proper introduction",
     "actors": {
         "initiator": {
-            "title": "Initiator",
+            "title": "Initiator"
         },
         "recipient": {
             "title": "Recipient"
@@ -144,8 +144,6 @@ actors:
 {% tab title="JSON" %}
 ```javascript
 {
-    "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
-    "title": "A proper introduction",
     "actors": {
         "initiator": {
             "$schema": "http://json-schema.org/schema#",
@@ -162,7 +160,7 @@ actors:
         },
         "recipient": {
             "$schema": "http://json-schema.org/schema#",
-            "title": "Recipient"
+            "title": "Recipient",
             "type": "object",
             "properties": {
                 "name": {
@@ -172,30 +170,6 @@ actors:
                     "type": "string"
                 }
             }
-        }
-    },
-    "actions": {
-        "introduce_initiator": {
-            "actor": "initiator",
-            "update": {
-                "select": "actors.initiator"
-            }
-        },
-        "introduce_recipient": {
-            "actor": "recipient",
-            "update": {
-                "select": "actors.recipient"
-            }
-        }
-    },
-    "states": {
-        ":initial": {
-            "action": "introduce_initiator",
-            "transition": "wait_on_recipient"
-        },
-        "wait_on_recipient": {
-            "action": "introduce_recipient",
-            "transition": ":success"
         }
     }
 }
@@ -229,7 +203,7 @@ Feature: Two actors meet at a conference and exchange information.
       | organization | LTO Network   |
     And the "main" process is in the "wait_on_recipient" state
     
-    When "Joe" runs the "introduce_recipient" action of the "main" process with:
+    When "Jane" runs the "introduce_recipient" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
     Then the "recipient" actor of the "main" process has:
@@ -247,6 +221,7 @@ Adding an `update` property to an action or response will update the selected ob
 {% tabs %}
 {% tab title="YAML" %}
 ```yaml
+$schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: A proper introduction
 
 actors:
@@ -281,7 +256,7 @@ actions:
 
 states:
   initial:
-    action: introduct_initiator
+    action: introduce_initiator
     transition: wait_on_recipient
   wait_on_recipient:
     action: introduce_recipient
@@ -310,7 +285,7 @@ states:
         },
         "recipient": {
             "$schema": "http://json-schema.org/schema#",
-            "title": "Recipient"
+            "title": "Recipient",
             "type": "object",
             "properties": {
                 "name": {
@@ -330,8 +305,8 @@ states:
         },
         "introduce_recipient": {
             "title": "Reply to the initiator",
-            "actor": "initiator",
-            "update": "actors.initiator"
+            "actor": "recipient",
+            "update": "actors.recipient"
         }
     },
     "states": {
@@ -368,9 +343,7 @@ introduce_recipient:
 {% tab title="JSON" %}
 ```javascript
 "introduce_recipient": {
-    "title": {
-        "<tpl>": "Reply to {{ actors.initiator }}"
-    }
+    "title": "!tpl Reply to {{ actors.initiator }}",
     "actor": "initiator",
     "update": "actors.initiator"
 }
