@@ -4,22 +4,22 @@ description: Communicate with external services
 
 # Invitation by e-mail
 
-In our previous tutorials, only users interacted with the process. An important feature of Live Contract is the ability to be interact with both people and systems.
+In our previous tutorials, only users interacted with the process. An important feature of Live Contract is the ability to interact with both people and systems.
 
-This tutorial will start after the introduction and exchange of the _recipients_ e-mail address. The _initiator_ is organizing an meetup and wants to invite the people he met at the conference via e-mail.
+This tutorial will start after the introduction and exchange of the _recipients_ e-mail address. The _initiator_ is organizing a meetup and wants to invite the people he met at the conference via e-mail.
 
 {% hint style="success" %}
 Create a new subdirectory named `invitation` and copy `main.feature` and `scenario.yml` from the `condition` subdirectory.
 {% endhint %}
 
-We'll only focus only on the situation where the _recipient_ gives her e-mail address and the process is completed successfully.
+We'll only focus on the situation where the _recipient_ gives her e-mail address and the process is completed successfully.
 
 ```text
 Feature: Initiator invites the recipient to a meetup.
 
   Background:
     Given a chain is created by "Joe"
-    Given "Joe" creates the "main" process using the "handshake" scenario
+    Given "Joe" creates the "main" process using the "invitation" scenario
     And   "Joe" is the "initiator" actor of the "main" process
     And   "Jane" is the "recipient" actor of the "main" process
 
@@ -51,7 +51,7 @@ Feature: Initiator invites the recipient to a meetup.
       | email        | jane.wong@example.com |
     And the "main" process is in the "pending_invitation" state
     
-    When "Joe" runs the "invite" action
+    When "Joe" runs the "invite" action of the "main" process
     Then the "main" process is completed
 ```
 
@@ -87,12 +87,14 @@ actions:
       - recipient
     condition: !eval current.actor.name == null
     update: current.actor
+  request_email:
+    actor: initiator
   reply:
     actor: recipient
     update: actors.recipient
   invite:
     $schema: http://exmple.com/schemas/invite/schema.json#
-    actor: intiator
+    actor: initiator
     invitee: !ref actors.recipient
     message: Please come to great Meetup next week.
 
@@ -100,8 +102,11 @@ states:
   initial:
     action: introduce
     transitions:
-      - transition: wait_on_recipient
-        condition: !eval actors.initiator.name != null && !eval actors.recipient.name != null
+      - transition: wait_on_initiator
+        condition: !eval actors.initiator.name != null && actors.recipient.name != null
+  wait_on_initiator:
+    action: request_email
+    transition: wait_on_recipient
   wait_on_recipient:
     action: reply
     transitions:
@@ -118,54 +123,69 @@ states:
 {% tab title="JSON" %}
 ```javascript
 {
-  "actions": {
-    "introduce": {
-      "actors": [
-        "initiator",
-        "recipient"
-      ],
-      "condition": "current.actor.name == null",
-      "update": "current.actor"
-    },
-    "reply": {
-      "actor": "recipient",
-      "update": "actors.recipient"
-    },
-    "invite": {
-      "$schema": "http://exmple.com/schemas/invite/schema.json#",
-      "actor": "intiator",
-      "invitee": "actors.recipient",
-      "message": "Please come to great Meetup next week."
-    }
-  },
-  "states": {
-    "initial": {
-      "action": "introduce",
-      "transitions": [
-        {
-          "transition": "wait_on_recipient",
-          "condition": "actors.initiator.name != null && !eval actors.recipient.name != null"
-        }
-      ]
-    },
-    "wait_on_recipient": {
-      "action": "reply",
-      "transitions": [
-        {
-          "transition": "pending_invitation",
-          "condition": "actors.recipient.email != null"
+    "actions": {
+        "introduce": {
+            "actors": [
+                "initiator",
+                "recipient"
+            ],
+            "condition": {
+                "<eval>": "current.actor.name == null"
+            },
+            "update": "current.actor"
         },
-        {
-          "transition": ":cancelled",
-          "condition": "actors.recipient.email == null"
+        "request_email": {
+            "actor": "initiator"
+        },
+        "reply": {
+            "actor": "recipient",
+            "update": "actors.recipient"
+        },
+        "invite": {
+            "$schema": "http://exmple.com/schemas/invite/schema.json#",
+            "actor": "initiator",
+            "invitee": "actors.recipient",
+            "message": "Please come to great Meetup next week."
         }
-      ]
     },
-    "pending_invitation": {
-      "action": "invite",
-      "transition": ":success"
+    "states": {
+        "initial": {
+            "action": "introduce",
+            "transitions": [
+                {
+                    "transition": "wait_on_initiator",
+                    "condition": {
+                        "<eval>": "actors.initiator.name != null && actors.recipient.name != null"
+                    }
+                }
+            ]
+        },
+        "wait_on_initiator": {
+            "action": "request_email",
+            "transition": "wait_on_recipient"
+        },
+        "wait_on_recipient": {
+            "action": "reply",
+            "transitions": [
+                {
+                    "transition": "pending_invitation",
+                    "condition": {
+                        "<eval>": "actors.recipient.email != null"
+                    }
+                },
+                {
+                    "transition": ":cancelled",
+                    "condition": {
+                        "<eval>": "actors.recipient.email == null"
+                    }
+                }
+            ]
+        },
+        "pending_invitation": {
+            "action": "invite",
+            "transition": ":success"
+        }
     }
-  }
 }
 ```
 {% endtab %}
@@ -175,7 +195,7 @@ states:
 
 Up until now, we've only used the default schema for an action. Actions that may be automated should contain all information required to run them. The structure of such an action must be defined in a custom JSON Schema.
 
-The _invite_ action is using a custom JSON Schema, specified with `$schema`. The schema may be publicly available at the specified URL or can be distributed as part of the Live Contract.
+The _invite_ action uses a custom JSON Schema, specified with `$schema`. The schema may be publicly available at the specified URL or can be distributed as part of the Live Contract.
 
 {% code-tabs %}
 {% code-tabs-item title="http://exmple.com/schemas/invite/schema.json" %}
