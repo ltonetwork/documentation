@@ -17,7 +17,7 @@ Feature: Two actors meet at a conference and exchange information.
 
   Background:
     Given a chain is created by "Joe"
-    Given "Joe" creates the "main" process using the "handshake" scenario
+    Given "Joe" creates the "main" process using the "condition" scenario
     And   "Joe" is the "initiator" actor of the "main" process
     And   "Jane" is the "recipient" actor of the "main" process
 
@@ -188,7 +188,7 @@ Data instructions can only use data that's available in the process, as they mus
 
 ## Transition validation
 
-An ill intended _Joe_ could still get around this by not specifying his name in he introduces himself. Since the name isn't set he can perform _introduce_ while in the _wait on recipient_ state.
+An ill intended _Joe_ could still get around this by not specifying his name when he introduces himself. Since the name isn't set he can perform _introduce_ while in the _wait on recipient_ state.
 
 We don't want the process to fail if _Joe_ doesn't give his name. Instead the process will stay in the _initial_ state until he does.
 
@@ -329,14 +329,15 @@ Feature: Two actors meet at a conference and exchange information.
     Then the "initiator" actor of the "main" process has:
       | name         | Joe Smith     |
       | organization | LTO Network   |
-    And the "main" process is in completed
+    And the "main" process is completed
 ```
 
-The _introduce_ action can already be performed by both actors in the initial state and only be actor of whom the name is not know yet. We only need to combine the two states.
+The _introduce_ action can already be performed by both actors in the initial state and only by actor of whom the name is not know yet. We only need to combine the two states.
 
 {% tabs %}
 {% tab title="YAML" %}
 ```yaml
+$schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: Under one condition
 
 actors:
@@ -397,7 +398,7 @@ states:
         },
         "recipient": {
             "$schema": "http://json-schema.org/schema#",
-            "title": "Recipient"
+            "title": "Recipient",
             "type": "object",
             "properties": {
                 "name": {
