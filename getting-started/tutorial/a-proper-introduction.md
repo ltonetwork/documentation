@@ -343,7 +343,9 @@ introduce_recipient:
 {% tab title="JSON" %}
 ```javascript
 "introduce_recipient": {
-    "title": "!tpl Reply to {{ actors.initiator }}",
+    "title": {
+        "<tpl>": "Reply to {{ actors.initiator }}"
+    },
     "actor": "initiator",
     "update": "actors.initiator"
 }
