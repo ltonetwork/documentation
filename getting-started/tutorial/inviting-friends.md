@@ -286,8 +286,10 @@ triggers:
     $schema: http://exmple.com/schemas/invite/schema.json#
     url: sandbox000.mailgun.org
     method: POST
-    auth: "api:key-00000000000000000000000000000000"
-    header:
+    auth: 
+      username: api
+      password: key-00000000000000000000000000000000
+    headers:
       Content-Type: application/x-www-form-urlencoded
     body:
       from: joe.smith@example.com
@@ -349,10 +351,7 @@ Feature: Initiator invites the recipient to a meetup.
       | name         | Jane Wong             |
       | organization | Acme Inc              |
       | email        | jane.wong@example.com |
-    And the "main" process is in the "pending_invitation" state
-    
-    When "Joe" runs the "invite" action
-    Then a "POST" request has been send to "https://api.mailgun.net/v3/sandbox000.mailgun.org/messages" with:
+    And a "POST" request has been send to "https://api.mailgun.net/v3/sandbox000.mailgun.org/messages" with:
       | from    | info@example.com                       |
       | to      | Jane Wong <jane.wong@example.com>      |
       | subject | You are invited to our Meetup          |
@@ -364,7 +363,7 @@ Feature: Initiator invites the recipient to a meetup.
 ```
 
 {% hint style="warning" %}
-The workflow engine can only capture outbound HTTP requests. It's can't mock requests, but needs to work with an actual service or you need to setup a custom mocked service yourself.
+The workflow engine can only capture outbound HTTP requests. It can't mock requests, but needs to work with an actual service or you need to setup a custom mocked service yourself.
 {% endhint %}
 
 
