@@ -41,9 +41,9 @@ states:
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
-    "title": "Basic user",
+    "title": "A handshake",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -116,7 +116,7 @@ states:
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
     "title": "Basic user",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -235,7 +235,7 @@ states:
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
     "title": "Basic user",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -273,7 +273,7 @@ states:
                 },
                 {
                     "action": "ignore",
-                    "transition": "wait_on_recipient"
+                    "transition": ":cancelled"
                 }
             ]
         },
@@ -449,9 +449,9 @@ states:
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
-    "title": "Basic user",
+    "title": "A handshake",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -464,12 +464,18 @@ states:
         },
         "reply": {
             "actor": "recipient",
-            "responses": [
+            "responses": {
                 "ok": {},
                 "not_good": {}
-            ]
+            }
         },
         "ignore": {
+            "actor": "recipient"
+        },
+        "sympathize": {
+            "actor": "initiator"
+        },
+        "elaborate": {
             "actor": "recipient"
         },
         "complete": {
@@ -499,7 +505,7 @@ states:
                 },
                 {
                     "action": "ignore",
-                    "transition": "wait_on_recipient"
+                    "transition": ":cancelled"
                 }
             ]
         },
@@ -510,18 +516,18 @@ states:
             ],
             "transitions": [
                 {
-                    "action": "sympathize"
+                    "action": "sympathize",
                     "transition": "recipient_can_elaborate"
                 },
                 {
-                    "action": "complete"
+                    "action": "complete",
                     "transition": ":success"
                 }
             ]
         },
         "recipient_can_elaborate": {
             "action": "elaborate",
-            "transistion": "wait_on_initiator"
+            "transition": "wait_on_initiator"
         },
         "wait_on_initiator": {
             "action": "complete",
