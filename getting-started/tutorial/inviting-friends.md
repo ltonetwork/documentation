@@ -291,15 +291,15 @@ triggers:
       password: key-00000000000000000000000000000000
     headers:
       Content-Type: application/x-www-form-urlencoded
-    body:
+    data:
       from: joe.smith@example.com
       subject: You are invited to our Meetup
-    projection: "{ body: { to: join('', [invitee.name, ' <', invitee.email, '>']), text: message } }"
+    projection: "{ data: { to: join('', [invitee.name, ' <', invitee.email, '>']), text: message } }"
 ```
 
 The `projection` is a [JMESPath expression](http://jmespath.org/) that converts the action into an object that's expected by the HTTP trigger.
 
-The `body` will be encoded and send as request body. The body parameters are described by the [Mailgun API](https://documentation.mailgun.com/en/latest/api-sending.html#sending). The body in the trigger is merged with the body from the projection.
+The `data` will be encoded and send as request body. The data parameters are described by the [Mailgun API](https://documentation.mailgun.com/en/latest/api-sending.html#sending). The data in the trigger is merged with the data from the projection.
 
 {% hint style="info" %}
 Triggers are configured by each party on their own node. This node will be configured to send an e-mail using Mailgun, but any other service could be used or an entirely different action could be taken to invite the recipient.
@@ -310,8 +310,7 @@ Triggers are configured by each party on their own node. This node will be confi
 Enable outgoing capturing HTTP requests in `workflow-settings/settings.yml` by adding the following setting
 
 ```yaml
-http_client:
-  capture: true
+http_request_log: true
 ```
 
 In the test, we can check if the workflow engine has send a specific HTTP request.
@@ -355,7 +354,7 @@ Feature: Initiator invites the recipient to a meetup.
       | from    | info@example.com                       |
       | to      | Jane Wong <jane.wong@example.com>      |
       | subject | You are invited to our Meetup          |
-      | message | Please come to great Meetup next week. |
+      | text    | Please come to great Meetup next week. |
     And that request received a "200" response with:
       | message | Queued. Thank you.                     |
     
