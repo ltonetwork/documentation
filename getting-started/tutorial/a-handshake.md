@@ -41,9 +41,9 @@ states:
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
-    "title": "Basic user",
+    "title": "A handshake",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -116,7 +116,7 @@ states:
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
     "title": "Basic user",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -235,7 +235,7 @@ states:
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
     "title": "Basic user",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -273,7 +273,7 @@ states:
                 },
                 {
                     "action": "ignore",
-                    "transition": "wait_on_recipient"
+                    "transition": ":cancelled"
                 }
             ]
         },
@@ -365,8 +365,8 @@ Feature: Two actors meet. The recipient is not doing well.
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
-      | reason | My cat is stealing my boyfriend. She pnly cuddles with him.
-    Then the "main" process is in the "expect_sympathy" state
+      | reason | My cat is stealing my boyfriend. She pnly cuddles with him. |
+    Then the "main" process is in the "wait_on_initiator" state
     
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
@@ -449,9 +449,9 @@ states:
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
-    "title": "Basic user",
+    "title": "A handshake",
     "actors": {
-        "intiator": {
+        "initiator": {
             "title": "Initiator"
         },
         "recipient": {
@@ -464,12 +464,18 @@ states:
         },
         "reply": {
             "actor": "recipient",
-            "responses": [
+            "responses": {
                 "ok": {},
                 "not_good": {}
-            ]
+            }
         },
         "ignore": {
+            "actor": "recipient"
+        },
+        "sympathize": {
+            "actor": "initiator"
+        },
+        "elaborate": {
             "actor": "recipient"
         },
         "complete": {
@@ -499,7 +505,7 @@ states:
                 },
                 {
                     "action": "ignore",
-                    "transition": "wait_on_recipient"
+                    "transition": ":cancelled"
                 }
             ]
         },
@@ -510,18 +516,18 @@ states:
             ],
             "transitions": [
                 {
-                    "action": "sympathize"
+                    "action": "sympathize",
                     "transition": "recipient_can_elaborate"
                 },
                 {
-                    "action": "complete"
+                    "action": "complete",
                     "transition": ":success"
                 }
             ]
         },
         "recipient_can_elaborate": {
             "action": "elaborate",
-            "transistion": "wait_on_initiator"
+            "transition": "wait_on_initiator"
         },
         "wait_on_initiator": {
             "action": "complete",
@@ -605,12 +611,14 @@ Feature: Two actors meet. The recipient is not doing well.
 
 To do so, we just need to modify the _recipient can elaborate_ state to transition to _expect sympathy_. Since the initiator can also _complete_ the process from that state, it doesn't affect our existing use cases.
 
+Previous tests should be, of course, also modified.
+
 {% tabs %}
 {% tab title="YAML" %}
 ```yaml
   recipient_can_elaborate:
     action: elaborate
-    transition: expect_sympathy_from_initiator
+    transition: expect_sympathy
 ```
 {% endtab %}
 
@@ -618,7 +626,7 @@ To do so, we just need to modify the _recipient can elaborate_ state to transiti
 ```javascript
         "recipient_can_elaborate": {
             "action": "elaborate",
-            "transistion": "expect_sympathy_from_initiator"
+            "transistion": "expect_sympathy"
         },
 ```
 {% endtab %}
@@ -692,7 +700,7 @@ states:
         transition: wait_on_initiator
       - action: reply
         response: not_good
-        transition: expect_sympathy_from_initiator
+        transition: expect_sympathy
       - action: ignore
         transition: :cancelled
   expect_sympathy:
@@ -717,6 +725,132 @@ states:
     title: Waiting on the initiator to respond.
     action: complete
     transition: :success
+```
+{% endtab %}
+
+{% tab title="JSON" %}
+```javascript
+{
+    "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
+    "title": "A handshake",
+    "actors": {
+        "initiator": {
+            "title": "Initiator"
+        },
+        "recipient": {
+            "title": "Recipient"
+        }
+    },
+    "actions": {
+        "greet": {
+            "actor": "initiator",
+            "title": "Greet the person you're meeting",
+            "responses": {
+                "ok": {
+                    "title": "Hi, how are you?"
+                }
+            }
+        },
+        "reply": {
+            "actor": "recipient",
+            "title": "Respond to the greeting",
+            "responses": {
+                "ok": {
+                    "title": "Fine. How about you?"
+                },
+                "not_good": {
+                    "title": "Not so good."
+                }
+            }
+        },
+        "ignore": {
+            "actor": "recipient",
+            "title": "Ignore the greeting"
+        },
+        "sympathize": {
+            "actor": "initiator",
+            "title": "Ask further",
+            "responses": {
+                "ok": {
+                    "title": "Sorry to hear that. Please tell me more."
+                }
+            }
+        },
+        "elaborate": {
+            "actor": "recipient",
+            "title": "Tell what's the matter."
+        },
+        "complete": {
+            "actor": "initiator",
+            "title": "End the conversation"
+        }
+    },
+    "states": {
+        "initial": {
+            "action": "greet",
+            "transition": "wait_on_recipient"
+        },
+        "wait_on_recipient": {
+            "title": "Waiting on the recipient to respond.",
+            "instructions": {
+                "recipient": "Respond or, if you're feeling rude, ignore it."
+            },
+            "actions": [
+                "reply",
+                "ignore"
+            ],
+            "transitions": [
+                {
+                    "action": "reply",
+                    "response": "ok",
+                    "transition": "wait_on_initiator"
+                },
+                {
+                    "action": "reply",
+                    "response": "not_good",
+                    "transition": "expect_sympathy"
+                },
+                {
+                    "action": "ignore",
+                    "transition": ":cancelled"
+                }
+            ]
+        },
+        "expect_sympathy": {
+            "title": "Waiting on the initiator to respond.",
+            "instructions": {
+                "initiator": "Ask further or end the conversation politely."
+            },
+            "actions": [
+                "sympathize",
+                "complete"
+            ],
+            "transitions": [
+                {
+                    "action": "sympathize",
+                    "transition": "recipient_can_elaborate"
+                },
+                {
+                    "action": "complete",
+                    "transition": ":success"
+                }
+            ]
+        },
+        "recipient_can_elaborate": {
+            "title": "Waiting on the recipient to elaborate.",
+            "instructions": {
+                "recipient": "Please explain why it's not going well."
+            },
+            "action": "elaborate",
+            "transition": "expect_sympathy"
+        },
+        "wait_on_initiator": {
+            "title": "Waiting on the initiator to respond.",
+            "action": "complete",
+            "transition": ":success"
+        }
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
