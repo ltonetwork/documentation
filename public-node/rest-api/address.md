@@ -2,20 +2,36 @@
 
 ## Address
 
-### GET /addresses
+{% api-method method="get" host="https://node.testnet.ltonetwork.com" path="/addresses" %}
+{% api-method-summary %}
+/addresses
+{% endapi-method-summary %}
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
+{% api-method-description %}
 Get list of all accounts addresses in the node's wallet.
+{% endapi-method-description %}
 
-**Response:**
+{% api-method-spec %}
+{% api-method-request %}
 
-```javascript
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
 [
-"3NBVqYXrapgJP9atQccdBPAgJPwHDKkh6A8",
-"3Mx2afTZ2KbRrLNbytyzTtXukZvqEB8SkW7"
+  "3NBVqYXrapgJP9atQccdBPAgJPwHDKkh6A8",
+  "3Mx2afTZ2KbRrLNbytyzTtXukZvqEB8SkW7"
 ]
 ```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+\*\*\*\*
 
 ### GET /addresses/seq/{from}/{to}
 
