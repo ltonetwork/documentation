@@ -1,17 +1,5 @@
 # Live Contracts
 
-### Note to Readers
-
-The issues for each service can be found at the [GitHub issue tracker](https://github.com/legalthings/livecontracts-specs/issues). For additional information, see [LTO Network website](https://lto.network) and [community guide](https://docs.lto.network/project/).
-
-To provide feedback, use this issue tracker or the communication methods listed on the website.
-
-### Copyright Notice
-
-Copyright © 2017-2019 LTO Network. All rights reserved.
-
-You may use this specification, the documentation and tutorials under the [Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/legalthings/livecontracts-specifications/master/LICENSE). Source code displayed in the tutorials is placed in [Public Domain](https://creativecommons.org/publicdomain/zero/1.0/deed).
-
 ## General
 
 ### Cryptography
