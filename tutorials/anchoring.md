@@ -8,7 +8,7 @@ An anchor transaction accepts any 64 bytes \(512 bits\) as the hash. This allows
 
 To hash a document, read it to apply the hashing function on the binary data. Structured data should be serialized \(e.g. as JSON\). Beware that serialization process should be deterministic; in other words, if you provide the same data, you should always get the same serialized data.
 
-## **Plain hash**
+### **Plain hash**
 
 For public records, simply apply the hashing function on the data and use that for the anchor transaction. This could be applicable for public archives, allowing them to prove the authenticity of stored documents.
 
@@ -16,7 +16,7 @@ This should not be used for private data as the hash could leak information. For
 
 [_See hashing examples in several languages_](https://gist.github.com/jasny/2200f68f8109b22e61863466374a5c1d#file-sha256-md)
 
-## **Peppered hash \(HMAC\)**
+### **Peppered hash \(HMAC\)**
 
 With a peppered hash, a secret key is used in addition to the data to create the hash. You need both the key and data to recreate and thus verify a hash. This makes it impossible to recreate a hash, based only on publicly available data.
 
@@ -28,13 +28,13 @@ HMAC is a standardized method to create a peppered hash. It utilizes a pseudoran
 
 [_See HMAC examples in several languages_](https://gist.github.com/jasny/2200f68f8109b22e61863466374a5c1d#file-sha256-hmac-md)
 
-## **Signature hash**
+### **Signature hash**
 
 Rather than hashing the data, it’s also an option to create a hash of a cryptographic signature. This proofs that not only that the document or data existed on a specific time, but also that is was authorized by a specific party.
 
 Signatures should be created using an asymmetric algorithm with a private key for signing and a public key for verification. To verify authenticity, the document, signature and public key must be provided.
 
-## **Salt**
+### **Salt**
 
 A salt is a string of random bytes added to the data. Unlike a pepper, a salt is visible for everybody as it’s appended to the hash.
 
@@ -44,7 +44,7 @@ Some algorithms like BCrypt will always salt the hash. In other cases, you can c
 
 For 256 bit algorithms prepend 32 random bytes to the data. Then append this 32-byte string to the hash.
 
-## Certificate
+### Certificate
 
 An alternative method is to create a certificate that contains the hash of the document as well as other metadata. The hash of the certificate is used for anchoring.
 
