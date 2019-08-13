@@ -29,7 +29,7 @@ Feature: Two actors meet at a conference and exchange information.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     And the "main" process is in the "wait_on_recipient" state
-    
+
     When "Jane" runs the "introduce" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
@@ -116,7 +116,7 @@ Feature: Two actors meet at a conference and exchange information.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     And the "main" process is in the "wait_on_recipient" state
-    
+
     When "Joe" runs the "introduce" action of the "main" process with:
       | name         | Joe Smith     |
       | organization | LTO Network   |
@@ -127,7 +127,7 @@ Running this test will fail, because the process is completed and not in the _wa
 
 We'll change the scenario, so an actor can only introduce himself/herself if the actor's name is unknown.
 
-We can add a `condition` to an action. The condition is always interpreted as boolean. With [data instructions](../../key-concepts/workflow-engine/scenario/data-instruction.md) like `<eval>`, the condition can be determined based on process data.
+We can add a `condition` to an action. The condition is always interpreted as boolean. With [data instructions](../../full-node/workflow/scenario/data-instruction.md) like `<eval>`, the condition can be determined based on process data.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -214,14 +214,14 @@ Feature: Two actors meet at a conference and exchange information.
       | name         |               |
       | organization | LTO Network   |
     And the "main" process is in the "initial" state
-    
+
     When "Joe" runs the "introduce" action of the "main" process with:
       | nonsense     | chatter       |
     Then the "main" process is in the "initial" state
-    
+
     When "Joe" runs the "introduce" action of the "main" process
     Then the "main" process is in the "initial" state
-    
+
     When "Joe" runs the "introduce" action of the "main" process with:
       | name         | Joe Smith     |
     Then the "initiator" actor of the "main" process has:
@@ -444,7 +444,7 @@ states:
 
 In the ["A proper introduction" tutorial](a-proper-introduction.md), you modified the scenario adding steps for asking the e-mail address from the _recipient_.
 
-In that scenario, we only want to only consider the process to successfully completed if the _recipient_ has given her e-mail address. If the ini_t_iator ends the conversation or if the _recipient_ doesn't give her e-mail address, the process is _cancelled_.
+In that scenario, we only want to only consider the process to successfully completed if the _recipient_ has given her e-mail address. If the ini_t\_iator ends the conversation or if the \_recipient_ doesn't give her e-mail address, the process is _cancelled_.
 
 Rather than making an separate action or response for the recipient to skip not give the e-mail address, use a condition to check to transition to ":success" or ":cancelled".
 

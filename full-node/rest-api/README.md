@@ -28,5 +28,3 @@ _Note that the Digest header, is a different specification than HTTP Digest Auth
 
 {% page-ref page="event-chain-service.md" %}
 
-{% page-ref page="workflow-engine.md" %}
-

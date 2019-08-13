@@ -2,11 +2,11 @@
 
 ## Mass Transfer Transaction
 
-#### Problem
+### Problem
 
 People who perform mass payments, such as token sharedrops, currently produce lots of similar Transfer transactions. This incurs some extra cost to both the sender \(in terms of fees paid\), and the blockchain \(in terms of storage spent on duplicate data, as well as processing power spent on verifying signatures for each transaction\).
 
-#### One Sender, Many Recipients
+### One Sender, Many Recipients
 
 To address this issue, we're going to introduce a new transaction type, Mass Transfer. A Mass Transfer combines several ordinary Transfer transactions that share a single sender. Under the hood it has a list of recipients, and an amount to be transferred to each recipient.
 
@@ -37,13 +37,13 @@ The new transaction has a type value of 11. Below is a sample Mass Transfer tran
 
 It's easy to see how compact this transaction is compared to several Transfer transactions. Here we have a sequence of recipients and associated amounts, while sender, fee, timestamp and signature occur just once.
 
-#### Constraints
+### Constraints
 
 The maximum number of recipients in a single transaction is 100. There is no minimum recipient number. You can create a Mass Transfer Transaction with one or even zero recipients. In addition, restrictions that apply to Transfers apply here as well, such as you cannot send negative amount and cannot send more than you have on your account.
 
 Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero valued transfers. In the recipients list, a recipient can occur several times, this is not considered an error.
 
-#### Proofs
+### Proofs
 
 In order to prepare for the upcoming Smart Accounts feature, Mass Transfer transaction has the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multisig and atomic swap. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
@@ -55,7 +55,7 @@ your JSON should include
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
-#### Fees
+### Fees
 
 Unlike other transactions, Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. By default the formula looks like:
 
@@ -76,7 +76,7 @@ mass-transfer {
 }
 ```
 
-#### Changes to REST API
+### Changes to REST API
 
 There is just a single new REST endpoint, `/assets/masstransfer`, to sign and send a mass transfer transaction. Like its counterparts, it requires authentication using `X-Api-Key` header.
 

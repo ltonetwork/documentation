@@ -1,6 +1,6 @@
 # \(Virtual\) Machine
 
-### Run on a \(virtual\) machine
+## Run on a \(virtual\) machine
 
 ```text
 docker-compose up

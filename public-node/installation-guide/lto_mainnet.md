@@ -10,7 +10,7 @@ _**Testnet**_ – short for test network – is an alternative LTO blockchain, t
 
 Testnet is used a lot for developing purposes, assume you are building a new feature and it requires you to send and receive LTO and you don't have any real LTO or you don't want to waste with mistakes, here you use test network \(testnet\).
 
-### Mainnet vs Testnet
+## Mainnet vs Testnet
 
 A mainnet and a testnet are two separate networks that operate independently from each other.
 

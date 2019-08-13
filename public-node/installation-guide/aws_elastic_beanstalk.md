@@ -1,6 +1,6 @@
 # AWS Elastic Beanstalk
 
-### Run in AWS Elastic Beanstalk
+## Run in AWS Elastic Beanstalk
 
 Running the node using AWS Elastic Beanstalk \(EB\) it will only install the services on a machine. This node includes a Redis database, however it is highly recommended to use AWS Elastic Cache. The are 2 EB configuration files included.
 

@@ -25,11 +25,11 @@ actors:
     title: Initiator
   recipient:
     title: Recipient
-    
+
 actions:
   complete:
     actor: initiator
-    
+
 states:
   initial:
     action: complete
@@ -88,7 +88,7 @@ actors:
     title: Initiator
   recipient:
     title: Recipient
-    
+
 actions:
   greet:
     actor: initiator
@@ -96,7 +96,7 @@ actions:
     actor: recipient
   complete:
     actor: initiator
-    
+
 states:
   initial:
     action: greet
@@ -199,7 +199,7 @@ actors:
     title: Initiator
   recipient:
     title: Recipient
-    
+
 actions:
   greet:
     actor: initiator
@@ -209,7 +209,7 @@ actions:
     actor: recipient
   complete:
     actor: initiator
-    
+
 states:
   initial:
     action: greet
@@ -311,7 +311,7 @@ Feature: Two actors greet each other
     Then the "main" process is in the "wait_on_initiator" state
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
-    
+
   Scenario:
     When "Joe" runs the "greet" action of the "main" process
     Then the "main" process is in the "wait_on_recipient" state
@@ -357,20 +357,19 @@ Feature: Two actors meet. The recipient is not doing well.
     Then the "main" process is in the "expect_sympathy" state
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
-    
+
   Scenario:
     When "Jane" runs the "reply" action of the "main" process giving a "not_good" response
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
       | reason | My cat is stealing my boyfriend. She pnly cuddles with him. |
     Then the "main" process is in the "wait_on_initiator" state
-    
+
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
-    
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -379,7 +378,7 @@ When the recipient elaborates, she'll send the _reason_ as additional response d
 
 ### The scenario
 
-When we run this test we can see that it fails. The _not good_  response hasn't been defined. We also need to define the _sympathize_ and _elaborate_ actions and the _expect sympathy_ and _recipient can elaborate_ states.
+When we run this test we can see that it fails. The _not good_ response hasn't been defined. We also need to define the _sympathize_ and _elaborate_ actions and the _expect sympathy_ and _recipient can elaborate_ states.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -392,7 +391,7 @@ actors:
     title: Initiator
   recipient:
     title: Recipient
-    
+
 actions:
   greet:
     actor: initiator
@@ -409,7 +408,7 @@ actions:
     actor: recipient
   complete:
     actor: initiator
-    
+
 states:
   initial:
     action: greet
@@ -565,44 +564,44 @@ Feature: Two actors meet. The recipient is not doing well.
     Then the "main" process is in the "expect_sympathy" state
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
-    
+
   Scenario:
     When "Jane" runs the "reply" action of the "main" process giving a "not_good" response
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
       | reason | My cat is stealing my boyfriend. |
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
-    
+
   Scenario:
     When "Jane" runs the "reply" action of the "main" process giving a "not_good" response
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
       | reason | My cat is stealing my boyfriend. |
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
       | reason | She always comes in to cuddle with him. |
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "sympathize" action of the "main" process
     Then the "main" process is in the "recipient_can_elaborate" state
     When "Jane" runs the "elaborate" action of the "main" process with:
       | reason | Misty has a mean purr. I know it's to taunt me. |
     Then the "main" process is in the "expect_sympathy" state
-    
+
     When "Joe" runs the "complete" action of the "main" process
-    Then the "main" process is completed    
+    Then the "main" process is completed
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -651,7 +650,7 @@ actors:
     title: Initiator
   recipient:
     title: Recipient
-    
+
 actions:
   greet:
     actor: initiator
@@ -682,7 +681,7 @@ actions:
   complete:
     actor: initiator
     title: End the conversation
-    
+
 states:
   initial:
     action: greet

@@ -1,6 +1,6 @@
 # Troubleshooting FAQ
 
-#### 1. My public node seems to be up and running but when checking the logs from time to time I get a message of this type:
+## 1. My public node seems to be up and running but when checking the logs from time to time I get a message of this type:
 
 ```bash
 Error mining Block: BlockAppendError(Block is not a child of the last block,Block(4Bk5FxnuKMPqZeh4Rfyn1pE6UyNYfznQd7MtUhKtNug15WoxvhkjtCeo4AVMAW2AEXFw2DMfxd1MZ3G71SiJdnUC -> 245bVsJ..., txs=0, features=Set()))

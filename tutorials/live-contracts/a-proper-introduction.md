@@ -30,7 +30,7 @@ Feature: Two actors meet at a conference and exchange information.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     Then the "main" process is in the "wait_on_recipient" state
-    
+
     When "Jane" runs the "introduce_recipient" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
@@ -202,7 +202,7 @@ Feature: Two actors meet at a conference and exchange information.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     And the "main" process is in the "wait_on_recipient" state
-    
+
     When "Jane" runs the "introduce_recipient" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
@@ -328,7 +328,7 @@ states:
 
 Once we know the name of the actor, we can use it in the process. Rather than saying "Reply to the initiator", we could say "Reply to Joe Smith".
 
-The [`<tpl>` data instruction](../../key-concepts/workflow-engine/scenario/data-instruction.md) parses a mustache template, injecting process data.
+The [`<tpl>` data instruction](../../full-node/workflow/scenario/data-instruction.md) parses a mustache template, injecting process data.
 
 {% tabs %}
 {% tab title="YAML" %}

@@ -21,7 +21,7 @@ ltonetwork!
 }
 ```
 
-#### POST /utils/hash/fast
+## POST /utils/hash/fast
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -42,7 +42,7 @@ ltonetwork!
 }
 ```
 
-#### GET /utils/seed/{length}
+## GET /utils/seed/{length}
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -56,7 +56,7 @@ Generate a random seed of specified length.
 }
 ```
 
-#### GET /utils/seed
+## GET /utils/seed
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 

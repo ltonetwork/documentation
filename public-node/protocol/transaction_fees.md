@@ -2,7 +2,7 @@
 
 ## Transaction Fees
 
-Transaction fees act as a reward for the miner. Because these are the only rewards, this prevents inflation of the network since no new tokens are introduced. There are currently 5 types of transactions, each with a fixed fee. You can check the transaction examples [here](../lto_node_rest_api/example_transactions.md).
+Transaction fees act as a reward for the miner. Because these are the only rewards, this prevents inflation of the network since no new tokens are introduced. There are currently 5 types of transactions, each with a fixed fee. You can check the transaction examples [here](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/public-node/lto_node_rest_api/example_transactions.md).
 
 | Transcation | Fee \(LTO\) |
 | :--- | :--- |

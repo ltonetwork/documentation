@@ -2,13 +2,13 @@
 
 ## Data Transaction
 
-#### Use Cases
+### Use Cases
 
 * Certify authorship of a document by [publishing its hash on the blockchain](https://techcrunch.com/2015/11/20/stampery-now-lets-you-certify-documents-using-the-blockchain-and-your-real-identity)
 * Verify that a digital artwork [is original](http://classic.monegraph.com)
 * Provide data for smart contracts to work on. E.g. if an oracle publishes some data once in a while using a publicly known account, smart contracts can use that data in their logic.
 
-#### Implementation
+### Implementation
 
 Data inside a transaction is structured as key-value pairs. Keys are non-empty UTF-8 strings and are case sensitive. Each value has a data type associated with it. 4 data types are supported: boolean, integer, string, and byte array.
 
@@ -47,7 +47,7 @@ Data transactions issued by a single account define this account's state in a cu
 
 the account state will be `{"smart": true, "IQ": 130}`, this is, the latter transaction can overwrite existing keys but not delete them. There is currently no planned way to clear the state of an account.
 
-#### Smart Contract Interaction
+### Smart Contract Interaction
 
 The smart contract language has functions `getInteger()`, `getBoolean()`, `getBinary()`, and `getString()`. All these accept two parameters: address and key. They return `Some(value)` if successful, `None` if no value exists for the given key, and make contract fail if the value stored under the key has different type.
 
@@ -63,11 +63,11 @@ object DataType {
 }
 ```
 
-#### Fees
+### Fees
 
 Fee is proportional to transaction size. Minimal fee is 100,000 per kilobyte, rounded up.
 
-#### API
+### API
 
 `POST /addresses/data` signs and sends a data transaction. This endpoint requires API key. Sample input is as follows \(binary arrays are Base64-encoded\):
 
@@ -156,7 +156,7 @@ Fee is proportional to transaction size. Minimal fee is 100,000 per kilobyte, ro
 
 With all endpoints, byte arrays are Base64-encoded and prefixed with "base64:".
 
-#### Constraints
+### Constraints
 
 Keys must be between 1 and 100 characters long. A key can contain arbitrary Unicode code points including spaces and other non-printable symbols. Byte array and string values have a limit of 32k bytes.
 

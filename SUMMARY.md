@@ -1,14 +1,16 @@
 # Table of contents
 
-## Getting started
+* [Getting started](README.md)
 
-* [Anchoring](getting-started/anchoring.md)
-* [Live Contract tutorial](getting-started/tutorial/README.md)
-  * [The basics](getting-started/tutorial/the-basics.md)
-  * [A handshake](getting-started/tutorial/a-handshake.md)
-  * [A proper introduction](getting-started/tutorial/a-proper-introduction.md)
-  * [Under one condition](getting-started/tutorial/under-one-condition.md)
-  * [Invitation by e-mail](getting-started/tutorial/invitation-by-email.md)
+## Tutorials
+
+* [Anchoring](tutorials/anchoring.md)
+* [Live Contracts](tutorials/live-contracts/README.md)
+  * [The basics](tutorials/live-contracts/the-basics.md)
+  * [A handshake](tutorials/live-contracts/a-handshake.md)
+  * [A proper introduction](tutorials/live-contracts/a-proper-introduction.md)
+  * [Under one condition](tutorials/live-contracts/under-one-condition.md)
+  * [Invitation by e-mail](tutorials/live-contracts/invitation-by-email.md)
 
 ## Public node
 
@@ -34,10 +36,12 @@
   * [Mass Transfer Transaction](public-node/protocol/mass_transfer_transaction.md)
   * [Data Transaction](public-node/protocol/data_transaction.md)
   * [Transaction Fees](public-node/protocol/transaction_fees.md)
-  * [NG-Solution](public-node/protocol/ng_solution.md)
-  * [NG-Protocol](public-node/protocol/ng_protocol.md)
+  * [NG-Solution](public-node/protocol/ng-solution.md)
+  * [NG-Protocol](public-node/protocol/ng-protocol.md)
   * [Fair Proof of Stake \(FPoS\)](public-node/protocol/fair_proof_of_stake_fpos.md)
   * [FAQ](public-node/protocol/faq.md)
+
+## Anchoring node
 
 ## Full node
 
@@ -47,7 +51,7 @@
   * [Ubuntu Linux](full-node/installation-guide/ubuntu-linux.md)
 * [REST API](full-node/rest-api/README.md)
   * [Event Chain service](full-node/rest-api/event-chain-service.md)
-  * [Workflow Engine](full-node/rest-api/workflow.md)
+  * [Workflow Engine](full-node/rest-api/workflow-engine.md)
   * [API client libraries](full-node/rest-api/api-client-libraries.md)
 * [Live Contracts](full-node/live-contracts.md)
 * [Workflow](full-node/workflow/README.md)
@@ -63,16 +67,17 @@
     * [HTTP trigger](full-node/workflow/trigger/http-trigger.md)
     * [NOP trigger](full-node/workflow/trigger/nop-trigger.md)
     * [Event trigger](full-node/workflow/trigger/event-trigger.md)
-* [Event Chain](full-node/event-chain-service/README.md)
+* [Event Chain](full-node/event-chain/README.md)
   * [Events](full-node/event-chain/events/README.md)
-    * [Event](full-node/event-chain-service/events/event.md)
-  * [Identity](full-node/event-chain-service/identity.md)
-  * [Resource](full-node/event-chain-service/resource.md)
+    * [Event](full-node/event-chain/events/event.md)
+  * [Identity](full-node/event-chain/identity.md)
+  * [Resource](full-node/event-chain/resource.md)
 * [Network](full-node/network/README.md)
   * [Chain request](full-node/network/chain-request.md)
   * [Rejection](full-node/network/rejection.md)
   * [Conflict resolution](full-node/network/conflict-resolution.md)
 
 ## Advanced topics
+
 * [Cryptography](advanced-topics/cryptography.md)
 

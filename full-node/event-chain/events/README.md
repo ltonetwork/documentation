@@ -4,7 +4,7 @@ description: >-
   involved in a process.
 ---
 
-# Event Chain
+# Events
 
 Each event is signed and that added referencing the previous event, forming a chain. All information of the system is derived from event chains.
 
@@ -37,7 +37,7 @@ Public key hash is first 20 bytes of _SecureHash_ of public key bytes. Checksum 
 
 The array of events.
 
-[Read more](event.md)
+[Read more]()
 
 ### identities
 

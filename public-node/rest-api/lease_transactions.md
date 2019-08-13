@@ -1,6 +1,6 @@
 # Lease Transactions
 
-#### POST /leasing/lease
+## POST /leasing/lease
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -39,7 +39,7 @@ Creates lease transaction.
 }
 ```
 
-#### POST /leasing/cancel
+## POST /leasing/cancel
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -77,6 +77,4 @@ Creates lease cancel transaction.
   "leaseId" : "CYPYhYe9M94t958Nsa3DcYNBZTURwcFgQ3ojyjwEeZiK"
 }
 ```
-
-#### 
 

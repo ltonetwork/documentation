@@ -1,2 +1,2 @@
-# LTO Protocol
+# Protocol
 

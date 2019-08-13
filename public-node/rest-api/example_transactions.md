@@ -1,7 +1,5 @@
 # Example Transactions
 
-
-
 ## Example Transactions
 
 Listed below are examples of real transactions of each type found in _**testnet**_ and _**mainnet**_.

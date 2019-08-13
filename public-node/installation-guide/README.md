@@ -1,2 +1,2 @@
-# LTO Node
+# Installation guide
 

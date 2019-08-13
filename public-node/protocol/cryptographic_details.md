@@ -82,7 +82,7 @@ GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 
 ## Creating address from public key
 
-Our network address obtained from the public key depends on the byte chainId \('T' for testnet and 'L' for mainnet\), so different networks obtained a different address for a single seed \(and hence public keys\). Creating a byte addresses described in more detail [here](/technical-details/data-structures.md).
+Our network address obtained from the public key depends on the byte chainId \('T' for testnet and 'L' for mainnet\), so different networks obtained a different address for a single seed \(and hence public keys\). Creating a byte addresses described in more detail [here](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/technical-details/data-structures.md).
 
 Example
 
@@ -102,7 +102,7 @@ in mainnet network \(chainId 'W'\) will be created this address
 
 `ED25519` is used for all the signatures in the project.
 
-The process is as follows: create the special bytes for signing \(for transaction or block, you can find it [here](/technical-details/data-structures.md)\), then create a signature using these bytes and the private key bytes.
+The process is as follows: create the special bytes for signing \(for transaction or block, you can find it [here](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/technical-details/data-structures.md)\), then create a signature using these bytes and the private key bytes.
 
 For the validation of signature is enough signature bytes, signed object bytes and the public key.
 

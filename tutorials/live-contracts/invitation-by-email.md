@@ -31,7 +31,7 @@ Feature: Initiator invites the recipient to a meetup.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     And the "main" process is in the "initial" state
-    
+
     When "Jane" runs the "introduce" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
@@ -50,7 +50,7 @@ Feature: Initiator invites the recipient to a meetup.
       | organization | Acme Inc              |
       | email        | jane.wong@example.com |
     And the "main" process is in the "pending_invitation" state
-    
+
     When "Joe" runs the "invite" action of the "main" process
     Then the "main" process is completed
 ```
@@ -332,7 +332,7 @@ Feature: Initiator invites the recipient to a meetup.
       | name         | Joe Smith     |
       | organization | LTO Network   |
     And the "main" process is in the "initial" state
-    
+
     When "Jane" runs the "introduce" action of the "main" process with:
       | name         | Jane Wong     |
       | organization | Acme Inc      |
@@ -357,13 +357,11 @@ Feature: Initiator invites the recipient to a meetup.
       | text    | Please come to great Meetup next week. |
     And that request received a "200" response with:
       | message | Queued. Thank you.                     |
-    
+
     Then the "main" process is completed
 ```
 
 {% hint style="warning" %}
 The workflow engine can only capture outbound HTTP requests. It can't mock requests, but needs to work with an actual service or you need to setup a custom mocked service yourself.
 {% endhint %}
-
-
 

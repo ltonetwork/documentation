@@ -1,13 +1,13 @@
 # Requirements
 
-### Requirements
+## Requirements
 
 * [Docker](https://www.docker.com/)
 * [Docker compose &gt;= v3.0](https://docs.docker.com/compose/)
 
 _You can obtain the latest version of_ `docker-compose` _using pip._
 
-### System requirements
+## System requirements
 
 **The Minimal requirements are:**
 

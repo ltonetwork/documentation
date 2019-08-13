@@ -1,2 +1,2 @@
-# Event Chain Service
+# Event Chain
 

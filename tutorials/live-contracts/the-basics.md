@@ -35,7 +35,7 @@ $ cd livecontracts-tutorial
 
 ## Creating a scenario
 
-A Live Contract must contain of one or more [scenarios](../../key-concepts/workflow-engine/scenario/) that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
+A Live Contract must contain of one or more [scenarios](../../full-node/workflow/scenario/) that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
 
 {% hint style="success" %}
 Create file `scenario.yml` \(or `scenario.json`\) in the `basic` directory.
@@ -65,7 +65,7 @@ title: The basics
 
 ### Defining actors
 
-[Actors](../../key-concepts/workflow-engine/scenario/actor.md) are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
+[Actors](../../full-node/workflow/scenario/actor.md) are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -102,7 +102,7 @@ The key `initiator` is used to reference the actor. The title must be defined, b
 
 ### Defining actions
 
-All [actions](../../key-concepts/workflow-engine/scenario/action.md) that any actor can perform within the process must be defined at forehand in the scenario.
+All [actions](../../full-node/workflow/scenario/action.md) that any actor can perform within the process must be defined at forehand in the scenario.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -146,7 +146,7 @@ The _complete_ action can be performed by the _initiator_ actor. The intend of t
 
 ### The initial state
 
-When a process is started, it's in the _initial_ [state](../../key-concepts/workflow-engine/scenario/state.md). From this state in can transition to other states, until the process is completed.
+When a process is started, it's in the _initial_ [state](../../full-node/workflow/scenario/state.md). From this state in can transition to other states, until the process is completed.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -234,7 +234,7 @@ In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we s
 
 ### Running the Live contract tester
 
-`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions. For more installation, please read [the installation guide](../installation-guide/).
+`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions. For more installation, please read [the installation guide](../../full-node/installation-guide/).
 
 ```text
 $ wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"

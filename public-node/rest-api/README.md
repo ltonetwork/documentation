@@ -1,4 +1,4 @@
-# Rest API
+# REST API
 
 ## Structure
 
