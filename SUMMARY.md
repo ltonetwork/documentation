@@ -43,6 +43,12 @@
 
 ## Anchoring node
 
+* [Installation Guide](anchoring-node/installation-guide/README.md)
+  * [MacOS](anchoring-node/installation-guide/macos.md)
+  * [Windows](anchoring-node/installation-guide/windows.md)
+  * [Ubuntu Linux](anchoring-node/installation-guide/linux.md)
+* [REST API](anchoring-node/rest-api.md)
+
 ## Full node
 
 * [Installation guide](full-node/installation-guide/README.md)
