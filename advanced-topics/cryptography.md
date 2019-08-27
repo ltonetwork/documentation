@@ -86,7 +86,7 @@ blake2b256v \(account seed bytes\)
 6sKMMHVLyCQN7Juih2e9tbSmeE5Hu7L8XtBRgowJQvU7
 ```
 
-Account seed \(`keccak256(blake2b256(account seed bytes))`\)
+Account seed \(`sha256(blake2b256(account seed bytes))`\)
 
 ```text
 H4do9ZcPUASvtFJHvESapnxfmQ8tjBXMU7NtUARk9Jrf
