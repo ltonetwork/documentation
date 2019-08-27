@@ -1,6 +1,6 @@
 # Cryptography
 
-Live Contracts uses the `SHA256` to create a cryptographic hashes. The `BLAKE2b` and `Keccak256` hashing algorithms are used for creating public/secret key pairs. The `ED25519` scheme is applied to create and verify signatures. `X25519` is used for asymmetric encryption as key exchange. `Salsa20` \(with `Poly1305`\) is used for both asymmetric and symmetric encryption. `Base58` is used to create the string from of bytes.
+Live Contracts uses the `SHA256` to create a cryptographic hashes. The `BLAKE2b` and `SHA256` hashing algorithms are used for creating public/secret key pairs. The `ED25519` scheme is applied to create and verify signatures. `X25519` is used for asymmetric encryption as key exchange. `Salsa20` \(with `Poly1305`\) is used for both asymmetric and symmetric encryption. `Base58` is used to create the string from of bytes.
 
 If you want to create an application, you should find the implementation of these algorithms on your programming language.
 
