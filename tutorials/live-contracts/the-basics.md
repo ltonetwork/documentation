@@ -11,7 +11,7 @@ Running Live Contracts requires using the LTO Network full node.
 In these tutorials we're always using the developer build of the full node, which is available as a Docker container.
 
 ```
-$ curl "https://raw.githubusercontent.com/legalthings/lto/master/full-node/Docker%20compose/docker-compose.yml" -o docker-compose.yml
+$ curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
 $ docker-compose up
 ```
 
