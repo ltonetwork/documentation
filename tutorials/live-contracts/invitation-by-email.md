@@ -57,22 +57,6 @@ Feature: Initiator invites the recipient to a meetup.
 
 In that case _Joe_ needs to manually invite _Jane_ \(and all other invitees\) by e-mail. Luckily, the workflow engine supports running actions in an automated manner.
 
-## Mailgun e-mail service
-
-For this tutorial we'll send an e-mail through Mailgun using their REST API.
-
-{% hint style="success" %}
-* Visit [https://www.mailgun.com/](https://www.mailgun.com/) and sign up. _Mailgun is free up to 10.000 e-mails per month._
-* On the 'Sending' page, select your sandbox URL.
-* Add your e-mail address to 'Authorized Recipients' and verify it.
-{% endhint %}
-
-![](../../.gitbook/assets/screenshot-app.mailgun.com-2019.05.28-03-43-38.png)
-
-{% hint style="info" %}
-This tutorial uses `sandbox000.mailgun.org` as endpoint, a dummy API key and `jane.wong@example.com` as e-mail address. Replace that with the \(long\) sandbox URL, your Mailgun API key and your own e-mail address.
-{% endhint %}
-
 ## The invite action
 
 An important aspect of a Live Contract is that it only defines what should be done and not how it must be done. In this case we'll define that the _initiator_ should send an e-mail. The way that's done is up to the actor that performs the action.
@@ -265,6 +249,22 @@ The _invite_ action uses a custom JSON Schema, specified with `$schema`. The sch
 
 {% hint style="warning" %}
 It's recommended, though not required, that every actor in the process has a copy of the JSON Schema. Actors that may perform the action do require the schema.
+{% endhint %}
+
+## Mailgun e-mail service
+
+For this tutorial we'll send an e-mail through Mailgun using their REST API.
+
+{% hint style="success" %}
+* Visit [https://www.mailgun.com/](https://www.mailgun.com/) and sign up. _Mailgun is free up to 10.000 e-mails per month._
+* On the 'Sending' page, select your sandbox URL.
+* Add your e-mail address to 'Authorized Recipients' and verify it.
+{% endhint %}
+
+![](../../.gitbook/assets/screenshot-app.mailgun.com-2019.05.28-03-43-38.png)
+
+{% hint style="info" %}
+This tutorial uses `sandbox000.mailgun.org` as endpoint, a dummy API key and `jane.wong@example.com` as e-mail address. Replace that with the \(long\) sandbox URL, your Mailgun API key and your own e-mail address.
 {% endhint %}
 
 ## Trigger
