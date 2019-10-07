@@ -8,15 +8,15 @@ description: >-
 
 So you decided you want to be part of the LTO Network, awesome!
 
-A great way to be part of the community is by actively participating as a node in the network. 
+A great way to be part of the community is by actively participating as a node in the network.
 
-Make sure to check out the Prepare: [Setup your wallet page](https://app.gitbook.com/@ltonetwork/s/project/~/edit/drafts/-LfnlY2o1T-oAq3ytEpO/community-area/mining-staking/prepare-setup-your-wallet) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
+Make sure to check out the Prepare: [Setup your wallet page](prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
 
 ## **Step 1: Preparing the setup of the node**
 
 Get Docker installed. Go to [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/) and follow the steps to install it. This is a simple download and execute, but you might need to tweak some settings on your computer. The install will ask to restart Windows in order to activate Hyper-V.
 
-**Docker minimum requirements:** 
+**Docker minimum requirements:**
 
 * Windows 10 64 bit: Pro, Enterprise or Education \(1607 Anniversary Update, Build 14393 or later\)
 * Virtualization is enabled in BIOS. Typically, virtualization is enabled by default. This is different from having Hyper-V enabled. For more detail see Virtualization must be enabled in Troubleshooting.
@@ -66,7 +66,7 @@ Configure a your password you want to use to access the admin options of your AP
 The total yml is about 17 lines. If the editor shows you much more, this text is all formatting, which is bad as the node will not properly read the contents and run! If this happens, click on the yml file on Github itself and copy paste the 17 \(more or less\) lines \(including all the spaces\) and overwrite the contents of your editor.
 {% endhint %}
 
-Save the docker-compose.yml file in the directory you created. For example: C:\LTO\.
+Save the docker-compose.yml file in the directory you created. For example: C:\LTO.
 
 ## Step 2: Startup our container on our Windows system
 
@@ -96,24 +96,20 @@ Some Docker Commands that could proof handy:
 
 You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network./) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
-![](../../.gitbook/assets/image%20%282%29.png)
-
-After launching your node check the [Explorer](https://explorer.ltonetwork.com/dashboard) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
+After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
 {% hint style="info" %}
-Utilize the available [Community Tech Tools](../network-overview-tools.md) to get more insights into the network and your participation.
+Utilize the available [Community Tech Tools](https://blog.lto.network/distributed-workforce-community-dao-level-up/#tech-lab) to get more insights into the network and your participation. Let's build a secure and useful network together!
 {% endhint %}
 
-Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO.
-
-Be patient and be happy. Welcome to the amazing LTO Network community.
+Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO. Be patient and be happy. Welcome to the amazing LTO Network community! Read more [about community programs](https://blog.lto.network/distributed-workforce-community-dao-level-up/).
 
 ## Additional information
 
 ### **Docker compose seemed to work but my node is not mining. What should I do?**
 
 * Check if your yml file has the right SEED words filled in. Make certain you did not accidentally leave &lt; and &gt; after the ‘LTO\_WALLET\_SEED=’ notation.
-* You can check the LTO wallet address of your public node by going to your webbrowser and typing in: http://localhost:6869 \(if you changed the port in the yml file, make sure you fill in the correct port here and if localhost does not work check below as the rest-API is not activated by default on mainnet\).
+* You can check the LTO wallet address of your public node by going to your webbrowser and typing in: [http://localhost:6869](http://localhost:6869) \(if you changed the port in the yml file, make sure you fill in the correct port here and if localhost does not work check below as the rest-API is not activated by default on mainnet\).
   * Click on: addresses -&gt; \|GET\| /addresses -&gt; Try it out! The Response Body should show you the address for your own wallet.
 
 ### **Some suggestions made by the LTO team**

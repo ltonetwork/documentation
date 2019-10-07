@@ -12,7 +12,7 @@ Once you have your LTO Node configured and running, you should be able to access
 
 ![](https://www.dumbitcoin.com/wp-content/uploads/2019/01/main-1024x612.png)
 
-Without a graphical interface, e.g in a VPS, doing a curl http://localhost:6869 serves to check if your node has the web interface enabled. If it is not, the response is a connection refused error.
+Without a graphical interface, e.g in a VPS, doing a curl [http://localhost:6869](http://localhost:6869) serves to check if your node has the web interface enabled. If it is not, the response is a connection refused error.
 
 If your web interface is not working, the reason is that the following lines are missing from your Docker config file. Add them to enable the API:
 
@@ -32,7 +32,7 @@ $ docker-compose up
 
 At this point you might be wondering: How do I access this web interface from outside the network?
 
-That is the exact purpose of this tutorial. The following paragraph shows how to configure Nginx as a reverse proxy to access the LTO node web interface from the internet securely without opening any port. 
+That is the exact purpose of this tutorial. The following paragraph shows how to configure Nginx as a reverse proxy to access the LTO node web interface from the internet securely without opening any port.
 
 ## Step 1: Setup our Nginx reverse proxy
 
@@ -63,7 +63,7 @@ server {
     location / {
         proxy_pass http://localhost:6869;
     }
-} 
+}
 ```
 
 Finally, restart Nginx to apply changes
@@ -85,7 +85,7 @@ We will use the well known certificate generator Certbot. To install it:
 ```text
 $ sudo add-apt-repository ppa:certbot/certbot
 $ sudo apt-get update
-$ sudo apt-get install python-certbot-nginx 
+$ sudo apt-get install python-certbot-nginx
 ```
 
 Before executing Certbot, we must set our domain name into Nginx. At the second line in /etc/nginx/sites-available/default, insert:
@@ -128,20 +128,20 @@ $ sudo sh -c "echo -n 'LTOuser:' >> /etc/nginx/.htpasswd"
 $ sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
 ```
 
- Finally, edit again the file /etc/nginx/sites-available/defaultand add the following lines under the proxy\_pass line for example
+Finally, edit again the file /etc/nginx/sites-available/defaultand add the following lines under the proxy\_pass line for example
 
 ```text
 auth_basic "LTOuser";
 auth_basic_user_file /etc/nginx/.htpasswd;
 ```
 
- Don’t forget to restart Nginx to apply changes
+Don’t forget to restart Nginx to apply changes
 
 ```text
 $ sudo systemctl restart nginx
 ```
 
- At this moment, when someone tries to enter into your node web interface, the browser will prompt a message to enter the authentication data. 
+At this moment, when someone tries to enter into your node web interface, the browser will prompt a message to enter the authentication data.
 
 ![](https://www.dumbitcoin.com/wp-content/uploads/2019/01/Sin-t%C3%ADtulolto.jpg)
 

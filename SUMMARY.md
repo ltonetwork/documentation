@@ -21,7 +21,7 @@
   * [\(Virtual\) Machine](public-node/installation-guide/virtual_machine.md)
   * [AWS Elastic Beanstalk](public-node/installation-guide/aws_elastic_beanstalk.md)
   * [Troubleshooting FAQ](public-node/installation-guide/troubleshooting-faq.md)
-* [Mining and staking](public-node/mining-staking/README.md)
+* [Community Guides](public-node/mining-staking/README.md)
   * [Prepare: Setup your wallet](public-node/mining-staking/prepare-setup-your-wallet.md)
   * [Node: Alibaba Cloud](public-node/mining-staking/node-alibaba-cloud.md)
   * [Node: AWS Elastic Beanstalk](public-node/mining-staking/node-aws-elastic-beanstalk.md)

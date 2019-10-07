@@ -10,7 +10,7 @@ So you decided you want to be part of the LTO Network, awesome!
 
 A great way to be part of the community is by actively participating as a node in the network. Running an AWS Elastic Bean Stalk LTO Network Public node will set you back around 1.10 dollar per day. You can use our [Community ROI calculator](https://lto-lease.com/tools/roi) to get an indication of your possible earnings.
 
-Make sure to check out the Prepare: [Setup your wallet page](https://app.gitbook.com/@ltonetwork/s/project/~/edit/drafts/-LfnlY2o1T-oAq3ytEpO/community-area/mining-staking/prepare-setup-your-wallet) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
+Make sure to check out the Prepare: [Setup your wallet page](prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
 
 ## **Step 1: Preparing the setup of the node**
 
@@ -50,7 +50,7 @@ In the next screen we need to specify a few things:
 * Finally select the “Upload your code” option under “Application code” and click the Upload button.
 * Clicking the Upload button gives you the opportunity to “Choose File” the zip file \(Dockerrun.aws.json.zip\) you created earlier.
 
-![](https://cdn-images-1.medium.com/max/1600/1*6mJz613SE99ZDJo-L_W4hg.png)Upload your code screen — Click upload after selecting the file.
+![](https://cdn-images-1.medium.com/max/1600/1*6mJz613SE99ZDJo-L_W4hg.png)Upload your code screen — Click upload after selecting the file.
 
 Clicking the Upload button brings us back to web environment creation screen. We need to configure some additional things so let’s click the “Configure more options” button.
 
@@ -83,15 +83,11 @@ If you have enabled the API \(assuming you configured all 4 environment properti
 
 You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network./) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
-![](../../.gitbook/assets/image%20%282%29.png)
-
-After launching your node check the [Explorer](https://explorer.ltonetwork.com/dashboard) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
+After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
 {% hint style="info" %}
-Utilize the available [Community Tech Tools](../network-overview-tools.md) to get more insights into the network and your participation.
+Utilize the available [Community Tech Tools](https://blog.lto.network/distributed-workforce-community-dao-level-up/#tech-lab) to get more insights into the network and your participation. Let's build a secure and useful network together!
 {% endhint %}
 
-Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO.
-
-Be patient and be happy. Welcome to the amazing LTO Network community.
+Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO. Be patient and be happy. Welcome to the amazing LTO Network community! Read more [about community programs](https://blog.lto.network/distributed-workforce-community-dao-level-up/).
 

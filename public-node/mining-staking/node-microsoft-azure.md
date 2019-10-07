@@ -9,9 +9,9 @@ description: >-
 
 So you decided you want to be part of the LTO Network, awesome!
 
-A great way to be part of the community is by actively participating as a node in the network. 
+A great way to be part of the community is by actively participating as a node in the network.
 
-Make sure to check out the Prepare: [Setup your wallet page](https://app.gitbook.com/@ltonetwork/s/project/~/edit/drafts/-LfnlY2o1T-oAq3ytEpO/community-area/mining-staking/prepare-setup-your-wallet) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
+Make sure to check out the Prepare: [Setup your wallet page](prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
 
 Below the 2-step setup procedure using the browser there is an optional procedure for using the command-line interface.
 
@@ -75,17 +75,13 @@ That’s it. You’ve successfully mastered setting up a LTO Network public node
 
 You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network./) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
-![](../../.gitbook/assets/image%20%282%29.png)
-
-After launching your node check the [Explorer](https://explorer.ltonetwork.com/dashboard) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
+After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
 {% hint style="info" %}
-Utilize the available [Community Tech Tools](../network-overview-tools.md) to get more insights into the network and your participation.
+Utilize the available [Community Tech Tools](https://blog.lto.network/distributed-workforce-community-dao-level-up/#tech-lab) to get more insights into the network and your participation. Let's build a secure and useful network together!
 {% endhint %}
 
-Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO.
-
-Be patient and be happy. Welcome to the amazing LTO Network community.
+Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO. Be patient and be happy. Welcome to the amazing LTO Network community! Read more [about community programs](https://blog.lto.network/distributed-workforce-community-dao-level-up/).
 
 ## **Optional: Deploying your node on Azure using the cmd-line interface**
 
@@ -125,6 +121,6 @@ You can double check your environment variable configuration using the following
 ```text
 az container exec --resource-group $CONTAINER_RESOURCE_GROUP --name $CONTAINER_NAME --exec-command "/bin/bash"
 $ echo $LTO_WALLET_SEED 
-$ echo $LTO_WALLET_PASSWORD 
+$ echo $LTO_WALLET_PASSWORD
 ```
 
