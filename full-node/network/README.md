@@ -4,7 +4,7 @@
 
 Live Contracts relies on message brokers to share [event chains](https://github.com/ltonetwork/event-chain) between nodes. The message broker MUST use the [`AMQP 0-9-1`](https://www.rabbitmq.com/resources/specs/amqp0-9-1.pdf) to communicate and SHOULD be available over a secured connection.
 
-New events on a chain are pushes to all nodes designated by the participating [identities](https://github.com/legalthings/livecontracts-specs/tree/5edcc1c3291a4c211bb83072dfb2f8224eefe807/02-identities/README.md). Nodes may also [request an event chain](https://github.com/legalthings/livecontracts-specs/tree/5edcc1c3291a4c211bb83072dfb2f8224eefe807/chain-requests/README.md) for instance when a user of the node is invited on a chain.
+New events on a chain are pushes to all nodes designated by the participating identities. Nodes may also [request an event chain](https://docs.ltonetwork.com/full-node/network/chain-request) for instance when a user of the node is invited on a chain.
 
 ### Decoupling
 
