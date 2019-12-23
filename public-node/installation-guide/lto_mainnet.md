@@ -4,7 +4,7 @@ _**Mainnet**_ – short for main network – is the original and functional bloc
 
 The mainnet carries out the functionality of executing real transactions within the network which is stored on the blockchain and is referred to as the ‘end product’ that is open for the public to use. Each transaction executed on the blockchain requires participants to pay a transaction fee \(payable in the native coin\) so as to incentivize miners to validate the transactions and prevent network spamming. For their hard work, miners will be rewarded with the transaction fees paid by the participants.
 
-You can access LTO mainnet via a [node](https://github.com/legalthings/lto). It's integrated with the GUI in the LTO web-wallet, allowing anyone to use it without any technical knowledge or blockchain downloads.
+You can access LTO mainnet via a [node](https://github.com/ltonetwork/lto-public-node). It's integrated with the GUI in the LTO web-wallet, allowing anyone to use it without any technical knowledge or blockchain downloads.
 
 _**Testnet**_ – short for test network – is an alternative LTO blockchain, to be used _**for testing**_. Testnet LTO tokens are separate and distinct from actual LTO tokens, and are never supposed to have any value. This allows application developers or testers to experiment without having to use real LTO or worrying about breaking the main LTO chain.
 

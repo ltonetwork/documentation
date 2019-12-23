@@ -12,7 +12,7 @@ Before you run the node you will need to configure a few environment variables p
 4. LTO\_API\_KEY: Choose an api-key this need to be same in the `Anchor service` so that is able to communicate with the public node.
 5. LTO\_NETWORK: Choose the network you want to connect your node to. The options are: `MAINNET` and `TESTNET` \(default is`MAINNET`\).
 
-For other options check out: [Public Node on Github](https://github.com/legalthings/docker-public-node)
+For other options check out: [Public Node on Github](https://github.com/ltonetwork/lto-public-node)
 
 **Anchor service**
 

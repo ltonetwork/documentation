@@ -70,7 +70,7 @@ The document is connected to the certificate via the document hash. The certific
 
 The LTO node comes in several flavors. Anchoring nodes expose an HTTP REST interface allowing you to easily submit anchor transactions. The transactions are signed by the node and \(thus\) paid by the account associated with the node.
 
-To anchor send a POST request to [_http://my-lto-node.example.com/hash_](http://my-lto-node.example.com/hash) with a JSON body \(replace `my-lto-node.example.com` with the domain name or IP of your anchoring node\).
+To anchor send a POST request to _http://my-lto-node.example.com/hash_ with a JSON body \(replace `my-lto-node.example.com` with the domain name or IP of your anchoring node\).
 
 ```text
 {

@@ -6,7 +6,7 @@ In any decentralized system conflicts can arise. Multiple nodes may add an event
 
 If there is a conflict on an event chain, two \(or more\) branches of the chain exist. Conflict resolution means merging those branches back to a single event chain.
 
-An identity can start a branch after the last event it has signed. This is a point up until we can prove that the identity has received the events. Trying to branch before this point MUST result in a [rejection](), resulting in a fork.
+An identity can start a branch after the last event it has signed. This is a point up until we can prove that the identity has received the events. Trying to branch before this point MUST result in a [rejection](rejection.md), resulting in a fork.
 
 ### Rebasing
 

@@ -33,7 +33,7 @@ The password has two purposes:
 
 ### General Notes <a id="SecurityNotes-GeneralNotes"></a>
 
-* Use the [official LTO resources](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/official-sources.md) \(groups in social networks, sites, applications\).
+* Use the [official LTO resources](https://blog.ltonetwork.com/lto-network-sources/) \(groups in social networks, sites, applications\).
 * Before you enter a secret phrase from your account or download the application, carefully look at the address bar of the browser and make sure that you are on the official resource of the company:
 * Use the official software. Do not install unknown or hacked programs.
 * Do not open letters or links from unknown senders.

@@ -45,23 +45,23 @@ Create file `scenario.yml` \(or `scenario.json`\) in the `basic` directory.
 
 {% tabs %}
 {% tab title="YAML" %}
+{% code title="" %}
 ```yaml
 $schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: The basics
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="JSON" %}
-{% code-tabs %}
-{% code-tabs-item title="scenario.json" %}
+{% code title="scenario.json" %}
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
     "title": "The basics"
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -71,6 +71,7 @@ title: The basics
 
 {% tabs %}
 {% tab title="YAML" %}
+{% code title="" %}
 ```yaml
 $schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: The basics
@@ -79,9 +80,11 @@ actors:
   initiator:
     title: Initiator
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="JSON" %}
+{% code title="" %}
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
@@ -93,6 +96,7 @@ actors:
     }
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -108,6 +112,7 @@ All [actions](../../full-node/workflow/scenario/action.md) that any actor can pe
 
 {% tabs %}
 {% tab title="YAML" %}
+{% code title="" %}
 ```yaml
 $schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: My first Live Contract
@@ -121,9 +126,11 @@ actions:
     title: Complete the process
     actor: initiator
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="JSON" %}
+{% code title="" %}
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
@@ -141,6 +148,7 @@ actions:
     }
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -152,6 +160,7 @@ When a process is started, it's in the _initial_ [state](../../full-node/workflo
 
 {% tabs %}
 {% tab title="YAML" %}
+{% code title="" %}
 ```yaml
 $schema: "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#"
 title: My first Live Contract
@@ -170,9 +179,11 @@ states:
     action: complete
     transition: :success
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="JSON" %}
+{% code title="" %}
 ```javascript
 {
     "$schema": "https://specs.livecontracts.io/v0.2.0/scenario/schema.json#",
@@ -196,6 +207,7 @@ states:
     }
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -209,8 +221,7 @@ To ensure the Live Contract behaves as expected, we need to create and run tests
 Create file `main.feature` in the `basic` directory.
 {% endhint %}
 
-{% code-tabs %}
-{% code-tabs-item title="main.feature" %}
+{% code title="main.feature" %}
 ```text
 Feature: Run a simple process that is completed in one step
 
@@ -223,8 +234,7 @@ Feature: Run a simple process that is completed in one step
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 We have a single identity named "Joe". The name is arbitrary, but used to keep the identities apart.
 
@@ -236,7 +246,7 @@ In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we s
 
 ### Running the Live contract tester
 
-`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions. For more installation, please read [the installation guide]().
+`lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions.
 
 ```text
 $ wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"

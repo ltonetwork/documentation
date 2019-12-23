@@ -17,5 +17,5 @@
 
 ## The Web Interface to LTO Full Node API
 
-For The Web Interface to the Waves Full Node API, Please check [**Swagger**](https://nodes.lto.network) on Mainnet. On Testnet: [_**TestNode1**_](https://testnet.lto.network)
+For The Web Interface to the LTO Network Full Node API, Please check [**Swagger**](https://nodes.lto.network) on Mainnet. On Testnet: [_**TestNode1**_](https://testnet.lto.network)
 

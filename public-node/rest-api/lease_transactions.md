@@ -11,7 +11,7 @@ Creates lease transaction.
 ```text
 "sender" - Sender address, Base58-encoded
 "fee" - Amount of transaction fee
-"amount" - amount of leased waves
+"amount" - amount of leased LTO
 ```
 
 **Request JSON example**

@@ -37,7 +37,7 @@ Public key hash is first 20 bytes of _SecureHash_ of public key bytes. Checksum 
 
 The array of events.
 
-[Read more]()
+[Read more](event.md)
 
 ### identities
 

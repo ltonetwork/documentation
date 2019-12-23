@@ -78,9 +78,9 @@ Get Balance details:
 
 ```text
 "address" - account's address in Base58 format
-"Regular" — that's how much Waves you have, including those you leased;
-"Available" — the same as regular only without Waves you leased;
-"Effective" — available plus those Waves which is leased to you;
+"Regular" — that's how much LTO you have, including those you leased;
+"Available" — the same as regular only without LTO you leased;
+"Effective" — available plus those LTO which is leased to you;
 "Generating" — the minimal effective for last 1000 blocks;
 ```
 
