@@ -1,7 +1,3 @@
----
-description: Hashing methods for anchoring
----
-
 # Hashing
 
 An anchor transaction accepts any 64 bytes \(512 bits\) as the hash. This allows you to choose almost any hashing algorithm. Based on your requirements choose a fast algorithm like SHA-2 or BLAKE2b or a slow algorithm like BCrypt. The algorithm isn’t stored in the transaction, it’s up to you pick and use one consistently or to store which algorithm was used.

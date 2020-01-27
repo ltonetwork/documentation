@@ -11,19 +11,17 @@ Running Live Contracts requires using the LTO Network full node.
 In these tutorials we're always using the developer build of the full node, which is available as a Docker container.
 
 ```
-curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
-docker-compose up
+$ curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
+$ docker-compose up
 ```
 
-{% tabs %}
-{% tab title="..." %}
-To check that the node is correctly up visit [https://localhost:3000](https://localhost:3000). You'll see a JSON response containing information about the LTO services.
-{% endtab %}
+{% hint style="warning" %}
+The developer build **SHOULD NEVER** be used in a production environment or be publicly accessible via Internet. Many of the restrictions have been disabled to aid development, making the node easy exploitable. 
+{% endhint %}
 
-{% tab title="JSON screenshot" %}
+To check that the node is correctly up visit [https://localhost:3000](https://localhost:3000). You'll see a JSON response containing information about the LTO services.
+
 ![](../../.gitbook/assets/screenshot-localhost-3000-2019.05.06-15-19-12.png)
-{% endtab %}
-{% endtabs %}
 
 ### Project directory structure
 
@@ -32,8 +30,9 @@ Create a directory named `livecontracts-tutorial` with a subdirectory `basic`.
 {% endhint %}
 
 ```text
-mkdir -p livecontracts-tutorial/basic
-cd livecontracts-tutorial
+$ mkdir livecontracts-tutorial
+$ mkdir livecontracts-tutorial/basic
+$ cd livecontracts-tutorial
 ```
 
 ## Creating a scenario
@@ -250,8 +249,8 @@ In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we s
 `lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions.
 
 ```text
-wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"
-php lctest.phar basic
+$ wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"
+$ php lctest.phar basic
 ```
 
 The test should succeed, giving the following output:
