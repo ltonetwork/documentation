@@ -13,7 +13,7 @@
 | 3 | Public key hash | Bytes | 20 |
 | 4 | Checksum | Bytes | 4 |
 
-Public key hash is first 20 bytes of\_SecureHash\_of public key bytes. Checksum is first 4 bytes of\_SecureHash\_of version, scheme and hash bytes. SecureHash is hash function sha256\(Blake2b256\(data\)\).
+_Public key hash_ is first 20 bytes of _SecureHash_ of public key bytes. _Checksum_ is first 4 bytes of _SecureHash_ of version, scheme and hash bytes. _SecureHash_ is hash function `sha256(Blake2b256(data))`.
 
 #### Proof
 
@@ -69,11 +69,12 @@ Block's signature is calculated from the following bytes:
 | Tx type \# | Tx type name |
 | :--- | :--- |
 | 1 | GenesisTransaction |
-| 2 | TransferTransaction |
-| 3 | LeaseTransaction |
-| 4 | LeaseCancelTransaction |
-| 5 | MassTransferTransaction |
-| 6 | DataTransaction |
+| 4 | TransferTransaction |
+| 8 | LeaseTransaction |
+| 9 | LeaseCancelTransaction |
+| 11 | MassTransferTransaction |
+| ~~12~~ | ~~DataTransaction~~ |
+| 15 | AnchorTransaction |
 
 #### Genesis Transaction
 
@@ -199,7 +200,7 @@ The transaction's signature is calculated from the following bytes:
 | 8.6 | Proof 2 | ByteStr \(Array\[Byte\]\) | P2 |
 | ... | ... | ... | ... |
 
-#### Data Transaction
+#### Anchor Transaction
 
 | \` \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
@@ -207,11 +208,9 @@ The transaction's signature is calculated from the following bytes:
 | 2 | Transaction type | Byte \(constant, value = 12\) | 1 |
 | 3 | Version | Byte | 1 |
 | 4 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
-| 5.1 | Data entries count | Short | 2 |
-| 5.2 | Key 1 length \(K1\) | Short | 2 |
-| 5.3 | Key 1 bytes | UTF-8 encoded | K1 |
-| 5.4 | Value 1 type \(0 = integer, 1 = boolean, 2 = binary array, 3 = string\) | Byte | 1 |
-| 5.5 | Value 1 bytes | Value 1 type | depends on value type |
+| 5.1 | Anchors count | Short | 2 |
+| 5.2 | Anchor 1 | Short | 2 |
+| 5.3 | Anchor 2 | Short | 2 |
 | ... | ... | ... | ... |
 | 6 | Timestamp | Long | 8 |
 | 7 | Fee | Long | 8 |
@@ -238,7 +237,7 @@ All network messages shares the same structure except the Handshake.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Payload | Bytes | N |
 
-Magic Bytes are 0x12, 0x34, 0x56, 0x78. Payload checksum is first 4 bytes of\_FastHash\_of Payload bytes. FastHash is hash function Blake2b256\(data\).
+Magic Bytes are `0x12 0x34 0x56 0x78`. Payload checksum is first 4 bytes of _FastHash_ of Payload bytes. _FastHash_ is hash function `Blake2b256(data)`.
 
 #### Handshake message
 

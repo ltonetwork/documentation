@@ -4,7 +4,7 @@
 
 ## Tutorials
 
-* [Anchoring](tutorials/anchoring.md)
+* [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts/README.md)
   * [The basics](tutorials/live-contracts/the-basics.md)
@@ -15,7 +15,7 @@
 
 ## Public node
 
-* [Installation guide](public-node/installation-guide/README.md)
+* [Installation Guide](public-node/installation-guide/README.md)
   * [Mainnet & Testnet](public-node/installation-guide/lto_mainnet.md)
   * [Requirements](public-node/installation-guide/requirements.md)
   * [Configuration](public-node/installation-guide/configuration.md)
@@ -47,7 +47,6 @@
   * [Cryptographic Details](public-node/protocol/cryptographic_details.md)
   * [Data Structures](public-node/protocol/data_structures.md)
   * [Mass Transfer Transaction](public-node/protocol/mass_transfer_transaction.md)
-  * [Data Transaction](public-node/protocol/data_transaction.md)
   * [Transaction Fees](public-node/protocol/transaction_fees.md)
   * [NG-Solution](public-node/protocol/ng-solution.md)
   * [NG-Protocol](public-node/protocol/ng-protocol.md)
@@ -64,7 +63,7 @@
 
 ## Full node
 
-* [Installation guide](full-node/installation-guide/README.md)
+* [Installation Guide](full-node/installation-guide/README.md)
   * [MacOS](full-node/installation-guide/macos.md)
   * [Windows](full-node/installation-guide/windows.md)
   * [Ubuntu Linux](full-node/installation-guide/ubuntu-linux.md)
