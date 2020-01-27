@@ -181,8 +181,8 @@ Up until now, we've only used the default schema for an action. Actions that may
 
 The _invite_ action uses a custom JSON Schema, specified with `$schema`. The schema may be publicly available at the specified URL or can be distributed as part of the Live Contract.
 
-{% tabs %}
-{% tab title="http://exmple.com/schemas/invite/schema.json" %}
+{% code-tabs %}
+{% code-tabs-item title="http://exmple.com/schemas/invite/schema.json" %}
 ```javascript
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -212,9 +212,9 @@ The _invite_ action uses a custom JSON Schema, specified with `$schema`. The sch
     }
 }
 ```
-{% endtab %}
+{% endcode-tabs-item %}
 
-{% tab title="JavaScript" %}
+{% code-tabs-item title=undefined %}
 ```javascript
 {
     "title": "JSON schema for invite action",
@@ -244,8 +244,8 @@ The _invite_ action uses a custom JSON Schema, specified with `$schema`. The sch
     }
 }
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="warning" %}
 It's recommended, though not required, that every actor in the process has a copy of the JSON Schema. Actors that may perform the action do require the schema.

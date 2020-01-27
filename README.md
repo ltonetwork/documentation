@@ -16,7 +16,7 @@ Anchoring on a blockchain is a simple and cheap way to notarize documents or tim
 
 Integrating anchoring is relatively simple and should take between a couple of hours and few days depending on the complexity of your application.
 
-{% page-ref page="tutorials/anchoring/" %}
+{% page-ref page="tutorials/anchoring.md" %}
 
 ## Live Contracts
 

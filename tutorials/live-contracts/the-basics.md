@@ -11,8 +11,8 @@ Running Live Contracts requires using the LTO Network full node.
 In these tutorials we're always using the developer build of the full node, which is available as a Docker container.
 
 ```
-$ curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
-$ docker-compose up
+curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
+docker-compose up
 ```
 
 {% hint style="warning" %}
@@ -30,9 +30,8 @@ Create a directory named `livecontracts-tutorial` with a subdirectory `basic`.
 {% endhint %}
 
 ```text
-$ mkdir livecontracts-tutorial
-$ mkdir livecontracts-tutorial/basic
-$ cd livecontracts-tutorial
+mkdir -p livecontracts-tutorial/basic
+cd livecontracts-tutorial
 ```
 
 ## Creating a scenario

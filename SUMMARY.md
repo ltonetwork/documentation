@@ -4,7 +4,7 @@
 
 ## Tutorials
 
-* [Anchoring](tutorials/anchoring/README.md)
+* [Anchoring](tutorials/anchoring.md)
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts/README.md)
   * [The basics](tutorials/live-contracts/the-basics.md)
