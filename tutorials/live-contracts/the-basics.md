@@ -15,13 +15,15 @@ curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/d
 docker-compose up
 ```
 
-{% hint style="warning" %}
-The developer build **SHOULD NEVER** be used in a production environment or be publicly accessible via Internet. Many of the restrictions have been disabled to aid development, making the node easy exploitable. 
-{% endhint %}
-
+{% tabs %}
+{% tab title="..." %}
 To check that the node is correctly up visit [https://localhost:3000](https://localhost:3000). You'll see a JSON response containing information about the LTO services.
+{% endtab %}
 
+{% tab title="JSON screenshot" %}
 ![](../../.gitbook/assets/screenshot-localhost-3000-2019.05.06-15-19-12.png)
+{% endtab %}
+{% endtabs %}
 
 ### Project directory structure
 
