@@ -162,8 +162,7 @@ We see that we transition from the _initial_ state to _wait\_on\_recipient_, tha
 
 As before, we want to create a run a test to make sure the process runs as expected.
 
-{% code-tabs %}
-{% code-tabs-item title="main.feature" %}
+{% code title="main.feature" %}
 ```text
 Feature: Two actors greet each other
 
@@ -181,8 +180,7 @@ Feature: Two actors greet each other
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Choose to ignore
 
@@ -293,8 +291,7 @@ Rather than a single `action` property, the _wait\_on\_recipient_ state now has 
 
 We can add a new `Scenario` section in our test file to test the path in the process where the _recipient_ "Jane" ignores the greeting.
 
-{% code-tabs %}
-{% code-tabs-item title="main.feature" %}
+{% code title="main.feature" %}
 ```text
 Feature: Two actors greet each other
 
@@ -318,8 +315,7 @@ Feature: Two actors greet each other
     When "Jane" runs the "ignore" action of the "main" process
     Then the "main" process is cancelled
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 > You can have multiple `Scenario` sections. The `Background` runs once and than make a backup of the databases. After each scenario the data in the database is reverted, to run the next scenario.
 
@@ -339,8 +335,7 @@ We could add a new `Scenario` section to our `main.feature` test file, but inste
 
 We already have two paths we want to test. One where Joe brushes Jane off and one where he's genuinely interested. We'll expand the background to the point where Jane give her response.
 
-{% code-tabs %}
-{% code-tabs-item title="recipient-not-good.feature" %}
+{% code title="recipient-not-good.feature" %}
 ```text
 Feature: Two actors meet. The recipient is not doing well.
 
@@ -371,8 +366,7 @@ Feature: Two actors meet. The recipient is not doing well.
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 When the recipient elaborates, she'll send the _reason_ as additional response data. In the tutorial ["A proper introduction"](a-proper-introduction.md) we'll see how to use the response data in the process.
 
@@ -546,8 +540,7 @@ The default response has the key "ok" by default. If we define a set of response
 
 Instead of asking "What's the matter?", Joe could say "Sorry to hear that. Please tell me more". By repeating the _sympathize_ action, Joe can keep the conversation going.
 
-{% code-tabs %}
-{% code-tabs-item title="recipient-not-good.feature" %}
+{% code title="recipient-not-good.feature" %}
 ```text
 Feature: Two actors meet. The recipient is not doing well.
 
@@ -603,8 +596,7 @@ Feature: Two actors meet. The recipient is not doing well.
     When "Joe" runs the "complete" action of the "main" process
     Then the "main" process is completed
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## Modifying the scenario
 

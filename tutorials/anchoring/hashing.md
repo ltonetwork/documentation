@@ -1,8 +1,8 @@
-# Anchoring
+---
+description: Hashing methods for anchoring
+---
 
-Anchoring on a blockchain is a simple and cheap way to notarize documents and timestamp data. Authorization levels and ACLs offer limited protection against manipulation by those in charge or tasked to maintain the system. You can provide indisputable proof of existence by securing a hash on the LTO Network public blockchain: [https://anchor-demo.lto.network/demo](https://anchor-demo.lto.network/demo/)
-
-## Hashing
+# Hashing
 
 An anchor transaction accepts any 64 bytes \(512 bits\) as the hash. This allows you to choose almost any hashing algorithm. Based on your requirements choose a fast algorithm like SHA-2 or BLAKE2b or a slow algorithm like BCrypt. The algorithm isn’t stored in the transaction, it’s up to you pick and use one consistently or to store which algorithm was used.
 
@@ -65,25 +65,4 @@ signature: Pnuj1viOLFNtyV1sLialluW4jDj1ZWf6+KjZrazhEq0U028PCOBulc…
 In this case, `certkey` is a random value that functions as pepper. All values are base64 encoded, but you could also choose base58 encoding or hexadecimal representation.
 
 The document is connected to the certificate via the document hash. The certificate can be verified on the LTO public blockchain.
-
-## Anchoring
-
-The LTO node comes in several flavors. Anchoring nodes expose an HTTP REST interface allowing you to easily submit anchor transactions. The transactions are signed by the node and \(thus\) paid by the account associated with the node.
-
-To anchor send a POST request to _http://my-lto-node.example.com/hash_ with a JSON body \(replace `my-lto-node.example.com` with the domain name or IP of your anchoring node\).
-
-```text
-{
-  "hash": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
-  "encoding": "base64"
-}
-```
-
-The following encodings are accepted; _hex_, _base58,_ and _base64_.
-
-If the node is set up correctly, you’ll also need to provide the API key for each request as `X-LTO-Key` request header. This key has been configured as environment variable `LTO_API_KEY` during set up.
-
-The node exposes a Swagger UI which you can use to try out all the available HTTP endpoints.
-
-![Swagger interface LTO Network Anchoring node](https://cdn-images-1.medium.com/max/1600/1*-tuVnK4w9JuAxc5HP2l9Ag.png)
 
