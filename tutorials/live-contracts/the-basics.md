@@ -250,8 +250,8 @@ In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we s
 `lctest` is a command line tool to test workflows described in a Live Contract. It requires PHP7+ with the yaml and mongodb PECL extensions.
 
 ```text
-$ wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"
-$ php lctest.phar basic
+wget "https://github.com/legalthings/livecontracts-tester/raw/master/lctest.pharr"
+php lctest.phar basic
 ```
 
 The test should succeed, giving the following output:
