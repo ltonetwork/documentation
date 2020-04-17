@@ -75,6 +75,8 @@ Block's signature is calculated from the following bytes:
 | 11 | MassTransferTransaction |
 | ~~12~~ | ~~DataTransaction~~ |
 | 15 | AnchorTransaction |
+| 16 | InvokeAssociation |
+| 17 | RevokeAssociation |
 
 #### Genesis Transaction
 
@@ -214,6 +216,28 @@ The transaction's signature is calculated from the following bytes:
 | ... | ... | ... | ... |
 | 6 | Timestamp | Long | 8 |
 | 7 | Fee | Long | 8 |
+| 8.1 | Proofs version \(1\) | Byte | 1 |
+| 8.2 | Proofs count | Short | 2 |
+| 8.3 | Proof 1 length \(P1\) | Short | 2 |
+| 8.4 | Proof 1 | ByteStr \(Array\[Byte\]\) | P1 |
+| 8.5 | Proof 2 length \(P2\) | Short | 2 |
+| 8.6 | Proof 2 | ByteStr \(Array\[Byte\]\) | P2 |
+| ... | ... | ... | ... |
+
+#### Association Transactions \(Invoke / Revoke\)
+
+The data structure for transactions to issue \(type 16\) and revoke \(type 17\) an association are the same.
+
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction multiple version mark | Byte \(constant, value=0\) | 1 |
+| 2 | Transaction type | Byte \(constant, value=16 or 17\) | 1 |
+| 3 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
+| 4 | Party | Address | 26 |
+| 5 | Association type | Int | 4 |
+| 6 | Hash | Short | 2 |
+| 7 | Fee | Long | 8 |
+| 8 | Timestamp | Long | 8 |
 | 8.1 | Proofs version \(1\) | Byte | 1 |
 | 8.2 | Proofs count | Short | 2 |
 | 8.3 | Proof 1 length \(P1\) | Short | 2 |
