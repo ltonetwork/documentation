@@ -46,10 +46,9 @@
 * [Protocol](public-node/protocol/README.md)
   * [Cryptographic Details](public-node/protocol/cryptographic_details.md)
   * [Data Structures](public-node/protocol/data_structures.md)
-  * [Mass Transfer Transaction](public-node/protocol/mass_transfer_transaction.md)
-  * [Transaction Fees](public-node/protocol/transaction_fees.md)
-  * [NG-Solution](public-node/protocol/ng-solution.md)
-  * [NG-Protocol](public-node/protocol/ng-protocol.md)
+  * [Transactions](public-node/protocol/transactions/README.md)
+    * [Mass Transfer Transaction](public-node/protocol/transactions/mass_transfer_transaction.md)
+    * [Transaction Fees](public-node/protocol/transactions/transaction_fees.md)
   * [Fair Proof of Stake \(FPoS\)](public-node/protocol/fair_proof_of_stake_fpos.md)
   * [FAQ](public-node/protocol/faq.md)
 
