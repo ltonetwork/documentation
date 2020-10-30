@@ -208,14 +208,14 @@ The transaction's signature is calculated from the following bytes:
 | 2 | Transaction type | Byte \(constant, value=18\) | 1 |
 | 3 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
 | 4 | Recipient | Address | 26 |
-| 6 | Fee | Long | 8 |
-| 7 | Timestamp | Long | 8 |
-| 8.1 | Proofs version \(1\) | Byte | 1 |
-| 8.2 | Proofs count | Short | 2 |
-| 8.3 | Proof 1 length \(P1\) | Short | 2 |
-| 8.4 | Proof 1 | ByteStr \(Array\[Byte\]\) | P1 |
-| 8.5 | Proof 2 length \(P2\) | Short | 2 |
-| 8.6 | Proof 2 | ByteStr \(Array\[Byte\]\) | P2 |
+| 5 | Fee | Long | 8 |
+| 6 | Timestamp | Long | 8 |
+| 7.1 | Proofs version \(1\) | Byte | 1 |
+| 7.2 | Proofs count | Short | 2 |
+| 7.3 | Proof 1 length \(P1\) | Short | 2 |
+| 7.4 | Proof 1 | ByteStr \(Array\[Byte\]\) | P1 |
+| 7.5 | Proof 2 length \(P2\) | Short | 2 |
+| 7.6 | Proof 2 | ByteStr \(Array\[Byte\]\) | P2 |
 | ... | ... | ... | ... |
 
 ### Sponsor Cancel Transaction
