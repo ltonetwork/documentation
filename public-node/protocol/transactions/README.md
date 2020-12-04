@@ -140,7 +140,7 @@ The transaction's signature is calculated from the following bytes:
 
 ### Anchor Transaction
 
-| \` \# | Field Name | Type | Length |
+| \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction multiple version mark | Byte \(constant, value = 0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value = 12\) | 1 |
@@ -162,7 +162,7 @@ The transaction's signature is calculated from the following bytes:
 
 ### Invoke Association Transaction
 
-| Field Name | Type | Type | Length |
+| \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction multiple version mark | Byte \(constant, value=0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value=16\) | 1 |
@@ -182,7 +182,7 @@ The transaction's signature is calculated from the following bytes:
 
 ### Revoke Association Transaction
 
-| Field Name | Type | Length |  |
+| \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction multiple version mark | Byte \(constant, value=0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value=17\) | 1 |
