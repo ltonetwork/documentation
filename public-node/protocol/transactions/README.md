@@ -147,8 +147,8 @@ The transaction's signature is calculated from the following bytes:
 | 3 | Version | Byte | 1 |
 | 4 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
 | 5.1 | Anchors count | Short | 2 |
-| 5.2 | Anchor 1 | Short | 2 |
-| 5.3 | Anchor 2 | Short | 2 |
+| 5.2 | Anchor 1 | Array\[Byte\] | 64 |
+| 5.3 | Anchor 2 | Array\[Byte\] | 64 |
 | ... | ... | ... | ... |
 | 6 | Timestamp | Long | 8 |
 | 7 | Fee | Long | 8 |
@@ -162,14 +162,14 @@ The transaction's signature is calculated from the following bytes:
 
 ### Invoke Association Transaction
 
-| Field Name | Type | Length |  |
+| Field Name | Type | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction multiple version mark | Byte \(constant, value=0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value=16\) | 1 |
 | 3 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
 | 4 | Party | Address | 26 |
 | 5 | Association type | Int | 4 |
-| 6 | Hash | Short | 2 |
+| 6 | Hash | Array\[Byte\] | 64 |
 | 7 | Fee | Long | 8 |
 | 8 | Timestamp | Long | 8 |
 | 8.1 | Proofs version \(1\) | Byte | 1 |
@@ -189,7 +189,7 @@ The transaction's signature is calculated from the following bytes:
 | 3 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
 | 4 | Party | Address | 26 |
 | 5 | Association type | Int | 4 |
-| 6 | Hash | Short | 2 |
+| 6 | Hash | Array\[Byte\] | 64 |
 | 7 | Fee | Long | 8 |
 | 8 | Timestamp | Long | 8 |
 | 8.1 | Proofs version \(1\) | Byte | 1 |
