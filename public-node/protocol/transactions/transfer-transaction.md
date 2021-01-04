@@ -1,8 +1,10 @@
 # Transfer Transaction
 
+The transfer transaction allows the sender to transfer LTO tokens to the recipient.
+
 ### JSON
 
-```text
+```javascript
 {
     "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",
     "type": 4,
@@ -22,12 +24,11 @@
 ```
 
 {% hint style="info" %}
+* `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * Binary values \(including `attachment`\) are base58 encoded.
-* Timestamp is microseconds since epoch.
-* `id` and `height` should be omitted when broadcasting. They are set by the node.
+* `timestamp` is in microseconds since epoch.
+* `fee` and `amount` include 8 digits, so `LTO * 10^8`
 {% endhint %}
-
-
 
 ### Binary schema
 
