@@ -55,7 +55,7 @@ The transaction's signature is calculated from the following bytes:
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
-| 1 | Transaction multiple version mark | Byte \(constant, value=0\) | 1 |
+| 1 | Version flag | Byte \(constant, value=0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value=4\) | 1 |
 | 3 | Signature | ByteStr \(Array\[Byte\]\) | 64 |
 | 4 | Transaction type | Byte \(constant, value=4\) | 1 |
