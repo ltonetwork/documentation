@@ -37,18 +37,16 @@ The binary data structure of the unsigned transaction.
 | :--- | :---: | :---: | :--- |
 | 1 | Version flag | Byte \(constant, value=0\) | 1 |
 | 2 | Transaction type | Byte \(constant, value=4\) | 1 |
-| 3 | Sender's public key | PublicKeyAccount \(Array\[Byte\]\) | 32 |
+| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
 | 4 | Timestamp | Long | 8 |
 | 5 | Amount | Long | 8 |
 | 6 | Fee | Long | 8 |
-| 7 | Recipient | Address | 26 |
+| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
 | 8 | Attachment length \(N\) | Short | 2 |
 | 9 | Attachment | Array\[Byte\] | N |
+|  |  |  | **86+N** |
 
 {% hint style="info" %}
-Integers \(short, int, long\) have a big endian byte order.  
-Timestamp is in microseconds
+Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
-
-
 
