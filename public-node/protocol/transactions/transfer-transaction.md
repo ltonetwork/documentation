@@ -25,7 +25,7 @@ The transfer transaction allows the sender to transfer LTO tokens to the recipie
 
 {% hint style="info" %}
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
-* Binary values \(including `attachment`\) are base58 encoded.
+* Binary strings \(including `attachment`\) are base58 encoded.
 * `timestamp` is in microseconds since epoch.
 * `fee` and `amount` include 8 digits, so `LTO * 10^8`
 {% endhint %}
