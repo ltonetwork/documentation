@@ -1,6 +1,10 @@
-# Transfer Transaction
+---
+description: >-
+  The transfer transaction allows the sender to transfer LTO tokens to the
+  recipient.
+---
 
-The transfer transaction allows the sender to transfer LTO tokens to the recipient.
+# Transfer Transaction
 
 ### JSON
 

@@ -48,6 +48,8 @@
   * [Data Structures](public-node/protocol/data_structures.md)
   * [Transactions](public-node/protocol/transactions/README.md)
     * [Transfer Transaction](public-node/protocol/transactions/transfer-transaction.md)
+    * [Lease Transaction](public-node/protocol/transactions/lease-transaction.md)
+    * [Cancel Lease Transaction](public-node/protocol/transactions/cancel-lease-transaction.md)
     * [Mass Transfer Transaction](public-node/protocol/transactions/mass_transfer_transaction.md)
     * [Transaction Fees](public-node/protocol/transactions/transaction_fees.md)
   * [Fair Proof of Stake \(FPoS\)](public-node/protocol/fair_proof_of_stake_fpos.md)
