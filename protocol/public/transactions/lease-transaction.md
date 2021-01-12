@@ -42,9 +42,9 @@ The binary data structure of the unsigned transaction.
 | 3 | - | Byte \(constant, value=0\) | 1 |
 | 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
 | 5 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 5 | Amount | Long | 8 |
-| 6 | Fee | Long | 8 |
-| 7 | Timestamp | Long | 8 |
+| 6 | Amount | Long | 8 |
+| 7 | Fee | Long | 8 |
+| 8 | Timestamp | Long | 8 |
 |  |  |  | **85** |
 
 {% hint style="info" %}

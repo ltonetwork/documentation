@@ -1,33 +1,25 @@
 ---
-description: 'Sponsor an account, offering to pay for all transaction fees for that account.'
+description: Stop sponsoring an account
 ---
 
-# Sponsor
-
-{% hint style="danger" %}
-You should only sponsor an account you trust, and/or have a legally binding agreement with. A sponsored account holder can easily drain your account through spam transactions. If the account holder is running a node, he/she can claim part of the spend tokens as mining reward. **Limit the amount of tokens on the sponsoring account**, adding funds when neccessary.
-{% endhint %}
-
-{% hint style="success" %}
-See [transaction fees with sponsored accounts](./#transaction-fees) for more info.
-{% endhint %}
+# Cancel sponsor
 
 ### JSON
 
 ```javascript
 {
-    "type": 18,
+    "type": 19,
     "version": 1,
     "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-    "id": "8S2vD5dGCPhwS8jLzNQpSRYDBGXv6GKq6qT5yXUBWPgb",
+    "id": "53r3mwknCUJmyacf1TP1A5zUGCF9z3N951Zegs9UrkZD",
     "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
     "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-    "timestamp": 1610410901000,
+    "timestamp": 1610412950000,
     "fee": 500000000,
     "proofs": [
-        "QKef6R8LrMBupBF9Ry8zjFTu3mexC55J6XNofDDQEcJnZJsRjZPnAk6Yn2eiHkqqd2uSjB2r58fC8QVLaVegQEz"
+        "RexaACH8AVfNKQcKDRVCvF2nSAzJLZPyUTtD9KmtikBy5CVCpVeBp78m2Myy7ekkecDMaJwERjgTVxjSxeLd8Da"
     ],
-    "height": 1225821
+    "height": 1225860
 }
 ```
 

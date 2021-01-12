@@ -38,7 +38,7 @@ To revoke an association, the `sender`, `assocationType`, `party`, and `hash` ne
 * `hash` is optional.
 * Binary strings are base58 encoded.
 * `timestamp` is in microseconds since epoch.
-* `fee` and `amount` include 8 digits, so `LTO * 10^8`
+* `fee` includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 
 ### Binary schema

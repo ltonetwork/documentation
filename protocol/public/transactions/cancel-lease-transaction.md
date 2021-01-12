@@ -36,6 +36,7 @@ The binary data structure of the unsigned transaction.
 |  |  |  | **83** |
 
 {% hint style="info" %}
-Integers \(short, int, long\) have a big endian byte order.
+* Chain id can be obtained by taking the 2nd byte from the sender or recipient address.
+* Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 
