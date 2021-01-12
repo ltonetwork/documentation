@@ -4,6 +4,10 @@ Anchoring on a blockchain is a simple and cheap way to notarize documents and ti
 
 You can provide indisputable proof of existence by securing a hash on the LTO Network public blockchain: [https://anchor-demo.lto.network/demo](https://anchor-demo.lto.network/demo/)
 
+{% hint style="info" %}
+The anchoring node indexes achor and association transactions and provides an easy to use REST API. However it's not required to run an anchoring node to anchor on LTO Network. You can use one of the client libraries to create an anchor transaction and broadcast that via a public node like [nodes.lto.network](https://nodes.lto.network).
+{% endhint %}
+
 ## REST API
 
 The LTO node comes in several flavors. Anchoring nodes expose an HTTP REST interface allowing you to easily submit anchor transactions. The transactions are signed by the node and \(thus\) paid by the account associated with the node.
@@ -30,8 +34,4 @@ The demo service uses LTO testnet. Transactions on testnet are free, but the net
 To anchor on LTO mainnet, [install your own anchoring node](../../anchoring-node-1/installation-guide/) using docker. Submitting anchoring transactions on mainnet requires a transaction fee. 
 
 If the node is set up correctly, you’ll need to provide the API key for each request as `X-LTO-Key` request header. This key has been configured as environment variable `LTO_API_KEY` during set up.
-
-{% hint style="info" %}
-The anchoring node indexes achor and association transactions and provides an easy to use REST API. However it's not required to run an anchoring node to anchor on LTO Network. You can use one of the client libraries to create an anchor transaction and broadcast that via a public node like [nodes.lto.network](https://nodes.lto.network).
-{% endhint %}
 
