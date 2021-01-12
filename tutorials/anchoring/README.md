@@ -27,7 +27,7 @@ The node exposes a Swagger UI which you can use to try out all the available HTT
 
 The demo service uses LTO testnet. Transactions on testnet are free, but the network isn't secure and must not be used in production.
 
-To anchor on LTO mainnet, [install your own anchoring node](../../anchoring-node/installation-guide/) using docker. Submitting anchoring transactions on mainnet requires a transaction fee. 
+To anchor on LTO mainnet, [install your own anchoring node](../../anchoring-node-1/installation-guide/) using docker. Submitting anchoring transactions on mainnet requires a transaction fee. 
 
 If the node is set up correctly, you’ll need to provide the API key for each request as `X-LTO-Key` request header. This key has been configured as environment variable `LTO_API_KEY` during set up.
 

@@ -328,7 +328,7 @@ states:
 
 Once we know the name of the actor, we can use it in the process. Rather than saying "Reply to the initiator", we could say "Reply to Joe Smith".
 
-The [`<tpl>` data instruction](../../full-node/workflow/scenario/data-instruction.md) parses a mustache template, injecting process data.
+The [`<tpl>` data instruction]() parses a mustache template, injecting process data.
 
 {% tabs %}
 {% tab title="YAML" %}
