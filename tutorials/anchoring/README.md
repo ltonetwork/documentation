@@ -31,3 +31,7 @@ To anchor on LTO mainnet, [install your own anchoring node](../../anchoring-node
 
 If the node is set up correctly, you’ll need to provide the API key for each request as `X-LTO-Key` request header. This key has been configured as environment variable `LTO_API_KEY` during set up.
 
+{% hint style="info" %}
+The anchoring node indexes achor and association transactions and provides an easy to use REST API. However it's not required to run an anchoring node to anchor on LTO Network. You can use one of the client libraries to create an anchor transaction and broadcast that via a public node like [nodes.lto.network](https://nodes.lto.network).
+{% endhint %}
+
