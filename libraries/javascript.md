@@ -19,6 +19,9 @@ npm install lto-api --save
 ```text
 const LTO = require('lto-api').LTO;
 const lto = new LTO();
+
+// For testnet use
+const lto = new LTO('T');
 ```
 
 ### Account
