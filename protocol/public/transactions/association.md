@@ -46,15 +46,16 @@ The binary data structure of the unsigned transaction.
 | 3 | Chain id | Byte | 1 |
 | 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
 | 5 | Party | Address \(Array\[Byte\]\) | 26 |
-| 6 | Includes hash | Boolean \(Byte\) | 1 |
-| 7 | Hash length \(N\) | Short | 2 |
-| 8 | Hash | Array\[Byte\] | N |
-| 9 | Timestamp | Long | 8 |
-| 10 | Fee | Long | 8 |
-|  |  |  | **80+N** |
+| 6 | Association type | Int | 4 |
+| 7 | Includes hash | Boolean \(Byte\) | 1 |
+| 8 | Hash length \(N\) | Short | 2 |
+| 9 | Hash | Array\[Byte\] | N |
+| 10 | Timestamp | Long | 8 |
+| 11 | Fee | Long | 8 |
+|  |  |  | **84+N** |
 
 {% hint style="warning" %}
-If the association doesn't include a hash, the hash length and hash should be omitted from the binary data. The binary of an association without a hash is **78 bytes** long.
+If the association doesn't include a hash, the hash length and hash should be omitted from the binary data. The binary of an association without a hash is **82 bytes** long.
 {% endhint %}
 
 {% hint style="info" %}
