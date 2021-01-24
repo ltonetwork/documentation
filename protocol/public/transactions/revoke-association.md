@@ -48,7 +48,7 @@ The binary data structure of the unsigned transaction.
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Version flag | Byte \(constant, value=0\) | 1 |
-| 2 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Transaction type | Byte \(constant, value=17\) | 1 |
 | 3 | Chain id | Byte | 1 |
 | 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
 | 5 | Party | Address \(Array\[Byte\]\) | 26 |
