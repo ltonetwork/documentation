@@ -93,8 +93,6 @@ failed to anchor '[reason]'
 {% endapi-method-spec %}
 {% endapi-method %}
 
-
-
 {% api-method method="get" host="https://lto.example.com" path="/hash/:hash/encoding/:encoding" %}
 {% api-method-summary %}
 Verify if a hash was anchored
@@ -180,10 +178,6 @@ Failed to get transaction by hash and encoding '[reason]'
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
-
-
 
 {% api-method method="get" host="https://lto.example.com" path="/hash/:hash" %}
 {% api-method-summary %}

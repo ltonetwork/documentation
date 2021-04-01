@@ -2,23 +2,21 @@
 
 ## LTO Network Anchor Node
 
-The LTO full node is comprised of a set of [Docker](https://www.docker.com/) containers. For development, use _docker compose_ as orchestration tool.
+The LTO full node is comprised of a set of [Docker](https://www.docker.com/) containers. For development, use _docker-compose_ as orchestration tool.
 
-### Docker
+### Install docker
 
 ```text
 $ apt install docker
 ```
 
-Use `pip` \(python package manager\) to install _docker compose_.
+Use `pip` \(python package manager\) to install _docker-compose_.
 
 ```text
 $ pip install docker-compose
 ```
 
-
-
-### LTO full node
+### Start the node
 
 ```
 $ curl "https://raw.githubusercontent.com/ltonetwork/lto-anchor-node/master/docker-compose.yml" -o docker-compose.yml
