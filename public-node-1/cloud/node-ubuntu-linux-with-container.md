@@ -355,6 +355,9 @@ services:
 public-node:
     container_name: public-node
     image: legalthings/public-node
+    restart: always
+    volumes:
+      - ./data:/lto/data
     ports:
       - 6869:6869
       - 6868:6868
