@@ -26,23 +26,23 @@ To address this issue, we're going to introduce a new transaction type, Mass Tra
 }
 ```
 
-It's easy to see how compact this transaction is compared to several Transfer transactions. Here we have a sequence of recipients and associated amounts, while sender, fee, timestamp and signature occur just once.
+It's easy to see how compact this transaction is compared to several Transfer transactions. Here we have a sequence of recipients and associated amounts, while sender, fee, timestamp, and signature occur just once.
 
 ### Constraints
 
-The maximum number of recipients in a single transaction is 100. There is no minimum recipient number. You can create a Mass Transfer Transaction with one or even zero recipients. In addition, restrictions that apply to Transfers apply here as well, such as you cannot send negative amount and cannot send more than you have on your account.
+The maximum number of recipients in a single transaction is 100. There is no minimum recipient number. You can create a Mass Transfer Transaction with one or even zero recipients. In addition, restrictions that apply to Transfers apply here as well, such as you cannot send a negative amount and cannot send more than you have on your account.
 
-Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero valued transfers. In the recipients list, a recipient can occur several times, this is not considered an error.
+Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero-valued transfers. In the recipient list, a recipient can occur several times, this is not considered an error.
 
 ### Fees
 
-Unlike other transactions, Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. By default the formula looks like:
+Unlike other transactions, the Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. By default the formula looks like:
 
 ```text
 1 + 0.1 * N
 ```
 
-where `N` is the number of recipients in transaction. The total is rounded up to the nearest 100\_000. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it. Below is an excerpt from the configuration file that ships with the node:
+where `N` is the number of recipients in the transaction. The total is rounded up to the nearest 100\_000. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it. Below is an excerpt from the configuration file that ships with the node:
 
 ```cpp
 transfer {
@@ -55,5 +55,27 @@ mass-transfer {
 }
 ```
 
+### Binary schema
 
+The binary data structure of the unsigned transaction.
+
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=11\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 4 | Number of transfers \(T\) | Short | 2 |
+| 5 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
+| 6 | Amount 1 | Long | 8 |
+| ... |  |  |  |
+| 7 | Fee | Long | 8 |
+| 8 | Timestamp | Long | 8 |
+| 9 | Attachment length \(N\) | Short | 2 |
+| 10 | Attachment | Array\[Byte\] | N |
+|  |  |  | **58+\(34\*T\)+N** |
+
+{% hint style="info" %}
+* Recipient and Amount are repeated for each transfer.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
 
