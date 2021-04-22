@@ -1,15 +1,5 @@
 # Accounts
 
-This section describes all the details of cryptographic algorithms which are used to:  
-1. Create private and public keys from seed.  
-2. Create addresses from public key.  
-3. Create blocks and transactions signing.
-
-We use:  
-1. `Blake2b256` and `SHA2-256` algorithms \(in the form of hash chain\) to create a cryptographic hashes used .  
-2. `ED25519` in order to create and verify signatures.  
-3. `Base58` is used to create the string form of bytes.
-
 ## Bytes encoding Base58
 
 All arrays of bytes in the project are encoded by Base58 algorithm with Bitcoin alphabet to make it easier for humans to read \(text readability\).
@@ -18,7 +8,7 @@ All arrays of bytes in the project are encoded by Base58 algorithm with Bitcoin 
 
 The string `teststring` is coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`. The bytes `[1, 2, 3, 4, 5]` are coded into the string `7bWpTW`.
 
-## Creating a private key from a seed
+## Creating a private key from seed
 
 A seed string is a representation of entropy, from which you can re-create deterministically all the private keys for one wallet. It should be long enough so that the probability of selection is an unrealistic negligible.
 
@@ -36,35 +26,33 @@ Brainwallet seed string
 manage manual recall harvest series desert melt police rose hollow moral pledge kitten position add
 ```
 
-As UTF-8 bytes encoded
+As Base58 encoded byte array
 
 ```text
 xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q
 ```
 
-Account seed bytes with nonce 0 before apply hash function in Base58
+Account seed bytes with nonce 0 before apply hash function \(Base58 encoded\)
 
 ```text
 1111xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q
 ```
 
-blake2b256\(account seed bytes\)
-
-```text
-6sKMMHVLyCQN7Juih2e9tbSmeE5Hu7L8XtBRgowJQvU7
-```
-
-Account seed \( sha256\(blake2b256\(account seed bytes\)\) \)
+Account seed `sha256(blake2b256(account seed bytes))`  \(Base58 encoded\)
 
 ```text
 93dvzDQ8KBe4y7Nw89xsguWe8ZTVYGAA5kjvJ7miQS1v
 ```
 
-Account seed after `Sha256` hashing \(optional, if your library does not do it yourself\)
+Account seed after `sha256` hashing \(optional, if your library does not do it yourself\)
 
 ```text
 ETYQWXzC2h8VXahYdeUTXNPXEkan3vi9ikXbn912ijiw
 ```
+
+### Signing
+
+**ED25519** is used for all the signatures in the project. Use NaCl or sodium to create an address from the account seed.
 
 Created private key
 
@@ -78,9 +66,25 @@ Created public key
 GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 ```
 
+### Asymmetric encryption
+
+**X25519** is used for all the encryption in the project. Use NaCl or sodium to create an address from the account seed.
+
+Created private key
+
+```text
+3kMEhU5z3v8bmer1ERFUUhW58Dtuhyo9hE5vrhjqAWYT
+```
+
+Created public key
+
+```text
+HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
+```
+
 ## Creating address from public key
 
-Our network address obtained from the public key depends on the byte chainId \('T' for testnet and 'L' for mainnet\), so different networks obtained a different address for a single seed \(and hence public keys\). Creating a byte addresses described in more detail [here](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/technical-details/data-structures.md).
+Our network address obtained from the **ED25519 \(signature\) public key.** It uses on the chain id \('T' for testnet and 'L' for mainnet\), so different networks result in a different address for the same seed / public key.
 
 Example
 
