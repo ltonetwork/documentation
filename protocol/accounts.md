@@ -1,7 +1,5 @@
 # Accounts
 
-## Description
-
 This section describes all the details of cryptographic algorithms which are used to:  
 1. Create private and public keys from seed.  
 2. Create addresses from public key.  
