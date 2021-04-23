@@ -4,14 +4,14 @@
 | :--- | :--- |
 | 1 | Genesis Transaction |
 | 4 | [Transfer Transaction](transfer-transaction.md) |
-| 8 | Lease Transaction |
-| 9 | Cancel Lease Transaction |
-| 11 | Mass Transfer Transaction |
-| 15 | Anchor Transaction |
-| 16 | Association Transaction |
-| 17 | Revoke Association Transaction |
-| 18 | Sponsor Transaction |
-| 19 | Cancel Sponsor Transaction |
+| 8 | [Lease Transaction](../../../public-node-1/rest-api/lease_transactions.md) |
+| 9 | [Cancel Lease Transaction](cancel-lease-transaction.md) |
+| 11 | [Mass Transfer Transaction](mass_transfer_transaction.md) |
+| 15 | [Anchor Transaction](anchor.md) |
+| 16 | [Association Transaction](association.md) |
+| 17 | [Revoke Association Transaction](revoke-association.md) |
+| 18 | [Sponsor Transaction](sponsor.md) |
+| 19 | [Cancel Sponsor Transaction](cancel-sponsor.md) |
 
 ## Transaction Fees
 

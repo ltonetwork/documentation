@@ -2,7 +2,7 @@
 description: Stop sponsoring an account
 ---
 
-# Cancel sponsor
+# Cancel Sponsor
 
 ### JSON
 

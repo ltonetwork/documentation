@@ -86,7 +86,7 @@
     * [Association](protocol/public/transactions/association.md)
     * [Revoke Association](protocol/public/transactions/revoke-association.md)
     * [Sponsor](protocol/public/transactions/sponsor.md)
-    * [Cancel sponsor](protocol/public/transactions/cancel-sponsor.md)
+    * [Cancel Sponsor](protocol/public/transactions/cancel-sponsor.md)
   * [Fair Proof of Stake \(FPoS\)](protocol/public/fair_proof_of_stake_fpos.md)
   * [Data Structures](protocol/public/data_structures.md)
 * [Private layer](protocol/private/README.md)
