@@ -95,9 +95,6 @@
     * [Chain request](protocol/private/network/chain-request.md)
     * [Rejection](protocol/private/network/rejection.md)
     * [Conflict resolution](protocol/private/network/conflict-resolution.md)
-  * [Event Chain](protocol/private/event-chain/README.md)
-    * [Events](protocol/private/event-chain/events/README.md)
-      * [Event](protocol/private/event-chain/events/event.md)
-    * [Identity](protocol/private/event-chain/identity.md)
-    * [Resource](protocol/private/event-chain/resource.md)
+  * [Event chain](protocol/private/events/README.md)
+    * [Event](protocol/private/events/event.md)
 
