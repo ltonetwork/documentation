@@ -72,7 +72,7 @@ It's only possible to resolve a DID for accounts that have signed at least one o
 
 It's possible to explicitly specify verification methods for a DID document using associations. An association with the type `0x01??` specifies that the public key of the association recipient is a valid verification method for the association sender.
 
-The two least significant bytes form a bit-set that specifies the verification relationship.
+The two least significant bytes from a bit-set that specifies the verification relationship.
 
 | Hex | Relationship |
 | :--- | :--- |
