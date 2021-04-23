@@ -35,7 +35,9 @@ In general Live Contracts uses the 256-bit version of SHA-2 for encoding. SHA-2 
 
 When secure hashes are required, a combination of BLAKE2b and SHA256 are used.
 
+{% hint style="info" %}
 BLAKE2b is supported by NaCl compatible libraries like libsodium as ['Generic hashing'](https://download.libsodium.org/doc/hashing/generic_hashing.html). It's widely supported across platforms and languages.
+{% endhint %}
 
 ## Signing
 
@@ -45,9 +47,13 @@ The process is as follows: create the message for signing, then create a signatu
 
 Validation of signature requires the signature, the message and the public key.
 
+{% hint style="info" %}
 Functions for ED25519 are defined as `sign` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/public-key_signatures.html) and [nacl](https://nacl.cr.yp.to/sign.html).
+{% endhint %}
 
-_Do not forget that there are many valid \(not unique!\) signatures for one message. Also, you should not rely on any information before the hash and/or signature are checked._
+{% hint style="warning" %}
+There are many valid \(not unique!\) signatures for one message. Also, you should not rely on any information before the hash and/or signature are checked.
+{% endhint %}
 
 ## Encryption
 
@@ -59,5 +65,9 @@ There are 3 algorithms involved for asymmetric encryption:
 
 This is a public key encryption schema, where the public key is used to encrypt data and the private key is used to decrypt data.
 
-Functions that use the combination of these algorithms are defined as `box` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/authenticated_encryption.html) and [nacl](http://nacl.cr.yp.to/box.html). _X25519 is sometimes referred to as Curve25519._
+_X25519 is sometimes referred to as Curve25519._
+
+{% hint style="info" %}
+Functions that use the combination of these algorithms are defined as `box` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/authenticated_encryption.html) and [nacl](http://nacl.cr.yp.to/box.html). 
+{% endhint %}
 
