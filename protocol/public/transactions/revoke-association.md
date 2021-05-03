@@ -17,8 +17,8 @@ To revoke an association, the `sender`, `assocationType`, `party`, and `hash` ne
 ```javascript
 {
     "type": 17,
-    "version": 1,
-    "party": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
+    "version": 3,
+    "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
     "associationType": 1,
     "hash": "3yMApqCuCjXDWPrbjfR5mjCPTHqFG8Pux1TxQrEM35jj",
     "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
@@ -48,24 +48,19 @@ The binary data structure of the unsigned transaction.
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=17\) | 1 |
-| 2 | Version | Byte \(constant, value=1\) | 1 |
-| 3 | Chain id | Byte | 1 |
-| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
-| 5 | Party | Address \(Array\[Byte\]\) | 26 |
-| 6 | Association type | Int | 4 |
-| 7 | Includes hash | Boolean \(Byte\) | 1 |
-| 8 | Hash length \(N\) | Short | 2 |
-| 9 | Hash | Array\[Byte\] | N |
-| 10 | Timestamp | Long | 8 |
-| 11 | Fee | Long | 8 |
-|  |  |  | **84+N** |
-
-{% hint style="warning" %}
-If the association doesn't include a hash, the hash length and hash should be omitted from the binary data. The binary of an association without a hash is **82 bytes** long.
-{% endhint %}
+| 2 | Version | Byte \(constant, value=3\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
+| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 8 | Fee | Long | 8 |
+| 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 10 | Association type | Int | 4 |
+| 11 | Hash length \(N\) | Short | 2 |
+| 12 | Hash | Array\[Byte\] | N |
 
 {% hint style="info" %}
-* Chain id can be obtained by taking the 2nd byte from the sender or recipient address.
-* Integers \(short, int, long\) have a big endian byte order.
+Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 

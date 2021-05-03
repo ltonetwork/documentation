@@ -13,40 +13,50 @@
 | 18 | [Sponsor Transaction](sponsor.md) |
 | 19 | [Cancel Sponsor Transaction](cancel-sponsor.md) |
 
+{% hint style="info" %}
+The current version for all transactions is **v3**. Previous versions \(v1, v2\) can also still be used.
+{% endhint %}
+
 ## Transaction Fees
 
-Transaction fees act as a reward for the miner. Because these are the only rewards, this prevents inflation of the network since no new tokens are introduced. 0.1 LTO of the fee isn't awarded \(aka burned\), resulting in deflation of the network.
+Transaction fees act as a reward for the miner. Because these are the only rewards, this prevents inflation of the network since no new tokens are introduced.
 
-| Transaction | Fee \(LTO\) | Minimum \(LTO\) | Burned |
-| :--- | :--- | :--- | :--- |
-| Transfer | 1 | 0.1 | 0.1 |
-| Lease | 1 | 0.1 | 0.1 |
-| Cancel Lease | 1 | 0.1 | 0.1 |
-| Mass Transfer | 1 + 0.1 \* N | 0.1 + 0.1 \* N | 0.1 |
-| Anchor | 0.35 | 0.1 | 0.1 |
-| Invoke Association | 1 | 0.1 | 0.1 |
-| Revoke Association | 1 | 0.1 | 0.1 |
-| Sponsor | 5 | 5 | 0.1 |
-| Cancel Sponsor | 5 | 5 | 0.1 |
-| Script | 5 | 5 | 0.1 |
+| Transaction | Fee \(LTO\) | Minimum \(LTO\) |
+| :--- | :--- | :--- |
+| Transfer | 1 | 0.01 |
+| Lease | 1 | 0.01 |
+| Cancel Lease | 1 | 0.01 |
+| Mass Transfer | 1 + 0.1 \* N | 0.01 + 0.01 \* N |
+| Anchor | 0.3 + 0.05 \* N | 0.01 + 0.01 \* N |
+| Invoke Association | 0.35 | 0.01 |
+| Revoke Association | 0.35 | 0.01 |
+| Sponsor | 5 | 5 |
+| Cancel Sponsor | 5 | 5 |
+| Script | 5 | 5 |
 
 The absolute minimum fees are enforced by the consensus model. The current fees are configured by the nodes as the minimum acceptable fee.
 
-Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transaction with a fee that's lower than configured, so likely these transaction will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
+Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transactions with a fee that's lower than configured, so likely these transactions will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
 
 ### Fee distribution
 
-For every transaction 0.1 LTO isn't awarded and thus effectively taken out of circulation \(aka burned\). The remaining fee is split up among the current leader, and the next elected node. The fee is distributed 40% to the leader and 60% to the next one.
+For every transaction, 10% of the fee isn't awarded and thus effectively taken out of circulation \(aka burned\). The remaining fee is split up among the current leader, and the next elected node. The fee is distributed 36% to the leader and 54% to the next one.
 
 For more information see the [NG documentation on Waves.](https://docs.waves.tech/en/blockchain/waves-protocol/waves-ng-protocol)
 
+### Sponsored fees
+
+_todo_
+
 ### Sponsored accounts
 
-Normally the fee is automatically deducted from the sender's address. With sponsored accounts it's possible for a third party to pay for all transaction fees of an account.
+Normally the fee is automatically deducted from the sender's address. With sponsored accounts, it's possible for a third party to pay for all transaction fees of an account.
 
-If the sponsor has unsufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
+If the sponsor has insufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
 
-If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has unsufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
+If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has insufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
+
+{% page-ref page="sponsor.md" %}
 
 ## Signing a transaction
 
@@ -101,13 +111,13 @@ _**Total transaction bytes with signature:**_
 
 ## Proofs
 
-In order to support Smart Accounts, transactions have the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multisig and atomic swap. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
+In order to support Smart Accounts, transactions have the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multisig. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
-By default only one proof is used, which must be the transaction signature by the sender. It should be the very first element in the proofs array, while all the other elements are ignored. The JSON looks like
+By default, only one proof is used, which must be the transaction signature by the sender. It should be the very first element in the proofs array, while all the other elements are ignored. The JSON looks like
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
 ## Calculating Transaction Id
 
-Transaction Id is not stored in the transaction bytes and for most of transactions \(except Payment\) it can be easily calculated from the special bytes for signing using`blake2b256(bytes_for_signing)`. For Payment transaction Id is just the signature of this transaction.
+Transaction Id is not stored in the transaction bytes and it can be easily calculated from the bytes for signing using `blake2b256(bytes_for_signing)`.
 
