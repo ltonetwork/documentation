@@ -9,7 +9,7 @@ description: >-
 The JSON and binary schema for revoking an association are identical to the schemas for creating an association.
 
 {% hint style="success" %}
-To revoke an association, the `sender`, `assocationType`, `party`, and `hash` need to be the same as in the transaction that created the association.
+To revoke an association, the `sender`, `assocationType`, `recipient`, and `hash` need to be the same as in the transaction that created the association.
 {% endhint %}
 
 ### JSON
