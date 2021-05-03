@@ -91,7 +91,7 @@ The two least significant bytes from a bit-set that specifies the verification r
 The association recipient needs to have signed at least one on-chain transaction, so the public key of that account is indexed.
 {% endhint %}
 
-For accounts that have at least one verification method association, there is no implicit verification relationship of the indexed public key for authentication and assertions. By default, it can only be used as management key; to sign transactions for updating the DID document.
+There is no implicit verification relationship of the indexed public key for authentication and assertions for accounts that have at least one verification method association. By default, it can only be used as management key; to sign transactions for updating the DID document.
 
 {% hint style="warning" %}
 The management key is always listed as verification method with the capability invocation relationship. Adding alternative methods for capability invocation does not automatically make it possible to use those keys to sign blockchain transactions for updating the DID document.
