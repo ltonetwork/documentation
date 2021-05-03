@@ -36,7 +36,7 @@ description: >-
 
 ### Constraints
 
-The maximum number of anchors in a single transaction is 100. There is no minimum anchor number.
+The maximum number of anchors in a single transaction is 100. There is no minimum number of anchors.
 
 Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero-valued transfers. In the recipient list, a recipient can occur several times, this is not considered an error.
 
@@ -67,7 +67,7 @@ The binary data structure of the unsigned transaction.
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
-| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 1 | Transaction type | Byte \(constant, value=15\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
 | 3 | Timestamp | Long | 8 |
 | 4 | Sender's key type | KeyType \(Byte\) | 1 |
