@@ -61,6 +61,7 @@ The binary data structure of the unsigned transaction.
 | 12 | Hash | Array\[Byte\] | N |
 
 {% hint style="info" %}
-Integers \(short, int, long\) have a big endian byte order.
+* If the association doesn't have a hash, the hash length should be zero.
+* Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 
