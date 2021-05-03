@@ -26,13 +26,13 @@ Transaction fees act as a reward for the miner. Because these are the only rewar
 | Transfer | 1 | 0.01 |
 | Lease | 1 | 0.01 |
 | Cancel Lease | 1 | 0.01 |
-| Mass Transfer | 1 + 0.1 \* N | 0.01 + 0.01 \* N |
-| Anchor | 0.3 + 0.05 \* N | 0.01 + 0.01 \* N |
+| Mass Transfer | 1 + 0.1 \* N | 0.01 + 0.001 \* N |
+| Anchor | 0.3 + 0.05 \* N | 0.01 + 0.001 \* N |
 | Invoke Association | 0.35 | 0.01 |
 | Revoke Association | 0.35 | 0.01 |
-| Sponsor | 5 | 5 |
-| Cancel Sponsor | 5 | 5 |
-| Script | 5 | 5 |
+| Sponsor | 5 | 0.1 |
+| Cancel Sponsor | 1 | 0.01 |
+| Script | 5 | 0.1 |
 
 The absolute minimum fees are enforced by the consensus model. The current fees are configured by the nodes as the minimum acceptable fee.
 
