@@ -40,7 +40,9 @@ Nodes will reject broadcasting transactions that offer a lower fee than configur
 
 ### Fee distribution
 
-For every transaction, 10% of the fee isn't awarded and thus effectively taken out of circulation \(aka burned\). The remaining fee is split up among the current leader, and the next elected node. The fee is distributed 36% to the leader and 54% to the next one.
+For every transaction, 20% of the fee isn't awarded and thus effectively taken out of circulation \(aka burned\). The remaining fee is split up among the current leader, and the next elected node at a ratio of  2:3.
+
+The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned.
 
 For more information see the [NG documentation on Waves.](https://docs.waves.tech/en/blockchain/waves-protocol/waves-ng-protocol)
 
