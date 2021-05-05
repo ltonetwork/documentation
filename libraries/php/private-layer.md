@@ -8,7 +8,7 @@
 $chain = $account->createEventChain(); // Creates an empty event chain with a valid id and last hash
 ```
 
-_Note: You need to add an identity as first event on the chain. This is **not** done automatically._
+_Note: You need to add an identity as the first event on the chain. This is **not** done automatically._
 
 ### **Create and sign an event and add it to an existing event chain**
 
