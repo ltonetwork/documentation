@@ -16,49 +16,35 @@ _Signing and addresses work both for the \(private\) event chain as for the publ
 composer require lto/api
 ```
 
-## Accounts
+## Usage
 
-### 
+```php
+use LTO\Transaction\Transfer;
+use LTO\PublicNode;
 
-## Public layer
+// Create account for signing
+$seedText = "manage manual recall harvest series desert melt police rose hollow moral pledge kitten position add";
 
-```text
+$factory = new LTO\AccountFactory('T'); // 'T' for testnet, 'L' for mainnet
+$account = $factory->seed($seedText);
+
+// Public layer
+$node = new PublicNode('https://nodes.lto.network');
+
+$amount = 1000.0; // Amount of LTO to transfer
+$recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
+
+$transferTx = (new Transfer($amount, $recipient))
+    ->signWith($account)
+    ->broadcastTo($node);
+    
+// Private layer
+$schema = "http://specs.example.com/message";
+$content => "Hello world!";
+
+$chain = $account->createEventChain();
+$chain->addIdentity($account->asIdentity())->signWith($account);
+$chain->addEvent($schema, $content)->signWith($account);
 
 ```
-
-## Private layer
-
-### Event chain
-
-#### **Create a new event chain**
-
-```text
-$chain = $account->createEventChain(); // Creates an empty event chain with a valid id and last hash
-```
-
-_Note: You need to add an identity as first event on the chain. This is **not** done automatically._
-
-#### **Create and sign an event and add it to an existing event chain**
-
-```text
-$body = [
-  '$schema' => "http://specs.example.com/message#",
-  'content' => "Hello world!"
-];
-
-$chainId = "JEKNVnkbo3jqSHT8tfiAKK4tQTFK7jbx8t18wEEnygya";
-$chainLastHash = "3yMApqCuCjXDWPrbjfR5mjCPTHqFG8Pux1TxQrEM35jj";
-
-$chain = new LTO\EventChain($chainId, $chainLastHash);
-
-$chain->add(new Event($body))->signWith($account);
-```
-
-You need the chain id and the hash of the last event to use an existing chain.
-
-### HTTP Authentication
-
-
-
-## 
 
