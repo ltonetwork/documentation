@@ -2,13 +2,13 @@
 
 ## **Create an event chain**
 
-```text
+```javascript
 const chain = account.createEventChain(); // Creates an empty event chain with a valid id and last hash
 ```
 
 ## **Create and sign an event and add it to an existing event chain**
 
-```text
+```javascript
 const EventChain = require('lto-api').EventChain;
 const Event = require('lto-api').Event;
 
