@@ -239,3 +239,41 @@ $anchorTx = (new Anchor())
 
 _In this example, a zero-anchor transaction is done by a new account to register it as an implicit identity._
 
+## Multiple signatures
+
+For smart accounts, a transaction might need multiple signatures. This can be done by calling `signWith()` multiple times.
+
+```php
+use LTO\Transaction\Transfer;
+use LTO\PublicNode;
+
+$node = new PublicNode('https://nodes.lto.network');
+
+$amount = 1000.0; // Amount of LTO to transfer
+$recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
+
+$transferTx = (new Transfer($amount, $recipient))
+    ->signWith($account1)
+    ->signWith($account2)
+    ->signWith($account3)
+    ->broadcastTo($node);
+```
+
+It's unlikely that you'll have the private keys of all accounts at the same time because typically with multisig each key is controlled by a different individual. Instead, should store the signed transaction or share it \(over the private layer\) to have the second account add a signature and broadcast it.
+
+```php
+use LTO\Transaction;
+use LTO\PublicNode;
+
+$node = new PublicNode('https://nodes.lto.network');
+
+$data = $mongodb->findOne(['id' => $txId]);
+$tx = Transaction::fromData($data);
+
+$tx->signWith($account);
+
+if (count($tx->proofs) >= 2) {
+    $node->broadcast($tx);
+}
+```
+
