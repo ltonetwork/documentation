@@ -27,7 +27,7 @@ $resolver = new Resolver(
 $identity = $resolver->resolve("lto:did:3JkihPXS5iPs8xDKcFQmhR8TVcAmDRUZpyx");
 ```
 
-### Identity
+## Identity
 
 The identity is a representation of a DID document.
 
