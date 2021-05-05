@@ -8,8 +8,6 @@ description: PHP client library for interacting with LTO Network
 Visit the [project on GitHub](https://github.com/ltonetwork/lto-api.php).
 {% endhint %}
 
-_Signing and addresses work both for the \(private\) event chain as for the public chain._
-
 ## Installation
 
 ```text
