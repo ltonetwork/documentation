@@ -37,12 +37,14 @@ $transferTx = (new Transfer($amount, $recipient))
     ->broadcastTo($node);
     
 // Private layer
-$schema = "http://specs.example.com/message";
-$content => "Hello world!";
+$body = [
+    '$schema' => "http://specs.example.com/message",
+    'content' => "Hello world!",
+];
 
 $chain = $account->createEventChain();
 $chain->addIdentity($account->asIdentity())->signWith($account);
-$chain->addEvent($schema, $content)->signWith($account);
+$chain->add(new Event($body))->signWith($account);
 
 ```
 
