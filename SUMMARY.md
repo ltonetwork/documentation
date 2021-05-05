@@ -65,7 +65,11 @@
 
 ## Libraries
 
-* [JavaScript](libraries/javascript.md)
+* [JavaScript](libraries/javascript/README.md)
+  * [Accounts](libraries/javascript/accounts.md)
+  * [Public layer](libraries/javascript/public-layer.md)
+  * [Private layer](libraries/javascript/private-layer.md)
+  * [HTTP Authentication](libraries/javascript/http-authentication.md)
 * [PHP](libraries/php/README.md)
   * [Accounts](libraries/php/accounts.md)
   * [Identities](libraries/php/identities.md)
