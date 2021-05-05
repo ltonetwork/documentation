@@ -5,7 +5,7 @@ description: 'Sponsor an account, offering to pay for all transaction fees for t
 # Sponsor
 
 {% hint style="danger" %}
-You should only sponsor an account you trust, and/or have a legally binding agreement with. A sponsored account holder can easily drain your account through spam transactions. If the account holder is running a node, he/she can claim part of the spend tokens as mining reward. **Limit the amount of tokens on the sponsoring account**, adding funds when neccessary.
+You should only sponsor an account you trust, and/or have a legally binding agreement with. A sponsored account holder can easily drain your account through spam transactions. If the account holder is running a node, he/she can claim part of the spend tokens as mining reward. **Limit the amount of tokens on the sponsoring account**, adding funds when necessary.
 {% endhint %}
 
 {% hint style="success" %}

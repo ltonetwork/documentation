@@ -66,7 +66,13 @@
 ## Libraries
 
 * [JavaScript](libraries/javascript.md)
-* [PHP](libraries/php.md)
+* [PHP](libraries/php/README.md)
+  * [Accounts](libraries/php/accounts.md)
+  * [Identities](libraries/php/identities.md)
+  * [Public layer](libraries/php/public-layer.md)
+  * [Private layer](libraries/php/private-layer.md)
+  * [HTTP Authentication](libraries/php/http-authentication.md)
+  * [Commandline scripts](libraries/php/commandline-scripts.md)
 * [Python](libraries/python.md)
 * [Go](libraries/go.md)
 
