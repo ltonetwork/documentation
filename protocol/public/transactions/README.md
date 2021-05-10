@@ -47,7 +47,7 @@ Normally the fee is automatically deducted from the sender's address. With spons
 
 If the sponsor has unsufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
 
-If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has unsufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
+If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has insufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
 
 ## Signing a transaction
 
@@ -57,7 +57,7 @@ The process is as follows: create the special bytes for signing \(for transactio
 
 For the validation of signature is enough signature bytes, signed object bytes and the public key.
 
-Do not forget that there are many valid \(not unique!\) signatures for a one array of bytes \(block or transaction\). Also you should not assume that the id of block or transaction is unique. The collision can occur one day! They have already taken place for some weak keys.
+Do not forget that there are many valid \(not unique!\) signatures for a one array of bytes \(block or transaction\).
 
 ### Example
 
