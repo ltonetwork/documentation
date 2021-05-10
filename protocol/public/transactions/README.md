@@ -145,5 +145,5 @@ By default, only one proof is used, which must be the transaction signature by t
 
 ## Calculating Transaction Id
 
-Transaction Id is not stored in the transaction bytes and it can be easily calculated from the bytes for signing using `blake2b256(bytes_for_signing)`.
+Transaction Id is not stored in the transaction bytes. It can be easily calculated from the bytes for signing using `blake2b256(bytes_for_signing)`.
 
