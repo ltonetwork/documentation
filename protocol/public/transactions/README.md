@@ -137,7 +137,7 @@ _**Total transaction bytes with signature:**_
 
 ## Proofs
 
-In order to support Smart Accounts, transactions have the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multisig. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
+Proofs are a flexible way to authorize a transaction. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of the proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
 By default, only one proof is used, which must be the transaction signature by the sender. It should be the very first element in the proofs array, while all the other elements are ignored. The JSON looks like
 
