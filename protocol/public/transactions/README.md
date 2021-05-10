@@ -57,7 +57,9 @@ The process is as follows: create the special bytes for signing \(for transactio
 
 For the validation of signature is enough signature bytes, signed object bytes and the public key.
 
-Do not forget that there are many valid \(not unique!\) signatures for a one array of bytes \(block or transaction\).
+{% hint style="warning" %}
+There are many valid \(not unique!\) signatures for the same array of bytes \(block or transaction\).
+{% endhint %}
 
 ### Example
 
