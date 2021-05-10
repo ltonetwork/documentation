@@ -121,28 +121,3 @@ Account's address in Base58 format
 | Effective | The available amount + the LTO leased to the account |
 | Generating | The minimal effective balance over the last 1000 blocks |
 
-### GET /addresses/balance/{address}/{confirmations}
-
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-Get account balance in LTO by {address} after {confirmations} from now:
-
-```text
-  "address" - account's address in Base58 format
-  "confirmations" - N of confirmations
-```
-
-**Response JSON example:**
-
-```javascript
-{
-
-"address": "3N3keodUiS8WLEw9W4BKDNxgNdUpwSnpb3K",
-
-"confirmations": 500,
-
-"balance": 100945388397565
-
-}
-```
-
