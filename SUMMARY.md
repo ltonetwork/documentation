@@ -44,7 +44,6 @@
     * [Peers](public-node-1/rest-api/peers.md)
     * [Blocks](public-node-1/rest-api/blocks.md)
     * [Utils](public-node-1/rest-api/utils.md)
-    * [Example Transactions](public-node-1/rest-api/example_transactions.md)
     * [FAQ](public-node-1/rest-api/faq.md)
   * [Security Notes](public-node-1/security-notes.md)
   * [FAQ](public-node-1/faq.md)
