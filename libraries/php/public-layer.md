@@ -221,6 +221,25 @@ $associationTx
     ->broadcastTo($node);
 ```
 
+### Set Script
+
+Smart accounts have a custom script that defines how transactions should be validated. The script needs to be compiled by the node before it's broadcasted as a transaction.
+
+```php
+$script = <<<SCRIPT
+  match tx {
+    case t:  TransferTransaction => false
+    case mt: MassTransferTransaction => false
+    case ss: SetScriptTransaction => false
+    case _ => sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
+  }
+SCRIPT;
+
+$node->compile($script)
+    ->signWith($account)
+    ->broadcastTo($node);
+```
+
 ## Sponsored fee
 
 By default the account that signs the transaction has to pay the transaction fee. It's possible for another account to pay the fee instead through the sponsored fee feature.
