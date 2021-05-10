@@ -24,7 +24,7 @@
     * [Configuration](public-node-1/installation-guide/configuration.md)
     * [\(Virtual\) Machine](public-node-1/installation-guide/virtual_machine.md)
     * [Troubleshooting FAQ](public-node-1/installation-guide/troubleshooting-faq.md)
-  * [Mining node](public-node-1/cloud/README.md)
+  * [Cloud installation](public-node-1/cloud/README.md)
     * [Prepare: Setup your wallet](public-node-1/cloud/prepare-setup-your-wallet.md)
     * [Node: Alibaba Cloud](public-node-1/cloud/node-alibaba-cloud.md)
     * [Node: AWS Elastic Beanstalk](public-node-1/cloud/node-aws-elastic-beanstalk.md)

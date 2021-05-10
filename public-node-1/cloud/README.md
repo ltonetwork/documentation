@@ -2,7 +2,7 @@
 description: You can participate in network validation and earn LTO.
 ---
 
-# Mining node
+# Cloud installation
 
 In this sub-section, you will find guides on how to set up a public community node within various cloud services. For more information on staking and ROI, [please see this blog page](https://blog.lto.network/staking-and-leasing-lto-network-node-guide/).  
 
