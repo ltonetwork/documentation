@@ -39,6 +39,7 @@
     * [Optional: Nginx reverse proxy](public-node-1/cloud/optional-nginx-reverse-proxy.md)
   * [REST API](public-node-1/rest-api/README.md)
     * [Address](public-node-1/rest-api/address.md)
+    * [Wallet](public-node-1/rest-api/wallet.md)
     * [Lease Transactions](public-node-1/rest-api/lease_transactions.md)
     * [Peers](public-node-1/rest-api/peers.md)
     * [Blocks](public-node-1/rest-api/blocks.md)
