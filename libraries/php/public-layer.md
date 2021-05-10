@@ -240,6 +240,8 @@ $node->compile($script)
     ->broadcastTo($node);
 ```
 
+_In this example, a zero-anchor transaction is done by a new account to register it as an implicit identity._
+
 ## Sponsored fee
 
 By default the account that signs the transaction has to pay the transaction fee. It's possible for another account to pay the fee instead through the sponsored fee feature.
@@ -255,8 +257,6 @@ $anchorTx = (new Anchor())
     ->payFeeWith($mainAccount)
     ->broadcastTo($node);
 ```
-
-_In this example, a zero-anchor transaction is done by a new account to register it as an implicit identity._
 
 ## Multiple signatures
 
