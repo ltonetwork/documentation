@@ -46,9 +46,17 @@ The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned
 
 For more information see the [NG documentation on Waves.](https://docs.waves.tech/en/blockchain/waves-protocol/waves-ng-protocol)
 
-### Sponsored fees
-
 By default the account that signs the transaction also pays the transaction fees. It's possible for a different account to pay the fee instead this account needs to co-sign the transaction and add it as proof.
+
+### Sponsored accounts
+
+Normally the fee is automatically deducted from the sender's address. With sponsored accounts, it's possible for a third party to pay for all transaction fees of an account.
+
+If the sponsor has insufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
+
+If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has insufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
+
+### Sponsored transactions
 
 ```javascript
 {
@@ -71,14 +79,6 @@ By default the account that signs the transaction also pays the transaction fees
 ```
 
 _This is a zero-anchor transaction to register  `did:lto:3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ`. The transaction fee is paid by account `3JiPMnx485EVhasHfD4f36v4Hydmn7XYFFo`._
-
-### Sponsored accounts
-
-Normally the fee is automatically deducted from the sender's address. With sponsored accounts, it's possible for a third party to pay for all transaction fees of an account.
-
-If the sponsor has insufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
-
-If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has insufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
 
 {% page-ref page="sponsor.md" %}
 
