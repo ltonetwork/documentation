@@ -7,6 +7,7 @@
 | 8 | [Lease Transaction](../../../public-node-1/rest-api/lease_transactions.md) |
 | 9 | [Cancel Lease Transaction](cancel-lease-transaction.md) |
 | 11 | [Mass Transfer Transaction](mass_transfer_transaction.md) |
+| 13 | Set Script Transaction |
 | 15 | [Anchor Transaction](anchor.md) |
 | 16 | [Association Transaction](association.md) |
 | 17 | [Revoke Association Transaction](revoke-association.md) |
