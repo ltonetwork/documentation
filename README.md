@@ -5,7 +5,7 @@ description: Welcome to LTO Network developer documentation!
 # Getting started
 
 {% hint style="warning" %}
-Features shown in the **edge** documentation are still under development. This means that they may not be available yet, or that they're unstable.
+Features shown in the **edge** documentation are still under development. This means that they may not be available yet, or can be unstable.
 {% endhint %}
 
 [LTO Network](https://ltonetwork.com) is a hybrid blockchain designed for easy integration of business applications, aimed at breaking data silos that so many organizations face today, using _Live Contracts_. It has a private layer that utilizes a public blockchain for consensus. 
