@@ -50,9 +50,27 @@ For more information see the [NG documentation on Waves.](https://docs.waves.tec
 
 By default the account that signs the transaction also pays the transaction fees. It's possible for a different account to pay the fee instead this account needs to co-sign the transaction and add it as proof.
 
-```text
-
+```javascript
+{
+  "type": 15,
+  "version": 3,
+  "id": "8M6dgn85eh3bsHrVhWng8FNaHBcHEJD4MPZ5ZzCciyon",
+  "sender": "3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ",
+  "senderPublicKey": "AJVNfYjTvDD2GWKPejHbKPLxdvwXjAnhJzo6KCv17nne",
+  "sponsor": "3JiPMnx485EVhasHfD4f36v4Hydmn7XYFFo",
+  "sponsorPublicKey": "22wYfvU2op1f3s4RMRL2bwWBmtHCAB6t3cRwnzRJ1BNz"
+  "fee": 35000000,
+  "timestamp": 1610397549043,
+  "anchors": [],
+  "proofs": [
+    "4aMwABCZwtXrGGKmBdHdR5VVFqG51v5dPoyfDVZ7jfgD3jqc851ME5QkToQdfSRTqQmvnB9YT4tCBPcMzi59fZye"
+    "58oNafDLERaW9crixHFv9mwiaA3miDJQtAAQMdB9xRFLaYMQRB8fGqpZWeB5w6kBbT6mbcxpyXFFSFMG6xE51RaU"
+  ],
+  "height": 1069662
+}
 ```
+
+_This is a zero-anchor transaction to register  `did:lto:3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ`. The transaction fee is paid by account `3JiPMnx485EVhasHfD4f36v4Hydmn7XYFFo`._
 
 ### Sponsored accounts
 
