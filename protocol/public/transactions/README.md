@@ -48,7 +48,11 @@ For more information see the [NG documentation on Waves.](https://docs.waves.tec
 
 ### Sponsored fees
 
-_todo_
+By default the account that signs the transaction also pays the transaction fees. It's possible for a different account to pay the fee instead this account needs to co-sign the transaction and add it as proof.
+
+```text
+
+```
 
 ### Sponsored accounts
 
