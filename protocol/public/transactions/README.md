@@ -33,7 +33,7 @@ Transaction fees act as a reward for the miner. Because these are the only rewar
 
 The absolute minimum fees are enforced by the consensus model. The current fees are configured by the nodes as the minimum acceptable fee.
 
-Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transaction with a fee that's lower than configured, so likely these transaction will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
+Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transactions with a fee that's lower than configured, so likely these transactions will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
 
 ### Fee distribution
 
@@ -43,9 +43,9 @@ For more information see the [NG documentation on Waves.](https://docs.waves.tec
 
 ### Sponsored accounts
 
-Normally the fee is automatically deducted from the sender's address. With sponsored accounts it's possible for a third party to pay for all transaction fees of an account.
+Normally the fee is automatically deducted from the sender's address. With sponsored accounts, it's possible for a third party to pay for all transaction fees of an account.
 
-If the sponsor has unsufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
+If the sponsor has insufficient funds, the fee is deducted from the sender's account. This prevents a third party to disable an account through a dummy sponsorship.
 
 If an account has multiple sponsors, it works as last in first out. If the most recently added sponsor has insufficient funds, the next sponsor is tried, this continues until the sender's account is charged for the fee.
 
@@ -106,7 +106,7 @@ _**Total transaction bytes with signature:**_
 
 In order to support Smart Accounts, transactions have the signature field replaced with an array of so called "proofs". Proofs are an alternative way to authorize the transaction that is more flexible than signatures and enables smart contracts such as multisig and atomic swap. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of a proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
-By default only one proof is used, which must be the transaction signature by the sender. It should be the very first element in the proofs array, while all the other elements are ignored. The JSON looks like
+By default, only one proof is used, which must be the transaction signature by the sender. It should be the very first element in the proofs array, while all the other elements are ignored. The JSON looks like
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
