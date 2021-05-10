@@ -38,14 +38,15 @@ The binary data structure of the unsigned transaction.
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=8\) | 1 |
-| 2 | Version | Byte \(constant, value=2\) | 1 |
-| 3 | - | Byte \(constant, value=0\) | 1 |
-| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
-| 5 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 6 | Amount | Long | 8 |
-| 7 | Fee | Long | 8 |
-| 8 | Timestamp | Long | 8 |
-|  |  |  | **85** |
+| 2 | Version | Byte \(constant, value=3\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
+| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 8 | Fee | Long | 8 |
+| 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 10 | Amount | Long | 8 |
 
 {% hint style="info" %}
 Integers \(short, int, long\) have a big endian byte order.

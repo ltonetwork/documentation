@@ -12,7 +12,7 @@ description: >-
 {
     "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",
     "type": 4,
-    "version": 2,
+    "version": 3,
     "sender": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
     "senderPublicKey": "9NFb1rvMyr1k8f3wu3UP1RaEGsozBt9gF2CmPMGGA42m",
     "fee": 100000000,
@@ -41,15 +41,17 @@ The binary data structure of the unsigned transaction.
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=4\) | 1 |
-| 2 | Version | Byte \(constant, value=2\) | 1 |
-| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
-| 4 | Timestamp | Long | 8 |
-| 5 | Amount | Long | 8 |
-| 6 | Fee | Long | 8 |
-| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 8 | Attachment length \(N\) | Short | 2 |
-| 9 | Attachment | Array\[Byte\] | N |
-|  |  |  | **86+N** |
+| 2 | Version | Byte \(constant, value=3\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
+| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 8 | Fee | Long | 8 |
+| 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 10 | Amount | Long | 8 |
+| 11 | Attachment length \(N\) | Byte | 2 |
+| 12 | Attachment | Array\[Byte\] | N |
 
 {% hint style="info" %}
 Integers \(short, int, long\) have a big endian byte order.

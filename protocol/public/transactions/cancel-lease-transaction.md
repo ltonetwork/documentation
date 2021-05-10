@@ -27,13 +27,14 @@ The binary data structure of the unsigned transaction.
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=9\) | 1 |
-| 2 | Version | Byte \(constant, value=2\) | 1 |
-| 3 | Chain id | Byte | 1 |
-| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
-| 5 | Fee | Long | 8 |
-| 6 | Timestamp | Long | 8 |
-| 7 | Lease id | Transaction \(Array\[Byte\]\) | 32 |
-|  |  |  | **83** |
+| 2 | Version | Byte \(constant, value=3\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
+| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 8 | Fee | Long | 8 |
+| 9 | Lease id | Transaction \(Array\[Byte\]\) | 32 |
 
 {% hint style="info" %}
 * Chain id can be obtained by taking the 2nd byte from the sender or recipient address.

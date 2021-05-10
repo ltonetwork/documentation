@@ -68,7 +68,7 @@ Block's signature is calculated from the following bytes:
 
 ### Network message structure
 
-All network messages shares the same structure except the Handshake.
+All network messages share the same structure, except the Handshake.
 
 | \# | Field name | Type | Length in Bytes |
 | :--- | :--- | :--- | :--- |
@@ -79,7 +79,7 @@ All network messages shares the same structure except the Handshake.
 | 5 | Payload checksum | Bytes | 4 |
 | 6 | Payload | Bytes | N |
 
-Magic Bytes are `0x12 0x34 0x56 0x78`. Payload checksum is first 4 bytes of _FastHash_ of Payload bytes. _FastHash_ is hash function `Blake2b256(data)`.
+Magic Bytes are `0x12 0x34 0x56 0x78`. Payload checksum is the first 4 bytes of _FastHash_ of Payload bytes. _FastHash_ is the hash function `Blake2b256(data)`.
 
 ### Handshake message
 
