@@ -225,6 +225,8 @@ $associationTx
 
 Smart accounts have a custom script that defines how transactions should be validated. The script needs to be compiled by the node before it's broadcasted as a transaction.
 
+Scripts are written in the [Ride programming language](https://docs.waves.tech/en/ride/).
+
 ```php
 $script = <<<SCRIPT
   match tx {
