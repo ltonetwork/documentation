@@ -46,7 +46,7 @@
   * [Installation Guide](anchoring-node/installation-guide/README.md)
     * [Linux](anchoring-node/installation-guide/linux.md)
     * [MacOS](anchoring-node/installation-guide/macos.md)
-    * [Untitled](anchoring-node/installation-guide/untitled.md)
+    * [Windows](anchoring-node/installation-guide/untitled.md)
   * [REST API](anchoring-node/rest-api.md)
 * [Identity node](identity-node/README.md)
   * [Installation guide](identity-node/installation-guide.md)
