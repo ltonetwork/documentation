@@ -6,12 +6,7 @@
 
 * [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
-* [Live Contracts](tutorials/live-contracts/README.md)
-  * [The basics](tutorials/live-contracts/the-basics.md)
-  * [A handshake](tutorials/live-contracts/a-handshake.md)
-  * [A proper introduction](tutorials/live-contracts/a-proper-introduction.md)
-  * [Under one condition](tutorials/live-contracts/under-one-condition.md)
-  * [Invitation by e-mail](tutorials/live-contracts/invitation-by-email.md)
+* [Live Contracts](tutorials/live-contracts.md)
 
 ## Running a node
 
@@ -50,7 +45,8 @@
 * [Anchoring node](anchoring-node/README.md)
   * [Installation Guide](anchoring-node/installation-guide.md)
   * [REST API](anchoring-node/rest-api.md)
-* [Identity node](identity-node.md)
+* [Identity node](identity-node/README.md)
+  * [Installation guide](identity-node/installation-guide.md)
 * [Workflow node](workflow-node/README.md)
   * [Installation Guide](workflow-node/installation-guide/README.md)
     * [MacOS](workflow-node/installation-guide/macos.md)
