@@ -63,7 +63,7 @@ DID or LTO address
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="secret" type="string" required=true %}
-D
+Base58 encoded random secret
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
