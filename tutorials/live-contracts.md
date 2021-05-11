@@ -10,7 +10,7 @@ Running Live Contracts requires using the LTO Network workflow node.
 
 In these tutorials we're always using the developer build of the workflow node, which is available as a Docker container.
 
-```
+```text
 curl "https://raw.githubusercontent.com/ltonetwork/lto-workflow-node/docker-compose.yml" -o docker-compose.yml
 docker-compose up
 ```
