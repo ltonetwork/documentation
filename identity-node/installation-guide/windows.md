@@ -17,7 +17,7 @@ _Docker Desktop includes docker-compose, so it's not needed to install that sepa
 ### Start the node
 
 {% hint style="success" %}
-1. Download the [docker composer configuration file](https://raw.githubusercontent.com/ltonetwork/lto-anchor-node/master/docker-compose.yml) for LTO anchor node.
+1. Download the [docker composer configuration file](https://raw.githubusercontent.com/ltonetwork/lto-identity-node/master/docker-compose.yml) for LTO anchor node.
 2. In PowerShell \(or another terminal\) run `docker-composer up`.
 {% endhint %}
 
