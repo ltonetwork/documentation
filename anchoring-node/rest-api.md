@@ -1,7 +1,3 @@
----
-description: REST API of the Anchor node
----
-
 # REST API
 
 {% hint style="info" %}

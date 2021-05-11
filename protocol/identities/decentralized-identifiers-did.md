@@ -134,7 +134,7 @@ The DID document of a derived identity is always the same DID document for the a
 Derived DIDs have a blockchain address that's different from the DID of the account. This is calculated using hmac instead of normal hashing.
 
 ```text
-sha256_hmac(blake2b256(ED25519_public_key), nonce)
+sha256_hmac(blake2b256(ED25519_public_key), secret)
 ```
 
 {% hint style="warning" %}
