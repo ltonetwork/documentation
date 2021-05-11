@@ -1,6 +1,6 @@
-# MacOS
+# MacOs
 
-The LTO anchor node is comprised of a set of two [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
+The LTO identity node is comprised of a set of two [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
 
 ### Docker Desktop
 
@@ -17,7 +17,7 @@ _Docker Desktop includes docker-compose, so it's not needed to install that sepa
 ### Start the node
 
 {% hint style="success" %}
-1. Download the [docker composer configuration file](https://raw.githubusercontent.com/ltonetwork/lto-anchor-node/master/docker-compose.yml) for LTO anchor node.
+1. Download the [docker composer configuration file](https://raw.githubusercontent.com/ltonetwork/lto-identity-node/master/docker-compose.yml) for LTO anchor node.
 2. In Terminal run `docker-composer up`.
 {% endhint %}
 

@@ -1,12 +1,2 @@
 # Installation Guide
 
-## Linux
-
-
-
-## 
-
-## Windows
-
-
-

@@ -1,2 +1,2 @@
-# Anchoring node
+# Anchor node
 

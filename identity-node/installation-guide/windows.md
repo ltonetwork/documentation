@@ -1,6 +1,6 @@
 # Windows
 
-The LTO anchor node is comprised of a set of two [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
+The LTO identity node is comprised of a set of two [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
 
 ### Docker Desktop
 

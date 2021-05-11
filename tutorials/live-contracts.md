@@ -15,6 +15,10 @@ curl "https://raw.githubusercontent.com/ltonetwork/lto-workflow-node/docker-comp
 docker-compose up
 ```
 
+{% hint style="info" %}
+If you need more help to install Docker and the workflow node, please follow the [step-by-step installation guide](../workflow-node/installation-guide/).
+{% endhint %}
+
 {% tabs %}
 {% tab title="..." %}
 To check that the node is correctly up visit [https://localhost:3000](https://localhost:3000). You'll see a JSON response containing information about the LTO services.

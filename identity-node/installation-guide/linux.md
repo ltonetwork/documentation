@@ -1,6 +1,6 @@
 # Linux
 
-The LTO anchor node is comprised of a set of [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
+The LTO identity node is comprised of a set of [Docker](https://www.docker.com/) containers. Use _docker-compose_ as orchestration tool.
 
 ### Install docker
 
@@ -27,7 +27,7 @@ $ pip install docker-compose
 ### Start the node
 
 ```
-$ curl "https://raw.githubusercontent.com/ltonetwork/lto-anchor-node/master/docker-compose.yml" -o docker-compose.yml
+$ curl "https://raw.githubusercontent.com/ltonetwork/lto-identity-node/master/docker-compose.yml" -o docker-compose.yml
 $ docker-compose up
 ```
 
