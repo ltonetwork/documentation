@@ -228,6 +228,10 @@ Smart accounts have a custom script that defines how transactions should be vali
 Scripts are written in the [Ride programming language](https://docs.waves.tech/en/ride/).
 
 ```php
+use LTO\PublicNode;
+
+$node = new PublicNode('https://nodes.lto.network');
+
 $script = <<<SCRIPT
   match tx {
     case t:  TransferTransaction => false
@@ -242,15 +246,22 @@ $node->compile($script)
     ->broadcastTo($node);
 ```
 
+#### Clearing a script
+
+To clear a script, use the Set Script transaction with a NULL script.
+
+```php
+use LTO\Transaction\SetScript;
+
+$clearScriptTx = new SetScript(null);
+```
+
 ## Sponsored fee
 
 By default the account that signs the transaction has to pay the transaction fee. It's possible for another account to pay the fee instead through the sponsored fee feature.
 
 ```php
 use LTO\Transaction\Anchor;
-use LTO\PublicNode;
-
-$node = new PublicNode('https://nodes.lto.network');
 
 $anchorTx = (new Anchor())
     ->signWith($newAccount)
