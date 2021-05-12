@@ -82,3 +82,59 @@ Base58 encoded random secret
 {% endapi-method-spec %}
 {% endapi-method %}
 
+## Trust network
+
+{% api-method method="get" host="https://lto.example.com" path="/trust/:address" %}
+{% api-method-summary %}
+Get all the edges of an identity
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+## Verifiable credentials
+
+{% api-method method="post" host="https://lto.example.com" path="/verify" %}
+{% api-method-summary %}
+Verify that a verifiable credential is valid
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
