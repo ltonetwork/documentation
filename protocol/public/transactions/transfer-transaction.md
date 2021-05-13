@@ -6,8 +6,6 @@ description: >-
 
 # Transfer
 
-### JSON
-
 ```javascript
 {
   "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",

@@ -26,6 +26,21 @@ Scripts are written in the [Ride programming language](https://docs.waves.tech/e
 }
 ```
 
+### Examples
+
+#### Restrict account
+
+```javascript
+match tx {
+  case t:  TransferTransaction => false
+  case mt: MassTransferTransaction => false
+  case ss: SetScriptTransaction => false
+  case _ => sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
+}
+```
+
+The "Restrict Account" script disables transfers from the account, it also disables modifying the script. This means that any funds on the account can only be used for staking/leasing and paying transaction fees.
+
 ### Binary schema
 
 The binary data structure of the unsigned transaction.

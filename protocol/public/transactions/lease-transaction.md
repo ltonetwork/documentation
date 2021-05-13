@@ -4,8 +4,6 @@ description: The lease transaction leases an amount of tokens to a node for stak
 
 # Lease
 
-### JSON
-
 ```javascript
 {
   "type": 8,

@@ -6,8 +6,6 @@ description: The cancel lease transaction allows you to stop leasing to a node f
 
 To cancel leasing, you need the id of the transaction that started the leasing. You can obtain a list of leases of an address via the `/leasing/active/{address}` endpoint on the REST API.
 
-### JSON
-
 ```javascript
 TODO
 ```
