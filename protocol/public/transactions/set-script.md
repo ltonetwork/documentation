@@ -44,7 +44,7 @@ The binary data structure of the unsigned transaction.
 | 12 | Script | Array\[Byte\] | N |
 
 {% hint style="info" %}
-* Script is binary \(without 'base64:' prefix\).
+* `script` is binary \(without "base64:" prefix\).
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 
