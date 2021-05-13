@@ -4,23 +4,21 @@ description: Stop sponsoring an account
 
 # Cancel Sponsor
 
-### JSON
-
 ```javascript
 {
   "type": 19,
-  "version": 1,
-  "id": "53r3mwknCUJmyacf1TP1A5zUGCF9z3N951Zegs9UrkZD",
-  "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
+  "version": 3,
+  "recipient": "3N3Cn2pYtqzj7N9pviSesNe8KG9Cmb718Y1",
+  "id": "BLMA4vkfe2S5UFHnoPyTh8SJmpTA1deh5SnWk1bdfjhq",
+  "sender": "3MtHYnCkd3oFZr21yb2vEdngcSGXvuNNCq2",
   "senderKeyType": 1,
-  "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-  "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-  "timestamp": 1610412950000,
+  "senderPublicKey": "4EcSxUkMxqxBEBUBL2oKz3ARVsbyRJTivWpNrYQGdguz",
+  "timestamp": 1519862400,
   "fee": 500000000,
   "proofs": [
-    "RexaACH8AVfNKQcKDRVCvF2nSAzJLZPyUTtD9KmtikBy5CVCpVeBp78m2Myy7ekkecDMaJwERjgTVxjSxeLd8Da"
+    "2AKUBja93hF8AC2ee21m9AtedomXZNQG5J3FZMU85avjKF9B8CL45RWyXkXEeYb13r1AhpSzRvcudye39xggtDHv"
   ],
-  "height": 1225860
+  "height": 1248655
 }
 ```
 
