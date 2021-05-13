@@ -26,3 +26,25 @@ Scripts are written in the [Ride programming language](https://docs.waves.tech/e
 }
 ```
 
+### Binary schema
+
+The binary data structure of the unsigned transaction.
+
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Version | Byte \(constant, value=3\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
+| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 8 | Fee | Long | 8 |
+| 11 | Script length \(N\) | Short | 2 |
+| 12 | Script | Array\[Byte\] | N |
+
+{% hint style="info" %}
+* Script is binary \(without 'base64:' prefix\).
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+

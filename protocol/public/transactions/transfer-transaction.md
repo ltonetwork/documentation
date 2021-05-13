@@ -51,7 +51,7 @@ The binary data structure of the unsigned transaction.
 | 8 | Fee | Long | 8 |
 | 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
 | 10 | Amount | Long | 8 |
-| 11 | Attachment length \(N\) | Byte | 2 |
+| 11 | Attachment length \(N\) | Short | 2 |
 | 12 | Attachment | Array\[Byte\] | N |
 
 {% hint style="info" %}
