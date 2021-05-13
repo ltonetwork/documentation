@@ -14,11 +14,13 @@ description: >-
   "version": 3,
   "id": "8M6dgn85eh3bsHrVhWng8FNaHBcHEJD4MPZ5ZzCciyon",
   "sender": "3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ",
+  "senderKeyType": 1,
   "senderPublicKey": "AJVNfYjTvDD2GWKPejHbKPLxdvwXjAnhJzo6KCv17nne",
   "fee": 35000000,
   "timestamp": 1610397549043,
   "anchors": [
-    "5SbkwAekNbaG8P1mTDdAE88mpWtCdET9vTmV2v9vQsCK"
+    "5SbkwAekNbaG8P1mTDdAE88mpWtCdET9vTmV2v9vQsCK",
+    ...
   ],
   "proofs": [
     "4aMwABCZwtXrGGKmBdHdR5VVFqG51v5dPoyfDVZ7jfgD3jqc851ME5QkToQdfSRTqQmvnB9YT4tCBPcMzi59fZye"

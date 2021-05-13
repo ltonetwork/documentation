@@ -16,20 +16,21 @@ To revoke an association, the `sender`, `assocationType`, `recipient`, and `hash
 
 ```javascript
 {
-    "type": 17,
-    "version": 3,
-    "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-    "associationType": 1,
-    "hash": "3yMApqCuCjXDWPrbjfR5mjCPTHqFG8Pux1TxQrEM35jj",
-    "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
-    "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-    "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-    "timestamp": 1610406613000,
-    "fee": 100000000,
-    "proofs": [
-        "N1tvyL3XNNPq9Ctx5o5gorSfVggFq1csGhwDQHcrwmict2AaoLfrVTvjZCxr8w1Qq9a3XUgBD5nTg21wmLQTUg5"
-    ],
-    "height": 1225745
+  "type": 17,
+  "version": 3,
+  "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
+  "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
+  "senderKeyType": 1,
+  "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
+  "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
+  "associationType": 1,
+  "hash": "3yMApqCuCjXDWPrbjfR5mjCPTHqFG8Pux1TxQrEM35jj",
+  "timestamp": 1610406613000,
+  "fee": 100000000,
+  "proofs": [
+    "N1tvyL3XNNPq9Ctx5o5gorSfVggFq1csGhwDQHcrwmict2AaoLfrVTvjZCxr8w1Qq9a3XUgBD5nTg21wmLQTUg5"
+  ],
+  "height": 1225745
 }
 ```
 

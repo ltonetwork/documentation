@@ -16,18 +16,19 @@ See [transaction fees with sponsored accounts](./#transaction-fees) for more inf
 
 ```javascript
 {
-    "type": 18,
-    "version": 3,
-    "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-    "id": "8S2vD5dGCPhwS8jLzNQpSRYDBGXv6GKq6qT5yXUBWPgb",
-    "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-    "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-    "timestamp": 1610410901000,
-    "fee": 500000000,
-    "proofs": [
-        "QKef6R8LrMBupBF9Ry8zjFTu3mexC55J6XNofDDQEcJnZJsRjZPnAk6Yn2eiHkqqd2uSjB2r58fC8QVLaVegQEz"
-    ],
-    "height": 1225821
+  "type": 18,
+  "version": 3,
+  "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
+  "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
+  "senderKeyType": 1,
+  "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
+  "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
+  "timestamp": 1610410901000,
+  "fee": 500000000,
+  "proofs": [
+    "QKef6R8LrMBupBF9Ry8zjFTu3mexC55J6XNofDDQEcJnZJsRjZPnAk6Yn2eiHkqqd2uSjB2r58fC8QVLaVegQEz"
+  ],
+  "height": 1225821
 }
 ```
 

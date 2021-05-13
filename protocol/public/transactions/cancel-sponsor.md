@@ -8,18 +8,19 @@ description: Stop sponsoring an account
 
 ```javascript
 {
-    "type": 19,
-    "version": 1,
-    "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-    "id": "53r3mwknCUJmyacf1TP1A5zUGCF9z3N951Zegs9UrkZD",
-    "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-    "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-    "timestamp": 1610412950000,
-    "fee": 500000000,
-    "proofs": [
-        "RexaACH8AVfNKQcKDRVCvF2nSAzJLZPyUTtD9KmtikBy5CVCpVeBp78m2Myy7ekkecDMaJwERjgTVxjSxeLd8Da"
-    ],
-    "height": 1225860
+  "type": 19,
+  "version": 1,
+  "id": "53r3mwknCUJmyacf1TP1A5zUGCF9z3N951Zegs9UrkZD",
+  "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
+  "senderKeyType": 1,
+  "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
+  "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
+  "timestamp": 1610412950000,
+  "fee": 500000000,
+  "proofs": [
+    "RexaACH8AVfNKQcKDRVCvF2nSAzJLZPyUTtD9KmtikBy5CVCpVeBp78m2Myy7ekkecDMaJwERjgTVxjSxeLd8Da"
+  ],
+  "height": 1225860
 }
 ```
 

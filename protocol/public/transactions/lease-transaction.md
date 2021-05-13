@@ -7,21 +7,22 @@ description: The lease transaction leases an amount of tokens to a node for stak
 ### JSON
 
 ```javascript
-  {
-    "type": 8,
-    "id": "6XmeG7SRWiw8pD6Uad6D9AAaY354v5TV6AJMhPpHMkqy",
-    "sender": "3JorA3ddE7i6fhgBjSuW6jNTYS8D4EZUzio",
-    "senderPublicKey": "AWwAdRHFmSqTCMHJ346wFSbJUsGUzQYCzuqXWgaT4gL6",
-    "fee": 100000000,
-    "timestamp": 1607010190710,
-    "proofs": [
-      "2BK6wTH75N78ixT273kArQxTo6NHvSVWQvtubZ5PTVdybcwomoUFjcYdfxqY6Xk7BpePjDbyr9aWdE5iZxQLq63J"
-    ],
-    "version": 2,
-    "amount": 553600000000,
-    "recipient": "3JurbYJAuc8iMeujvS39L8cSv9kMfxDACYR",
-    "height": 1012314
-  }
+{
+  "type": 8,
+  "id": "6XmeG7SRWiw8pD6Uad6D9AAaY354v5TV6AJMhPpHMkqy",
+  "sender": "3JorA3ddE7i6fhgBjSuW6jNTYS8D4EZUzio",
+  "senderKeyType": 1,
+  "senderPublicKey": "AWwAdRHFmSqTCMHJ346wFSbJUsGUzQYCzuqXWgaT4gL6",
+  "fee": 100000000,
+  "timestamp": 1607010190710,
+  "proofs": [
+    "2BK6wTH75N78ixT273kArQxTo6NHvSVWQvtubZ5PTVdybcwomoUFjcYdfxqY6Xk7BpePjDbyr9aWdE5iZxQLq63J"
+  ],
+  "version": 2,
+  "amount": 553600000000,
+  "recipient": "3JurbYJAuc8iMeujvS39L8cSv9kMfxDACYR",
+  "height": 1012314
+}
 ```
 
 {% hint style="info" %}
