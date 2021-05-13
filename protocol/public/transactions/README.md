@@ -47,6 +47,12 @@ The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned
 
 For more information see the [NG documentation on Waves.](https://docs.waves.tech/en/blockchain/waves-protocol/waves-ng-protocol)
 
+{% hint style="info" %}
+While feature "Transactions v3" is not accepted, a fixed amount of 0.1 LTO is burned for each transaction instead of 20%.
+
+Prior to feature "Burn feeture"
+{% endhint %}
+
 ### Sponsored accounts
 
 Normally the fee is automatically deducted from the sender's address. With sponsored accounts, it's possible for a third party to pay for all transaction fees of an account.

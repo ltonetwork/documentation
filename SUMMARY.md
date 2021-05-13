@@ -102,6 +102,7 @@
     * [Sponsor](protocol/public/transactions/sponsor.md)
     * [Cancel Sponsor](protocol/public/transactions/cancel-sponsor.md)
   * [Fair Proof of Stake \(FPoS\)](protocol/public/fair_proof_of_stake_fpos.md)
+  * [Activation Protocol](protocol/public/activation-protocol.md)
   * [Data Structures](protocol/public/data_structures.md)
 * [Private layer](protocol/private/README.md)
   * [Live Contracts](protocol/private/live-contracts.md)
