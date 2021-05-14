@@ -52,14 +52,12 @@ The binary data structure of the unsigned transaction.
 | 3 | Timestamp | Long | 8 |
 | 4 | Sender's key type | KeyType \(Byte\) | 1 |
 | 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
-| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
-| 8 | Fee | Long | 8 |
-| 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 10 | Association type | Int | 4 |
-| 11 | Expires | Long | 8 |
-| 12 | Hash length \(N\) | Short | 2 |
-| 13 | Hash | Array\[Byte\] | N |
+| 6 | Fee | Long | 8 |
+| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 8 | Association type | Int | 4 |
+| 9 | Expires | Long | 8 |
+| 10 | Hash length \(N\) | Short | 2 |
+| 11 | Hash | Array\[Byte\] | N |
 
 {% hint style="info" %}
 * If the association doesn't expire, the expiry timestamp in the binary data must be zero.

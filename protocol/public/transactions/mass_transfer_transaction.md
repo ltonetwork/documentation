@@ -63,15 +63,13 @@ The binary data structure of the unsigned transaction.
 | 3 | Timestamp | Long | 8 |
 | 4 | Sender's key type | KeyType \(Byte\) | 1 |
 | 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
-| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
-| 8 | Fee | Long | 8 |
-| 9 | Number of transfers \(T\) | Short | 2 |
-| 10 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
-| 11 | Amount 1 | Long | 8 |
+| 6 | Fee | Long | 8 |
+| 7 | Number of transfers \(T\) | Short | 2 |
+| 8 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
+| 9 | Amount 1 | Long | 8 |
 | ... |  |  |  |
-| 12 | Attachment length \(N\) | Byte | 2 |
-| 13 | Attachment | Array\[Byte\] | N |
+| 10 | Attachment length \(N\) | Byte | 2 |
+| 11 | Attachment | Array\[Byte\] | N |
 
 {% hint style="info" %}
 * Recipient and Amount are repeated for each transfer.

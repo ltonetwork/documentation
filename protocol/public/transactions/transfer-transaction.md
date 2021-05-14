@@ -44,13 +44,11 @@ The binary data structure of the unsigned transaction.
 | 3 | Timestamp | Long | 8 |
 | 4 | Sender's key type | KeyType \(Byte\) | 1 |
 | 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
-| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
-| 8 | Fee | Long | 8 |
-| 9 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 10 | Amount | Long | 8 |
-| 11 | Attachment length \(N\) | Short | 2 |
-| 12 | Attachment | Array\[Byte\] | N |
+| 6 | Fee | Long | 8 |
+| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 8 | Amount | Long | 8 |
+| 9 | Attachment length \(N\) | Short | 2 |
+| 10 | Attachment | Array\[Byte\] | N |
 
 {% hint style="info" %}
 Integers \(short, int, long\) have a big endian byte order.

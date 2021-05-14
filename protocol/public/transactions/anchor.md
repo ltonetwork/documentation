@@ -74,12 +74,10 @@ The binary data structure of the unsigned transaction.
 | 3 | Timestamp | Long | 8 |
 | 4 | Sender's key type | KeyType \(Byte\) | 1 |
 | 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Sponsor key type | KeyType \(Byte\) | 1 |
-| 7 | Sponsor public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
-| 8 | Fee | Long | 8 |
-| 9 | Number of anchors | Short | 2 |
-| 11 | Anchor length 1 \(N\) | Byte | 2 |
-| 12 | Anchor 1 | Array\[Byte\] | N1 |
+| 6 | Fee | Long | 8 |
+| 7 | Number of anchors | Short | 2 |
+| 8 | Anchor length 1 \(N\) | Byte | 2 |
+| 9 | Anchor 1 | Array\[Byte\] | N1 |
 | ... |  |  |  |
 
 {% hint style="info" %}
