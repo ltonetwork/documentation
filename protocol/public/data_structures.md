@@ -6,23 +6,37 @@ description: Internal data structures of blockchain objects and network messages
 
 ## Blockchain Objects
 
-### Address
+### Signed transaction
+
+#### Version 1 and 2
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
-| 1 | Version \(0x01\) | Byte | 1 |
-| 2 | Address scheme \(0x54 for Testnet 0x57 for Mainnet\) | Byte | 1 |
-| 3 | Public key hash | Bytes | 20 |
-| 4 | Checksum | Bytes | 4 |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Version | Byte \(constant, value=2\) | 1 |
+| ... | Transaction specific bytes |  |  |
+| 3 | Proofs version | Byte \(constant, value=1\) | 1 |
+| 5 | Proof size \(N\) | Short | 2 |
+| 6 | Proof | Array\[Byte\] | N |
+| ... |  |  |  |
 
-_Public key hash_ is first 20 bytes of _SecureHash_ of public key bytes. _Checksum_ is first 4 bytes of _SecureHash_ of version, scheme and hash bytes. _SecureHash_ is hash function `sha256(Blake2b256(data))`.
-
-### Proof
+#### Version 3
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
-| 1 | Proof size \(N\) | Short | 2 |
-| 2 | Proof | Bytes | N |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Version | Byte \(constant, value=2\) | 1 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Sender's key type | KeyType \(Byte\) | 1 |
+| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 6 | Fee | Long | 8 |
+| ... | Transaction specific bytes |  |  |
+| 7 | Sponsor's key type | KeyType \(Byte\) | 1 |
+| 8 | Sponsor's public key | PublicKey \(Array\[Byte\]\) | 0 \| 32 \| 33 |
+| 9 | Proofs version | Byte \(constant, value=1\) | 1 |
+| 10 | Proof size \(N\) | Short | 2 |
+| 11 | Proof | Array\[Byte\] | N |
+| ... |  |  |  |
 
 ### Block
 
