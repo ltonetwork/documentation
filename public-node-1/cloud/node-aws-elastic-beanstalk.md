@@ -79,7 +79,7 @@ If you have enabled the API \(assuming you configured all 4 environment properti
 
 ![The API interface for the LTO Network node.](https://cdn-images-1.medium.com/max/1600/1*dIaUMLu8m-prfpbdXEwGFw.png)
 
-## **Step 3: Wait for a 1.000 blocks**
+## **Step 3: Wait for a 1000 blocks**
 
 You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network./) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
