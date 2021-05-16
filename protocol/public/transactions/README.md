@@ -20,7 +20,7 @@ The current version for all transactions is **v3**. Previous versions \(v1, v2\)
 
 ## Transaction Fees
 
-Transaction fees act as a reward for the miner. Because these are the only rewards, this prevents inflation of the network since no new tokens are introduced.
+Transaction fees act as a reward for the miner.
 
 | Transaction | Fee \(LTO\) | Minimum \(LTO\) |
 | :--- | :--- | :--- |
@@ -37,20 +37,20 @@ Transaction fees act as a reward for the miner. Because these are the only rewar
 
 The absolute minimum fees are enforced by the consensus model. The current fees are configured by the nodes as the minimum acceptable fee.
 
-Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transactions with a fee that's lower than configured, so likely these transactions will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
+Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transactions with a fee that's lower than configured. Likely these transactions will stay in the utx pool until your own node is able to mine or until they time out \(after 90 minutes\).
 
 ### Fee distribution
 
 For every transaction, 20% of the fee isn't awarded and thus effectively taken out of circulation \(aka burned\). The remaining fee is split up among the current leader, and the next elected node at a ratio of  2:3.
 
-The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned.
+The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned. LTO Network has a deflationary token economy.
 
 For more information, read about the [NG consensus algorithm](../fair_proof_of_stake_fpos.md#ng-protocol).
 
-{% hint style="info" %}
+{% hint style="warning" %}
 While feature "Transactions v3" is not accepted, a fixed amount of 0.1 LTO is burned for each transaction instead of 20%.
 
-Prior to feature "Burn feeture"
+Prior to feature 12 "Partial Fee Burn", the full fee was distributed to the miners. Feature 12 was activated on block 870000.
 {% endhint %}
 
 ### Sponsored accounts
@@ -88,6 +88,10 @@ By default the account that signs the transaction also pays the transaction fees
 _This is a zero-anchor transaction to register  `did:lto:3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ`. The transaction fee is paid by account `3JiPMnx485EVhasHfD4f36v4Hydmn7XYFFo`._
 
 The account that sponsors a transaction, can be a sponsored account. In that case, the fee will be paid by the account's sponsor.
+
+{% hint style="danger" %}
+Sponsoring transactions is intended for accounts that don't hold any tokens. Beware that the sponsor isn't part of the binary message that's signed. This means that a malicious node could remove the signature of the sponsor, forcing the transaction to be paid by the sender.
+{% endhint %}
 
 {% page-ref page="sponsor.md" %}
 
