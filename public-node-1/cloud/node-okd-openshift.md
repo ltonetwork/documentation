@@ -11,7 +11,7 @@ So you decided you want to be part of the LTO Network, awesome!
 
 A great way to be part of the community is by actively participating as a node in the network.
 
-Make sure to check out the Prepare: [Setup your wallet page](prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
+Make sure to check out the Prepare: [Setup your wallet page](../../tutorials/mining/prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
 
 {% hint style="info" %}
 If you’re not an enterprise user you might not be familiar with Kubernetes or [OpenShift](https://www.openshift.com/). OpenShift is Red Hat’s enterprise Kubernetes distribution based on the community open source project called OKD. OpenShift is thé container application platform for many enterprises in the world.

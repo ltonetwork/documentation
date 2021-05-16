@@ -4,6 +4,8 @@
 
 ## Tutorials
 
+* [Mining](tutorials/mining/README.md)
+  * [Prepare: Setup your wallet](tutorials/mining/prepare-setup-your-wallet.md)
 * [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts.md)
@@ -21,7 +23,6 @@
     * [AWS Elastic Beanstalk](public-node-1/installation-guide/aws_elastic_beanstalk.md)
     * [Troubleshooting FAQ](public-node-1/installation-guide/troubleshooting-faq.md)
   * [Cloud installation](public-node-1/cloud/README.md)
-    * [Prepare: Setup your wallet](public-node-1/cloud/prepare-setup-your-wallet.md)
     * [Node: Alibaba Cloud](public-node-1/cloud/node-alibaba-cloud.md)
     * [Node: AWS Elastic Beanstalk](public-node-1/cloud/node-aws-elastic-beanstalk.md)
     * [Node: Google Cloud](public-node-1/cloud/node-google-cloud.md)
