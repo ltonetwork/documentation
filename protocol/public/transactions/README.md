@@ -45,7 +45,7 @@ For every transaction, 20% of the fee isn't awarded and thus effectively taken o
 
 The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned.
 
-For more information see the [NG documentation on Waves.](https://docs.waves.tech/en/blockchain/waves-protocol/waves-ng-protocol)
+For more information, read about the [NG consensus algorithm](../fair_proof_of_stake_fpos.md#ng-protocol).
 
 {% hint style="info" %}
 While feature "Transactions v3" is not accepted, a fixed amount of 0.1 LTO is burned for each transaction instead of 20%.
