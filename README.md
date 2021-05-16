@@ -14,6 +14,10 @@ Features shown in the **edge** documentation are still under development. This m
 If you want more info or notice that some link is broken - [**join the Tech Chat on Telegram**](https://t.me/LTOtech) and let us know. All links to papers, blog, articles, and so on - [you can find here](https://blog.ltonetwork.com/lto-network-sources/).
 {% endhint %}
 
+## Mining
+
+_todo_
+
 ## Anchoring
 
 Anchoring on a blockchain is a simple and cheap way to notarize documents or timestamp data. By adding a hash on the blockchain, data becomes tamper-proof.
