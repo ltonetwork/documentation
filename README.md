@@ -18,7 +18,7 @@ If you want more info or notice that some link is broken - [**join the Tech Chat
 
 _todo_
 
-{% page-ref page="tutorials/buying-and-staking-lto.md" %}
+{% page-ref page="tutorials/buying-and-staking-lto/" %}
 
 ## Mining
 

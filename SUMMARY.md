@@ -4,7 +4,12 @@
 
 ## Tutorials
 
-* [Buying and staking LTO](tutorials/buying-and-staking-lto.md)
+* [Buying and staking LTO](tutorials/buying-and-staking-lto/README.md)
+  * [Binance](tutorials/buying-and-staking-lto/binance.md)
+  * [Bitmax](tutorials/buying-and-staking-lto/bitmax.md)
+  * [Uniswap](tutorials/buying-and-staking-lto/uniswap.md)
+  * [Pancake Swap](tutorials/buying-and-staking-lto/pancake-swap.md)
+  * [Other exchanges](tutorials/buying-and-staking-lto/other-exchanges.md)
 * [Mining](tutorials/mining/README.md)
   * [Prepare: Setup your wallet](tutorials/mining/prepare-setup-your-wallet.md)
 * [Anchoring](tutorials/anchoring/README.md)
