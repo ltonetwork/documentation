@@ -5,7 +5,7 @@ description: >-
   confused with Azure Kubernetes Services).
 ---
 
-# Node: Microsoft Azure
+# Microsoft Azure
 
 So you decided you want to be part of the LTO Network, awesome!
 

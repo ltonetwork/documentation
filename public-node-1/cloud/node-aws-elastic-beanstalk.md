@@ -4,7 +4,7 @@ description: >-
   AWS (Amazon Web Services) Elastic Bean Stalk Applications.
 ---
 
-# Node: AWS Elastic Beanstalk
+# AWS Elastic Beanstalk
 
 So you decided you want to be part of the LTO Network, awesome!
 

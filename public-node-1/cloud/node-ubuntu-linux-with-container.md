@@ -4,7 +4,7 @@ description: >-
   using a Ubuntu Linux (virtual) server.
 ---
 
-# Node: Ubuntu Linux with Container
+# Ubuntu Linux with Container
 
 So you decided you want to be part of the LTO Network, awesome!
 

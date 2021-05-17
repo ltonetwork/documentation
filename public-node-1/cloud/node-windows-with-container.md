@@ -4,7 +4,7 @@ description: >-
   using Windows 10 and a Docker container.
 ---
 
-# Node: Windows with Container
+# Windows with Container
 
 So you decided you want to be part of the LTO Network, awesome!
 

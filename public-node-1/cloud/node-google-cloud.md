@@ -5,7 +5,7 @@ description: >-
   Cloud Engine.
 ---
 
-# Node: Google Cloud
+# Google Cloud
 
 So you decided you want to be part of the LTO Network, awesome!
 

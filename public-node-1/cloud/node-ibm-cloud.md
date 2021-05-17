@@ -4,7 +4,7 @@ description: >-
   using IBM Cloud, specifically Kubernetes Services.
 ---
 
-# Node: IBM Cloud
+# IBM Cloud
 
 So you decided you want to be part of the LTO Network, awesome!
 

@@ -5,7 +5,7 @@ description: >-
   expert-level guide.
 ---
 
-# Node: Raspberry Pi \(Expert\)
+# Raspberry Pi \(Expert\)
 
 So you decided you want to be part of the LTO Network, awesome!
 

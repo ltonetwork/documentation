@@ -14,9 +14,17 @@ Features shown in the **edge** documentation are still under development. This m
 If you want more info or notice that some link is broken - [**join the Tech Chat on Telegram**](https://t.me/LTOtech) and let us know. All links to papers, blog, articles, and so on - [you can find here](https://blog.ltonetwork.com/lto-network-sources/).
 {% endhint %}
 
+## Buying and staking LTO
+
+**todo**
+
+{% page-ref page="tutorials/buying-and-staking-lto.md" %}
+
 ## Mining
 
 _todo_
+
+{% page-ref page="tutorials/mining/" %}
 
 ## Anchoring
 
