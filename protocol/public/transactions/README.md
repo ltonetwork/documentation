@@ -97,13 +97,13 @@ Sponsoring transactions is intended for accounts that don't hold any tokens. Bew
 
 ## Signing a transaction
 
-`ED25519` is used for all the signatures in the project.
+The process is as follows: create a binary message for signing, then create a signature using the private key.
 
-The process is as follows: create the special bytes for signing \(for transaction or block, you can find it [here](https://github.com/ltonetwork/documentation/tree/c01951988c8797dc36ac6098133b139eaffade7c/technical-details/data-structures.md)\), then create a signature using these bytes and the private key bytes.
+To validate a signature, the same binary message must be constructed. The public key can be used for validation.
 
-For the validation of signature is enough signature bytes, signed object bytes and the public key.
-
-Do not forget that there are many valid \(not unique!\) signatures for a one array of bytes \(block or transaction\). Also you should not assume that the id of block or transaction is unique. The collision can occur one day! They have already taken place for some weak keys.
+{% hint style="info" %}
+The binary message differs for each transaction type. Please check the documentation.
+{% endhint %}
 
 ### Example
 
@@ -146,7 +146,15 @@ _**Total transaction bytes with signature:**_
 
 `6zY3LYmrh981Qbzj7SRLQ2FP9EmXFpUTX9cA7bD5b7VSGmtoWxfpCrP4y5NPGou7XDYHx5oASPsUzB92aj3623SUpvc1xaaPjfLn6dCPVEa6SPjTbwvmDwMT8UVoAfdMwb7t4okLcURcZCFugf2Wc9tBGbVu7mgznLGLxooYiJmRQSeAACN8jYZVnUuXv4V7jrDJVXTFNCz1mYevnpA5RXAoehPRXKiBPJLnvVmV2Wae2TCNvweHGgknioZU6ZaixSCxM1YzY24Prv9qThszohojaWq4cRuRHwMAA5VUBvUs`
 
-## Proofs
+### Key type
+
+By default, transactions are signed using the ED25519 algorithm. However, LTO supports multiple algorithms and curves like secp256k1, NIST P-256, and RSA. When broadcasting a transaction, it's required to include the [key type](../../accounts.md#key-types) in addition to the sender's public key.
+
+{% hint style="warning" %}
+RSA public keys are too large to store for each request. For RSA, the sender public key field must contain the SHA256 hash of the public key. This means that the transaction can't be validated by itself. RSA is only available through a [smart account](set-script.md) or by publishing an X.509 certificate to the public chain.
+{% endhint %}
+
+### Proofs
 
 Proofs are a flexible way to authorize a transaction. Each proof is a Base58 encoded byte string and can be a signature, a secret, or anything else – the semantics of the proof is dictated by the smart contract that interprets it. There can be up to 8 proofs at most 64 bytes each.
 
