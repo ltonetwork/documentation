@@ -18,7 +18,7 @@
 The current version for all transactions is **v3**. Previous versions \(v1, v2\) can also still be used.
 {% endhint %}
 
-## Transaction Fees
+## Transaction fees
 
 Transaction fees act as a reward for the miner.
 
@@ -162,7 +162,7 @@ By default, only one proof is used, which must be the transaction signature by t
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
-## Calculating Transaction Id
+## Calculating transaction id
 
 Transaction Id is not stored in the transaction bytes. It can be easily calculated from the bytes for signing using `blake2b256(bytes_for_signing)`.
 
