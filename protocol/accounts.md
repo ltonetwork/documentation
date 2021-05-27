@@ -119,7 +119,7 @@ Created private key
 TODO
 ```
 
-Created public key
+Create the corresponding coordinates for the public key and compress the public key.
 
 ```text
 TODO
@@ -141,7 +141,7 @@ Created private key
 TODO
 ```
 
-Created public key
+Create the corresponding coordinates for the public key and compress the public key.
 
 ```text
 TODO
