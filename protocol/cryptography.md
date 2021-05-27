@@ -85,7 +85,7 @@ This is a public key encryption schema, where the public key is used to encrypt 
 
 _X25519 is sometimes referred to as Curve25519._
 
-{% hint style="info" %}
+{% hint style="success" %}
 Functions that use the combination of these algorithms are defined as `box` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/authenticated_encryption.html) and [nacl](http://nacl.cr.yp.to/box.html). 
 {% endhint %}
 
