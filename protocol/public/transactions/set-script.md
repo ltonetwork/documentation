@@ -49,15 +49,17 @@ The binary data structure of the unsigned transaction.
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=4\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
-| 3 | Timestamp | Long | 8 |
-| 4 | Sender's key type | KeyType \(Byte\) | 1 |
-| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Fee | Long | 8 |
-| 7 | Script length \(N\) | Short | 2 |
-| 8 | Script | Array\[Byte\] | N |
+| 3 | Chain id | Byte | 1 |
+| 4 | Timestamp | Long | 8 |
+| 5 | Sender's key type | KeyType \(Byte\) | 1 |
+| 6 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 7 | Fee | Long | 8 |
+| 8 | Script length \(N\) | Short | 2 |
+| 9 | Script | Array\[Byte\] | N |
 
 {% hint style="info" %}
 * `script` is binary \(without "base64:" prefix\).
+* Chain id can be obtained by taking the 2nd byte from the sender address.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 

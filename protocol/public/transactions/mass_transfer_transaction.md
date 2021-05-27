@@ -60,19 +60,21 @@ The binary data structure of the unsigned transaction.
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=11\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
-| 3 | Timestamp | Long | 8 |
-| 4 | Sender's key type | KeyType \(Byte\) | 1 |
-| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Fee | Long | 8 |
-| 7 | Number of transfers \(T\) | Short | 2 |
-| 8 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
-| 9 | Amount 1 | Long | 8 |
+| 3 | Chain id | Byte | 1 |
+| 4 | Timestamp | Long | 8 |
+| 5 | Sender's key type | KeyType \(Byte\) | 1 |
+| 6 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 7 | Fee | Long | 8 |
+| 8 | Number of transfers \(T\) | Short | 2 |
+| 9 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
+| 10 | Amount 1 | Long | 8 |
 | ... |  |  |  |
-| 10 | Attachment length \(N\) | Byte | 2 |
-| 11 | Attachment | Array\[Byte\] | N |
+| 11 | Attachment length \(N\) | Byte | 2 |
+| 12 | Attachment | Array\[Byte\] | N |
 
 {% hint style="info" %}
 * Recipient and Amount are repeated for each transfer.
+* Chain id can be obtained by taking the 2nd byte from the sender address.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 

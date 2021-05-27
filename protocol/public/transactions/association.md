@@ -49,18 +49,20 @@ The binary data structure of the unsigned transaction.
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=16\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
-| 3 | Timestamp | Long | 8 |
-| 4 | Sender's key type | KeyType \(Byte\) | 1 |
-| 5 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
-| 6 | Fee | Long | 8 |
-| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
-| 8 | Association type | Int | 4 |
-| 9 | Expires | Long | 8 |
-| 10 | Hash length \(N\) | Short | 2 |
-| 11 | Hash | Array\[Byte\] | N |
+| 3 | Chain id | Byte | 1 |
+| 4 | Timestamp | Long | 8 |
+| 5 | Sender's key type | KeyType \(Byte\) | 1 |
+| 6 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
+| 7 | Fee | Long | 8 |
+| 8 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 9 | Association type | Int | 4 |
+| 10 | Expires | Long | 8 |
+| 11 | Hash length \(N\) | Short | 2 |
+| 12 | Hash | Array\[Byte\] | N |
 
 {% hint style="info" %}
 * If the association doesn't expire, the expiry timestamp in the binary data must be zero.
+* Chain id can be obtained by taking the 2nd byte from the sender address.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 
