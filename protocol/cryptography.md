@@ -35,7 +35,7 @@ In general Live Contracts uses the 256-bit version of SHA-2 for encoding. SHA-2 
 
 When secure hashes are required, a combination of BLAKE2b and SHA256 are used.
 
-{% hint style="info" %}
+{% hint style="success" %}
 BLAKE2b is supported by NaCl compatible libraries like libsodium as ['Generic hashing'](https://download.libsodium.org/doc/hashing/generic_hashing.html). It's widely supported across platforms and languages.
 {% endhint %}
 
