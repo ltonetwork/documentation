@@ -62,7 +62,7 @@ LTO network supports multiple cryptographic algorithms for signing.
 
 | id | reference | type | curve |
 | :--- | :--- | :--- | :--- |
-| 1 | Ed25519 | EC | Curve25519 |
+| 1 | [Ed25519](accounts.md#ed25519) | EC | Curve25519 |
 | 2 | secp256k1 | ECDSA | secp256k1 |
 | 3 | P-256 | ECDSA | secp256p1 |
 
@@ -106,7 +106,49 @@ Created public key
 6fDod1xcVj4Zezwyy3tdPGHkuDyMq8bDHQouyp5BjXsX
 ```
 
-## 
+## secp256k1
+
+Bitcoin, Ethereum, and many other blockchains use ECDSA with the secp256k1 curve for signing transactions. Outside of the realm of blockchain, this curve is barely used and not well supported.
+
+### Signing
+
+Created private key
+
+```text
+TODO
+```
+
+Created public key
+
+```text
+TODO
+```
+
+### Encryption
+
+_Encryption is currently not supported for accounts with secp256k1 keys._
+
+## NIST P-256
+
+The most commonly used and well-supported Elliptic Curve is NIST P-256. This is an ECDSA method using the secp256p1 curve.
+
+### Signing
+
+Created private key
+
+```text
+TODO
+```
+
+Created public key
+
+```text
+TODO
+```
+
+### Encryption
+
+_Encryption is currently not supported for accounts with P-256 keys._
 
 ## Creating the address
 
