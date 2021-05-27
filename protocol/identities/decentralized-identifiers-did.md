@@ -28,9 +28,8 @@ The method-specific string is an address on the public chain. In the case of der
 
 ```text
 lto-did = "did:lto:" lto-specific-idstring
-lto-specific-string = lto-address [ lto-path ]
+lto-specific-string = lto-address
 lto-address = 35\*( ALPHA / DIGIT )
-lto-path = 1*( "/" 1*pchar )
 pchar = (ALPHA / DIGIT / "-" / "." / "_" / "~" )
 ```
 
