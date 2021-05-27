@@ -35,6 +35,10 @@ secret = 1*( ALPHA / DIGIT )
 
 The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
+{% hint style="warning" %}
+Identity nodes that support [cross-chain identifiers](decentralized-identifiers-did.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
+{% endhint %}
+
 ## Implicit identities
 
 Any address on the LTO public chain can be represented by a DID. The DID document always contains a single verification method containing the public key of the account. This method is applicable for both authentication and assertion.
