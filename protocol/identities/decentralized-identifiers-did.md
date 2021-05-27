@@ -28,12 +28,12 @@ The method-specific string is an address on the public chain. In the case of der
 
 ```text
 lto-did = "did:lto:" lto-specific-idstring
-lto-specific-string = lto-address
+lto-specific-string = lto-address [ ":derived:" secret ]
 lto-address = 35\*( ALPHA / DIGIT )
-pchar = (ALPHA / DIGIT / "-" / "." / "_" / "~" )
+secret = 1*( ALPHA / DIGIT )
 ```
 
-The LTO method-specific string is case-sensitive.
+The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
 ## Implicit identities
 
@@ -111,6 +111,56 @@ The DID document of a derived identity is always the same DID document for the a
 {
   "@context": "https://www.w3.org/ns/did/v1",
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH:derived:12D",
+  "verificationMethod": [
+    {
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
+      "type": "Ed25519VerificationKey2018",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
+      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
+      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
+    }
+  ],
+  "authentication": [
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
+  ],
+  "assertionMethod": [
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
+  ]
+}
+```
+
+## Cross-chain identifiers
+
+By default, an LTO identity node will only resolve DIDs based on LTO network addresses. It's possible to configure the service to index DIDs based on addresses of other blockchains, like Ethereum or Bitcoin.
+
+DIDs with the method "**ltox**" can be resolved by the LTO Network identity node that supports cross-chain identifiers.
+
+The method-specific string is comprised of a CAIP-2 blockchain ID and an address on that specific chain.
+
+> did:ltox:eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb
+
+```text
+ltox-did = "did:ltox:" chain-id ":" address
+chain-id = namespace + ":" + reference
+chain-namespace = {3,16}\*( ALPHA / DIGIT )
+chain-reference = {1,47}\*( ALPHA / DIGIT )
+address = {1,63}\*( ALPHA / DIGIT )
+```
+
+The method-specific string is case-sensitive.
+
+### Resolving cross-chain DIDs
+
+If the identity node supports cross-chain identifiers, DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Network and for other chains.
+
+```javascript
+{
+  "@context": "https://www.w3.org/ns/did/v1",
+  "id": "did:ltox:eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb",
+  "alsoKnownAs": [
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
+    "did:ltox:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6"
+  ]
   "verificationMethod": [
     {
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",

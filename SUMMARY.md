@@ -94,7 +94,6 @@
 * [Accounts](protocol/accounts.md)
 * [Identities](protocol/identities/README.md)
   * [Decentralized identifiers \(DID\)](protocol/identities/decentralized-identifiers-did.md)
-  * [Cross-chain identifiers](protocol/identities/cross-chain-identifiers.md)
   * [Trust network](protocol/identities/trust-network.md)
 * [Public layer](protocol/public/README.md)
   * [Transactions](protocol/public/transactions/README.md)
