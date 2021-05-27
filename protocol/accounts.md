@@ -91,9 +91,10 @@ Our network address obtained from the **ED25519 \(signature\) public key.** It u
 | 3 | Public key hash | Bytes | 20 |
 | 4 | Checksum | Bytes | 4 |
 
-**Public key hash** is the first 20 bytes of the _SecureHash_ of the public key. _SecureHash_ is the hash function `sha256(Blake2b256(data))`.
-
-**Checksum** is first 4 bytes of _SecureHash_ of version, scheme and hash bytes.
+{% hint style="info" %}
+* Public key hash the first 20 bytes of the _SecureHash_ of the public key. _SecureHash_ is the hash function `sha256(Blake2b256(public_key))`.
+* Checksum is the first 4 bytes of _SecureHash_ of version, scheme, and hash bytes.
+{% endhint %}
 
 ### Example
 
@@ -107,5 +108,13 @@ for the mainnet network \(chainId 'T'\) this key results in the following addres
 
 ```text
 3JmCa4jLVv7Yn2XkCnBUGsa7WNFVEMxAfWe
+```
+
+### Derived identities
+
+The blockchain address of derived identities is calculated from a public key, plus a secret. To calculate the `public key hash`, hmac is used, instead of a normal sha256 hash.
+
+```text
+sha256_hmac(Blake2b256(public_key), secret)
 ```
 

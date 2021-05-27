@@ -101,19 +101,16 @@ The key relationship verification method only works type `X25519KeyAgreementKey2
 
 ## Derived identities
 
-It’s not advisable to use DIDs of private identities for multiple purposes. Correlating information might allow a party to deduce information, undermining privacy.
+It’s not advisable to use a single DID for multiple purposes, for instance when issuing verifiable credentials. Correlating information might allow a party to deduce information, undermining privacy.
 
-LTO Network supports single-use DIDs in the form of derived identities using the form `{address}/derived/{secret}`.
+LTO Network supports single-use DIDs in the form of derived identities using the form `did:lto:{address}:derived:{secret}`.
 
-The DID document of a derived identity is always the same DID document for the account.
+The DID document of a derived identity is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts.md#creating-the-address).
 
 ```javascript
 {
   "@context": "https://www.w3.org/ns/did/v1",
-  "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH/derived/12D",
-  "alsoKnownAs": [
-    "did:lto:3JjgwMRYr7dn3kwejdqi3K8qXRAg6MbanVP"
-  ],
+  "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH:derived:12D",
   "verificationMethod": [
     {
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
@@ -130,14 +127,4 @@ The DID document of a derived identity is always the same DID document for the a
   ]
 }
 ```
-
-Derived DIDs have a blockchain address that's different from the DID of the account. This is calculated using hmac instead of normal hashing.
-
-```text
-sha256_hmac(blake2b256(ED25519_public_key), secret)
-```
-
-{% hint style="warning" %}
-The blockchain address is given as `alsoKnownAs` property. But it can't be resolved by the identity node. Derived DIDs must always include the account address and secret. The derived address should never be used directly.
-{% endhint %}
 

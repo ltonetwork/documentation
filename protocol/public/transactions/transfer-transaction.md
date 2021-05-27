@@ -8,9 +8,9 @@ description: >-
 
 ```javascript
 {
-  "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",
   "type": 4,
   "version": 3,
+  "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",
   "sender": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
   "senderKeyType": 1,
   "senderPublicKey": "9NFb1rvMyr1k8f3wu3UP1RaEGsozBt9gF2CmPMGGA42m",
