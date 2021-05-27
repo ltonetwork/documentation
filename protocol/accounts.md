@@ -60,9 +60,11 @@ The seed is not needed for signing, only the private key. The key can be generat
 
 LTO network supports multiple cryptographic algorithms for signing.
 
-| id |  |  |
-| :--- | :--- | :--- |
-|  |  |  |
+| id | reference | type | curve |
+| :--- | :--- | :--- | :--- |
+| 1 | Ed25519 | EC | Curve25519 |
+| 2 | secp256k1 | ECDSA | secp256k1 |
+| 3 | P-256 | ECDSA | secp256p1 |
 
 ## ED25519
 

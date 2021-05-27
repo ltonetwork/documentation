@@ -53,6 +53,7 @@ The binary data structure of the unsigned transaction.
 
 {% hint style="info" %}
 * Chain id can be obtained by taking the 2nd byte from the sender address.
+* Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 
