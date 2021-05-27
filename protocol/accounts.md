@@ -62,9 +62,10 @@ LTO network supports multiple cryptographic algorithms for signing.
 
 | id | reference | type | curve |
 | :--- | :--- | :--- | :--- |
-| 1 | [Ed25519](accounts.md#ed25519) | EC | Curve25519 |
-| 2 | secp256k1 | ECDSA | secp256k1 |
-| 3 | P-256 | ECDSA | secp256p1 |
+| 1 | [ed25519](accounts.md#ed25519) | EdDSA | curve25519 |
+| 2 | [secp256k1](accounts.md#secp-256-k1) | ECDSA | secp256k1 |
+| 3 | [nist256p1](accounts.md#nist-p-256) | ECDSA | secp256p1 |
+| 4 | RSA | RSA |  |
 
 ## ED25519
 
