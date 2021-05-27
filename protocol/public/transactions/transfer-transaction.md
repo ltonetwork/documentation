@@ -12,7 +12,7 @@ description: >-
   "version": 3,
   "id": "5a1ZVJTu8Y7mPA6BbkvGdfmbjvz9YSppQXPnb5MxihV5",
   "sender": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
-  "senderKeyType": "Ed25519VerificationKey2020",
+  "senderKeyType": "Ed25519",
   "senderPublicKey": "9NFb1rvMyr1k8f3wu3UP1RaEGsozBt9gF2CmPMGGA42m",
   "fee": 100000000,
   "timestamp": 1609639213556,

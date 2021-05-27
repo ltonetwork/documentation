@@ -14,7 +14,7 @@ description: >-
   "version": 3,
   "id": "1uZqDjRjaehEceSxrVxz6WD6wt8su8TBHyDLQ1KFnJo",
   "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-  "senderKeyType": "Ed25519VerificationKey2020",
+  "senderKeyType": "Ed25519",
   "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
   "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
   "associationType": 1,
