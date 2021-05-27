@@ -37,6 +37,8 @@ description: >-
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=4\) | 1 |
@@ -56,4 +58,28 @@ The binary data structure of the unsigned transaction.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V2" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Version | Byte \(constant, value=2\) | 1 |
+| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 4 | Timestamp | Long | 8 |
+| 5 | Amount | Long | 8 |
+| 6 | Fee | Long | 8 |
+| 7 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 8 | Attachment length \(N\) | Short | 2 |
+| 9 | Attachment | Array\[Byte\] | N |
+
+{% hint style="info" %}
+Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+_todo_
+{% endtab %}
+{% endtabs %}
 
