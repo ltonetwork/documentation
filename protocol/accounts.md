@@ -69,10 +69,10 @@ LTO network supports multiple cryptographic algorithms for signing.
 
 ## ED25519
 
-By default, accounts use ECDH with curve25519. ED25519 is used for signatures. X25519 is used for encryption in the project.
+By default, accounts use EdDSA with curve25519. ED25519 is used for signatures. X25519 is used for encryption in the project.
 
 {% hint style="success" %}
-ECDH allows generating the X25519 private key from the ED25519 private key and the X25519 public key from the ED25519 public key. Only the keys for signing are on the public chain, but this allows the keys for encryption to be calculated.
+EdDSA allows generating the X25519 private key from the ED25519 private key and the X25519 public key from the ED25519 public key. Only the keys for signing are on the public chain, but this allows the keys for encryption to be calculated.
 {% endhint %}
 
 {% hint style="info" %}
