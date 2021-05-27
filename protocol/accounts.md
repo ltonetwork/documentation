@@ -153,7 +153,7 @@ _Encryption is currently not supported for accounts with P-256 keys._
 
 ## Creating the address
 
-Our network address obtained from the **\(signature\) public key.** It uses on the chain id \('T' for testnet and 'L' for mainnet\), so different networks result in a different address for the same seed / public key.
+The public network address obtained from the **\(signature\) public key.** It uses on the chain id \('T' for testnet and 'L' for mainnet\), so different networks result in a different address for the same seed / public key.
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
@@ -183,7 +183,7 @@ for the mainnet network \(chainId 'T'\) this key results in the following addres
 
 ### Derived identities
 
-The blockchain address of derived identities is calculated from a public key, plus a secret. To calculate the `public key hash`, hmac is used, instead of a normal sha256 hash.
+The blockchain address of derived identities is calculated from a public key, plus a secret. To calculate the public key hash, hmac is used, instead of a normal sha256 hash.
 
 ```text
 sha256_hmac(Blake2b256(public_key), secret)

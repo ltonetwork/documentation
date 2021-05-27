@@ -45,7 +45,7 @@ BLAKE2b is supported by NaCl compatible libraries like libsodium as ['Generic ha
 
 The process is as follows: create the message for signing, then create a signature from this message using the private key.
 
-Validation of signature requires the signature, the message and the public key.
+Validation of signature requires the signature, the message, and the public key.
 
 {% hint style="info" %}
 Functions for ED25519 are defined as `sign` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/public-key_signatures.html) and [nacl](https://nacl.cr.yp.to/sign.html).
