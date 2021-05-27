@@ -14,7 +14,7 @@ Scripts are written in the [Ride programming language](https://docs.waves.tech/e
 	"version": 3,
 	"id": "BGUEn2TERW4nnAQuXYgJ3z6qp28ivk3kykb724wV7MZz",
 	"sender": "3MtHYnCkd3oFZr21yb2vEdngcSGXvuNNCq2",
-	"senderKeyType": 1,
+	"senderKeyType": "Ed25519VerificationKey2020",
 	"senderPublicKey": "4EcSxUkMxqxBEBUBL2oKz3ARVsbyRJTivWpNrYQGdguz",
 	"script": "base64:AQkAAfQAAAADCAUAAAACdHgAAAAJYm9keUJ5dGVzCQABkQAAAAIIBQAAAAJ0eAAAAAZwcm9vZnMAAAAAAAAAAAAIBQAAAAJ0eAAAAA9zZW5kZXJQdWJsaWNLZXmmsz2x",
 	"timestamp": 1519862400,

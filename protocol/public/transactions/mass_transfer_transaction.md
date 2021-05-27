@@ -8,7 +8,7 @@ To address this issue, we're going to introduce a new transaction type, Mass Tra
   "version" : 3,
   "id" : "BG7MQF8KffVU6MMbJW5xPowVQsohwJhfEJ4wSF8cWdC2",
   "sender" : "3HhQxe5kLwuTfE3psYcorrhogY4fCwz2BSh",
-  "senderKeyType": 1,
+  "senderKeyType": "Ed25519VerificationKey2020",
   "senderPublicKey" : "7eAkEXtFGRPQ9pxjhtcQtbH889n8xSPWuswKfW2v3iK4",
   "fee" : 200000,
   "timestamp" : 1518091313964,

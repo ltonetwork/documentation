@@ -137,7 +137,7 @@ The DID document of a derived identity is always the same DID document for the a
 
 By default, an LTO identity node will only resolve DIDs based on LTO network addresses. It's possible to configure the service to index DIDs based on addresses of other blockchains, like Ethereum or Bitcoin.
 
-DIDs with the method "**ltox**" can be resolved by LTO Network identity nodes that supports cross-chain identifiers.
+DIDs with the method "**ltox**" can be resolved by LTO Network identity nodes that support cross-chain identifiers.
 
 The method-specific string is comprised of a [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) blockchain ID and an address on that specific chain.
 

@@ -20,7 +20,7 @@ See [transaction fees with sponsored accounts](./#transaction-fees) for more inf
   "version": 3,
   "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
   "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-  "senderKeyType": 1,
+  "senderKeyType": "Ed25519VerificationKey2020",
   "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
   "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
   "timestamp": 1610410901000,

@@ -11,7 +11,7 @@ description: Stop sponsoring an account
   "recipient": "3N3Cn2pYtqzj7N9pviSesNe8KG9Cmb718Y1",
   "id": "BLMA4vkfe2S5UFHnoPyTh8SJmpTA1deh5SnWk1bdfjhq",
   "sender": "3MtHYnCkd3oFZr21yb2vEdngcSGXvuNNCq2",
-  "senderKeyType": 1,
+  "senderKeyType": "Ed25519VerificationKey2020",
   "senderPublicKey": "4EcSxUkMxqxBEBUBL2oKz3ARVsbyRJTivWpNrYQGdguz",
   "timestamp": 1519862400,
   "fee": 500000000,
