@@ -48,7 +48,8 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
       "type": "Ed25519VerificationKey2018",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
+      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
+      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
     }
   ],
   "authentication": [
@@ -115,7 +116,8 @@ The DID document of a derived identity is always the same DID document for the a
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
       "type": "Ed25519VerificationKey2018",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
+      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
+      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
     }
   ],
   "authentication": [
