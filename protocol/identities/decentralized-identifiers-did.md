@@ -8,6 +8,8 @@ description: >-
 
 DIDs are unique universally resolvable identifiers. A DID represents a _subject_, which can be a person, but also an organization, object, document, etc. There is no central register that registers all DIDs. Instead, there a DID has a method that indicates how it can be resolved.
 
+[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a \(draft\) W3C standard. LTO Network implements the v1.0 draft 22.
+
 ![](../../.gitbook/assets/did.png)
 
 Resolving a DID results in a DID document. This document contains cryptographic material that allows the _DID controller_ to prove control of the DID.
@@ -17,6 +19,12 @@ What proofing control of a DID means depends on the subject. If the DID represen
 {% endhint %}
 
 DID documents do not contain other \(identifying\) information, like a name, address, etc.
+
+{% hint style="warning" %}
+#### Identity vs account
+
+An identity isn't the same as an account. Both correspond with a blockchain address. However, an account is based on a single public/private key pair. An identity can have multiple verification methods, managed through associations. This means that an account can be generated client-side, while an identity needs to be resolved through the identity node.
+{% endhint %}
 
 ## LTO Network DID method
 
@@ -153,9 +161,15 @@ address = {1,63}\*( ALPHA / DIGIT )
 
 The method-specific string is case-sensitive.
 
+### Supported chains
+
+Currently, only eip155 is supported. This address scheme is used by Ethereum and other EVM-based blockchains like Binance Smart Chain.
+
 ### Resolving cross-chain DIDs
 
-If the identity node supports cross-chain identifiers, DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Network and for other chains.
+The identity node can generate addresses for external blockchains.
+
+DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Network and for other chains indexed by the identity node.
 
 ```javascript
 {
@@ -182,4 +196,6 @@ If the identity node supports cross-chain identifiers, DID documents will contai
   ]
 }
 ```
+
+
 
