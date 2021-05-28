@@ -1,6 +1,89 @@
 # Verifiable credentials
 
-A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified. T
+A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified.
 
-Verifiable credentials can be used to build verifiable presentations, which can also be cryptographically verified. The claims in a credential can be about different subjects.
+[Verifiable credentials](https://www.w3.org/TR/vc-data-model/) are a W3C standard. LTO Network implements v1.0.
+
+A credential contains claims about a subject made by the issuer. Both subject and issuer are identified through a [DID](decentralized-identifiers-did.md). Verifying a claim required resolving the DID of the issuer to validate the signatures \(proofs\) of the credential.
+
+Issuing credentials doesn't require the use of a blockchain. Cryptographic signatures of the claims are embedded within the credential. Blockchain can be used to add a layer of security. A validator might require on-chain proof to prevent issuers from backdating credentials.
+
+## DID URL
+
+The LTO network address of the subject and a base58 encoded sha256 hash of the credential is used to create a DID URL.
+
+```text
+did:lto:{subject_address}/credentials/{hash}
+```
+
+To create the hash, the JSON document must be serialized according to the [JSON-LD specification](https://www.w3.org/TR/json-ld/). This ensures that the JSON document has the same format when validating the credential.
+
+The `id`, `credentialStatus`, and `proof` fields should be omitted when creating the hash.
+
+### Credential status
+
+LTO Network identity nodes are able to resolve the [credential status](https://www.w3.org/TR/vc-data-model/#status) based on this DID URL. The credential document should contain a `credentialStatus` property with this value.
+
+```text
+{
+  ...
+  "credentialStatus": {
+    "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH/credentials/BYQRy1DbXpDKHTM1qmEAdrv3XzgUu5RfmrgSANkUibwY/status",
+    "type": "CredentialStatusList2017"
+  }
+}
+```
+
+{% hint style="warning" %}
+The DID URL may also be used as the credential id, but this isn't required. Implementations should only depend on the `credentialStatus` field.
+{% endhint %}
+
+## Associations
+
+On LTO Network. a credential can be represented by an on-chain [association](../public/transactions/association.md). The association requires a sender, recipient, type, and hash.
+
+* The sender is the account that corresponds with a DID verification method of the issuer. 
+* The recipient is the address from the DID of the subject. It's recommended to use a [derived identifier](decentralized-identifiers-did.md#derived-identifiers).
+* The association type for a verifiable credential is `0x10` .
+* The hash field contains the credential hash. It must be same hash as used to create the DID URL.
+
+{% hint style="info" %}
+The hash must be unique for the recipient. If the same subject and recipient address are used by a different sender, the association is ignored.
+{% endhint %}
+
+### Revocation
+
+To revoke a credential, simply revoke the association. The revocation timestamp is determined by the timestamp of the block, rather than the timestamp of the transaction.
+
+If the issuer didn't publish an association for the credential, it can issue a dispute \(type `0x12`\) instead. A dispute by the issuer is interpreted as a revocation.
+
+### Suspend
+
+The issuer is able to suspend a credential through an association with type `0x11`. The association can be revoked to unsuspend the credential.
+
+The association recipient is the address from the DID of the **subject**. The association hash must be taken from the credential status id.
+
+By default, only the issuer can suspend a credential. It's possible to allow other parties to suspend associations through the trust network configuration.
+
+### Dispute
+
+Anyone can dispute the claims of a credential. This is done through an association with type `0x12`. The dispute can also be revoked.
+
+For a dispute, the association recipient is the address from the DID of the **subject**. The association hash must be taken from the credential status id.
+
+By default, the identity node will only index claims from accounts within the configured trust network.
+
+{% hint style="danger" %}
+It's not possible to register the reason for a dispute or revocation on the LTO public chain. To support a \(limited set\) of reasons, a custom range of association types should be used instead of the default ones used by LTO identity nodes.
+{% endhint %}
+
+## Resolving the status
+
+The identity node can resolve the status of a verifiable credential with an LTO DID URL as credential status. Resolving the status results in a [credential status list](https://w3c-ccg.github.io/vc-csl2017/).
+
+{% hint style="warning" %}
+This association sender only signs the blockchain transaction. The claim for a dispute is generated by the identity node based on the on-chain information. Therefore status claims do not contain proofs.
+
+Optionally, it's possible to have the identity node sign each claim as proof. In this case, the verification method of the claim proof does not belong to the issuer, but to the node that resolved the status claims. The node may also include an evidence field, which will include the transaction details of each association.
+{% endhint %}
 

@@ -8,7 +8,7 @@ description: >-
 
 DIDs are unique universally resolvable identifiers. A DID represents a _subject_, which can be a person, but also an organization, object, document, etc. There is no central register that registers all DIDs. Instead, there a DID has a method that indicates how it can be resolved.
 
-[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a \(draft\) W3C standard. LTO Network implements the v1.0 draft 22.
+[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a \(draft\) W3C standard. LTO Network implements v1.0 draft 22.
 
 ![](../../.gitbook/assets/did.png)
 
@@ -26,7 +26,7 @@ DID documents do not contain other \(identifying\) information, like a name, add
 An identity isn't the same as an account. Both correspond with a blockchain address. However, an account is based on a single public/private key pair. An identity can have multiple verification methods, managed through associations. This means that an account can be generated client-side, while an identity needs to be resolved through the identity node.
 {% endhint %}
 
-## LTO Network DID method
+## LTO DID method
 
 DID with the method "**lto**" can be resolved by the LTO Network identity node.
 
@@ -111,13 +111,13 @@ The management key is always listed as verification method with the capability i
 
 The key relationship verification method only works type `X25519KeyAgreementKey2019`. The X25519 public key is generated from the ED25519 public key used to sign a transaction. In case the association recipient uses an alternative cryptographic algorithm, like ECDSA Secp256k1, the association is ignored.
 
-## Derived identities
+## Derived identifiers
 
 It’s not advisable to use a single DID for multiple purposes, for instance when issuing verifiable credentials. Correlating information might allow a party to deduce information, undermining privacy.
 
-LTO Network supports single-use DIDs in the form of derived identities using the form `did:lto:{address}:derived:{secret}`.
+LTO Network supports single-use DIDs in the form of derived identifiers using the form `did:lto:{address}:derived:{secret}`.
 
-The DID document of a derived identity is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts.md#creating-the-address).
+The DID document of a derived identifier is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts.md#creating-the-address).
 
 ```javascript
 {
