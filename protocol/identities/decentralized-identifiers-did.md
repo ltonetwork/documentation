@@ -96,7 +96,7 @@ The two least significant bytes from a bit-set that specifies the verification r
 | 0x0110 | Capability delegation |
 
 {% hint style="info" %}
-**Example:** To create a verification method that can be used for authentication, assertion, and key agreement, create an association with type `0x010007`.
+**Example:** To create a verification method that can be used for authentication, assertion, and key agreement, create an association with type `0x0107`.
 {% endhint %}
 
 {% hint style="warning" %}
