@@ -35,7 +35,7 @@ Get list of all accounts addresses in the node's wallet.
 
 ### GET /addresses/seq/{from}/{to}
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+![](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Get list of accounts addresses with indexes at this range in the node's wallet.
 
@@ -50,7 +50,7 @@ Get list of accounts addresses with indexes at this range in the node's wallet.
 
 ### POST /addresses
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+![](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Generate a new account address in the wallet._Requires API\_KEY to be provided_
 
@@ -72,7 +72,7 @@ Generate a new account address in the wallet._Requires API\_KEY to be provided_
 
 ### GET /addresses/balance/details/{address}
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+![](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Get Balance details:
 
@@ -98,7 +98,7 @@ Get Balance details:
 
 ### GET /addresses/balance/{address}
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+![](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Get account balance in LTO in {address}:
 
@@ -120,7 +120,7 @@ Get account balance in LTO in {address}:
 
 ### GET /addresses/balance/{address}/{confirmations}
 
-![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+![](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Get account balance in LTO by {address} after {confirmations} from now:
 

@@ -29,13 +29,13 @@ Creates lease transaction.
 
 ```javascript
 {
- "type":10,
- "id":"9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr",
- "sender":"3MtrNP7AkTRuBhX4CBti6iT21pQpEnmHtyw",
- "senderPublicKey":"G6h72icCSjdW2A89QWDb37hyXJoYKq3XuCUJY2joS3EU",
- "fee":100000000,
- "timestamp":46305781705234713,
- "signature":"4gQyPXzJFEzMbsCd9u5n3B2WauEc4172ssyrXCL882oNa8NfNihnpKianHXrHWnZs1RzDLbQ9rcRYnSqxKWfEPJG"
+ "type": 8,
+ "id": "9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr",
+ "sender": "3MtrNP7AkTRuBhX4CBti6iT21pQpEnmHtyw",
+ "senderPublicKey": "G6h72icCSjdW2A89QWDb37hyXJoYKq3XuCUJY2joS3EU",
+ "fee": 100000000,
+ "timestamp": 46305781705234713,
+ "signature": "4gQyPXzJFEzMbsCd9u5n3B2WauEc4172ssyrXCL882oNa8NfNihnpKianHXrHWnZs1RzDLbQ9rcRYnSqxKWfEPJG"
 }
 ```
 
