@@ -16,13 +16,17 @@ If you want more info or notice that some link is broken - [**join the Tech Chat
 
 ## Buying and staking LTO
 
-_todo_
+Transactions on the LTO blockchain need LTO tokens to get you started. We summarized tutorials for the most commonly used exchanges, detailing all the necessary steps on _'how to buy LTO tokens'_. 
+
+What comes after your purchase? Staking, of course! LTO offers a competitive APY in form of staking rewards, so let us walk you through the process of putting your LTO tokens to work by staking them with an LTO network community node.
 
 {% page-ref page="tutorials/buying-and-staking-lto/" %}
 
 ## Mining
 
-_todo_
+LTO's eco-friendly mining mechanism relies on _Leased-Proof-of-Stake_, a variant of the Proof-of-Stake consensus algorithm. The easiest way to get started is to run your own validator node and stake LTO tokens. 
+
+In our mining tutorials, we cover the basics about running your own LTO node, chances of generating blocks, the process of becoming an LTO network community node, and distributing block rewards to your node's stakers.
 
 {% page-ref page="tutorials/mining/" %}
 
