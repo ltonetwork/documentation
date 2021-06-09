@@ -25,6 +25,10 @@ Afterward, you will see your LTO position in your exchange asset overview. This 
 
 If the exchange offers transfers to the LTO mainnet the process is quite simple. Simply copy your LTO web wallet address and transfer your LTO tokens to this exact address. Most exchanges will take a little fee.
 
+{% hint style="warning" %}
+It's recommended to transfer LTO tokens from the exchange to your own wallet. If you leave your cryptocurrency on an exchange, the private keys to your coins are with the exchange and your tokens could be stolen.
+{% endhint %}
+
 If the exchange is only offering exchange tokens \(e.g., ERC-20 or BEP-2\), you should use the LTO token bridge instead. The process is quite similar to the '**exchange token to mainnet**' tutorial:
 
 {% page-ref page="../using-the-lto-bridge.md" %}
