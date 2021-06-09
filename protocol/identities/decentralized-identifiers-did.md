@@ -113,7 +113,7 @@ The key relationship verification method only works type `X25519KeyAgreementKey2
 
 ## Derived identifiers
 
-It’s not advisable to use a single DID for multiple purposes, for instance when issuing verifiable credentials. Correlating information might allow a party to deduce information, undermining privacy.
+It’s not advisable to use a single DID for multiple purposes. For instance when issuing verifiable credentials. Correlating information might allow a party to deduce information, undermining privacy.
 
 LTO Network supports single-use DIDs in the form of derived identifiers using the form `did:lto:{address}:derived:{secret}`.
 
