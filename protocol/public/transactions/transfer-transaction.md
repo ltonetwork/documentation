@@ -77,9 +77,5 @@ The binary data structure of the unsigned transaction.
 Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 {% endtab %}
-
-{% tab title="V1" %}
-_todo_
-{% endtab %}
 {% endtabs %}
 
