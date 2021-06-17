@@ -99,7 +99,7 @@ Sponsoring transactions is intended for accounts that don't hold any tokens. Bew
 
 The process is as follows: create a binary message for signing, then create a signature using the private key.
 
-To validate a signature, the same binary message must be constructed. The public key can be used for validation.
+To validate a signature, the same binary message must be constructed. For this, the order of the fields matter, if you switch the order, the message will be different. The public key can be used for validation.
 
 {% hint style="info" %}
 The binary message differs for each transaction type. Please check the documentation.
