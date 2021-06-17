@@ -117,7 +117,6 @@ Transaction data:
 | Recipient address | 3NBVqYXrapgJP9atQccdBPAgJPwHDKkh6A8 |
 | Amount | 1 |
 | Fee | 1 |
-| Fee asset id | BG39cCNUFWPQYeyLnu7tjKHaiUGRxYwJjvntt9gdDPxG |
 | Timestamp | 1479287120875 |
 | Attachment \(as byte array\) | \[1, 2, 3, 4\] |
 
