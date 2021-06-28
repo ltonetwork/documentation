@@ -20,15 +20,38 @@ If not, there is no real necessity for you to dive deep into node reward payment
 
 ## Probability to generate blocks
 
-todo
+By running your own node you participate in the network and get a chance to generate new blocks. These blocks will provide your node with the node rewards depending on the number of transactions in the block. The more transactions are collected in your node's generated block, the higher the node reward will be. The staking consensus is regarded in more detail in the [LTO Whitepaper](%20https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf), see section 15 and especially the subsections 15.1 to 15.4 to have a thorough understanding of LTO's consensus.
 
-Resources:
+How many blocks your node will generate depends on the funds staked on the node. Generally speaking, the higher the stake is the more blocks you will generate. The community set up an exemplary [Community model](https://docs.google.com/spreadsheets/u/0/d/1KcqI0Uay0ogJL8TILqKjESjiz0bwMrYeMz8k5TCUbHA/htmlview) to visualize the probability of an LTO stake generating new blocks. _There you can see how high the probability is to generate a block after a certain amount of time has passed._
 
-\[1\] [LTO Whitepaper](%20https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf) -&gt; rel. chapters are 15.1 - 15.4. 15.4 Starts out with Waves' Fair PoS algorithm, then adapts it to LPoI.
+{% hint style="info" %}
+A probability to generate a new block in 24 hours of 90% means that 9 out of 10 days you should generate a block daily. While this may manifest as a block each day, it can also manifest as two blocks every second day and none in between.
+{% endhint %}
 
-\[2\] [Community model for distribution](https://docs.google.com/spreadsheets/u/0/d/1KcqI0Uay0ogJL8TILqKjESjiz0bwMrYeMz8k5TCUbHA/htmlview) -&gt; assumptions can be derived from formulas, unclear if this is the wanted solution.
+If after initially starting your node you find it does not generate blocks as fast as you think it should don't be discouraged. The initial node setup takes time until your node is fully synchronized with the network and the blockchain is up-to-date on your machine. Check your node logs for errors and check the community overviews \(e.g., [lto nodes ](https://www.ltonod.es/)or [lto tools](https://lto.tools/nodes/)\). 
 
-\[3\] [LTO tokenomics overview](https://blog.goodaudience.com/an-objective-look-at-lto-networks-token-demand-8ce15e658c2b) -&gt; has an LPoI perspective though.
+{% hint style="info" %}
+To check your node's logs run `docker logs -f public-node`. This way you can detect grave error messages, for example, network problems.
+{% endhint %}
+
+To have a rough estimate of how long you will have to wait before generating a block you can use the following approximation:
+
+$$
+((1 - (s_1 / S ))^d)^h = P
+$$
+
+with
+
+* $$S$$ being the total amount of staked LTO on the network
+* $$s_1$$being the amount of LTO staked on your node
+* $$d$$ being the number of blocks forged per hour
+* $$h$$ being the number of hours your node will be running without generating a block.
+
+Play around with the $$h$$ parameter to determine when the resulting probability $$P$$ goes close to zero, as that is the amount of time you will have to wait on average before generating a block. If you want the _percentage_ simply multiply $$P$$ by 100.
+
+{% hint style="warning" %}
+This formula is an oversimplified version of the actual probability from the [LTO Whitepaper](%20https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf). 
+{% endhint %}
 
 ## Paying out rewards
 
