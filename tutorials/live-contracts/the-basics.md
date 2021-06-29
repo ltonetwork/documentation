@@ -10,7 +10,7 @@ Running Live Contracts requires using the LTO Network full node.
 
 In these tutorials we're always using the developer build of the full node, which is available as a Docker container.
 
-```
+```text
 curl "https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml" -o docker-compose.yml
 docker-compose up
 ```
@@ -38,7 +38,7 @@ cd livecontracts-tutorial
 
 ## Creating a scenario
 
-A Live Contract must contain of one or more [scenarios]() that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
+A Live Contract must contain of one or more [scenarios](the-basics.md) that describes the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
 
 {% hint style="success" %}
 Create file `scenario.yml` \(or `scenario.json`\) in the `basic` directory.
@@ -68,7 +68,7 @@ title: The basics
 
 ### Defining actors
 
-[Actors]() are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
+[Actors](the-basics.md) are organizations or individuals play a role in the process. The scenario needs to define which actors \(may\) exist.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -109,7 +109,7 @@ The key `initiator` is used to reference the actor. The title must be defined, b
 
 ### Defining actions
 
-All [actions]() that any actor can perform within the process must be defined at forehand in the scenario.
+All [actions](the-basics.md) that any actor can perform within the process must be defined at forehand in the scenario.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -121,7 +121,7 @@ title: My first Live Contract
 actors:
   initiator:
     title: Initiator
-    
+
 actions:
   complete:
     title: Complete the process
@@ -157,7 +157,7 @@ The _complete_ action can be performed by the _initiator_ actor. The intend of t
 
 ### The initial state
 
-When a process is started, it's in the _initial_ [state](). From this state in can transition to other states, until the process is completed.
+When a process is started, it's in the _initial_ [state](the-basics.md). From this state in can transition to other states, until the process is completed.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -169,12 +169,12 @@ title: My first Live Contract
 actors:
   initiator:
     title: Initiator
-    
+
 actions:
   complete:
     title: Complete the process
     actor: initiator
-    
+
 states:
   initial:
     action: complete

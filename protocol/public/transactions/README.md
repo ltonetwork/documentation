@@ -4,7 +4,7 @@
 | :--- | :--- |
 | 1 | Genesis Transaction |
 | 4 | [Transfer Transaction](transfer-transaction.md) |
-| 8 | [Lease Transaction](../../../public-node/rest-api/lease_transactions.md) |
+| 8 | [Lease Transaction](../../../running-a-node/public-node/rest-api/lease_transactions.md) |
 | 9 | [Cancel Lease Transaction](cancel-lease-transaction.md) |
 | 11 | [Mass Transfer Transaction](mass_transfer_transaction.md) |
 | 13 | Set Script Transaction |
