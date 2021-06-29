@@ -151,7 +151,7 @@ _TODO: Say something about an authorization framework for Verifiable Credentials
 }
 ```
 
-Authorization outside of VCs. \(Maybe start with this\).
+_Authorization outside of VCs. \(Maybe start with this\)._
 
 ## Resolving an identity's roles
 
