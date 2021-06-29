@@ -86,15 +86,21 @@ Base58 encoded random secret
 
 {% api-method method="get" host="https://lto.example.com" path="/trust/:address" %}
 {% api-method-summary %}
-Get all the edges of an identity
+Get all the roles of an identity
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Resolves the roles from an identity
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="address" type="string" required=true %}
+Account's address in Base58 format
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -103,7 +109,15 @@ Get all the edges of an identity
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+  "roles": [
+    "authority",
+    "notary"
+  ],
+  "issue_roles": [
+    { "type": 100, "role": "notary" }
+  ]
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
