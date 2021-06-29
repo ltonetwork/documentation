@@ -8,7 +8,7 @@ The configuration of roles is flexible and can be done through modifying your no
 
 ## Structure
 
-The blockchain address of your _own node_ is always the **root** of the network. In the example, the **notary** role is an association from the **node** account to the **notary** account. This makes the approach deterministic, allowing for a change in the configuration without modifying the results.
+The blockchain address of your _own node_ is always the **root** of the network. In the example, the **notary** role is an association from the **node** account to the **notary** account.
 
 ```javascript
 "roles": {
