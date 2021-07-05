@@ -114,8 +114,11 @@ Account's address in Base58 format
     "authority",
     "notary"
   ],
-  "issue_roles": [
+  "issues_roles": [
     { "type": 100, "role": "notary" }
+  ],
+  "issues_authorization": [
+    "https://www.w3.org/2018/credentials/examples/v1"
   ]
 }
 ```
