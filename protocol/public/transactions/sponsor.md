@@ -34,7 +34,7 @@ See [transaction fees with sponsored accounts](./#transaction-fees) for more inf
 {% hint style="info" %}
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * Binary strings are base58 encoded.
-* `timestamp` is in microseconds since epoch.
+* `timestamp` is in milliseconds since epoch.
 * `fee` includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 
