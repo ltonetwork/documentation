@@ -81,7 +81,7 @@ Use [NaCl](https://nacl.cr.yp.to/) or [sodium](https://libsodium.gitbook.io/) to
 
 ### Signing
 
-Created private key
+Created private key using the account seed `93d...S1v`.
 
 ```text
 4zsR9xoFpxfnNwLcY4hdRUarwf5xWtLj6FpKGDFBgscPxecPj2qgRNx4kJsFCpe9YDxBRNoeBWTh2SDAdwTySomS
@@ -95,7 +95,7 @@ GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 
 ### Encryption
 
-Created private key
+Created private key using the account seed `93d...S1v`.
 
 ```text
 4q7HKMbwbLcG58iFV3pz4vkRnPTwbrY9Q5JrwnwLEZCC
@@ -113,7 +113,7 @@ Bitcoin, Ethereum, and many other blockchains use ECDSA with the secp256k1 curve
 
 ### Signing
 
-Created private key
+Created private key using the account seed `93d...S1v`.
 
 ```text
 TODO
@@ -135,7 +135,7 @@ The most commonly used and well-supported Elliptic Curve is NIST P-256. This is 
 
 ### Signing
 
-Created private key
+Created private key using the account seed `93d...S1v`.
 
 ```text
 TODO
