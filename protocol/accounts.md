@@ -149,7 +149,7 @@ TODO
 
 ### Encryption
 
-_Encryption is currently not supported for accounts with P-256 keys._
+_Encryption is currently not supported for accounts with nist256p1 keys._
 
 ## Creating the address
 
