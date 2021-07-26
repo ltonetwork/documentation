@@ -64,8 +64,8 @@ LTO network supports multiple cryptographic algorithms for signing.
 | :--- | :--- | :--- | :--- |
 | 1 | [ed25519](accounts.md#ed25519) | EdDSA | curve25519 |
 | 2 | [secp256k1](accounts.md#secp-256-k1) | ECDSA | secp256k1 |
-| 3 | [nist256p1](accounts.md#nist-p-256) | ECDSA | secp256p1 |
-| 4 | RSA | RSA |  |
+| 3 | [nist256p1](accounts.md#nist-p-256) | ECDSA | secp256r1 |
+| 4 | rsa | RSA |  |
 
 ## ED25519
 
@@ -131,7 +131,7 @@ _Encryption is currently not supported for accounts with secp256k1 keys._
 
 ## NIST P-256
 
-The most commonly used and well-supported Elliptic Curve is NIST P-256. This is an ECDSA method using the secp256p1 curve.
+The most commonly used and well-supported Elliptic Curve is NIST P-256. This is an ECDSA method using the secp256r1 curve.
 
 ### Signing
 
