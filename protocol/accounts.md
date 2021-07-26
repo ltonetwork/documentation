@@ -84,7 +84,7 @@ Created public key
 
 The network address is obtained from the **ED25519 \(signature\) public key.**
 
-It uses on the **chain id** \('T'/0x54 for testnet and 'L'/0x57 for mainnet\), so different networks result in a different address for the same seed / public key.
+It uses on the **chain id** \('T'/0x4C for testnet and 'L'/0x57 for mainnet\), so different networks result in a different address for the same seed / public key.
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
