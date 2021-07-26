@@ -182,7 +182,7 @@ For public key
 GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 ```
 
-for the mainnet network \(chainId 'T'\) this key results in the following address
+for the mainnet network \(chain id 'T'\), this key results in the following address
 
 ```text
 3JmCa4jLVv7Yn2XkCnBUGsa7WNFVEMxAfWe
@@ -195,4 +195,6 @@ The blockchain address of derived identities is calculated from a public key, pl
 ```text
 sha256_hmac(Blake2b256(public_key), secret)
 ```
+
+Derived identity addresses are only used for [decentralized identifiers \(DIDs\)](identities/decentralized-identifiers-did.md) and can't be used to sign transactions on the public blockchain.
 
