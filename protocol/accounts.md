@@ -82,12 +82,14 @@ Created public key
 
 ## Creating the address
 
-Our network address obtained from the **ED25519 \(signature\) public key.** It uses on the chain id \('T' for testnet and 'L' for mainnet\), so different networks result in a different address for the same seed / public key.
+The network address is obtained from the **ED25519 \(signature\) public key.**
+
+It uses on the **chain id** \('T'/0x54 for testnet and 'L'/0x57 for mainnet\), so different networks result in a different address for the same seed / public key.
 
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Version \(0x01\) | Byte | 1 |
-| 2 | Address scheme \(0x54 for Testnet 0x57 for Mainnet\) | Byte | 1 |
+| 2 | Chain id | Byte | 1 |
 | 3 | Public key hash | Bytes | 20 |
 | 4 | Checksum | Bytes | 4 |
 
