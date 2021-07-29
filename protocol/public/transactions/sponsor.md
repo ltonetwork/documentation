@@ -2,7 +2,7 @@
 description: 'Sponsor an account, offering to pay for all transaction fees for that account.'
 ---
 
-# Sponsor
+# Sponsorship
 
 {% hint style="danger" %}
 You should only sponsor an account you trust, and/or have a legally binding agreement with. A sponsored account holder can easily drain your account through spam transactions. If the account holder is running a node, he/she can claim part of the spend tokens as mining reward. **Limit the amount of tokens on the sponsoring account**, adding funds when necessary.
@@ -43,6 +43,8 @@ See [transaction fees with sponsored accounts](./#transaction-fees) for more inf
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=18\) | 1 |
@@ -59,4 +61,23 @@ The binary data structure of the unsigned transaction.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=18\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Chain id | Byte | 1 |
+| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 5 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 6 | Fee | Long | 8 |
+| 7 | Timestamp | Long | 8 |
+
+{% hint style="info" %}
+* Chain id can be obtained by taking the 2nd byte from the sender or recipient address.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 

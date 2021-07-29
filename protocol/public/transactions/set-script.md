@@ -45,6 +45,8 @@ The "Restrict Account" script disables transfers from the account, it also disab
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=4\) | 1 |
@@ -58,9 +60,36 @@ The binary data structure of the unsigned transaction.
 | 9 | Script | Array\[Byte\] | N |
 
 {% hint style="info" %}
-* `script` is binary \(without "base64:" prefix\).
+* Script is the \(binary\) compiled script \(without "base64:" prefix\).
 * Chain id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Chain id | Byte | 1 |
+| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 5 | Includes script | Boolean \(Byte\) | 1 |
+| 6 | Script length \(N\) | Short | 2 |
+| 7 | Script | Array\[Byte\] | N |
+| 8 | Fee | Long | 8 |
+| 9 | Timestamp | Long | 8 |
+
+{% hint style="warning" %}
+If the transaction doesn't include a script, the script length and script should be omitted from the binary data.
+{% endhint %}
+
+{% hint style="info" %}
+* Script is the \(binary\) compiled script \(without "base64:" prefix\).
+* Chain id can be obtained by taking the 2nd byte from the sender address.
+* Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 

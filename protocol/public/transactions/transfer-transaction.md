@@ -77,5 +77,22 @@ The binary data structure of the unsigned transaction.
 Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
 {% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=4\) | 1 |
+| 2 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 3 | Timestamp | Long | 8 |
+| 4 | Amount | Long | 8 |
+| 5 | Fee | Long | 8 |
+| 6 | Recipient | Address \(Array\[Byte\]\) | 26 |
+| 7 | Attachment length \(N\) | Short | 2 |
+| 8 | Attachment | Array\[Byte\] | N |
+
+{% hint style="info" %}
+Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
 {% endtabs %}
 

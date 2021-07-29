@@ -67,6 +67,8 @@ anchor {
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=15\) | 1 |
@@ -77,14 +79,35 @@ The binary data structure of the unsigned transaction.
 | 6 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 \| 33 |
 | 7 | Fee | Long | 8 |
 | 8 | Number of anchors | Short | 2 |
-| 9 | Anchor length 1 \(N\) | Byte | 2 |
-| 10 | Anchor 1 | Array\[Byte\] | N1 |
+| 9 | Anchor 1 length \(N\) | Byte | 2 |
+| 10 | Anchor 1 | Array\[Byte\] | N |
 | ... |  |  |  |
 
 {% hint style="info" %}
-* Anchor length and Anchor are repeated for each transfer.
+* Anchor length and Anchor can be repeated for each anchor hash.
 * Chain id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=15\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 4 | Number of anchors | Short \(constant, value=1\) | 2 |
+| 5 | Anchor 1 length \(N\) | Short | 2 |
+| 6 | Anchor 1 | Array\[Byte\] | N |
+| ... |  |  |  |
+| 7 | Timestamp | Long | 8 |
+| 8 | Fee | Long | 8 |
+
+{% hint style="info" %}
+* Anchor length and Anchor can be repeated for each anchor hash.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 

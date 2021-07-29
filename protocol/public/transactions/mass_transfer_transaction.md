@@ -56,7 +56,9 @@ mass-transfer {
 
 The binary data structure of the unsigned transaction.
 
-|  | Field Name | Type | Length |
+{% tabs %}
+{% tab title="V3 \(current\)" %}
+| \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=11\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
@@ -78,4 +80,27 @@ The binary data structure of the unsigned transaction.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=11\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 4 | Number of transfers \(T\) | Short | 2 |
+| 5 | Recipient 1 | Address \(Array\[Byte\]\) | 26 |
+| 6 | Amount 1 | Long | 8 |
+| ... |  |  |  |
+| 7 | Fee | Long | 8 |
+| 8 | Timestamp | Long | 8 |
+| 9 | Attachment length \(N\) | Short | 2 |
+| 10 | Attachment | Array\[Byte\] | N |
+
+{% hint style="info" %}
+* Recipient and Amount are repeated for each transfer.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 

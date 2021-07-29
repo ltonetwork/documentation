@@ -22,6 +22,8 @@ TODO
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=9\) | 1 |
@@ -38,4 +40,23 @@ The binary data structure of the unsigned transaction.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V2" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=9\) | 1 |
+| 2 | Version | Byte \(constant, value=2\) | 1 |
+| 3 | Chain id | Byte | 1 |
+| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 5 | Fee | Long | 8 |
+| 6 | Timestamp | Long | 8 |
+| 7 | Lease id | Transaction \(Array\[Byte\]\) | 32 |
+
+{% hint style="info" %}
+* Chain id can be obtained by taking the 2nd byte from the sender address.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 

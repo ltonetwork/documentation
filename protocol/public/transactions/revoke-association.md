@@ -46,6 +46,8 @@ To revoke an association, the `sender`, `assocationType`, `recipient`, and `hash
 
 The binary data structure of the unsigned transaction.
 
+{% tabs %}
+{% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
 | :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=17\) | 1 |
@@ -66,4 +68,31 @@ The binary data structure of the unsigned transaction.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers \(short, int, long\) have a big endian byte order.
 {% endhint %}
+{% endtab %}
+
+{% tab title="V1" %}
+| \# | Field Name | Type | Length |
+| :--- | :---: | :---: | :--- |
+| 1 | Transaction type | Byte \(constant, value=17\) | 1 |
+| 2 | Version | Byte \(constant, value=1\) | 1 |
+| 3 | Chain id | Byte | 1 |
+| 4 | Sender's public key | PublicKey \(Array\[Byte\]\) | 32 |
+| 5 | Party | Address \(Array\[Byte\]\) | 26 |
+| 6 | Association type | Int | 4 |
+| 7 | Includes hash | Boolean \(Byte\) | 1 |
+| 8 | Hash length \(N\) | Short | 2 |
+| 9 | Hash | Array\[Byte\] | N |
+| 10 | Timestamp | Long | 8 |
+| 11 | Fee | Long | 8 |
+
+{% hint style="warning" %}
+If the association doesn't include a hash, the hash length and hash should be omitted from the binary data.
+{% endhint %}
+
+{% hint style="info" %}
+* Chain id can be obtained by taking the 2nd byte from the sender or recipient address.
+* Integers \(short, int, long\) have a big endian byte order.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
