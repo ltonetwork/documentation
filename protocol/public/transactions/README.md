@@ -161,7 +161,7 @@ By default, only one proof is used, which must be the transaction signature by t
 
 `"proofs": [ "21jgWvYq6XZuke2bLE8bQEbdXJEk..." ]`
 
-## Calculating transaction-id
+## Transaction id
 
 The transaction id is not stored in the transaction bytes. It's calculated from the binary message for signing as `blake2b256(binary_message)`.
 
