@@ -36,7 +36,7 @@ The binary data structure of the unsigned transaction.
 {% tabs %}
 {% tab title="V3 \(current\)" %}
 | \# | Field Name | Type | Length |
-| :--- | :--- | :--- | :--- |
+| :--- | :---: | :---: | :--- |
 | 1 | Transaction type | Byte \(constant, value=18\) | 1 |
 | 2 | Version | Byte \(constant, value=3\) | 1 |
 | 3 | Chain id | Byte | 1 |
