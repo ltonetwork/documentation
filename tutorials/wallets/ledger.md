@@ -99,7 +99,7 @@ You should have your Ledger device with the LTO Network app selected and the Cli
 
 ![](https://camo.githubusercontent.com/c069ff1e27ef795fad47d3e381fba39bf59e10c5cc39fbe6e5919da789bccdb8/68747470733a2f2f74656c656772612e70682f66696c652f3164373530626335386361316234353164623437342e706e67)
 
-We first need to get our **public key** and \*\*address \*\*from the Ledger device, so put a **1** in the console and press enter.
+We first need to get our **public key** and **address** from the Ledger device, so put a **1** in the console and press enter.
 
 A message asking for a bip-32 path will show up, just click enter. We are going to use the default path in this tutorial.
 
