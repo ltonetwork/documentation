@@ -81,7 +81,9 @@ Finally, a notification will appear with a link to track this transaction with t
 
 In case there is some error with the transaction data -as unavailable funds- an error message will be shown instead of this last notification.
 
-_The Web Wallet was built to be a full client-side Ledger Hardware Wallet interface. There is no data interchange between the Ledger Device or Web Wallet to any external server in the signature process._
+{% hint style="info" %}
+The Web Wallet was built to be a full **client-side** Ledger Hardware Wallet interface. There is no data interchange between the Ledger Device or Web Wallet to any external server in the signature process.
+{% endhint %}
 
 ## Commandline
 
