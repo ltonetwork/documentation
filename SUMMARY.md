@@ -22,6 +22,7 @@
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts.md)
 * [Wallets](tutorials/wallets/README.md)
+  * [Wallet Web app](tutorials/wallets/wallet-web-app.md)
   * [Ledger](tutorials/wallets/ledger.md)
 
 ## Running a node
