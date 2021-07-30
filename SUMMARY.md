@@ -22,7 +22,7 @@
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts.md)
 * [Wallets](tutorials/wallets/README.md)
-  * [Ledger \(Stakely.io web-wallet\)](tutorials/wallets/ledger.md)
+  * [Ledger](tutorials/wallets/ledger.md)
 
 ## Running a node
 

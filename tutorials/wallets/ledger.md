@@ -2,7 +2,7 @@
 description: How to use a Ledger device with LTO Network
 ---
 
-# Ledger \(Stakely.io web-wallet\)
+# Ledger
 
 ![](https://camo.githubusercontent.com/b74e6b5ce2eab3d4c8ca16c922f3d1c6ecc05829b24f709b0cd0a338c361ad8d/68747470733a2f2f692e696d6775722e636f6d2f6834463576456f2e6a7067)
 
@@ -28,6 +28,8 @@ Please note that this tutorial applies only to **Native LTO coins**. Do not try 
 8. The app installation is confirmed.
 
 There are currently two ways to interact with the LTO Network blockchain using a Ledger hardware wallet: an installable **CLI Wallet** and a **Web Wallet**.
+
+## Stakely.io web-wallet
 
 ### Use a Ledger device with the Web Wallet
 
@@ -80,6 +82,8 @@ Finally, a notification will appear with a link to track this transaction with t
 In case there is some error with the transaction data -as unavailable funds- an error message will be shown instead of this last notification.
 
 _The Web Wallet was built to be a full client-side Ledger Hardware Wallet interface. There is no data interchange between the Ledger Device or Web Wallet to any external server in the signature process._
+
+## Commandline
 
 ### Use a Ledger device with the CLI Wallet
 
@@ -137,7 +141,7 @@ Press **Try it out!** and there should not be errors in the Response Body
 
 If you want to track your transaction, paste the **id** value from the **Response Body** on the explorer: [https://explorer.lto.network](https://explorer.lto.network/)
 
-### Further Security Notes and Further Developments
+## Further Security Notes and Further Developments
 
 Although a Ledger hardware wallet is a very secure way of storing your LTO, always initialize your account by broadcasting a transaction to enhance the security of your account effectively reducing the chances of being hit by an “Address collision”.
 
