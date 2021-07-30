@@ -127,7 +127,7 @@ Once you have validated the data, press the **accept transaction** button. You w
 
 ![](https://camo.githubusercontent.com/74e1b5740f3e33c11f8219fcb5ecabdd1003822d0ffa7d5952c89521cc2efc1a/68747470733a2f2f74656c656772612e70682f66696c652f3465303663343735313861363663343366386135372e706e67)
 
-Finally, we need to \*\*broadcast \*\*this transaction. To do that, copy everything between brackets \(included\) and paste it here: [https://nodes.lto.network/api-docs/index.html\#!/transactions/broadcast](https://nodes.lto.network/api-docs/index.html#!/transactions/broadcast)
+Finally, we need to **broadcast** this transaction. To do that, copy everything between brackets \(included\) and paste it here: [https://nodes.lto.network/api-docs/index.html\#!/transactions/broadcast](https://nodes.lto.network/api-docs/index.html#!/transactions/broadcast)
 
 ![](https://camo.githubusercontent.com/cac97504fcef14e241e1ddc4cd94feab8e13c4b0ac09ad818260445fdefa6f50/68747470733a2f2f74656c656772612e70682f66696c652f3231353666666565623163626365326235326535312e706e67)
 
