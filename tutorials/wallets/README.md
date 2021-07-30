@@ -4,6 +4,8 @@ To easily interact with the LTO Network blockchain, multiple wallets have been d
 
 **Mainnet Web Wallet**
 
+### Mainnet Web UI
+
 The general wallet web app is available at [https://wallet.lto.network](https://wallet.lto.network) and enables users to:
 
 * Generate a new seed phrase \(new wallet keys\)
@@ -15,6 +17,8 @@ The general wallet web app is available at [https://wallet.lto.network](https://
 {% page-ref page="wallet-web-app.md" %}
 
 **Ledger Wallet**
+
+### Mainnet Ledger UI
 
 The Ledger UI has been created to use with a Ledger Hardware wallet and enables users to:
 

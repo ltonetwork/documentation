@@ -2,7 +2,7 @@
 description: How to use a Ledger device with LTO Network
 ---
 
-# Ledger
+# Ledger UI
 
 ![](https://camo.githubusercontent.com/b74e6b5ce2eab3d4c8ca16c922f3d1c6ecc05829b24f709b0cd0a338c361ad8d/68747470733a2f2f692e696d6775722e636f6d2f6834463576456f2e6a7067)
 
