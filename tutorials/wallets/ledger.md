@@ -8,7 +8,7 @@ description: How to use a Ledger device with LTO Network
 
 A Ledger device is a hardware wallet. Hardware wallets are considered very secure for the storage of a user’s private keys in the blockchain. Your digital assets are safe even when used on an infected or untrusted computer.
 
-Please note that this tutorial applies only for **LTO mainnet tokens**. Do not try to send or receive tokens directly from Ethereum or Binance chains as your funds may be lost forever!
+Please note that this tutorial applies only to **Native LTO coins**. Do not try to send or receive tokens directly from Ethereum or Binance chains as your funds may be lost forever!
 
 ### Before you begin
 
@@ -41,7 +41,7 @@ _Please be sure to double-check that you are accessing the correct website._
 
 If the Web Wallet does not recognize your Ledger device, be sure that no application is already using the device, like other browsers, wallets, or virtual machines. Try to close running programs or reboot your pc if you encounter problems.
 
-The Web Wallet offers some useful functionalities like **network switch**, to carry out mainnet or testnet transactions; a **balance viewer**, where you will be able to see your total and available tokens; an **address selector** and the fields needed to create transactions.
+The Web Wallet offers some useful functionalities like a **network switch**, to carry out mainnet or testnet transactions; a **balance viewer**, where you will be able to see your total and available tokens; an **address selector** and the fields needed to create transactions.
 
 This is how it should look like when a Ledger device with the LTO Network app is installed and loaded:
 
@@ -57,13 +57,15 @@ Here is an example of how to do a Start Lease transaction using the web wallet:
 
 Fill in all form fields: transaction type, amount, recipient, and fee. Once you have finished, click on **Sign transaction**.
 
+The minimal fee for a transaction will be filled in automatically.
+
 ![](https://camo.githubusercontent.com/6d8806ac5b4c032b7c6c299fc69b8ab6367dc4832f056925c2f2596e58dc10a1/68747470733a2f2f692e696d6775722e636f6d2f5141693776594c2e706e67)
 
 The Web Wallet will send this data to your Ledger device.
 
 The hardware wallet will display on the screen the transaction data: transaction type, fee, amount, recipient, and transaction ID.
 
-**Always double check that the data shown on the Ledger device coincide with the data on Web Wallet.**
+**Always double-check that the data shown on the Ledger device coincide with the data on Web Wallet.**
 
 Once you have validated the data, press the **accept transaction** button. You will see on the Web Wallet that the transaction was signed and this notification will pop up:
 
@@ -85,7 +87,7 @@ It was the first interface for this Ledger hardware wallet app. It consists of a
 
 These executables can be downloaded here, make sure you download the correct binary and most recent for your platform \(Windows, Linux, macOS\): [https://github.com/iicc1/ledger-app-lto/releases](https://github.com/iicc1/ledger-app-lto/releases)
 
-Once you have the executable downloaded, **double click** it, and a command-line will appear. Don't be afraid of the console, you won't need to write any command! This is a fairly easy way to use the wallet, you just need to enter the numbers and transaction fields.
+Once you have the executable downloaded, **double-click** it, and a command prompt will appear. Don't be afraid of the console, you won't need to write any command! This is a fairly easy way to use the wallet, you just need to enter the numbers and transaction fields.
 
 ![](https://camo.githubusercontent.com/1732511b071c1cbf2d3e751579ca66ae7abd6eac5bb38beb155939e66f3d7f55/68747470733a2f2f74656c656772612e70682f66696c652f6261633431653064383430393762313137326533622e706e67)
 
@@ -101,7 +103,7 @@ You should have your Ledger device with the LTO Network app selected and the Cli
 
 We first need to get our **public key** and **address** from the Ledger device, so put a **1** in the console and press enter.
 
-A message asking for a bip-32 path will show up, just click enter. We are going to use the default path in this tutorial.
+A message asking for a BIP-32 path will show up, just click enter. We are going to use the default path in this tutorial.
 
 Then, our public key and address will appear on the screen:
 
@@ -141,7 +143,7 @@ Although a Ledger hardware wallet is a very secure way of storing your LTO, alwa
 
 Some features: data transactions, mass transfers, and other new transactions -even if supported by the Ledger integration- are not supported by the web/CLI wallet. They might be implemented in future releases of the web wallet.
 
-Ledger devices use the Bip-32 deterministic wallet generation, so even if all Cli and Web LTO wallet interfaces disappear, you will be able to recover any wallet by using your Ledger device seed.
+Ledger devices use the BIP-32 deterministic wallet generation, so even if all Cli and Web LTO wallet interfaces disappear, you will be able to recover any wallet by using your Ledger device seed.
 
 ### Final Notes
 
