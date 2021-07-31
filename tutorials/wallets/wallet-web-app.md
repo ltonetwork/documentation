@@ -4,13 +4,15 @@
 
 In the general wallet, multiple accounts can be created and imported.
 
+Click here to access the Web Wallet: [https://wallet.lto.network/](https://wallet.lto.network/)
+
 The wallet web app operates fully on the client-side. Accounts are only stored locally, encrypted, and secured with the password that has been set during creation or import.  
 Network information \(like balance, previous transactions\) is fetched from a node's API, using the public wallet address.  
 Transactions are signed locally, and only the signed transaction is broadcasted to a node to be propagated in the LTO Network. No sensitive data is ever transmitted to an external server.
 
 ### Create Account
 
-In order to create an account, go to https://wallet.lto.network/ and click on **Create Account** in the top right corner. It will notify you about creating a new account - click **Continue**.
+In order to create an account, go to [https://wallet.lto.network/](https://wallet.lto.network/) and click on **Create Account** in the top right corner. It will notify you about creating a new account - click **Continue**.
 
 ![](../../.gitbook/assets/image%20%284%29.png)
 
