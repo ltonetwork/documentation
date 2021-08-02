@@ -62,8 +62,8 @@ A how-to on the bridge is available [here](../buying-and-staking-lto/using-the-l
 
 1. Your public wallet address
 2. Your public key
-3. Your backup phrase \(seed phrase\) \(Do not share this with anyone\)
-4. Your private key \(Do not share this with anyone\)
+3. Your backup phrase \(seed phrase\) \(Do not share this with anyone!\)
+4. Your private key \(Do not share this with anyone!\)
 5. Ability to set a script \(Smart Account\). It provides an option to disable the ability to transfer coins and would set it so it can only do other transactions like anchoring. Do not use this as a coin holder, this is mostly used by integrators.
 
 ![](../../.gitbook/assets/image%20%287%29.png)
