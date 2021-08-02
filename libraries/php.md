@@ -109,7 +109,7 @@ use LTO\PublicNode;
 
 $node = new PublicNode('https://nodes.lto.network');
 
-$amount = 1000.0; // Amount of LTO to transfer
+$amount = 1000e8; // Amount of LTO to transfer
 $recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
 
 $transferTx = (new Transfer($amount, $recipient))
