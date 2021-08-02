@@ -2,8 +2,6 @@
 
 To easily interact with the LTO Network blockchain, multiple wallets have been developed.
 
-**Mainnet Web Wallet**
-
 ### Mainnet Web UI
 
 The general wallet web app is available at [https://wallet.lto.network](https://wallet.lto.network) and enables users to:
@@ -15,8 +13,6 @@ The general wallet web app is available at [https://wallet.lto.network](https://
 * Utilize the bridge \(swap to other networks like Ethereum and Binance Smart Chain\)
 
 {% page-ref page="wallet-web-app.md" %}
-
-**Ledger Wallet**
 
 ### Mainnet Ledger UI
 
