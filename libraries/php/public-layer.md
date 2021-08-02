@@ -8,7 +8,7 @@ use LTO\PublicNode;
 
 $node = new PublicNode('https://nodes.lto.network');
 
-$amount = 1000.0; // Amount of LTO to transfer
+$amount = 1000e8; // Amount of LTO to transfer (*10^8)
 $recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
 
 $transferTx = (new Transfer($amount, $recipient))
@@ -25,7 +25,7 @@ Send LTO tokens from your account to another account.
 ```php
 use LTO\Transaction\Transfer;
 
-$amount = 1000.0; // Amount of LTO to transfer
+$amount = 1000e8; // Amount of LTO to transfer (*10^8)
 $recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
 
 $transferTx = new Transfer($recipient, $amount);
@@ -62,7 +62,7 @@ Start leasing LTO to a node. This increased the chance for a node to mine a bloc
 ```php
 use LTO\Transaction\Lease;
 
-$amount = 5000.0; // Amount of LTO to lease
+$amount = 5000e8; // Amount of LTO to lease (*10^8)
 $recipient = "3JexCgRXGFUiuNoJTkkWucSumteRWdb8kKU";
 
 $leaseTx = new Lease($recipient, $amount);
@@ -281,7 +281,7 @@ use LTO\PublicNode;
 
 $node = new PublicNode('https://nodes.lto.network');
 
-$amount = 1000.0; // Amount of LTO to transfer
+$amount = 1000e8; // Amount of LTO to transfer (*10^8)
 $recipient = "3Jo1JCrBvnWCg37VDxMXAjYhsS9rRDLBSze";
 
 $transferTx = (new Transfer($amount, $recipient))
