@@ -180,6 +180,29 @@ The value for `authorization` should match [JSON-LD](https://www.w3.org/TR/vc-da
 }
 ```
 
+## Sponsored Roles
+
+You can configure roles to be **sponsored roles**, meaning once an address receives them, a [sponsorship transaction](https://docs.ltonetwork.com/v/edge/protocol/public/transactions/sponsor) will be sent to the configured node. This allows for the authority to effectively sponsor the transactions for an address.
+
+```javascript
+"roles": {
+  "authority": {
+    "description": "Authority to appoint universities",
+    "issues": [ {"type": 100, "role": "university"} ]
+  },
+  "university": {
+    "description": "University",
+    "sponsored": true // anyone with the role "university" will be sponsored
+  }
+}
+```
+
+In the same way, when an account loses its sponsored roles through revoking, a [cancel sponsorship transaction](https://docs.ltonetwork.com/v/edge/protocol/public/transactions/cancel-sponsor) will be sent, stopping the sponsor.
+
+{% hint style="warning" %}
+For sponsored roles, the account configured on the _node wallet_ will be the one sponsoring the accounts that are granted the roles.
+{% endhint %}
+
 ## Resolving an identity's roles
 
 To retrieve the roles associated with an identity, you need to know the associations made with this particular address. These associations are indexed on the node, so that resolving the roles is easier and faster.
