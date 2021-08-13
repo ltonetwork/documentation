@@ -6,7 +6,7 @@ description: Setup your own node and start mining LTO.
 
 Contrary to a lot of cryptos you don't need GPUs or ASICs to mine LTO. Similar to many PoS tokens the most important prerequisite is a computer with a good bandwidth connection, e.g., a VPS, your home server, or even your PC. You will find lots of tutorials on setting up a node in our public node section:
 
-{% page-ref page="../../public-node/" %}
+{% page-ref page="../../node/public-node/" %}
 
 Since setting up a node and running it for mining LTO can open up its own set of questions we further summed up best practices for you to explore on the following pages:
 

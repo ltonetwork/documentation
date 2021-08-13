@@ -126,7 +126,7 @@ In a hierarchy, there is a centralized authority who should be trusted. A web of
 
 ## Authorization
 
-[Verifiable credentials](../../protocol/identities/verifiable-credentials.md) are used for identifying subjects, but VCs alone are not enough to provide a complete toolset for verifying the authorization layer. With the trust network, we can build an [authorization framework](https://www.w3.org/TR/vc-data-model/#authorization) to fill that gap.
+[Verifiable credentials](../../../protocol/identities/verifiable-credentials.md) are used for identifying subjects, but VCs alone are not enough to provide a complete toolset for verifying the authorization layer. With the trust network, we can build an [authorization framework](https://www.w3.org/TR/vc-data-model/#authorization) to fill that gap.
 
 The `authorization` property is an array of credential URLs that the role can issue. The framework is built on this property, which can then be used to verify the authority of a credential.
 

@@ -14,7 +14,7 @@ To take your node public you obviously need to set up your own node first. If yo
 
 {% page-ref page="prepare-setup-your-wallet.md" %}
 
-{% page-ref page="../../public-node/" %}
+{% page-ref page="../../node/public-node/" %}
 
 Furthermore, it helps a lot if you already demonstrated your ability to do payouts, e.g., through the community-provided payout script. Refer to the _Node management_ tutorial for more information.
 

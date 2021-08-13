@@ -8,7 +8,7 @@ description: Run and manage your own node.
 
 There are some initial considerations you should clear before deciding on running and managing your own node. Since you have come this far in the tutorials you have probably already consulted the technical requirements for running your own node:
 
-{% page-ref page="../../public-node/installation-guide/requirements.md" %}
+{% page-ref page="../../node/public-node/installation-guide/requirements.md" %}
 
 Next up are the economic aspects. The minimum amount of tokens needed is 1000 for your node to participate in the network. However, with 1000 LTO your node probably will not be generating enough LTO tokens to cover your server costs. You should consult the next paragraph _Probability to generate blocks_ to calculate the necessary amount for you. At present this number is anywhere between 70k - 100k, depending on your provider. If you have below that you might consider staking on one of the public community nodes instead.
 

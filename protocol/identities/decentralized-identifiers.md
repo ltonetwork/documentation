@@ -44,7 +44,7 @@ secret = 1*( ALPHA / DIGIT )
 The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
 {% hint style="warning" %}
-Identity nodes that support [cross-chain identifiers](decentralized-identifiers-did.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
+Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
 {% endhint %}
 
 ## Implicit identities

@@ -44,7 +44,7 @@ The interface of the wallet is pretty self-explanatory and intuitive while using
 6. List of transfers \(incoming/outgoing\)
 7. Menu
 
-![](../../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 #### Leasing
 

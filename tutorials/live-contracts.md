@@ -16,7 +16,7 @@ docker-compose up
 ```
 
 {% hint style="info" %}
-If you need more help to install Docker and the workflow node, please follow the [step-by-step installation guide](../workflow-node/installation-guide/).
+If you need more help to install Docker and the workflow node, please follow the [step-by-step installation guide]().
 {% endhint %}
 
 {% tabs %}

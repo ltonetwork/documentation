@@ -51,7 +51,7 @@ You’ll need at least 1.000 LTO in your wallet to be able to run a node. You pr
 
 Next up is configuring your Public node. You can choose from multiple deployment methods outlined on the public node subpages:
 
-{% page-ref page="../../public-node/" %}
+{% page-ref page="../../node/public-node/" %}
 
  Happy staking!
 

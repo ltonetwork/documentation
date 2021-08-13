@@ -101,7 +101,7 @@
 * [Cryptography](protocol/cryptography.md)
 * [Accounts](protocol/accounts.md)
 * [Identities](protocol/identities/README.md)
-  * [Decentralized identifiers \(DID\)](protocol/identities/decentralized-identifiers-did.md)
+  * [Decentralized identifiers \(DID\)](protocol/identities/decentralized-identifiers.md)
   * [Trust network](protocol/identities/trust-network.md)
   * [Verifiable credentials](protocol/identities/verifiable-credentials.md)
 * [Public layer](protocol/public/README.md)

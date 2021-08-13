@@ -43,7 +43,7 @@ The maximum number of anchors in a single transaction is 100. There is no minimu
 Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero-valued transfers. In the recipient list, a recipient can occur several times, this is not considered an error.
 
 {% hint style="success" %}
-An anchor transaction with 0 anchors is the cheapest method to register a public key for an [implicit DID](../../identities/decentralized-identifiers-did.md#implicit-identities).
+An anchor transaction with 0 anchors is the cheapest method to register a public key for an [implicit DID](../../identities/decentralized-identifiers.md#implicit-identities).
 {% endhint %}
 
 ### Fees

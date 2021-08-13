@@ -4,7 +4,7 @@ A verifiable credential is a tamper-evident credential that has authorship that 
 
 [Verifiable credentials](https://www.w3.org/TR/vc-data-model/) are a W3C standard. LTO Network implements v1.0.
 
-A credential contains claims about a subject made by the issuer. Both subject and issuer are identified through a [DID](decentralized-identifiers-did.md). Verifying a claim required resolving the DID of the issuer to validate the signatures \(proofs\) of the credential.
+A credential contains claims about a subject made by the issuer. Both subject and issuer are identified through a [DID](decentralized-identifiers.md). Verifying a claim required resolving the DID of the issuer to validate the signatures \(proofs\) of the credential.
 
 Issuing credentials doesn't require the use of a blockchain. Cryptographic signatures of the claims are embedded within the credential. Blockchain can be used to add a layer of security. A validator might require on-chain proof to prevent issuers from backdating credentials.
 
@@ -43,7 +43,7 @@ The DID URL may also be used as the credential id, but this isn't required. Impl
 On LTO Network. a credential can be represented by an on-chain [association](../public/transactions/association.md). The association requires a sender, recipient, type, and hash.
 
 * The sender is the account that corresponds with a DID verification method of the issuer. 
-* The recipient is the address from the DID of the subject. It's recommended to use a [derived identifier](decentralized-identifiers-did.md#derived-identifiers).
+* The recipient is the address from the DID of the subject. It's recommended to use a [derived identifier](decentralized-identifiers.md#derived-identifiers).
 * The association type for a verifiable credential is `0x10` .
 * The hash field contains the credential hash. It must be same hash as used to create the DID URL.
 

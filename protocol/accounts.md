@@ -196,5 +196,5 @@ The blockchain address of derived identities is calculated from a public key, pl
 sha256_hmac(Blake2b256(public_key), secret)
 ```
 
-Derived identity addresses are only used for [decentralized identifiers \(DIDs\)](identities/decentralized-identifiers-did.md) and can't be used to sign transactions on the public blockchain.
+Derived identity addresses are only used for [decentralized identifiers \(DIDs\)](identities/decentralized-identifiers.md) and can't be used to sign transactions on the public blockchain.
 
