@@ -4,7 +4,20 @@ description: How to configure a trust network?
 
 # Trust network
 
-The configuration of roles is flexible and can be done through modifying your node's configuration files. Under `roles`, you can describe what are the roles for your trust network, giving each of them a `description`.
+The configuration of roles is flexible and can be done through modifying your node's configuration files. All of the available properties can be found under `trust_network`. For the roles to take effect, `indexing` must be set to `true`, otherwise the roles will not be stored by the indexer.
+
+```javascript
+{
+  "trust_network": {
+    "indexing": true,
+    "roles": {
+      "root": { "description": "The root role" }
+    }
+  }
+}
+```
+
+Under `roles`, you can describe what are the roles for your trust network, giving each of them a `description`.
 
 ## Structure
 
