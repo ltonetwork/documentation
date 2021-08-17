@@ -30,7 +30,7 @@ description: >-
 {% hint style="info" %}
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * Binary strings \(including `attachment`\) are base58 encoded.
-* `timestamp` is in microseconds since epoch.
+* `timestamp` is in milliseconds since epoch.
 * `fee` and `amount` include 8 digits, so `LTO * 10^8`
 {% endhint %}
 

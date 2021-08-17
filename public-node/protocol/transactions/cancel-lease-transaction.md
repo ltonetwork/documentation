@@ -16,7 +16,7 @@ TODO
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * `chainId` can be obtained by taking the 2nd byte from the sender or recipient address.
 * Binary strings are base58 encoded.
-* `timestamp` is in microseconds since epoch.
+* `timestamp` is in milliseconds since epoch.
 * `fee`includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 
