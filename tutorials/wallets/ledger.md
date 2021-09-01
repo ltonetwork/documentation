@@ -156,7 +156,7 @@ Ledger devices use the BIP-32 deterministic wallet generation, so even if all Cl
 Ledger hardware wallet support for LTO Network was an unofficial development by the LTO Network community. You can contribute to the projects here:
 
 * Ledger app + Cli Wallet: [https://github.com/iicc1/ledger-app-lto](https://github.com/iicc1/ledger-app-lto)
-* Web Wallet \(recommended\): [https://github.com/iicc1/lto-network-ledger-wallet-ui](https://github.com/stakely/lto-network-ledger-wallet-ui)
+* Web Wallet \(recommended\): [https://github.com/stakely/lto-network-ledger-wallet-ui](https://github.com/stakely/lto-network-ledger-wallet-ui)
 * Web Wallet \(deprecated\): [https://github.com/iicc1/lto-ledger-vue](https://github.com/iicc1/lto-ledger-vue)
 
 ### Support
@@ -165,5 +165,5 @@ If you encounter any issue with your Ledger device, Web wallet, or CLI wallet, p
 
 * LTO Network tech Telegram chat: [https://t.me/ltotech](https://t.me/ltotech)
 * Ledger application GitHub issues: [https://github.com/iicc1/ledger-app-lto/issues](https://github.com/iicc1/ledger-app-lto/issues)
-* Ledger web interface GitHub issues: [https://github.com/iicc1/lto-network-ledger-wallet-ui/issues](https://github.com/iicc1/lto-network-ledger-wallet-ui/issues)
+* Ledger web interface GitHub issues: [https://github.com/stakely/lto-network-ledger-wallet-ui/issues](https://github.com/stakely/lto-network-ledger-wallet-ui/issues)
 
