@@ -31,7 +31,7 @@ description: The lease transaction leases an amount of tokens to a node for stak
 * `fee` and `amount` include 8 digits, so `LTO * 10^8`
 {% endhint %}
 
-### Binary schema
+## Binary schema
 
 The binary data structure of the unsigned transaction.
 
