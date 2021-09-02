@@ -10,7 +10,7 @@ description: The lease transaction leases an amount of tokens to a node for stak
   "version": 3,
   "id": "6XmeG7SRWiw8pD6Uad6D9AAaY354v5TV6AJMhPpHMkqy",
   "sender": "3JorA3ddE7i6fhgBjSuW6jNTYS8D4EZUzio",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey": "AWwAdRHFmSqTCMHJ346wFSbJUsGUzQYCzuqXWgaT4gL6",
   "fee": 100000000,
   "timestamp": 1607010190710,
