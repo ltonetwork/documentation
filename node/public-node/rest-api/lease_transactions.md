@@ -29,7 +29,7 @@ Creates lease transaction.
 
 ```javascript
 {
- "type":10,
+ "type":8,
  "id":"9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr",
  "sender":"3MtrNP7AkTRuBhX4CBti6iT21pQpEnmHtyw",
  "senderPublicKey":"G6h72icCSjdW2A89QWDb37hyXJoYKq3XuCUJY2joS3EU",
