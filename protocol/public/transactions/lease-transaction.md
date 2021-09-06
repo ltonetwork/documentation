@@ -17,7 +17,6 @@ description: The lease transaction leases an amount of tokens to a node for stak
   "proofs": [
     "2BK6wTH75N78ixT273kArQxTo6NHvSVWQvtubZ5PTVdybcwomoUFjcYdfxqY6Xk7BpePjDbyr9aWdE5iZxQLq63J"
   ],
-  "version": 2,
   "amount": 553600000000,
   "recipient": "3JurbYJAuc8iMeujvS39L8cSv9kMfxDACYR",
   "height": 1012314
