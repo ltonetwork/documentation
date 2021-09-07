@@ -19,7 +19,6 @@ To cancel leasing, you need the id of the transaction that started the leasing. 
   "proofs": [
     "2BK6wTH75N78ixT273kArQxTo6NHvSVWQvtubZ5PTVdybcwomoUFjcYdfxqY6Xk7BpePjDbyr9aWdE5iZxQLq63J"
   ],
-  "amount": 553600000000,
   "leaseId": "B22YzYdNv7DCqMqdK2ckpt53gQuYq2v997N7g8agZoHo",
   "height": 1012314
 }
