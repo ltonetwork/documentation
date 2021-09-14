@@ -5,7 +5,7 @@ Anchoring on a blockchain is a simple and cheap way to notarize documents and ti
 You can provide indisputable proof of existence by securing a hash on the LTO Network public blockchain: [https://anchor-demo.lto.network/demo](https://anchor-demo.lto.network/demo/)
 
 {% hint style="info" %}
-The anchoring node indexes anchor and association transactions and provides an easy-to-use REST API. However, it's not required to run an anchoring node to anchor on LTO Network. You can use one of the client libraries to create an anchor transaction and broadcast that via a public node like [nodes.lto.network](https://nodes.lto.network).
+The anchoring node indexes achor and association transactions and provides an easy to use REST API. However it's not required to run an anchoring node to anchor on LTO Network. You can use one of the client libraries to create an anchor transaction and broadcast that via a public node like [nodes.lto.network](https://nodes.lto.network).
 {% endhint %}
 
 ## REST API
