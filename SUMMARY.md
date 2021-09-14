@@ -26,7 +26,6 @@
 
 * [LTO Wallet](wallets/wallets/README.md)
   * [Official Web UI](wallets/wallets/wallet-web-app.md)
-  * [Official Web UI \(Ledger\)](wallets/wallets/official-web-ui-ledger.md)
   * [Using Ledger](wallets/wallets/howto-install-lto-app-on-ledger.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
   * [Stakely.io Wallet](wallets/third-party-wallets/ledger.md)
