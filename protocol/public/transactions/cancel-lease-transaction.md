@@ -32,7 +32,7 @@ To cancel leasing, you need the id of the transaction that started the leasing. 
 * `fee`includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 
-### Binary schema
+## Binary schema
 
 The binary data structure of the unsigned transaction.
 

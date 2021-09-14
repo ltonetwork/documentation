@@ -21,9 +21,15 @@
 * [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
 * [Live Contracts](tutorials/live-contracts.md)
-* [Wallets](tutorials/wallets/README.md)
-  * [General Web UI](tutorials/wallets/wallet-web-app.md)
-  * [Ledger UI](tutorials/wallets/ledger.md)
+
+## Wallets
+
+* [LTO Wallet](wallets/wallets/README.md)
+  * [Official Web UI](wallets/wallets/wallet-web-app.md)
+  * [Official Web UI \(Ledger\)](wallets/wallets/official-web-ui-ledger.md)
+  * [Howto: Install LTO app on Ledger](wallets/wallets/howto-install-lto-app-on-ledger.md)
+* [Third-Party Wallets](wallets/third-party-wallets/README.md)
+  * [Stakely Wallet](wallets/third-party-wallets/ledger.md)
 
 ## Running a node <a id="node"></a>
 
