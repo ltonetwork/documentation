@@ -44,5 +44,5 @@ After you click Send, Lease or any other action, it will prompt you to sign with
 
 ![](../../.gitbook/assets/image.png)
 
-In case you want to sign the transaction, acknowledge the signing process on your Ledger device with "accept and send".
+In case you want to sign the transaction, acknowledge the signing process on your Ledger device with "accept and sign".
 
