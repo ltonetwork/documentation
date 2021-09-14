@@ -29,7 +29,7 @@
   * [Official Web UI \(Ledger\)](wallets/wallets/official-web-ui-ledger.md)
   * [How to: Install LTO app on Ledger](wallets/wallets/howto-install-lto-app-on-ledger.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
-  * [Stakely Wallet](wallets/third-party-wallets/ledger.md)
+  * [Stakely.io Wallet](wallets/third-party-wallets/ledger.md)
 
 ## Running a node <a id="node"></a>
 

@@ -2,9 +2,9 @@
 description: How to use a Ledger device with LTO Network
 ---
 
-# Stakely Wallet
+# Stakely.io Wallet
 
-## Stakely web-wallet
+## Stakely.io web-wallet
 
 ### Use a Ledger device with the Web Wallet
 
