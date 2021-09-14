@@ -25,7 +25,7 @@ Please note that this tutorial applies only to **Native LTO coins \(LTO Mainnet\
 7. Your device will display Processing…
 8. The app installation is confirmed.
 
-There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the **Official Web Wallet** and **third-party wallets like stakely.io and an installable CLI Wallet.**
+There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the [**Official Web Wallet**](wallet-web-app.md) and [**third-party wallets**](../third-party-wallets/) ****like stakely.io and an installable CLI Wallet**.**
 
 ## Connect**ing** Ledger \(Official Web Wallet\)
 
@@ -44,5 +44,5 @@ After you click Send, Lease or any other action, it will prompt you to sign with
 
 ![](../../.gitbook/assets/image.png)
 
-In case you want to sign the transaction, acknowledge the signing process on your Ledger device with "accept and send".
+In case you want to sign the transaction, acknowledge the signing process on your Ledger device with "accept and sign".
 
