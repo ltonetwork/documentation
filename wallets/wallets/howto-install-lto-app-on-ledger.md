@@ -1,4 +1,4 @@
-# Howto: Install LTO app on Ledger
+# How to: Install LTO app on Ledger
 
 
 
