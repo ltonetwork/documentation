@@ -4,7 +4,7 @@
 
 In order to connect your Ledger device in the wallet, connect your Ledger Device to your computer and open the LTO Network app. Make sure it's connected to your browser and go to [https://wallet.lto.network/ ](https://wallet.lto.network/)and click on **Ledger Device**. This will open up the wallet for your account.
 
-![](../../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/ledger-mainnet-wallet.jpg)
 
 ### Interface
 
