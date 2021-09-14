@@ -35,27 +35,45 @@ In general Live Contracts uses the 256-bit version of SHA-2 for encoding. SHA-2 
 
 When secure hashes are required, a combination of BLAKE2b and SHA256 are used.
 
-{% hint style="info" %}
+{% hint style="success" %}
 BLAKE2b is supported by NaCl compatible libraries like libsodium as ['Generic hashing'](https://download.libsodium.org/doc/hashing/generic_hashing.html). It's widely supported across platforms and languages.
 {% endhint %}
 
 ## Signing
 
-**ED25519** is used for all the signatures in the project.
+### **ED25519**
 
-The process is as follows: create the message for signing, then create a signature from this message using the private key.
+The default method for signing is using ED25519. This is an EdDSA algorithm on curve25519. It is designed to be faster than existing digital signature schemes without sacrificing security.
 
-Validation of signature requires the signature, the message and the public key.
+ED25519 is well supported on across many platforms and languages.
 
-{% hint style="info" %}
+{% hint style="success" %}
 Functions for ED25519 are defined as `sign` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/public-key_signatures.html) and [nacl](https://nacl.cr.yp.to/sign.html).
 {% endhint %}
 
 {% hint style="warning" %}
-There are many valid \(not unique!\) signatures for one message. Also, you should not rely on any information before the hash and/or signature are checked.
+There are many valid \(not unique!\) signatures for one message when using ED25519. Also, you should not rely on any information before the hash and/or signature are checked.
+{% endhint %}
+
+### secp256k1
+
+Bitcoin, Ethereum, and many other blockchains use ECDSA with the secp256k1 curve for signing transactions. Outside of the realm of blockchain, this curve is barely used and not well supported.
+
+### NIST P-256
+
+The most commonly used and well-supported Elliptic Curve is NIST P-256. This is an ECDSA method using the secp256p1 curve.
+
+### RSA
+
+RSA is a cryptographic algorithm that relies on the practical difficulty of factoring the product of two large prime numbers.
+
+{% hint style="success" %}
+RSA is typically supported through SSL libraries like [OpenSSL](https://www.openssl.org/).
 {% endhint %}
 
 ## Encryption
+
+### X25519
 
 There are 3 algorithms involved for asymmetric encryption:
 
@@ -67,7 +85,7 @@ This is a public key encryption schema, where the public key is used to encrypt 
 
 _X25519 is sometimes referred to as Curve25519._
 
-{% hint style="info" %}
+{% hint style="success" %}
 Functions that use the combination of these algorithms are defined as `box` in [libsodium](https://download.libsodium.org/doc/public-key_cryptography/authenticated_encryption.html) and [nacl](http://nacl.cr.yp.to/box.html). 
 {% endhint %}
 
