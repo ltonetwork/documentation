@@ -16,7 +16,7 @@ The official wallet web app is available at [https://wallet.lto.network](https:/
 
 ### Using Ledger device
 
-In case you haven't installed the LTO app on your Ledger device, you can follow the instructions on the page below.
+You can now access LTO mainnet through your Ledger device. Learn how to install the LTO app on your Ledger device and use it to access your LTO wallet on mainnet.
 
 {% page-ref page="howto-install-lto-app-on-ledger.md" %}
 
