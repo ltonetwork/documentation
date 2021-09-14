@@ -29,39 +29,16 @@ description: >-
 }
 ```
 
+{% hint style="warning" %}
+The JSON schema suggests that multiple anchors per transaction are supported, but this is disallowed by the consensus model. Only one hash per transaction is permitted.
+{% endhint %}
+
 {% hint style="info" %}
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * Binary strings are base58 encoded.
 * `timestamp` is in microseconds since epoch.
 * `fee` includes 8 digits, so `LTO * 10^8`
 {% endhint %}
-
-### Constraints
-
-The maximum number of anchors in a single transaction is 100. There is no minimum number of anchors.
-
-Other than that, we've decided not to put any restrictions on transactions that are harmless, even if they may seem against common sense. For example, transfers to self are allowed, as well as zero-valued transfers. In the recipient list, a recipient can occur several times, this is not considered an error.
-
-{% hint style="success" %}
-An anchor transaction with 0 anchors is the cheapest method to register a public key for an [implicit DID](../../identities/decentralized-identifiers.md#implicit-identities).
-{% endhint %}
-
-### Fees
-
-The Anchor fee is made up of two amounts: a base value, plus a value per anchor. By default the formula looks like:
-
-```text
-0.3 + 0.05 * N
-```
-
-where `N` is the number of anchors in the transaction. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it, the base \(`BASE`\) fee and the variable \(`VAR`\) fee. Below is an excerpt from the configuration file that ships with the node:
-
-```cpp
-anchor {
-  BASE = 30000000
-  VAR = 5000000
-}
-```
 
 ### Binary schema
 
