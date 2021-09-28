@@ -1,4 +1,4 @@
-# LTO Wallet
+# LTO wallet
 
 To easily interact with the LTO Network blockchain, multiple wallets have been developed.
 

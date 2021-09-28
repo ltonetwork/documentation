@@ -40,7 +40,7 @@ The interface is exactly the same as described on the [Official Web UI](wallet-w
 ### Signing transactions
 
 On-chain actions need to be signed with your keys, and will therefore need the Ledger to be connected.  
-After you click Send, Lease or any other action, it will prompt you to sign with the Ledger device.
+After you click Send, Lease, or any other action, it will prompt you to sign with the Ledger device.
 
 ![](../../.gitbook/assets/image.png)
 
