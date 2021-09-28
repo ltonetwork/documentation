@@ -29,7 +29,9 @@
   * [Using Ledger](wallets/wallets/howto-install-lto-app-on-ledger.md)
   * [CLI client](wallets/wallets/cli-client.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
-  * [Stakely.io Wallet](wallets/third-party-wallets/ledger.md)
+  * [Stakely.io wallet](wallets/third-party-wallets/stakely.io-wallet/README.md)
+    * [Web wallet](wallets/third-party-wallets/stakely.io-wallet/ledger.md)
+    * [Commandline](wallets/third-party-wallets/stakely.io-wallet/commandline.md)
 
 ## Running a node <a id="node"></a>
 
