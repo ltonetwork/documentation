@@ -4,7 +4,7 @@ description: Step-by-step guide of buying LTO on PancakeSwap.
 
 # PancakeSwap
 
-In this tutorial, we'll cover merely the basic steps on how to buy LTO tokens on PancakeSwap. If you require a more in-depth introduction you can refer to [other resources](https://academy.binance.com/en/articles/a-guide-to-pancakeswap). 
+In this tutorial, we'll cover merely the basic steps on how to buy LTO tokens on PancakeSwap. If you require a more in-depth introduction you can refer to [other resources](https://academy.binance.com/en/articles/a-guide-to-pancakeswap).&#x20;
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ To find LTO you will need to provide LTO's contract address. This ensures that t
 
 ![Copy the address into the search field to avoid mistakes.](../../../.gitbook/assets/screen-shot-2021-06-05-at-10.03.25.png)
 
-Confirm your selection and you're ready to go. LTO token \(LTO\) should now appear in your MetaMask token overview and you are set up to explore PancakeSwap. 
+Confirm your selection and you're ready to go. LTO token (LTO) should now appear in your MetaMask token overview and you are set up to explore PancakeSwap.&#x20;
 
 ## PancakeSwap
 
@@ -34,20 +34,20 @@ On PancakeSwap we will be swapping BNB for LTO tokens. First, you need to connec
 
 ### Finding LTO on PancakeSwap
 
-First of all, connect your wallet to PancakeSwap, and in the options menu on the left select _Trade_ &gt; _Exchange_.
+First of all, connect your wallet to PancakeSwap, and in the options menu on the left select _Trade_ > _Exchange_.
 
 ![](../../../.gitbook/assets/screen-shot-2021-06-05-at-10.34.35.png)
 
 Next, you will be presented with the following dialog:
 
-![PancakeSwap BNB &amp;lt;&amp;gt; token Exchange.](../../../.gitbook/assets/screen-shot-2021-06-05-at-10.35.15.png)
+![PancakeSwap BNB <> token Exchange.](../../../.gitbook/assets/screen-shot-2021-06-05-at-10.35.15.png)
 
 Similar to our import of LTO tokens in MetaMask, we will be adding the token to our transaction. You need to select LTO tokens and import them.
 
-![LTO token import dialog \(left\) and import confirmation \(right\) on PancakeSwap.](../../../.gitbook/assets/lto_token_import_ps.jpg)
+![LTO token import dialog (left) and import confirmation (right) on PancakeSwap.](../../../.gitbook/assets/lto\_token\_import\_ps.jpg)
 
 {% hint style="danger" %}
-Always double-check the address of the imported token. If it's not **0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd** something might not be correct and you should not continue with the import.
+Always double-check the address of the imported token. If it's not **0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd **something might not be correct and you should not continue with the import.
 {% endhint %}
 
 ### Buying LTO on PancakeSwap
@@ -70,8 +70,9 @@ An obvious alternative to LTO's bridge mechanism at this point is Binance itself
 * Mainnet,
 * ERC-20,
 * BEP-2, and
-* BEP-20. 
+* BEP-20.&#x20;
 {% endhint %}
 
-{% page-ref page="../using-the-lto-bridge.md" %}
-
+{% content-ref url="../using-the-lto-bridge.md" %}
+[using-the-lto-bridge.md](../using-the-lto-bridge.md)
+{% endcontent-ref %}

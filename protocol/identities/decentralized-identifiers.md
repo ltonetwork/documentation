@@ -4,21 +4,21 @@ description: >-
   verifiable, decentralized digital identity.
 ---
 
-# Decentralized identifiers \(DID\)
+# Decentralized identifiers (DID)
 
 DIDs are unique universally resolvable identifiers. A DID represents a _subject_, which can be a person, but also an organization, object, document, etc. There is no central register that registers all DIDs. Instead, there a DID has a method that indicates how it can be resolved.
 
-[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a \(draft\) W3C standard. LTO Network implements v1.0 draft 22.
+[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a (draft) W3C standard. LTO Network implements v1.0 draft 22.
 
 ![](../../.gitbook/assets/did.png)
 
-Resolving a DID results in a DID document. This document contains cryptographic material that allows the _DID controller_ to prove control of the DID.
+Resolving a DID results in a DID document. This document contains cryptographic material that allows the _DID controller _to prove control of the DID.
 
 {% hint style="info" %}
 What proofing control of a DID means depends on the subject. If the DID represents a person, it allows that person to identify themselves. In case the DID represents an object, it allows a person to prove he owns that object.
 {% endhint %}
 
-DID documents do not contain other \(identifying\) information, like a name, address, etc.
+DID documents do not contain other (identifying) information, like a name, address, etc.
 
 {% hint style="warning" %}
 #### Identity vs account
@@ -30,11 +30,11 @@ An identity isn't the same as an account. Both correspond with a blockchain addr
 
 DID with the method "**lto**" can be resolved by the LTO Network identity node.
 
-![](../../.gitbook/assets/screenshot-www.w3.org-2021.04.01-12_44_05.png)
+![](../../.gitbook/assets/screenshot-www.w3.org-2021.04.01-12\_44\_05.png)
 
 The method-specific string is an address on the public chain. In the case of derived DIDs, it's followed by a path.
 
-```text
+```
 lto-did = "did:lto:" lto-specific-idstring
 lto-specific-string = lto-address [ ":derived:" secret ]
 lto-address = 35\*( ALPHA / DIGIT )
@@ -44,7 +44,7 @@ secret = 1*( ALPHA / DIGIT )
 The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
 {% hint style="warning" %}
-Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
+Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox **DID method.
 {% endhint %}
 
 ## Implicit identities
@@ -86,14 +86,14 @@ It's possible to explicitly specify verification methods for a DID document usin
 
 The two least significant bytes from a bit-set that specifies the verification relationship.
 
-| Hex | Relationship |
-| :--- | :--- |
+| Hex    | Relationship                             |
+| ------ | ---------------------------------------- |
 | 0x0100 | Verification method without relationship |
-| 0x0101 | Authentication |
-| 0x0102 | Assertion |
-| 0x0104 | Key agreement |
-| 0x0108 | Capability invocation |
-| 0x0110 | Capability delegation |
+| 0x0101 | Authentication                           |
+| 0x0102 | Assertion                                |
+| 0x0104 | Key agreement                            |
+| 0x0108 | Capability invocation                    |
+| 0x0110 | Capability delegation                    |
 
 {% hint style="info" %}
 **Example:** To create a verification method that can be used for authentication, assertion, and key agreement, create an association with type `0x0107`.
@@ -151,7 +151,7 @@ The method-specific string is comprised of a [CAIP-2](https://github.com/ChainAg
 
 > did:ltox:eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb
 
-```text
+```
 ltox-did = "did:ltox:" chain-id ":" address
 chain-id = chain-namespace + ":" + chain-reference
 chain-namespace = {3,16}\*( ALPHA / DIGIT )
@@ -196,6 +196,4 @@ DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Ne
   ]
 }
 ```
-
-
 

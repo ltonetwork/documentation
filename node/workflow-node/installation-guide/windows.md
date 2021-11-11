@@ -6,7 +6,7 @@ description: Install LTO Network full node plus supporting tools on Windows 10.
 
 ## LTO Network full node
 
-The LTO full node is comprised of a set of [Docker](https://www.docker.com/) containers. For development, use _docker compose_ as orchestration tool.
+The LTO full node is comprised of a set of [Docker](https://www.docker.com) containers. For development, use _docker compose_ as orchestration tool.
 
 ### Docker Desktop
 
@@ -24,12 +24,12 @@ _Docker Desktop includes docker compose, so it's not needed to install that sepa
 
 {% hint style="success" %}
 1. Download the [docker composer configuration file](https://raw.githubusercontent.com/legalthings/lto-deepdive/master/docker/dev/docker-compose.yml) for LTO full node.
-2. In PowerShell \(or another terminal\) run `docker-composer up`.
+2. In PowerShell (or another terminal) run `docker-composer up`.
 {% endhint %}
 
 ## Live contracts tester
 
-The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net/). It requires PHP 7+ with the  _mongodb_ and _yaml_ PECL extension.
+The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml _PECL extension.
 
 ### PHP CLI
 
@@ -39,9 +39,9 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 3. Expand the zip file into the path `C:\PHP7`.
 4. Configure PHP to run correctly on your system:
    1. In the `C:\PHP7` folder, rename the file `php.ini-development` to `php.ini`.
-   2. Edit the `php.ini` file in a text editor \(e.g. Notepad++, Atom, or Sublime Text\).
+   2. Edit the `php.ini` file in a text editor (e.g. Notepad++, Atom, or Sublime Text).
    3. Change the following settings in the file and save the file:
-      1. Uncomment the line that reads `; extension_dir = "ext"` \(remove the `;` so the line is just `extension_dir = "ext"`\).
+      1. Uncomment the line that reads `; extension_dir = "ext"` (remove the `;` so the line is just `extension_dir = "ext"`).
       2. In the section where there are a bunch of `extension=` lines, uncomment the following lines:
          1. `extension=php_curl.dll`
          2. `extension=php_openssl.dll`
@@ -53,7 +53,7 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
    4. Click on the `Path` row under 'System variables', and click 'Edit...'
    5. Click 'New' and add the row `C:\PHP7`.
    6. Click OK, then OK, then OK, and close out of the System Control Panel.
-6. Open PowerShell \(or another terminal emulator\), and type in `php -v` to verify PHP is working.
+6. Open PowerShell (or another terminal emulator), and type in `php -v` to verify PHP is working.
 {% endhint %}
 
 ### PECL extensions for PHP
@@ -61,21 +61,23 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 #### MongoDB
 
 {% hint style="success" %}
-1. Visit [https://windows.php.net/downloads/pecl/releases/mongodb/](https://windows.php.net/downloads/pecl/releases/mongodb/) and choose the latest stable version \(not alpha, beta or RC\).
+1. Visit [https://windows.php.net/downloads/pecl/releases/mongodb/](https://windows.php.net/downloads/pecl/releases/mongodb/) and choose the latest stable version (not alpha, beta or RC).
 2. Download the version that matches your PHP installation. For PHP 7.3 64-bit Non-thread-safe, choose the version that ends with `7.3-nts-vc15-x64.zip`.
 3. Extract the zip file into path `C:\PHP7\ext`.
-4. Configure PHP to run correctly on your system and add the following line: `extension=php_mongodb.dll`.
-5. In PowerShell \(or another terminal emulator\) type `php --re mongodb` to verify the extension is installed correctly.
+4. Configure PHP to run correctly on your system and add the following line:\
+   `extension=php_mongodb.dll`.
+5. In PowerShell (or another terminal emulator) type `php --re mongodb` to verify the extension is installed correctly.
 {% endhint %}
 
 #### Yaml
 
 {% hint style="success" %}
-1. Visit [https://windows.php.net/downloads/pecl/releases/yaml/](https://windows.php.net/downloads/pecl/releases/yaml/) and choose the latest stable version \(not alpha, beta or RC\).
+1. Visit [https://windows.php.net/downloads/pecl/releases/yaml/](https://windows.php.net/downloads/pecl/releases/yaml/) and choose the latest stable version (not alpha, beta or RC).
 2. Download the version that matches your PHP installation. For PHP 7.3 64-bit Non-thread-safe, choose the version that ends with `7.3-nts-vc15-x64.zip`.
 3. Extract the zip file into path `C:\PHP7\ext`.
-4. Configure PHP to run correctly on your system and add the following line: `extension=php_yaml.dll`.
-5. In PowerShell \(or another terminal emulator\) type `php --re yaml` to verify the extension is installed correctly.
+4. Configure PHP to run correctly on your system and add the following line:\
+   `extension=php_yaml.dll`.
+5. In PowerShell (or another terminal emulator) type `php --re yaml` to verify the extension is installed correctly.
 {% endhint %}
 
 ### lctest.phar
@@ -84,6 +86,4 @@ The live contract tester \(`lctest`\) is build on [Behat](http://behat.org/en/la
 1. Download [lctest.phar](https://github.com/legalthings/livecontracts-tester/raw/master/lctest.phar) from the LTO _livecontracs-tester_ repository.
 2. Run `php lctest.phar` to verify it's working correctly.
 {% endhint %}
-
-
 

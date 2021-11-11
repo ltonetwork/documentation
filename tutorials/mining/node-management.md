@@ -8,19 +8,23 @@ description: Run and manage your own node.
 
 There are some initial considerations you should clear before deciding on running and managing your own node. Since you have come this far in the tutorials you have probably already consulted the technical requirements for running your own node:
 
-{% page-ref page="../../node/public-node/installation-guide/requirements.md" %}
+{% content-ref url="../../node/public-node/installation-guide/requirements.md" %}
+[requirements.md](../../node/public-node/installation-guide/requirements.md)
+{% endcontent-ref %}
 
 Next up are the economic aspects. The minimum amount of tokens needed is 1000 for your node to participate in the network. However, with 1000 LTO your node probably will not be generating enough LTO tokens to cover your server costs. You should consult the next paragraph _Probability to generate blocks_ to calculate the necessary amount for you. At present this number is anywhere between 70k - 100k, depending on your provider. If you have below that you might consider staking on one of the public community nodes instead.
 
 Lastly, you might want to become one of the public community nodes yourself. If so the last paragraph of this page, _Paying out rewards_ is definitely worth a read. Also, the tutorial on how to become a community node is a must-read as well:
 
-{% page-ref page="public-community-nodes.md" %}
+{% content-ref url="public-community-nodes.md" %}
+[public-community-nodes.md](public-community-nodes.md)
+{% endcontent-ref %}
 
 If not, there is no real necessity for you to dive deep into node reward payments because all of the rewards will be consolidated and staked on your node automatically.
 
 ## Probability to generate blocks
 
-By running your own node you participate in the network and get a chance to generate new blocks. These blocks will provide your node with the node rewards depending on the number of transactions in the block. The more transactions are collected in your node's generated block, the higher the node reward will be. The staking consensus is regarded in more detail in the [LTO Whitepaper](%20https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf), see section 15 and especially the subsections 15.1 to 15.4 to have a thorough understanding of LTO's consensus.
+By running your own node you participate in the network and get a chance to generate new blocks. These blocks will provide your node with the node rewards depending on the number of transactions in the block. The more transactions are collected in your node's generated block, the higher the node reward will be. The staking consensus is regarded in more detail in the [LTO Whitepaper](https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf), see section 15 and especially the subsections 15.1 to 15.4 to have a thorough understanding of LTO's consensus.
 
 How many blocks your node will generate depends on the funds staked on the node. Generally speaking, the higher the stake is the more blocks you will generate. The community set up an exemplary [Community model](https://docs.google.com/spreadsheets/u/0/d/1KcqI0Uay0ogJL8TILqKjESjiz0bwMrYeMz8k5TCUbHA/htmlview) to visualize the probability of an LTO stake generating new blocks. _There you can see how high the probability is to generate a block after a certain amount of time has passed._
 
@@ -28,7 +32,7 @@ How many blocks your node will generate depends on the funds staked on the node.
 A probability to generate a new block in 24 hours of 90% means that 9 out of 10 days you should generate a block daily. While this may manifest as a block each day, it can also manifest as two blocks every second day and none in between.
 {% endhint %}
 
-If after initially starting your node you find it does not generate blocks as fast as you think it should don't be discouraged. The initial node setup takes time until your node is fully synchronized with the network and the blockchain is up-to-date on your machine. Check your node logs for errors and check the community overviews \(e.g., [lto nodes ](https://www.ltonod.es/)or [lto tools](https://lto.tools/nodes/)\). 
+If after initially starting your node you find it does not generate blocks as fast as you think it should don't be discouraged. The initial node setup takes time until your node is fully synchronized with the network and the blockchain is up-to-date on your machine. Check your node logs for errors and check the community overviews (e.g., [lto nodes ](https://www.ltonod.es)or [lto tools](https://lto.tools/nodes/)).&#x20;
 
 {% hint style="info" %}
 To check your node's logs run `docker logs -f public-node`. This way you can detect grave error messages, for example, network problems.
@@ -47,26 +51,26 @@ with
 * $$d$$ being the number of blocks forged per hour
 * $$h$$ being the number of hours your node will be running without generating a block.
 
-Play around with the $$h$$ parameter to determine when the resulting probability $$P$$ goes close to zero, as that is the amount of time you will have to wait on average before generating a block. If you want the _percentage_ simply multiply $$P$$ by 100.
+Play around with the $$h$$ parameter to determine when the resulting probability $$P$$ goes close to zero, as that is the amount of time you will have to wait on average before generating a block. If you want the _percentage _simply multiply $$P$$ by 100.
 
 {% hint style="warning" %}
-This formula is an oversimplified version of the actual probability from the [LTO Whitepaper](%20https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf). 
+This formula is an oversimplified version of the actual probability from the [LTO Whitepaper](https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf).&#x20;
 {% endhint %}
 
 ## Paying out rewards
 
 If you have several wallets leasing to your node or simply plan to pay out your node rewards into your own wallet on a regular basis, you will need to look for payout scripts. Luckily the community has got you covered on this one:
 
-{% embed url="https://github.com/jayjaynl/LTO\_LPoSDistributor" %}
+{% embed url="https://github.com/jayjaynl/LTO_LPoSDistributor" %}
 
 The LPoSDistributor provides scripts to handle the day-to-day node payments. This tutorial is simply a boiled-down explanation from the project's README, please refer to it for a more in-depth view. The project is subdivided into three parts:
 
-* the collection logic \(appng.js or start\_collector.sh\)
-* the validation logic \(checkPaymentsFile.js\)
-* the payment logic \(massPayment.js or masstx.js\)
+* the collection logic (appng.js or start\_collector.sh)
+* the validation logic (checkPaymentsFile.js)
+* the payment logic (massPayment.js or masstx.js)
 
 {% hint style="warning" %}
-If you encounter problems running start\_collector.sh on UNIX machines it may be due to the DOS line endings. Run a `sed -i -e 's/\r$//' start_collector.sh` to fix that.
+If you encounter problems running start\_collector.sh on UNIX machines it may be due to the DOS line endings. Run a `sed -i -e 's/\r$//' start_collector.sh `to fix that.
 {% endhint %}
 
 ### Collection logic
@@ -104,7 +108,7 @@ var nofeearray = [ ];					<== Put here wallet addresses that you want to exclude
 With this, you have a configured collection and reward computation logic. You can run it with `node appng.js` or `./start_collector.sh`.
 
 {% hint style="warning" %}
-Make sure start collector.sh is actually executable by running `chmod u+x start_collector.sh`. 
+Make sure start collector.sh is actually executable by running `chmod u+x start_collector.sh`.&#x20;
 {% endhint %}
 
 You can also automate this step by including start\_collector.sh into your crontab in your /etc/crontab file:
@@ -142,4 +146,3 @@ Usually, it makes the most sense to use **masstx.js** to pay out your rewards, s
 {% hint style="warning" %}
 For security reasons, remove 'rwx' world rights from massPayment.js and masstx.js: `chmod o-rwx massPayment.js`
 {% endhint %}
-

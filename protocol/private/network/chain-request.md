@@ -10,7 +10,7 @@ A node may request a chain or a portion of a chain. When an identity is register
 * [Request body](chain-request.md#request-body-schema)
 * [Denied response](chain-request.md#denied-response-schema)
 
-[JSON Schema](https://specs.livecontracts.io/v0.1.0/chain-request/schema.json) \| [changelog](https://github.com/legalthings/livecontracts-specs/tree/f138bf7777b31f535d6fa21c0ddad3a4aaea45d5/chain-request/changelog.md)
+[JSON Schema](https://specs.livecontracts.io/v0.1.0/chain-request/schema.json) | [changelog](https://github.com/legalthings/livecontracts-specs/tree/f138bf7777b31f535d6fa21c0ddad3a4aaea45d5/chain-request/changelog.md)
 
 ### Request and response
 
@@ -69,13 +69,13 @@ The request can't be validated it's denied.
 
 To create a signature and hash, first create the message. Each line is separated by a single `\n` character. There is no trailing `\n` at the end of the message.
 
-```text
+```
 <body>
 <timestamp>
 <signkey>
 ```
 
-_This is similar to the message of an event, however the chain request doesn't have a_ `previous` _field._
+_This is similar to the message of an event, however the chain request doesn't have a _`previous`_ field._
 
 ### Properties
 
@@ -115,7 +115,7 @@ The Live Contracts Chain request [JSON schema](http://json-schema.org) URI that 
 
 #### id
 
-The globally unique identifier of the event chain you're requesting. This is typically an [LTRI]() with an UUID-4; `lt:/event-chains/<uuid-4>`.
+The globally unique identifier of the event chain you're requesting. This is typically an [LTRI](broken-reference) with an UUID-4; `lt:/event-chains/<uuid-4>`.
 
 #### from
 
@@ -137,7 +137,7 @@ If `encryptkey` isn't specified, the identity's encryptkey is used to encrypt th
 
 To create a signature and hash, first create the message. Each line is separated by a single `\n` character. There is no trailing `\n` at the end of the message.
 
-```text
+```
 <request.id>
 <request.hash>
 <comment>
@@ -161,7 +161,7 @@ The hash of the request for which this is the response.
 
 #### comment
 
-The body is a base64 encoded JSON string of a [comment]() explaining why the request is denied.
+The body is a base64 encoded JSON string of a [comment](broken-reference) explaining why the request is denied.
 
 #### timestamp
 
@@ -178,4 +178,3 @@ A base58 encoded `ED25519` signature of the event. To create the signature, firs
 #### hash
 
 A base58 encoded SHA256 hash of the event. To create the hash use the same message as was created to sign the response.
-

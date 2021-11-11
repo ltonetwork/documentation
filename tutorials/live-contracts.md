@@ -10,13 +10,13 @@ Running Live Contracts requires using the LTO Network workflow node.
 
 In these tutorials, we're always using the developer build of the workflow node, which is available as a Docker container.
 
-```text
+```
 curl "https://raw.githubusercontent.com/ltonetwork/lto-workflow-node/docker-compose.yml" -o docker-compose.yml
 docker-compose up
 ```
 
 {% hint style="info" %}
-If you need more help to install Docker and the workflow node, please follow the [step-by-step installation guide]().
+If you need more help to install Docker and the workflow node, please follow the [step-by-step installation guide](broken-reference).
 {% endhint %}
 
 {% tabs %}
@@ -26,6 +26,8 @@ To check that the node is correctly up visit [https://localhost:3000](https://lo
 
 {% tab title="JSON screenshot" %}
 ![](../.gitbook/assets/screenshot-localhost-3000-2019.05.06-15-19-12.png)
+
+
 {% endtab %}
 {% endtabs %}
 
@@ -35,17 +37,17 @@ To check that the node is correctly up visit [https://localhost:3000](https://lo
 Create a directory named `livecontracts-tutorial`.
 {% endhint %}
 
-```text
+```
 mkdir -p livecontracts-tutorial
 cd livecontracts-tutorial
 ```
 
 ## Creating a scenario
 
-A Live Contract must contain one or more scenarios that describe the process\(es\) we're automating. We can write a scenario in either JSON or YAML.
+A Live Contract must contain one or more scenarios that describe the process(es) we're automating. We can write a scenario in either JSON or YAML.
 
 {% hint style="success" %}
-Create file `scenario.yml` \(or `scenario.json`\) in the `basic` directory.
+Create file `scenario.yml` (or `scenario.json`) in the `basic` directory.
 {% endhint %}
 
 {% tabs %}
@@ -68,7 +70,7 @@ title: The basics
 
 ### Defining actors
 
-Actors are organizations or individuals that play a role in the process. The scenario needs to define which actors \(may\) exist.
+Actors are organizations or individuals that play a role in the process. The scenario needs to define which actors (may) exist.
 
 {% tabs %}
 {% tab title="YAML" %}
@@ -213,7 +215,7 @@ Create file `main.feature` in the `basic` directory.
 {% endhint %}
 
 {% code title="main.feature" %}
-```text
+```
 Feature: Run a simple process that is completed in one step
 
   Background:
@@ -233,19 +235,19 @@ Joe initializes the Live Contract by creating a new chain and using our _basic_ 
 
 We need to specify which role Joe is going to have in the process. In this case, he's the _initiator_ of the process.
 
-In the `Scenario` section _\(this is unrelated to the workflow scenario\)_, we state that will Joe performs the complete action. As defined in our workflow scenario, the process should transition from _initial_ to _:success_, which means the process has been completed successfully.
+In the `Scenario` section _(this is unrelated to the workflow scenario)_, we state that will Joe performs the complete action. As defined in our workflow scenario, the process should transition from _initial_ to _:success_, which means the process has been completed successfully.
 
 ### Running the Live contract tester
 
-`lctest` is a command-line tool to test workflows described in a Live Contract. It can be run from the `ltonetwork/letsflow-test` docker container. 
+`lctest` is a command-line tool to test workflows described in a Live Contract. It can be run from the `ltonetwork/letsflow-test` docker container.&#x20;
 
-```text
+```
 docker run ltonetwork/letsflow-test basic
 ```
 
 The test should succeed, giving the following output:
 
-![](../.gitbook/assets/screenshot-www.ostechnix.com-2019.05.07-00-34-49%20%281%29.png)
+![](<../.gitbook/assets/screenshot-www.ostechnix.com-2019.05.07-00-34-49 (1).png>)
 
 ## Congratulations!
 
@@ -255,5 +257,4 @@ You've successfully created and tested your first Live Contract.
 
 ### Continue
 
-For more workflow tutorials visit [LetsFlow](https://www.letsflow.io/).
-
+For more workflow tutorials visit [LetsFlow](https://www.letsflow.io).

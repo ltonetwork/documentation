@@ -1,29 +1,15 @@
 # Address
 
-{% api-method method="get" host="https://nodes.lto.network" path="/addresses/balance/:address" %}
-{% api-method-summary %}
-Balance
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://nodes.lto.network" path="/addresses/balance/:address" method="get" summary="Balance" %}
+{% swagger-description %}
 Get account balance
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="address" required=true %}
+{% swagger-parameter in="path" name="address" %}
 Account's address in Base58 format
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "address": "3N3keodUiS8WLEw9W4BKDNxgNdUpwSnpb3K",
@@ -31,39 +17,23 @@ Account's address in Base58 format
   "balance": 100945889661986
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://nodes.lto.network" path="/addresses/balance/:address/:confirmations" %}
-{% api-method-summary %}
-Balance after confirmations
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://nodes.lto.network" path="/addresses/balance/:address/:confirmations" method="get" summary="Balance after confirmations" %}
+{% swagger-description %}
 Get account balance after X confirmations from now
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="address" required=true %}
+{% swagger-parameter in="path" name="address" %}
 Account's address in Base58 format
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="confirmations" required=true %}
+{% swagger-parameter in="path" name="confirmations" %}
 Number of confirmations
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "address": "3N3keodUiS8WLEw9W4BKDNxgNdUpwSnpb3K",
@@ -71,35 +41,19 @@ Number of confirmations
   "balance": 100945388397565
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://nodes.lto.network" path="/addresses/balance/details/:address" %}
-{% api-method-summary %}
-Balance details
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://nodes.lto.network" path="/addresses/balance/details/:address" method="get" summary="Balance details" %}
+{% swagger-description %}
 Get balance details
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="address" required=true %}
+{% swagger-parameter in="path" name="address" %}
 Account's address in Base58 format
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "address": "3P2HNUd5VUPLMQkJmctTPEeeHumiPN2GkTb",
@@ -109,15 +63,12 @@ Account's address in Base58 format
   "effective": 1067913688974251
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-| Balance | Description |
-| :--- | :--- |
-| Regular | The amount LTO owned by the account, including LTO leased |
-| Available | The amount LTO owned by the account, excluding LTO leased |
-| Effective | The available amount + the LTO leased to the account |
-| Generating | The minimal effective balance over the last 1000 blocks |
-
+| Balance    | Description                                               |
+| ---------- | --------------------------------------------------------- |
+| Regular    | The amount LTO owned by the account, including LTO leased |
+| Available  | The amount LTO owned by the account, excluding LTO leased |
+| Effective  | The available amount + the LTO leased to the account      |
+| Generating | The minimal effective balance over the last 1000 blocks   |

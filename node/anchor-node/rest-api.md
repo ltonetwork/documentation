@@ -1,45 +1,31 @@
 # REST API
 
 {% hint style="info" %}
-In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node. 
+In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node.&#x20;
 {% endhint %}
 
 ### Authorization
 
 A node can be configured with an authorization token. This can be done in case the api of the node is exposed publicly. Once the token is configured the anchoring of hash on the chain requires an authorization header
 
-```text
+```
 Authorization: bearer <token>
 ```
 
-{% api-method method="post" host="https://lto.example.com" path="/hash" %}
-{% api-method-summary %}
-Anchor a hash on the blockchain
-{% endapi-method-summary %}
+{% swagger baseUrl="https://lto.example.com" path="/hash" method="post" summary="Anchor a hash on the blockchain" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="body" name="hash" type="string" %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="hash" type="string" required=true %}
+{% endswagger-parameter %}
 
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="encoding" type="string" %}
 
-{% api-method-parameter name="encoding" type="string" required=true %}
+{% endswagger-parameter %}
 
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "chainpoint": {
@@ -61,58 +47,34 @@ Anchor a hash on the blockchain
   }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```
 invalid body given
 no hash given
 invalid hash given
 invalid encoding given
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=500 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="500" description="" %}
 ```
 failed to anchor '[reason]'
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://lto.example.com" path="/hash/:hash" %}
-{% api-method-summary %}
-Verify if a hash was anchored
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://lto.example.com" path="/hash/:hash" method="get" summary="Verify if a hash was anchored" %}
+{% swagger-description %}
 Get chainpoint info of an anchored hash.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="hash" type="string" required=true %}
+{% swagger-parameter in="path" name="hash" type="string" %}
 anchor hash in hexadecimal format
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "chainpoint": {
@@ -134,60 +96,39 @@ anchor hash in hexadecimal format
   }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=500 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="500" description="" %}
 ```
 Failed to get transaction by hash and encoding '[reason]'
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://lto.example.com" path="/hash/:hash/encoding/:encoding" %}
-{% api-method-summary %}
-Verify if a hash was anchored
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://lto.example.com" path="/hash/:hash/encoding/:encoding" method="get" summary="Verify if a hash was anchored" %}
+{% swagger-description %}
 Get chainpoint info of an anchored hash in given encoding.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="hash" type="string" required=true %}
+{% swagger-parameter in="path" name="hash" type="string" %}
 anchored hash
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="encoding" type="string" required=true %}
-The encoding in which the hash is given. Options are  
-\(hex, base58, base64\)
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="path" name="encoding" type="string" %}
+The encoding in which the hash is given. Options are
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+\
 
-{% endapi-method-response-example-description %}
 
+(hex, base58, base64)
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "chainpoint": {
@@ -209,38 +150,22 @@ The encoding in which the hash is given. Options are
   }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```
 invalid encoding given
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=500 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="500" description="" %}
 ```
 Failed to get transaction by hash and encoding '[reason]'
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

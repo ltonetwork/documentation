@@ -3,7 +3,7 @@
 The event-chain, workflow and dispatcher service all expose REST APIs. These are available through the LTO API gateway service which acts as a proxy server.
 
 {% hint style="info" %}
-In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node. 
+In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node.&#x20;
 {% endhint %}
 
 ### LTO API client libraries
@@ -26,5 +26,10 @@ _Note that the Digest header, is a different specification than HTTP Digest Auth
 
 ## Services
 
-{% page-ref page="event-chain-service.md" %}
+{% content-ref url="event-chain-service.md" %}
+[event-chain-service.md](event-chain-service.md)
+{% endcontent-ref %}
 
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}

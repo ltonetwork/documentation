@@ -1,113 +1,65 @@
 # REST API
 
 {% hint style="info" %}
-In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node. 
+In the following examples, replace`https://lto.example.com` with the domain or IP address of **your** node.&#x20;
 {% endhint %}
 
 ### Authorization
 
 A node can be configured with an authorization token. This can be done in case the api of the node is exposed publicly. Once the token is configured the anchoring of hash on the chain requires an authorization header
 
-```text
+```
 Authorization: bearer <token>
 ```
 
-## Decentralized identifiers \(DID\)
+## Decentralized identifiers (DID)
 
-{% api-method method="get" host="https://lto.example.com" path="/identities/:address" %}
-{% api-method-summary %}
-Resolve DID
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://lto.example.com" path="/identities/:address" method="get" summary="Resolve DID" %}
+{% swagger-description %}
 Resolve a DID into a DID document
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="address" type="string" required=true %}
+{% swagger-parameter in="path" name="address" type="string" %}
 DID or LTO address
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://lto.example.com" path="/identities/:address/derived/:secret" %}
-{% api-method-summary %}
-Resolve derived DID
-{% endapi-method-summary %}
+{% swagger baseUrl="https://lto.example.com" path="/identities/:address/derived/:secret" method="get" summary="Resolve derived DID" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="address" type="string" required=true %}
+{% swagger-parameter in="path" name="address" type="string" %}
 DID or LTO address
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="secret" type="string" required=true %}
+{% swagger-parameter in="path" name="secret" type="string" %}
 Base58 encoded random secret
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Trust network
 
-{% api-method method="get" host="https://lto.example.com" path="/trust/:address" %}
-{% api-method-summary %}
-Get all the roles of an identity
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://lto.example.com" path="/trust/:address" method="get" summary="Get all the roles of an identity" %}
+{% swagger-description %}
 Resolves the roles from an identity
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="address" type="string" required=true %}
+{% swagger-parameter in="query" name="address" type="string" %}
 Account's address in Base58 format
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
 {
   "roles": [
@@ -122,48 +74,26 @@ Account's address in Base58 format
   ]
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```
 {
   "error": "invalid address"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
 ## Verifiable credentials
 
-{% api-method method="post" host="https://lto.example.com" path="/verify" %}
-{% api-method-summary %}
-Verify that a verifiable credential is valid
-{% endapi-method-summary %}
+{% swagger baseUrl="https://lto.example.com" path="/verify" method="post" summary="Verify that a verifiable credential is valid" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

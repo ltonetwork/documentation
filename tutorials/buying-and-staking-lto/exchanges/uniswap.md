@@ -4,7 +4,7 @@ description: Step-by-step guide of buying LTO on Uniswap.
 
 # Uniswap
 
-In this tutorial, we'll cover merely the basic steps on how to buy LTO tokens on Uniswap. If you require a more in-depth introduction you can refer to [other resources](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work). 
+In this tutorial, we'll cover merely the basic steps on how to buy LTO tokens on Uniswap. If you require a more in-depth introduction you can refer to [other resources](https://academy.binance.com/en/articles/what-is-uniswap-and-how-does-it-work).&#x20;
 
 ## Prerequisites
 
@@ -22,24 +22,24 @@ To find LTO you will need to provide LTO's contract address. This ensures that t
 
 ![Copy the address into the search field to avoid mistakes.](../../../.gitbook/assets/screen-shot-2021-06-04-at-10.16.19.png)
 
-Confirm your selection and you're ready to go. LTO Network Token \(LTO\) should now appear in your MetaMask token overview and you are set up to explore Uniswap. 
+Confirm your selection and you're ready to go. LTO Network Token (LTO) should now appear in your MetaMask token overview and you are set up to explore Uniswap.&#x20;
 
 ## Uniswap
 
-On Uniswap we will be swapping ETH for LTO tokens. First, you need to connect your wallet to Uniswap. We will be using MetaMask for this tutorial. Second, you need to make sure there is actually some ETH in your wallet. If you don't own any ETH you can't swap them for LTO tokens. 
+On Uniswap we will be swapping ETH for LTO tokens. First, you need to connect your wallet to Uniswap. We will be using MetaMask for this tutorial. Second, you need to make sure there is actually some ETH in your wallet. If you don't own any ETH you can't swap them for LTO tokens.&#x20;
 
 ### Finding LTO on Uniswap
 
 After connecting your wallet to Uniswap you should be presented with the following dialog:
 
-![Uniswap ETH &amp;lt;&amp;gt; token dialog.](../../../.gitbook/assets/screen-shot-2021-06-04-at-10.39.06.png)
+![Uniswap ETH <> token dialog.](../../../.gitbook/assets/screen-shot-2021-06-04-at-10.39.06.png)
 
 Similar to our import of LTO tokens in MetaMask, we will be adding the token to our transaction. You need to select LTO Network tokens and import them.
 
-![LTO Network token import dialog \(left\) and import confirmation \(right\) on Uniswap.](../../../.gitbook/assets/uniswap_add_lto.jpg)
+![LTO Network token import dialog (left) and import confirmation (right) on Uniswap.](../../../.gitbook/assets/uniswap\_add\_lto.jpg)
 
 {% hint style="danger" %}
-Always double-check the address of the imported token. If it's not **0x3DB6Ba6ab6F95efed1a6E794caD492fAAabF294D** something might not be correct and you should not continue with the import.
+Always double-check the address of the imported token. If it's not **0x3DB6Ba6ab6F95efed1a6E794caD492fAAabF294D **something might not be correct and you should not continue with the import.
 {% endhint %}
 
 ### Buying LTO on Uniswap
@@ -54,7 +54,8 @@ After your confirmation, the swap will be started. Shortly after you should be a
 
 ### Transferring LTO from Uniswap
 
-Contrary to our CEX tutorials, if you use a DEX like Uniswap there is no need to transfer your tokens from Uniswap since they are already in your wallet. To transfer them to the mainnet simply refer to our LTO token bridge tutorial on transferring exchange tokens \(ERC-20\) to mainnet tokens.
+Contrary to our CEX tutorials, if you use a DEX like Uniswap there is no need to transfer your tokens from Uniswap since they are already in your wallet. To transfer them to the mainnet simply refer to our LTO token bridge tutorial on transferring exchange tokens (ERC-20) to mainnet tokens.
 
-{% page-ref page="../using-the-lto-bridge.md" %}
-
+{% content-ref url="../using-the-lto-bridge.md" %}
+[using-the-lto-bridge.md](../using-the-lto-bridge.md)
+{% endcontent-ref %}
