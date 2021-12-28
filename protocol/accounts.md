@@ -6,15 +6,15 @@ A seed string is a representation of entropy, from which you can re-create deter
 
 In fact, seed should be an array of bytes but for ease of memorization, the LTO wallet uses a [mnemonic seed phrase](https://en.bitcoin.it/wiki/Brainwallet), to ensure that the seed is made up of words and easy to write down or remember. The application takes the UTF-8 bytes of the string and uses them to create keys and addresses.
 
-For example, seed string 
+For example, seed string&#x20;
 
-`manage manual recall harvest series desert melt police rose hollow moral pledge kitten position add` 
+`manage manual recall harvest series desert melt police rose hollow moral pledge kitten position add`&#x20;
 
-after reading this string as UTF-8 bytes and encoding them to Base58, the string will be coded as 
+after reading this string as UTF-8 bytes and encoding them to Base58, the string will be coded as&#x20;
 
 `xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q`
 
-A seed string is involved with the creation of private keys. The nonce' field is an integer prepended to the seed bytes. Typically, this value is initially 0 and increases every time you create the new address. 
+A seed string is involved with the creation of private keys. The nonce' field is an integer prepended to the seed bytes. Typically, this value is initially 0 and increases every time you create the new address.&#x20;
 
 We use this array of bytes to calculate the hash `sha256(blake2b256(bytes))`. This resulting array of bytes called the _account seed_. From the account seed, you can deterministically generate a private and public key pair.
 
@@ -22,31 +22,31 @@ We use this array of bytes to calculate the hash `sha256(blake2b256(bytes))`. Th
 
 Brainwallet seed string
 
-```text
+```
 manage manual recall harvest series desert melt police rose hollow moral pledge kitten position add
 ```
 
 As Base58 encoded byte array
 
-```text
+```
 xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q
 ```
 
-Account seed bytes with nonce 0 before apply hash function \(Base58 encoded\)
+Account seed bytes with nonce 0 before apply hash function (Base58 encoded)
 
-```text
+```
 1111xrv7ffrv2A9g5pKSxt7gHGrPYJgRnsEMDyc4G7srbia6PhXYLDKVsDxnqsEqhAVbbko7N1tDyaSrWCZBoMyvdwaFNjWNPjKdcoZTKbKr2Vw9vu53Uf4dYpyWCyvfPbRskHfgt9q
 ```
 
-Account seed `sha256(blake2b256(account seed bytes))`  \(Base58 encoded\)
+Account seed `sha256(blake2b256(account seed bytes))`  (Base58 encoded)
 
-```text
+```
 93dvzDQ8KBe4y7Nw89xsguWe8ZTVYGAA5kjvJ7miQS1v
 ```
 
-Account seed after `sha256` hashing \(optional, if your library does not do it yourself\)
+Account seed after `sha256` hashing (optional, if your library does not do it yourself)
 
-```text
+```
 ETYQWXzC2h8VXahYdeUTXNPXEkan3vi9ikXbn912ijiw
 ```
 
@@ -60,12 +60,11 @@ The seed is not needed for signing, only the private key. The key can be generat
 
 LTO network supports multiple cryptographic algorithms for signing.
 
-| id | reference | type | curve |
-| :--- | :--- | :--- | :--- |
-| 1 | [ed25519](accounts.md#ed25519) | EdDSA | curve25519 |
-| 2 | [secp256k1](accounts.md#secp-256-k1) | ECDSA | secp256k1 |
-| 3 | secp256r1 | ECDSA | secp256r1 |
-| 4 | rsa | RSA |  |
+| id | reference                            | type  | curve      |
+| -- | ------------------------------------ | ----- | ---------- |
+| 1  | [ed25519](accounts.md#ed25519)       | EdDSA | curve25519 |
+| 2  | [secp256k1](accounts.md#secp-256-k1) | ECDSA | secp256k1  |
+| 3  | secp256r1                            | ECDSA | secp256r1  |
 
 ## ED25519
 
@@ -76,20 +75,20 @@ EdDSA allows generating the X25519 private key from the ED25519 private key and 
 {% endhint %}
 
 {% hint style="info" %}
-Use [NaCl](https://nacl.cr.yp.to/) or [sodium](https://libsodium.gitbook.io/) to create an address from the _account seed_.
+Use [NaCl](https://nacl.cr.yp.to) or [sodium](https://libsodium.gitbook.io) to create an address from the _account seed_.
 {% endhint %}
 
 ### Signing
 
 Created private key using the account seed `93d...S1v`.
 
-```text
+```
 4zsR9xoFpxfnNwLcY4hdRUarwf5xWtLj6FpKGDFBgscPxecPj2qgRNx4kJsFCpe9YDxBRNoeBWTh2SDAdwTySomS
 ```
 
 Created public key
 
-```text
+```
 GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 ```
 
@@ -97,13 +96,13 @@ GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 
 Created private key using the account seed `93d...S1v`.
 
-```text
+```
 4q7HKMbwbLcG58iFV3pz4vkRnPTwbrY9Q5JrwnwLEZCC
 ```
 
 Created public key
 
-```text
+```
 6fDod1xcVj4Zezwyy3tdPGHkuDyMq8bDHQouyp5BjXsX
 ```
 
@@ -113,17 +112,8 @@ Bitcoin, Ethereum, and many other blockchains use ECDSA with the secp256k1 curve
 
 ### Signing
 
-Created private key using the account seed `93d...S1v`.
-
-```text
-TODO
-```
-
-Create the corresponding coordinates for the public key and compress the public key.
-
-```text
-TODO
-```
+* Created private key using the account seed `93d...S1v`.
+* Create the corresponding coordinates for the public key and compress the public key.
 
 ### Encryption
 
@@ -135,17 +125,8 @@ The most commonly used and well-supported Elliptic Curve is NIST P-256. This is 
 
 ### Signing
 
-Created private key using the account seed `93d...S1v`.
-
-```text
-TODO
-```
-
-Create the corresponding coordinates for the public key and compress the public key.
-
-```text
-TODO
-```
+* Created private key using the account seed `93d...S1v`.
+* Create the corresponding coordinates for the public key and compress the public key.
 
 ### Encryption
 
@@ -153,14 +134,14 @@ _Encryption is currently not supported for accounts with nist256p1 keys._
 
 ## Creating the address
 
-The public network address is obtained from the **\(signature\) public key** and chain id**.**
+The public network address is obtained from the **(signature) public key** and chain id**.**
 
-| \# | Field Name | Type | Length |
-| :--- | :---: | :---: | :--- |
-| 1 | Version \(0x01\) | Byte | 1 |
-| 2 | Chain id | Byte | 1 |
-| 3 | Public key hash | Bytes | 20 |
-| 4 | Checksum | Bytes | 4 |
+| # |    Field Name   |  Type | Length |
+| - | :-------------: | :---: | ------ |
+| 1 |  Version (0x01) |  Byte | 1      |
+| 2 |     Chain id    |  Byte | 1      |
+| 3 | Public key hash | Bytes | 20     |
+| 4 |     Checksum    | Bytes | 4      |
 
 {% hint style="info" %}
 * Public key hash the first 20 bytes of the _SecureHash_ of the public key. _SecureHash_ is the hash function `sha256(Blake2b256(public_key))`.
@@ -170,21 +151,21 @@ The public network address is obtained from the **\(signature\) public key** and
 Because the address contains the **chain id**, different networks result in a different address for the same seed / public key.
 
 | Network | Char | Byte |
-| :--- | :--- | :--- |
-| Testnet | T | 0x54 |
-| Mainnet | L | 0x4C |
+| ------- | ---- | ---- |
+| Testnet | T    | 0x54 |
+| Mainnet | L    | 0x4C |
 
 ### Example
 
 For public key
 
-```text
+```
 GjSacB6a5DFNEHjDSmn724QsrRStKYzkahPH67wyrhAY
 ```
 
-for the mainnet network \(chain id 'T'\), this key results in the following address
+for the mainnet network (chain id 'T'), this key results in the following address
 
-```text
+```
 3JmCa4jLVv7Yn2XkCnBUGsa7WNFVEMxAfWe
 ```
 
@@ -192,9 +173,8 @@ for the mainnet network \(chain id 'T'\), this key results in the following addr
 
 The blockchain address of derived identities is calculated from a public key, plus a secret. To calculate the public key hash, hmac is used, instead of a normal sha256 hash.
 
-```text
+```
 sha256_hmac(Blake2b256(public_key), secret)
 ```
 
-Derived identity addresses are only used for [decentralized identifiers \(DIDs\)](identities/decentralized-identifiers.md) and can't be used to sign transactions on the public blockchain.
-
+Derived identity addresses are only used for [decentralized identifiers (DIDs)](identities/decentralized-identifiers.md) and can't be used to sign transactions on the public blockchain.
