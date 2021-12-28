@@ -12,7 +12,7 @@ DIDs are unique universally resolvable identifiers. A DID represents a _subject_
 
 ![](../../.gitbook/assets/did.png)
 
-Resolving a DID results in a DID document. This document contains cryptographic material that allows the _DID controller _to prove control of the DID.
+Resolving a DID results in a DID document. This document contains cryptographic material that allows the _DID controller_ to prove control of the DID.
 
 {% hint style="info" %}
 What proofing control of a DID means depends on the subject. If the DID represents a person, it allows that person to identify themselves. In case the DID represents an object, it allows a person to prove he owns that object.
@@ -44,7 +44,7 @@ secret = 1*( ALPHA / DIGIT )
 The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
 {% hint style="warning" %}
-Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox **DID method.
+Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
 {% endhint %}
 
 ## Implicit identities

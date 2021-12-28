@@ -8,13 +8,13 @@ A Ledger device is a hardware wallet. Hardware wallets are considered very secur
 
 Please note that this tutorial applies only to **Native LTO coins (LTO Mainnet)**. Do not try to send or receive tokens directly from Ethereum or Binance chains as your funds may be lost forever!‌
 
-### Before you begin <a href="before-you-begin" id="before-you-begin"></a>
+### Before you begin <a href="#before-you-begin" id="before-you-begin"></a>
 
 * You have initialized your Ledger device
 * The latest firmware has been installed
 * Ledger Live is ready to use‌
 
-### Install the LTO Network app on your Ledger Nano <a href="install-the-lto-network-app-on-your-ledger-nano" id="install-the-lto-network-app-on-your-ledger-nano"></a>
+### Install the LTO Network app on your Ledger Nano <a href="#install-the-lto-network-app-on-your-ledger-nano" id="install-the-lto-network-app-on-your-ledger-nano"></a>
 
 1. Open the Manager in Ledger Live.
 2. Connect and unlock your Ledger Nano.
@@ -25,7 +25,7 @@ Please note that this tutorial applies only to **Native LTO coins (LTO Mainnet)*
 7. Your device will display Processing…
 8. The app installation is confirmed.
 
-There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the [**Official Web Wallet**](wallet-web-app.md) and [**third-party wallets**](../third-party-wallets/)** **like stakely.io and an installable CLI Wallet**.**
+There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the [**Official Web Wallet**](wallet-web-app.md) and [**third-party wallets**](../third-party-wallets/) **** like stakely.io and an installable CLI Wallet**.**
 
 ## Connect**ing** Ledger (Official Web Wallet)
 

@@ -34,7 +34,7 @@
     * [Commandline](wallets/third-party-wallets/stakely.io-wallet/commandline.md)
 * [ERC20 Token Swap](wallets/erc20-token-swap.md)
 
-## Running a node <a href="node" id="node"></a>
+## Running a node <a href="#node" id="node"></a>
 
 * [Public node](node/public-node/README.md)
   * [Installation Guide](node/public-node/installation-guide/README.md)
@@ -75,8 +75,8 @@
     * [Linux](node/identity-node/installation-guide/linux.md)
     * [MacOs](node/identity-node/installation-guide/macos.md)
     * [Windows](node/identity-node/installation-guide/windows.md)
-  * [Configuration](node/identity-node/configuration-1/README.md)
-    * [Trust network](node/identity-node/configuration-1/configuration.md)
+  * [Configuration](node/identity-node/configuration/README.md)
+    * [Trust network](node/identity-node/configuration/trust-network.md)
   * [REST API](node/identity-node/rest-api.md)
 * [Workflow node](node/workflow-node/README.md)
   * [Installation Guide](node/workflow-node/installation-guide/README.md)

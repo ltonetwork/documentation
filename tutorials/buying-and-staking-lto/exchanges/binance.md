@@ -33,7 +33,7 @@ After you bought your LTO they can be found in your _spot wallet_. To get there 
 
 ![Location of the spot wallet (left) and the content of the LTO wallet (right).](../../../.gitbook/assets/walletoverview.jpg)
 
-Select _Withdrawal _to start the process. The most important step of the transfer starts now, as you need to provide the recipient information:
+Select _Withdrawal_ to start the process. The most important step of the transfer starts now, as you need to provide the recipient information:
 
 * Address - the wallet address you transfer your LTO tokens to
 * Network - this is chosen _automatically_ by the app depending on the address you provided

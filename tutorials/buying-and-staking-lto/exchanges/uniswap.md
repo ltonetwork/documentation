@@ -39,7 +39,7 @@ Similar to our import of LTO tokens in MetaMask, we will be adding the token to 
 ![LTO Network token import dialog (left) and import confirmation (right) on Uniswap.](../../../.gitbook/assets/uniswap\_add\_lto.jpg)
 
 {% hint style="danger" %}
-Always double-check the address of the imported token. If it's not **0x3DB6Ba6ab6F95efed1a6E794caD492fAAabF294D **something might not be correct and you should not continue with the import.
+Always double-check the address of the imported token. If it's not **0x3DB6Ba6ab6F95efed1a6E794caD492fAAabF294D** something might not be correct and you should not continue with the import.
 {% endhint %}
 
 ### Buying LTO on Uniswap

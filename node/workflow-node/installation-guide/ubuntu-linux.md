@@ -29,7 +29,7 @@ $ docker-compose up
 
 ## Live contracts tester
 
-The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml _PECL extension.
+The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml_ PECL extension.
 
 ### PHP
 

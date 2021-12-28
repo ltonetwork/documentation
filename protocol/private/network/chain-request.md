@@ -75,7 +75,7 @@ To create a signature and hash, first create the message. Each line is separated
 <signkey>
 ```
 
-_This is similar to the message of an event, however the chain request doesn't have a _`previous`_ field._
+_This is similar to the message of an event, however the chain request doesn't have a_ `previous` _field._
 
 ### Properties
 

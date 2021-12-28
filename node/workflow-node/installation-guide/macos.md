@@ -29,7 +29,7 @@ $ docker-compose up
 
 ## Live contracts tester
 
-The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml _PECL extension.
+The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml_ PECL extension.
 
 ### PHP CLI
 
@@ -46,7 +46,7 @@ $ pecl install mongodb
 $ pecl install yaml
 ```
 
-_The yaml extension requires _[_LibYAML_](https://pyyaml.org/wiki/LibYAML)_, which should be pre-installed on your system. _
+_The yaml extension requires_ [_LibYAML_](https://pyyaml.org/wiki/LibYAML)_, which should be pre-installed on your system._&#x20;
 
 ### lctest.phar
 

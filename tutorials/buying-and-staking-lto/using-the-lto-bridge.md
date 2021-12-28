@@ -30,11 +30,11 @@ MetaMask will notify you once the transaction goes through. Shortly after you sh
 
 A mainnet to exchange token swap has higher fees due to the higher transaction fees on the side of the bridge. In this tutorial, we will be transferring mainnet LTO tokens from our web wallet to the MetaMask wallet, and thus the gas fees are paid by the bridge. To counter this the LTO mainnet fees are higher to pay for these gas fees. At present, a transaction from a mainnet to an ERC-20 address costs 100 LTO. Depending on the ETH price and gas fees per transaction these LTO fees might increase or decrease. Prices for BEP-2 may vary as well, since it's a different network.
 
-To start our transaction select **Bridge **in the options menu of your web wallet. For this tutorial, we will perform an LTO mainnet to ERC-20 transaction.
+To start our transaction select **Bridge** in the options menu of your web wallet. For this tutorial, we will perform an LTO mainnet to ERC-20 transaction.
 
 ![LTO Mainnet to exchange token swap.](../../.gitbook/assets/screen-shot-2021-06-04-at-15.35.53.png)
 
-Next, you need to provide the number of tokens you're sending _plus an additional 100 LTO fee_. This is made transparent in the following transfer dialog. Once the **receiving **amount looks good to you provide the ETH address you would like to receive your tokens at and you're done.
+Next, you need to provide the number of tokens you're sending _plus an additional 100 LTO fee_. This is made transparent in the following transfer dialog. Once the **receiving** amount looks good to you provide the ETH address you would like to receive your tokens at and you're done.
 
 ![Token bridge dialog for the mainnet to ERC-20 transfer.](../../.gitbook/assets/screen-shot-2021-06-04-at-15.50.03.png)
 

@@ -21,14 +21,14 @@ A name and password are asked to store and secure your account. (Note that this 
 ![](<../../.gitbook/assets/image (1).png>)
 
 Click Continue.\
-The next screen will show you your 15 word seed phrase. **Write these words down carefully! **This is needed if you ever want to import your account again.
+The next screen will show you your 15 word seed phrase. **Write these words down carefully!** This is needed if you ever want to import your account again.
 
 ![](<../../.gitbook/assets/image (3).png>)
 
 The screen provides two options:
 
 * "I've written it down" - Click this if you have written down your seed phrase, you will be asked to **verify the seed** after. Confirm if you did.
-* "Do it later" - It will open the wallet immediately **without **confirming/verifying the seed phrase. You can obtain the seed phrase in the "Settings" menu when the account is unlocked.
+* "Do it later" - It will open the wallet immediately **without** confirming/verifying the seed phrase. You can obtain the seed phrase in the "Settings" menu when the account is unlocked.
 
 ### Interface
 
@@ -66,6 +66,6 @@ A how-to on the bridge is available [here](../../tutorials/buying-and-staking-lt
 4. Your private key (Do not share this with anyone!)
 5. Ability to set a script (Smart Account). It provides an option to disable the ability to transfer coins and would set it so it can only do other transactions like anchoring. Do not use this as a coin holder, this is mostly used by integrators.
 
-**Note **that certain attributes are not visible in case you connected with a Ledger device.
+**Note** that certain attributes are not visible in case you connected with a Ledger device.
 
 ![](<../../.gitbook/assets/image (7).png>)

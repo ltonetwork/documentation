@@ -51,7 +51,7 @@ with
 * $$d$$ being the number of blocks forged per hour
 * $$h$$ being the number of hours your node will be running without generating a block.
 
-Play around with the $$h$$ parameter to determine when the resulting probability $$P$$ goes close to zero, as that is the amount of time you will have to wait on average before generating a block. If you want the _percentage _simply multiply $$P$$ by 100.
+Play around with the $$h$$ parameter to determine when the resulting probability $$P$$ goes close to zero, as that is the amount of time you will have to wait on average before generating a block. If you want the _percentage_ simply multiply $$P$$ by 100.
 
 {% hint style="warning" %}
 This formula is an oversimplified version of the actual probability from the [LTO Whitepaper](https://ltonetwork.com/documents/LTO%20Network%20-%20Technical%20Paper.pdf).&#x20;
@@ -70,7 +70,7 @@ The LPoSDistributor provides scripts to handle the day-to-day node payments. Thi
 * the payment logic (massPayment.js or masstx.js)
 
 {% hint style="warning" %}
-If you encounter problems running start\_collector.sh on UNIX machines it may be due to the DOS line endings. Run a `sed -i -e 's/\r$//' start_collector.sh `to fix that.
+If you encounter problems running start\_collector.sh on UNIX machines it may be due to the DOS line endings. Run a `sed -i -e 's/\r$//' start_collector.sh` to fix that.
 {% endhint %}
 
 ### Collection logic

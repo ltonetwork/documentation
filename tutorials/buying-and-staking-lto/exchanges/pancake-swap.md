@@ -47,7 +47,7 @@ Similar to our import of LTO tokens in MetaMask, we will be adding the token to 
 ![LTO token import dialog (left) and import confirmation (right) on PancakeSwap.](../../../.gitbook/assets/lto\_token\_import\_ps.jpg)
 
 {% hint style="danger" %}
-Always double-check the address of the imported token. If it's not **0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd **something might not be correct and you should not continue with the import.
+Always double-check the address of the imported token. If it's not **0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd** something might not be correct and you should not continue with the import.
 {% endhint %}
 
 ### Buying LTO on PancakeSwap

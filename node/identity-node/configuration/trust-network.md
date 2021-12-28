@@ -21,7 +21,7 @@ Under `roles`, you can describe what are the roles for your trust network, givin
 
 ## Structure
 
-The blockchain address of your _own node_ is always the **root **of the network. In the example, the **university **role is an association from the **root **account to the **university** account.
+The blockchain address of your _own node_ is always the **root** of the network. In the example, the **university** role is an association from the **root** account to the **university** account.
 
 ```javascript
 "roles": {
@@ -65,7 +65,7 @@ A role can also issue other roles, which can be configured through the `issues` 
 }
 ```
 
-Under the `issues` property, you specify which roles can be issued, and what's the type of association for that role. In the example above, **authority **role can issue **university** role to an address when the association is `type: 100`.&#x20;
+Under the `issues` property, you specify which roles can be issued, and what's the type of association for that role. In the example above, **authority** role can issue **university** role to an address when the association is `type: 100`.&#x20;
 
 {% hint style="info" %}
 The `issues` property is optional. When omitted, the role is an endpoint; it can't issue other roles.
@@ -109,7 +109,7 @@ The `type` property does not mean the _id_ of the role, but instead the associat
 }
 ```
 
-In the example above, we can see that **ministry** can issue the roles of **university **and **authority** by resolving associations of `type: 100`** **and `type: 101` respectively. But **authority **issues the role of **sub\_authority** when the association is `type: 101`.
+In the example above, we can see that **ministry** can issue the roles of **university** and **authority** by resolving associations of `type: 100` **** and `type: 101` respectively. But **authority** issues the role of **sub\_authority** when the association is `type: 101`.
 
 ### Web of trust
 
@@ -166,10 +166,10 @@ The `authorization` property is an array of credential URLs that the role can is
 }
 ```
 
-Now we can validate that the role of **university** is an authority for issuing **/examples/v1 **credential, thus providing another layer of security for the network.
+Now we can validate that the role of **university** is an authority for issuing **/examples/v1** credential, thus providing another layer of security for the network.
 
 {% hint style="info" %}
-Every role is flexible to have multiple credentials, and those can be repeated between different roles. Both **university **and **authority** could issue the same credentials for example.
+Every role is flexible to have multiple credentials, and those can be repeated between different roles. Both **university** and **authority** could issue the same credentials for example.
 {% endhint %}
 
 The value for `authorization` should match [JSON-LD](https://www.w3.org/TR/vc-data-model/#json-ld) URLs as used in the `@context` property of the verifiable credential. Our example of university roles contains the context for college degrees:
