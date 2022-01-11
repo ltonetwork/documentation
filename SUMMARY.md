@@ -83,7 +83,7 @@
     * [MacOS](node/workflow-node/installation-guide/macos.md)
     * [Windows](node/workflow-node/installation-guide/windows.md)
     * [Ubuntu Linux](node/workflow-node/installation-guide/ubuntu-linux.md)
-  * [REST API](node/workflow-node/rest-api.md)
+  * [REST API](node/workflow-node/rest-api/README.md)
 
 ## Libraries
 
