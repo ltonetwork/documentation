@@ -83,10 +83,7 @@
     * [MacOS](node/workflow-node/installation-guide/macos.md)
     * [Windows](node/workflow-node/installation-guide/windows.md)
     * [Ubuntu Linux](node/workflow-node/installation-guide/ubuntu-linux.md)
-  * [REST API](node/workflow-node/rest-api/README.md)
-    * [Event Chain service](node/workflow-node/rest-api/event-chain-service.md)
-    * [Workflow Engine](node/workflow-node/rest-api/workflow-engine.md)
-    * [API client libraries](node/workflow-node/rest-api/api-client-libraries.md)
+  * [REST API](node/workflow-node/rest-api.md)
 
 ## Libraries
 

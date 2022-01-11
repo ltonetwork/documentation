@@ -10,7 +10,7 @@ In the following examples, replace`https://lto.example.com` with the domain or I
 
 It's recommended to use one of the LTO API client libraries if available. These libraries are configured to correctly sign requests.
 
-[Read more](api-client-libraries.md)
+[Read more](broken-reference)
 
 ### HTTP Signature
 
@@ -23,13 +23,3 @@ The `KeyId` must be the base58 encoded public ED25519 key. The `algorithm` may b
 The HTTP signature string is only constructed from the HTTP headers, not the body. To make sure the body hasn't been manipulated, requests are required to have a `Digest` header as described in [RFC 3230](https://tools.ietf.org/html/rfc3230). The digest needs to be a SHA-256 hash.
 
 _Note that the Digest header, is a different specification than HTTP Digest Authentication._
-
-## Services
-
-{% content-ref url="event-chain-service.md" %}
-[event-chain-service.md](event-chain-service.md)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
