@@ -84,16 +84,3 @@ Account's address in Base58 format
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-## Verifiable credentials
-
-{% swagger baseUrl="https://lto.example.com" path="/verify" method="post" summary="Verify that a verifiable credential is valid" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-
-{% swagger-response status="200" description="" %}
-```
-```
-{% endswagger-response %}
-{% endswagger %}
