@@ -197,3 +197,44 @@ DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Ne
 }
 ```
 
+## Services
+
+Services are used in DID documents to express ways of communicating with the DID subject or associated entities. A [service](https://www.w3.org/TR/did-core/#services) can be any type of service the DID subject wants to advertise, including decentralized identity management services for further discovery, authentication, authorization, or interaction.
+
+Defining services are done through data transactions. These transactions allow setting metadata of an account. This data is used by the indexer service when resolving a DID.
+
+The `service` property of a DID document is a list of objects. The data transaction only supports scalar data types. Therefore the keys must be flattened, with the service id as part of the key.
+
+A data instruction with the following data
+
+```json
+{
+  "did\service:linked-domain.type": "LinkedDomains",
+  "did\service:linked-domain.serviceEndpoint": "https://bar.example.com",
+  "did\service:didcomm-1.type": "DIDCommMessaging",
+  "did\service:didcomm-1.serviceEndpoint": "did:example:somemediator",
+  "did\service:didcomm-1.routingKeys.0": "did:example:anothermediator#somekey"
+}
+```
+
+results in the following `service` property of the DID document
+
+```json
+{
+  "service": [
+    {
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#linked-domain",
+      "type": "LinkedDomains", 
+      "serviceEndpoint": "https://bar.example.com"
+    },
+    {
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#didcomm-1",
+      "type": "DIDCommMessaging",
+      "serviceEndpoint": "did:example:somemediator",
+      "routingKeys": [
+        "did:example:anothermediator#somekey"
+      ]
+    }
+  ]
+}
+```
