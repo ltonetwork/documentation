@@ -64,6 +64,7 @@
     * [FAQ](node/public-node/rest-api/faq.md)
   * [Security Notes](node/public-node/security-notes.md)
   * [FAQ](node/public-node/faq.md)
+  * [Exchange integration guide](node/public-node/exchange-integration-guide.md)
 * [Anchor node](node/anchor-node/README.md)
   * [Installation Guide](node/anchor-node/installation-guide/README.md)
     * [Linux](node/anchor-node/installation-guide/linux.md)
