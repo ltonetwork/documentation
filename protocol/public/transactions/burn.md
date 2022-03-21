@@ -12,17 +12,17 @@ The Burn transaction isn't available on mainnet yet. It requires the **Juicy** f
 
 ```javascript
 {
-  "type": 15,
+  "type": 21,
   "version": 3,
   "id": "8M6dgn85eh3bsHrVhWng8FNaHBcHEJD4MPZ5ZzCciyon",
   "sender": "3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ",
   "senderKeyType": "ed25519",
   "senderPublicKey": "AJVNfYjTvDD2GWKPejHbKPLxdvwXjAnhJzo6KCv17nne",
   "fee": 100000000,
-  "timestamp": 1647867270043,
+  "timestamp": 1647870282634,
   "amount": 100000000000,
   "proofs": [
-    "3xB85BVKRooXtYfz1VnJcU6rWfgnPbdwCyB3RBdFyPHKzpazeSbk7BGsP233LTSf8wojxfhymCdHc9oBQ92DhvoS"
+    "49Y3FhLkE8gy7ryWZbxMgs2oWzkjE6qSj7cH1p9rmpnsMd1mMgTg9NynERLdtgWDiq57sDwr4gNUJoP9qYzidRPR"
   ]
 }
 ```
@@ -42,7 +42,7 @@ The binary data structure of the unsigned transaction.
 {% tab title="V3 (current)" %}
 | #   |      Field Name     |            Type           | Length   |
 | --- | :-----------------: | :-----------------------: | -------- |
-| 1   |   Transaction type  | Byte (constant, value=15) | 1        |
+| 1   |   Transaction type  | Byte (constant, value=21) | 1        |
 | 2   |       Version       |  Byte (constant, value=3) | 1        |
 | 3   |       Chain id      |            Byte           | 1        |
 | 4   |      Timestamp      |            Long           | 8        |
