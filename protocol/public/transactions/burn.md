@@ -1,10 +1,12 @@
 ---
-description: >-
-  Anchoring stores a hash on the blockchain, allowing anyone to verify that data
-  hasn't been tempered with.
+description: Burn LTO. Annnnd it's gone...
 ---
 
-# Anchor
+# Burn
+
+{% hint style="warning" %}
+The Burn transaction isn't available on mainnet yet. It requires the **Juicy** feature vote to be activated.
+{% endhint %}
 
 ### JSON
 
@@ -14,18 +16,14 @@ description: >-
   "version": 3,
   "id": "8M6dgn85eh3bsHrVhWng8FNaHBcHEJD4MPZ5ZzCciyon",
   "sender": "3Jq8mnhRquuXCiFUwTLZFVSzmQt3Fu6F7HQ",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey": "AJVNfYjTvDD2GWKPejHbKPLxdvwXjAnhJzo6KCv17nne",
-  "fee": 35000000,
-  "timestamp": 1610397549043,
-  "anchors": [
-    "5SbkwAekNbaG8P1mTDdAE88mpWtCdET9vTmV2v9vQsCK",
-    ...
-  ],
+  "fee": 100000000,
+  "timestamp": 1647867270043,
+  "amount": 100000000000,
   "proofs": [
-    "4aMwABCZwtXrGGKmBdHdR5VVFqG51v5dPoyfDVZ7jfgD3jqc851ME5QkToQdfSRTqQmvnB9YT4tCBPcMzi59fZye"
-  ],
-  "height": 1069662
+    "3xB85BVKRooXtYfz1VnJcU6rWfgnPbdwCyB3RBdFyPHKzpazeSbk7BGsP233LTSf8wojxfhymCdHc9oBQ92DhvoS"
+  ]
 }
 ```
 
@@ -51,34 +49,14 @@ The binary data structure of the unsigned transaction.
 | 5   |  Sender's key type  |       KeyType (Byte)      | 1        |
 | 6   | Sender's public key |  PublicKey (Array\[Byte]) | 32 \| 33 |
 | 7   |         Fee         |            Long           | 8        |
-| 8   |  Number of anchors  |           Short           | 2        |
-| 9   | Anchor 1 length (N) |            Byte           | 2        |
-| 10  |       Anchor 1      |        Array\[Byte]       | N        |
+| 8   |        Amount       |            Long           | 8        |
 | ... |                     |                           |          |
 
+
+
 {% hint style="info" %}
-* Anchor length and Anchor can be repeated for each anchor hash.
 * Chain id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
-* Integers (short, int, long) have a big endian byte order.
-{% endhint %}
-{% endtab %}
-
-{% tab title="V1" %}
-| #   |      Field Name     |            Type           | Length |
-| --- | :-----------------: | :-----------------------: | ------ |
-| 1   |   Transaction type  | Byte (constant, value=15) | 1      |
-| 2   |       Version       |  Byte (constant, value=1) | 1      |
-| 3   | Sender's public key |  PublicKey (Array\[Byte]) | 32     |
-| 4   |  Number of anchors  | Short (constant, value=1) | 2      |
-| 5   | Anchor 1 length (N) |           Short           | 2      |
-| 6   |       Anchor 1      |        Array\[Byte]       | N      |
-| ... |                     |                           |        |
-| 7   |      Timestamp      |            Long           | 8      |
-| 8   |         Fee         |            Long           | 8      |
-
-{% hint style="info" %}
-* Anchor length and Anchor can be repeated for each anchor hash.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}
 {% endtab %}
