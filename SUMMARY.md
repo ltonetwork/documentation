@@ -121,6 +121,7 @@
     * [Cancel Lease](protocol/public/transactions/cancel-lease-transaction.md)
     * [Mass Transfer](protocol/public/transactions/mass\_transfer\_transaction.md)
     * [Set Script](protocol/public/transactions/set-script.md)
+    * [Data](protocol/public/transactions/data.md)
     * [Anchor](protocol/public/transactions/anchor.md)
     * [Association](protocol/public/transactions/association.md)
     * [Revoke Association](protocol/public/transactions/revoke-association.md)
