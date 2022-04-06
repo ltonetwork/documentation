@@ -5,7 +5,7 @@ description: >-
   expert-level guide.
 ---
 
-# Raspberry Pi \(Expert\)
+# Raspberry Pi (Expert)
 
 So you decided you want to be part of the LTO Network, awesome!
 
@@ -19,19 +19,19 @@ Please note that the recommended manner of running an LTO node is using the prov
 
 ## **Step 0:** Intro to setting up a **Raspberry Pi node**
 
-Although the LTO Public node is available as a JAR \(Java ARchive\), which is usually considered a platform-independent deployment artefact, it is not automatically possible to start this version of the node on a Raspberry PI, e.g., running on Raspbian. This tutorial explains how to modify the corresponding JAR-file in order to allow for a smooth start on a Raspberry Pi.
+Although the LTO Public node is available as a JAR (Java ARchive), which is usually considered a platform-independent deployment artefact, it is not automatically possible to start this version of the node on a Raspberry PI, e.g., running on Raspbian. This tutorial explains how to modify the corresponding JAR-file in order to allow for a smooth start on a Raspberry Pi.
 
 ### **Problem Description**
 
 If you try to start the node via the following command:
 
-```text
+```
 $ java -jar lto-public-all.jar lto-mainnet.conf
 ```
 
 You’ll get an error message similar to the following one:
 
-```text
+```
 pi@raspberrypi:~/lto $ java -jar lto-public-all.jar lto-mainnet.conf
 2019-04-22 16:09:41,453 INFO  [main] c.w.Application$ - Starting...
 2019-04-22 16:09:45,939 INFO  [main] kamon.Kamon$Instance - Initializing Kamon...
@@ -64,79 +64,79 @@ The reason for the error is that one of the dependencies of the node, namely the
 
 The basic idea of the patch is to exchange the platform dependent, and not compatible, parts of the JAR-file with corresponding parts that are compatible with the ARM architecture of the Raspberry Pi. In order to perform the next steps in a clean environment, you should copy the **lto-public-all.jar** file to a new directory from which you execute the described commands.
 
-Throughout this setup-guide we utilize the following Github repository: [https://github.com/legalthings/docker-public-node](https://github.com/legalthings/docker-public-node)
+Throughout this setup-guide we utilize the following Github repository: [https://github.com/ltonetwork/docker-public-node](https://github.com/ltonetwork/docker-public-node)
 
 First of all, we need to install the platform independent version of the LevelDB database with the following command:
 
-```text
+```
 $ sudo apt install libleveldb-java libleveldb-api-java
 ```
 
 The second step is to unpack the JAR archive. Basically, JAR archives are simple ZIP files with a special directory structure. Therefore, we can just unpack the JAR archive with the following command:
 
-```text
+```
 $ jar -xvf lto-public-all.jar
 ```
 
 After unpacking, we can remove the JAR archive itself, so that we later on, when we repackage the archive, do not include the old archive in the new one:
 
-```text
+```
 $ rm lto-public-all.jar
 ```
 
 Then we secure the MANIFEST.MF file, which is sort of the configuration file of the archive, so that we can later on restore it in order to keep all information about the archive, e.g., which kind of class should be executed once we start the archive. Therefore, we copy the META-INF/MANIFEST.MF file to the current directory:
 
-```text
+```
 $ cp META-INF/MANIFEST.MF .
 ```
 
 The next step is to remove all traces of the platform dependent version of the LevelDB packages:
 
-```text
+```
 $ rm -rf `find . -name *leveldb*`
 ```
 
 Now we just need to extract the platform independent version of the LevelDB installation that we did in the first step. In order to do so, we need to copy two files in our current directory:
 
-```text
+```
 $ cp /usr/share/java/leveldb-api.jar .
 $ cp /usr/share/java/leveldb.jar .
 ```
 
 And again, we need to unpack those archives in the current directory:
 
-```text
+```
 $ jar -xvf leveldb-api.jar
 $ jar -xvf leveldb.jar
 ```
 
 Now, we can again remove those two archive files in order not to include those as archives in the new node archive that we will create in the last step:
 
-```text
+```
 $ rm -f *.jar
 ```
 
 Finally, we need to recover the MANIFEST.MF file that we have secured before:
 
-```text
+```
 $ cp MANIFEST.MF META-INF/
 ```
 
 before we can finally package the content of our current directory into a new archive that will then be our JAR-archive that we can start the node with:
 
-```text
+```
 $ jar -cfm lto-public-all-arm.jar META-INF/MANIFEST.MF *
 ```
 
 This process might take some time. After it finishes, the created JAR-archive lto-public-all-arm.jar can be copied to whatever directory you want to start your node from. The following command will then start your node:
 
-```text
+```
 $ java -jar lto-public-all-arm.jar lto-mainnet.conf
 ```
 
 ### Final considerations
 
-Since a Raspberry Pi has very limited ressources, both from a computational as well as from a memory \(RAM\) point of view, one can not assume that a node on a Raspberry Pi will run with high performance. Nevertheless, it might make sense in some scenarios, e.g., providing an API to the LTO network, running a test environment or providing a testnet node.
+Since a Raspberry Pi has very limited ressources, both from a computational as well as from a memory (RAM) point of view, one can not assume that a node on a Raspberry Pi will run with high performance. Nevertheless, it might make sense in some scenarios, e.g., providing an API to the LTO network, running a test environment or providing a testnet node.
 
 The steps described above should not only work on a Raspberry Pi but should also create deployment artifact for other ARM based boards. Depending on the underlying operating systems, some tweaks may be necessary though.
 
@@ -144,7 +144,7 @@ That’s it. You’ve successfully mastered setting up an LTO Network public nod
 
 ## **Step 2: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network./) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
@@ -152,5 +152,4 @@ After launching your node check the [Explorer](https://explorer.lto.network) to 
 Utilize the available [Community Tech Tools](https://blog.lto.network/distributed-workforce-community-dao-level-up/#tech-lab) to get more insights into the network and your participation. Let's build a secure and useful network together!
 {% endhint %}
 
-Depending on your stake \(the number of LTO tokens you have in the “2nd wallet”\) it will take more or less time for you to start earning LTO. Be patient and be happy. Welcome to the amazing LTO Network community! Read more [about community programs](https://blog.lto.network/distributed-workforce-community-dao-level-up/).
-
+Depending on your stake (the number of LTO tokens you have in the “2nd wallet”) it will take more or less time for you to start earning LTO. Be patient and be happy. Welcome to the amazing LTO Network community! Read more [about community programs](https://blog.lto.network/distributed-workforce-community-dao-level-up/).
