@@ -93,6 +93,9 @@
   * [Public layer](libraries/javascript/public-layer.md)
   * [Private layer](libraries/javascript/private-layer.md)
   * [HTTP Authentication](libraries/javascript/http-authentication.md)
+* [Python](libraries/python/README.md)
+  * [Accounts](libraries/python/accounts.md)
+  * [Public layer](libraries/python/public-layer.md)
 * [PHP](libraries/php/README.md)
   * [Accounts](libraries/php/accounts.md)
   * [Identities](libraries/php/identities.md)
@@ -100,10 +103,8 @@
   * [Private layer](libraries/php/private-layer.md)
   * [HTTP Authentication](libraries/php/http-authentication.md)
   * [Commandline scripts](libraries/php/commandline-scripts.md)
+* [Java](libraries/java.md)
 * [Go](libraries/go.md)
-* [Python](libraries/python/README.md)
-  * [Accounts](libraries/python/accounts.md)
-  * [Public layer](libraries/python/public-layer.md)
 
 ## Protocol
 

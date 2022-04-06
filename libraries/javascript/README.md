@@ -10,33 +10,29 @@ Visit the [project on GitHub](https://github.com/ltonetwork/lto-api.js).
 
 ## Installation
 
-```
-npm install lto-api --save
+```text
+npm install lto-api @lto-network/lto-transactions --save
 ```
 
 ## Usage
 
 ```javascript
-import LTO from "@ltonetwork/lto/raw/LTO";
-import Transfer from "@ltonetwork/lto/raw/transactions/Transfer";
-import {PublicNode} from "@ltonetwork/lto/raw/PublicNode";
-import {Event} from "@ltonetwork/lto/raw/events";
-
+const { LTO, Event } = require('lto-api');
+const { transfer, broadcast } = require('@lto-network/lto-transactions');
 
 // Account
 const lto = new LTO('T'); // 'T' for testnet, 'L' for mainnet
-const account = lto.account();
+const account = lto.createAccount();
 
 // Public chain
-const node = new PublicNode('https://testnet.lto.network');
+const nodeUrl = 'https://nodes.lto.network';
+ 
+const transerTx = transfer({ 
+  amount: 100e8, // 100 LTO
+  recipient: '3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB',
+}, account.seed);
 
-const amount = 1000;
-const recipient = "3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB";
-
-const transaction = new Transfer(recipient, amount);
-transaction.signWith(account);
-node.broadcast(transaction).then(resp => console.log(resp));
-
+broadcast(signedTx, nodeUrl).then(resp => console.log(resp))
 
 // Private chain
 const chain = account.createEventChain();
@@ -53,3 +49,4 @@ const body = {
 
 chain.addEvent(new Event(body).signWith(account));
 ```
+
