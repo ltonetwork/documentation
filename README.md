@@ -46,8 +46,8 @@ A Live Contract is an agreement between organizations that contains both on-chai
 
 Start with the tutorial, which takes you through be basic concepts and as you get familiar with writing and testing workflow scenarios.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="tutorials/live-contracts.md" %}
+[live-contracts.md](tutorials/live-contracts.md)
 {% endcontent-ref %}
 
 ##
