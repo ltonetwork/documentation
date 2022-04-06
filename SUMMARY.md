@@ -100,8 +100,10 @@
   * [Private layer](libraries/php/private-layer.md)
   * [HTTP Authentication](libraries/php/http-authentication.md)
   * [Commandline scripts](libraries/php/commandline-scripts.md)
-* [Python](libraries/python.md)
 * [Go](libraries/go.md)
+* [Python](libraries/python/README.md)
+  * [Accounts](libraries/python/accounts.md)
+  * [Public layer](libraries/python/public-layer.md)
 
 ## Protocol
 
