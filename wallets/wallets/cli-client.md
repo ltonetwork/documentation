@@ -6,7 +6,7 @@ description: LTO wallet for the commandline terminal. Great for automating tasks
 
 ## Installation
 
-```text
+```
 pip install lto-cli
 ```
 
@@ -16,17 +16,18 @@ pip install lto-cli
 
 ### Manage accounts
 
-```text
-lto accounts create
-echo "my seed" | lto accounts seed --name foobar
-lto accounts list
-lto accounts set-default foobar
-lto accounts remove 3JuijVBB7NCwCz2Ae5HhCDsqCXzeBLRTyeL
+```
+lto account create
+echo "my seed" | lto account seed --name foobar
+lto account list
+lto account show 3JuijVBB7NCwCz2Ae5HhCDsqCXzeBLRTyeL
+lto account set-default foobar
+lto account remove 3JuijVBB7NCwCz2Ae5HhCDsqCXzeBLRTyeL
 ```
 
 ### Public node
 
-```text
+```
 lto set-node https://nodes.lto.network
 ```
 
@@ -34,26 +35,26 @@ lto set-node https://nodes.lto.network
 
 ### Anchor
 
-```text
+```
 lto anchor --hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ```
 
 ### Associations
 
-```text
+```
 lto association issue --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK --type 1 --hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 lto association revoke --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK --type 1 --hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ```
 
 ### Transfer
 
-```text
+```
 lto transfer --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK --amount 1000000000
 ```
 
 ### Mass-transfer
 
-```text
+```
 echo "3N6MFpSbbzTozDcfkTUT5zZ2sNbJKFyRtRj:1000000000
 3NBC7ETcdPbf4QAXSop5UCJ53yX34aGPXoz:800000000" | lto mass-transfer
 ```
@@ -62,21 +63,21 @@ _Recipient/amount pairs are read from stdin._
 
 ### Leasing
 
-```text
+```
 lto lease create --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK --amount 1000000000
 lto lease cancel --leaseid 6XmeG7SRWiw8pD6Uad6D9AAaY354v5TV6AJMhPpHMkqy
 ```
 
 ### Sponsorship
 
-```text
+```
 lto sponsorship create --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK
 lto sponsorship cancel --recipient 3MyGpJh6Bb8auF3HtSr2dSJjqQVxgqLynpK
 ```
 
 ## Common options
 
-```text
+```
 --network CHAINID
 --account NAME|ADDRESS
 --sponsor NAME|ADDRESS
@@ -105,4 +106,3 @@ Create and sign the transaction, but don't broadcast it to the node. The JSON wi
 **unsigned**
 
 Create the transaction, but don't sign it. This option should only be used in combination with `--no-broadcast`.
-
