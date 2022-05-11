@@ -48,7 +48,7 @@ For every transaction, 20% of the fee isn't awarded and thus effectively taken o
 
 The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned. LTO Network has a deflationary token economy.
 
-For more information, read about the [NG consensus algorithm](../consensus.md#ng-protocol).
+For more information, read about the [NG consensus algorithm](../fair\_proof\_of\_stake\_fpos.md#ng-protocol).
 
 {% hint style="warning" %}
 While feature "Transactions v3" is not accepted, a fixed amount of 0.1 LTO is burned for each transaction instead of 20%.
