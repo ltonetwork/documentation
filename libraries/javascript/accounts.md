@@ -2,27 +2,27 @@
 
 ## **Creation**
 
-You can create a new random seed with keypair \(ed25519\):
+You can create a new account with a random seed with keypair (ed25519):
 
 ```javascript
-const account = lto.createAccount();
-console.log(account.phrase); // 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek'
-console.log(account.sign); // { privateKey: '4iZ5a5Qx2Utd1432omPUsKXifctCnUr25PjYoR7ohLbnXgG6sazdBg2iXbywzuh6VNWPiFPCudSV2du9HxGxT8mV', publicKey: 'EUkmkWG6TRbsZdQ9UjGySTzkMJq9eaKAjwJpW3Wv6DDH' }
-```
+import LTO from "@ltonetwork/lto/raw/LTO";
 
-## **Recovery**
+const lto = new LTO("T");
+const account = lto.account();
+
+console.log(account.seed);  // lion devote brush lemon salmon eyebrow near autumn aspect april ugly position dismiss suit finger
+console.log(account.publicKey);  // AvWa7XokpR284pNCnoKZhudQdNA5AV3PXPi6HhggAhbT
+console.log(account.privateKey);  // 4dXzhzRcpiukcRBUGfre8s8aRaUqwyKHUzfbQTtNRRMFxZXQ6BsbfKPbA2QVBELNjoxxy6NQkii6HVg1zPzti4mB
+```
 
 It's also possible to recover a keypair from an existing seed:
 
 ```javascript
-const phrase = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';
+import { AccountFactoryECDSA } from '@ltonetwork/lto/raw/accounts';
 
-const seed = lto.seedFromExistingPhrase(phrase);
-console.log(account.phrase); // 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek'
-console.log(account.sign); // { privateKey: '4iZ5a5Qx2Utd1432omPUsKXifctCnUr25PjYoR7ohLbnXgG6sazdBg2iXbywzuh6VNWPiFPCudSV2du9HxGxT8mV', publicKey: 'EUkmkWG6TRbsZdQ9UjGySTzkMJq9eaKAjwJpW3Wv6DDH' }
+const seed = "const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';"
+const account = new AccountFactoryED25519("T").createFromSeed(seed);
 ```
-
-## **Seed Encryption**
 
 Your seed can be encrypted:
 
@@ -56,4 +56,3 @@ const password = 'verysecretpassword';
 const phrase = lto.decryptSeedPhrase(encryptedSeed);
 console.log(phrase); // satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek
 ```
-
