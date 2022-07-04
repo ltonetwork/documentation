@@ -4,10 +4,6 @@ description: Burn LTO. Annnnd it's gone...
 
 # Burn
 
-{% hint style="warning" %}
-The Burn transaction isn't available on mainnet yet. It requires the **Juicy** feature vote to be activated.
-{% endhint %}
-
 ### JSON
 
 ```javascript
