@@ -17,11 +17,7 @@ npm install lto-api --save
 ## Usage
 
 ```javascript
-import LTO from "@ltonetwork/lto/raw/LTO";
-import Transfer from "@ltonetwork/lto/raw/transactions/Transfer";
-import {PublicNode} from "@ltonetwork/lto/raw/PublicNode";
-import {Event} from "@ltonetwork/lto/raw/events";
-
+import {LTO, Transfer, PublicNode, Event} from "@ltonetwork/lto";
 
 // Account
 const lto = new LTO('T'); // 'T' for testnet, 'L' for mainnet
