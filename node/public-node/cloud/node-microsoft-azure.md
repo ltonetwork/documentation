@@ -73,7 +73,7 @@ That’s it. You’ve successfully mastered setting up a LTO Network public node
 
 ## **Step 2: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 

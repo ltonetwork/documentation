@@ -6,7 +6,7 @@ description: Tutorial for staking on the official LTO web wallet.
 
 ## Staking LTO&#x20;
 
-Now, that you have your web wallet and bought your LTO tokens from one of the exchanges, you probably want to stake your LTO and make use of the current network APY (yearly [ROI](https://www.ltonod.es)). To do that head to the leasing menu on the left:
+Now, that you have your web wallet and bought your LTO tokens from one of the exchanges, you probably want to stake your LTO and make use of the current network APY (yearly [ROI](https://www.ltonod.es/)). To do that head to the leasing menu on the left:
 
 ![Enter the Leasing menu for an overview of your leases and community nodes.](../../.gitbook/assets/screen-shot-2021-06-01-at-17.48.40.png)
 
@@ -26,4 +26,4 @@ Select any one of these community nodes and start your lease. You will need to s
 Leasing _and_ canceling a lease cost 1 LTO each! So if you get your leasing rewards from a node do not cancel your old lease, simply open a new lease for the reward. Otherwise, you'll lose 16 hours and the LTO fees.
 {% endhint %}
 
-And now you've officially staked your LTO! You can check the [public community node overview](https://www.ltonod.es) _(provided by LTONod.es)_ to find out who to contact for node-related questions or when your node pays out rewards.
+And now you've officially staked your LTO! You can check the [public community node overview](https://www.ltonod.es/) _(provided by LTONod.es)_ to find out who to contact for node-related questions or when your node pays out rewards.

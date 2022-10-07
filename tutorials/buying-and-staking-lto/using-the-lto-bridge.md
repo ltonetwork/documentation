@@ -12,7 +12,7 @@ To start things off, we'll assume you have LTO tokens in your wallet and would l
 
 ![Metamask token overview.](../../.gitbook/assets/screen-shot-2021-06-04-at-11.00.49.png)
 
-Essentially, all you need to do is transfer your LTO tokens to an address and that's it. To find out your address for this transaction head over to [https://wallet.lto.network/](https://wallet.lto.network), log into your LTO web wallet, and select **Bridge** in the options menu on the left side. The following dialog will appear where you need to select the exchange token you have (ERC-20 in this tutorial) and the token you want to exchange for (mainnet in this tutorial).
+Essentially, all you need to do is transfer your LTO tokens to an address and that's it. To find out your address for this transaction head over to [https://wallet.lto.network/](https://wallet.lto.network/), log into your LTO web wallet, and select **Bridge** in the options menu on the left side. The following dialog will appear where you need to select the exchange token you have (ERC-20 in this tutorial) and the token you want to exchange for (mainnet in this tutorial).
 
 ![Token selection (left) and deposit address generation (right).](../../.gitbook/assets/lto\_token\_bridge.jpg)
 

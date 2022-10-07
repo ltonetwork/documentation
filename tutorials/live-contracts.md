@@ -257,4 +257,4 @@ You've successfully created and tested your first Live Contract.
 
 ### Continue
 
-For more workflow tutorials visit [LetsFlow](https://www.letsflow.io).
+For more workflow tutorials visit [LetsFlow](https://www.letsflow.io/).

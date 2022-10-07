@@ -14,7 +14,7 @@ A great way to be part of the community is by actively participating as a node i
 Make sure to check out the Prepare: [Setup your wallet page](../../../tutorials/mining/prepare-setup-your-wallet.md) before continuing. The node setup pages assume you utilize a 2-wallet setup for extra safety.
 
 {% hint style="info" %}
-If you’re not an enterprise user you might not be familiar with Kubernetes or [OpenShift](https://www.openshift.com). OpenShift is Red Hat’s enterprise Kubernetes distribution based on the community open source project called OKD. OpenShift is thé container application platform for many enterprises in the world.
+If you’re not an enterprise user you might not be familiar with Kubernetes or [OpenShift](https://www.openshift.com/). OpenShift is Red Hat’s enterprise Kubernetes distribution based on the community open source project called OKD. OpenShift is thé container application platform for many enterprises in the world.
 {% endhint %}
 
 This **proof of concept**, executed on OKD, shows the simplicity of deploying a new application onto the platform. After deployment we no longer have to worry about our node. The Kubernetes orchestrator will make sure it keeps running and if a new version of the container image becomes available the OKD platform will automatically pull the new image and perform a rolling upgrade of our running node. Secrets will make sure stuff like our seed, password and API\_key are kept safe.
@@ -25,7 +25,7 @@ In this PoC I specifically used the browser interface to execute the steps. All 
 
 ![okd.io homepage](https://cdn-images-1.medium.com/max/1600/1\*BgZgfqi4DJFQ8yVIiU5Y0w.png)
 
-Of course you can try all of these steps yourself. An all-in-one OKD installation is available from the [okd.io website](https://www.okd.io). Instructions to get started are provided. It will take you no more than a few minutes to get up and running. You can simply run this on your Linux, MacOS, Windows laptop or workstation.
+Of course you can try all of these steps yourself. An all-in-one OKD installation is available from the [okd.io website](https://www.okd.io/). Instructions to get started are provided. It will take you no more than a few minutes to get up and running. You can simply run this on your Linux, MacOS, Windows laptop or workstation.
 
 ![OKD main screen](https://cdn-images-1.medium.com/max/2400/1\*5S8F0sBmuinjt6eQSJSr8A.png)
 
@@ -105,7 +105,7 @@ That’s it. You’ve successfully mastered setting up a LTO Network public node
 
 ## **Step 2: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 

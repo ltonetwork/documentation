@@ -6,7 +6,7 @@ description: Install LTO Network full node plus supporting tools on Windows 10.
 
 ## LTO Network full node
 
-The LTO full node is comprised of a set of [Docker](https://www.docker.com) containers. For development, use _docker compose_ as orchestration tool.
+The LTO full node is comprised of a set of [Docker](https://www.docker.com/) containers. For development, use _docker compose_ as orchestration tool.
 
 ### Docker Desktop
 
@@ -29,7 +29,7 @@ _Docker Desktop includes docker compose, so it's not needed to install that sepa
 
 ## Live contracts tester
 
-The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net). It requires PHP 7+ with the  _mongodb_ and _yaml_ PECL extension.
+The live contract tester (`lctest`) is build on [Behat](http://behat.org/en/latest/) and runs on [PHP](https://php.net/). It requires PHP 7+ with the  _mongodb_ and _yaml_ PECL extension.
 
 ### PHP CLI
 

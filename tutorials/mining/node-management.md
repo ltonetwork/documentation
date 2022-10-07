@@ -32,7 +32,7 @@ How many blocks your node will generate depends on the funds staked on the node.
 A probability to generate a new block in 24 hours of 90% means that 9 out of 10 days you should generate a block daily. While this may manifest as a block each day, it can also manifest as two blocks every second day and none in between.
 {% endhint %}
 
-If after initially starting your node you find it does not generate blocks as fast as you think it should don't be discouraged. The initial node setup takes time until your node is fully synchronized with the network and the blockchain is up-to-date on your machine. Check your node logs for errors and check the community overviews (e.g., [lto nodes ](https://www.ltonod.es)or [lto tools](https://lto.tools/nodes/)).&#x20;
+If after initially starting your node you find it does not generate blocks as fast as you think it should don't be discouraged. The initial node setup takes time until your node is fully synchronized with the network and the blockchain is up-to-date on your machine. Check your node logs for errors and check the community overviews (e.g., [lto nodes ](https://www.ltonod.es/)or [lto tools](https://lto.tools/nodes/)).&#x20;
 
 {% hint style="info" %}
 To check your node's logs run `docker logs -f public-node`. This way you can detect grave error messages, for example, network problems.

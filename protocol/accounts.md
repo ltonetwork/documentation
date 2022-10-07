@@ -75,7 +75,7 @@ EdDSA allows generating the X25519 private key from the ED25519 private key and 
 {% endhint %}
 
 {% hint style="info" %}
-Use [NaCl](https://nacl.cr.yp.to) or [sodium](https://libsodium.gitbook.io) to create an address from the _account seed_.
+Use [NaCl](https://nacl.cr.yp.to/) or [sodium](https://libsodium.gitbook.io/) to create an address from the _account seed_.
 {% endhint %}
 
 ### Signing

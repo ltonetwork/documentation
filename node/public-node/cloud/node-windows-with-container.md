@@ -34,7 +34,7 @@ Once Docker is installed, create a simple folder on your computer (example ‘C:
 * Go to Link: [https://github.com/ltonetwork/lto-public-node](https://github.com/ltonetwork/lto-public-node)
 * Download the file: **docker-compose.yml** to the directory you just created
 
-Open the **docker-compose.yml** file in software like Visual Studio Code ([https://code.visualstudio.com/](https://code.visualstudio.com)), it may ask you to install the Docker extension once you open the yml file. Other editors can also work, but things like Wordpad and Notepad will garble up your content. Notepad++ seems to handle it well too though.
+Open the **docker-compose.yml** file in software like Visual Studio Code ([https://code.visualstudio.com/](https://code.visualstudio.com/)), it may ask you to install the Docker extension once you open the yml file. Other editors can also work, but things like Wordpad and Notepad will garble up your content. Notepad++ seems to handle it well too though.
 
 Edit the following values:
 
@@ -94,7 +94,7 @@ Some Docker Commands that could proof handy:
 
 ## **Step 3: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 

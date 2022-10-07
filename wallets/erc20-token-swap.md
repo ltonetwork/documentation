@@ -7,7 +7,7 @@ With the release of the v2 LTO ERC20 token we developed a webpage that allows us
 
 ## Official Token Swap Page
 
-The official token swap page is available at [https://swap.lto.network/](https://swap.lto.network)
+The official token swap page is available at [https://swap.lto.network/](https://swap.lto.network/)
 
 ![swap.lto.network](<../.gitbook/assets/image (13).png>)
 

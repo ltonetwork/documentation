@@ -86,6 +86,14 @@
     * [Ubuntu Linux](node/workflow-node/installation-guide/ubuntu-linux.md)
   * [REST API](node/workflow-node/rest-api/README.md)
 
+## Ownables
+
+* [What are Ownables?](ownables/what-are-ownables.md)
+* [Tech overview](ownables/tech-overview/README.md)
+  * [Prerequisites](ownables/tech-overview/prerequisites.md)
+  * [Setup](ownables/tech-overview/setup.md)
+  * [Ownable Architecture](ownables/tech-overview/ownable-architecture.md)
+
 ## Libraries
 
 * [JavaScript](libraries/javascript/README.md)

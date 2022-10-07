@@ -78,5 +78,5 @@ node.broadcast(signedTx).then(resp => console.log(resp))
 
 You can send tx to any lto node you like:. E.g.:
 
-* [https://testnet.lto.network](https://testnet.lto.network) - lto TESTNET nodes hosted by LTO Network
-* [https://nodes.lto.network](https://nodes.lto.network) - lto MAINNET nodes hosted by LTO Network
+* [https://testnet.lto.network](https://testnet.lto.network/) - lto TESTNET nodes hosted by LTO Network
+* [https://nodes.lto.network](https://nodes.lto.network/) - lto MAINNET nodes hosted by LTO Network

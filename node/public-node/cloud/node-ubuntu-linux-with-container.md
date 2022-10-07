@@ -24,7 +24,7 @@ To install Ubuntu, use the following official tutorial which will guide you thro
 
 ![Make sure to install OpenSSH in step 10 of the official installation proces. Others are optional.](https://cdn-images-1.medium.com/max/1600/1\*hhyjlitkKdf4Eem0NxV\_\_Q.png)
 
-We’re using [SSH](https://en.wikipedia.org/wiki/Secure\_Shell) to connect to our server. For Windows use either PowerShell (run as administrator) or [PuTTy](https://www.putty.org).
+We’re using [SSH](https://en.wikipedia.org/wiki/Secure\_Shell) to connect to our server. For Windows use either PowerShell (run as administrator) or [PuTTy](https://www.putty.org/).
 
 Mac users can use the built-in terminal (spotlight, command + spacebar: search for terminal)
 
@@ -399,7 +399,7 @@ That’s it. You’ve successfully mastered setting up a LTO Network public node
 
 ## **Step 11: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
