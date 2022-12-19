@@ -49,7 +49,11 @@ The smart contracts written in Rust need to be compiled to WebAssembly. This way
 
 `wasm-pack` makes building and working with rust-generated WASM easy.&#x20;
 
-Follow the latest steps described in [their official documentation](https://rustwasm.github.io/wasm-pack/installer/) to install it.
+Follow the latest steps described in [their official documentation](https://rustwasm.github.io/wasm-pack/installer/) to install it. On Linux and macOS systems, this is done as follows:
+
+```shell-session
+$ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
 
 Once that is done, verify the installation:
 
