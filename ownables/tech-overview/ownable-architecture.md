@@ -97,41 +97,10 @@ Make sure that it does not conflict with your styles.
 Ownable templates communicate with the wallet via messages. If we consider the potion example which you can find in our demo repository, the script part of our html template may contain methods like this:
 
 ```javascript
-/*
-* Listen for a click on the button defined in the html template
-* which will trigger the consume method
-*/
+// waiting for the click to consume our potion
 document.getElementById("drink-button").addEventListener('click', () => consume());
 
-function consume() {
-  // building the message to be passed to WASM for execution
-  // this should match the msg expected by the lib.rs entry points
-  let msg = {
-    "consume": {
-      "amount": getDrinkAmount(),
-    },
-  };
-  // posting the message to the wallet which will relay it to WASM
-  // check index.js for the listener to see how it does it
-  // https://github.com/ltonetwork/ownable-demo/blob/eb0bda9c323659a78d69bd669861f46473d16fa2/www/index.js#L163
-  window.parent.postMessage({type: "execute", ownable_id, msg}, "*");
-}
-
-// gets the selected amount to drink from the html slider
-function getDrinkAmount() {
-  let stringAmount = document.getElementsByClassName('slider')[0].valueOf().value;
-  return parseInt(stringAmount);
-}
-
-// listener for the wallet messages indicating the state after the execute msg
-// see wasm-wrappers.js for details:
-// https://github.com/ltonetwork/ownable-demo/blob/main/www/wasm-wrappers.js#L210-L217
-window.addEventListener("message", (event) => {
-  const state = event.data.state;
-  updateTemplate(state.color, state.current_amount)
-});
-
-// method to update the visual template defined in the html file
+// method to update the visual template
 function updateTemplate(color, amt) {
   document.getElementsByClassName('juice')[0].style.backgroundColor = color;
   document.getElementsByClassName('juice')[0].style.top = (100 - amt) + '%';
@@ -139,4 +108,24 @@ function updateTemplate(color, amt) {
   document.getElementsByClassName('amount')[0].textContent = amt;
 }
 
+window.addEventListener("message", (event) => {
+  const state = event.data.state;
+  updateTemplate(state.color, state.current_amount)
+});
+
+function consume() {
+  // building the message to be passed to WASM for execution
+  let msg = {
+    "consume": {
+      "amount": getDrinkAmount(),
+    },
+  };
+  // posting the message to the wallet which will relay it to WASM
+  window.parent.postMessage({type: "execute", ownable_id, msg}, "*");
+}
+// returns the selected consumption amount
+function getDrinkAmount() {
+  let stringAmount = document.getElementsByClassName('slider')[0].valueOf().value;
+  return parseInt(stringAmount);
+}
 ```

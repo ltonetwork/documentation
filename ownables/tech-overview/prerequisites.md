@@ -15,7 +15,11 @@ If you do not have the above dependencies on your machine, see the sections belo
 
 Ownable packages are built with Rust.
 
-To install Rust and its package manager Cargo, follow the official [documentation guide from the Rust Book](https://doc.rust-lang.org/cargo/getting-started/installation.html).
+To install Rust and its package manager Cargo, follow the official [documentation guide from the Rust Book](https://doc.rust-lang.org/cargo/getting-started/installation.html). On Linux and macOS systems, this is done as follows:
+
+```shell-session
+$ curl https://sh.rustup.rs -sSf | sh
+```
 
 Verify the installation by checking the version:
 
@@ -34,7 +38,8 @@ Install it as described on the official [Node.js website](https://nodejs.org/en/
 Verify the installation with:
 
 <pre class="language-shell-session"><code class="lang-shell-session"><strong>$ npm -v
-</strong>$ node -v</code></pre>
+</strong>$ node -v
+</code></pre>
 
 The node version should be 16.15.0 or later. The npm version should be 8.11.0 or later.
 
