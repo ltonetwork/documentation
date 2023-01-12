@@ -4,7 +4,7 @@
 
 ### 1. How much LTO do I need to have in order to start the mining process?
 
-In order to activate mining, the node needs not less than 1000 LTO \(for testnet we can always provide you with that, do not hesitate to contact us\).
+In order to activate mining, the node needs not less than 1000 LTO (for testnet we can always provide you with that, do not hesitate to contact us).
 
 ### 2. Where can i get the link for last mainnet state?
 
@@ -16,5 +16,79 @@ More revenue if you have enough people leasing to you and payout is not 100%. Al
 
 ### 4. I want to automatically send my tokens to multiple wallets on the LTO platform. Is there a program or bot?
 
-Yes, there are payout scripts that are used by node owners to pay leasers. These can also be used/adjusted to do other automateded transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO_LPoSDistributor)_**.**_
+Yes, there are payout scripts that are used by node owners to pay leasers. These can also be used/adjusted to do other automated transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO\_LPoSDistributor). These scripts are provided and maintained by LTO community members.
+
+### **5. How can I list my community node?**
+
+The wallet uses a static JSON file to list the community nodes for leasing. Please edit the file [communityNodes.json](https://github.com/ltonetwork/lto-wallet/blob/master/src/communityNodes.json) on GitHub and issue a pull request.
+
+In the future, services will pull the information from the blockchain. Please use a [data transaction](../../protocol/public/transactions/data.md) to set the meta properties for your node address.
+
+{% tabs %}
+{% tab title="REST API" %}
+Store the following JSON in a file on your server (eg `nodeinfo.json`). Change the `sender` and data values.
+
+```json
+{
+  "sender": "NODE_ADDRESS",
+  "data": [
+   {
+      "key": "name",
+      "type": "string",
+      "value": "My node name"
+    },
+    {
+      "key": "website",
+      "type": "string",
+      "value": "https://example.com"
+    },
+    {
+      "key": "telegram",
+      "type": "string",
+      "value": "@telegram_handle"
+    },
+    {
+      "key": "node:sharing",
+      "type": "string",
+      "value": "95%"
+    },    
+    {
+      "key": "node:payoutSchedule",
+      "type": "string",
+      "value": "Every week"
+    }
+  ]
+}
+```
+
+To use the REST API of your node, you'll need your API Key (`LTO_API_KEY` environment variable).
+
+```bash
+curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Authorization: bearer API_KEY" < nodeinfo.json
+```
+{% endtab %}
+
+{% tab title="CLI" %}
+Store the node information in a JSON file.
+
+```json
+{
+  "name": "My node name",
+  "website": "https://example.com",
+  "telegram": "@telegram_handle"
+  "node:sharing": "95%",
+  "node:payoutSchedule": "Every week",
+}
+```
+
+
+
+Install the [LTO CLI Client](../../wallets/wallets/cli-client.md) on your system and import the account using the seed phrase. After that, you can set account data.
+
+```bash
+lto account seed <<< "$LTO_WALLET_SEED"
+lto data set < nodeinfo.json
+```
+{% endtab %}
+{% endtabs %}
 

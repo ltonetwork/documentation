@@ -144,8 +144,8 @@ The public network address is obtained from the **(signature) public key** and c
 | 4 |     Checksum    | Bytes | 4      |
 
 {% hint style="info" %}
-* Public key hash the first 20 bytes of the _SecureHash_ of the public key. _SecureHash_ is the hash function `sha256(Blake2b256(public_key))`.
-* Checksum is the first 4 bytes of _SecureHash_ of version, scheme, and hash bytes.
+* _Public key hash_ is the first 20 bytes of the _SecureHash_ of the public key. _SecureHash_ is the hash function `sha256(Blake2b256(public_key))`.
+* _Checksum_ is the first 4 bytes of _SecureHash_ of version, scheme, and hash bytes.
 {% endhint %}
 
 Because the address contains the **chain id**, different networks result in a different address for the same seed / public key.
