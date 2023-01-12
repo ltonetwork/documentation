@@ -75,9 +75,9 @@ Store the node information in a JSON file.
 {
   "name": "My node name",
   "website": "https://example.com",
-  "telegram": "@telegram_handle"
+  "telegram": "@telegram_handle",
   "node:sharing": "95%",
-  "node:payoutSchedule": "Every week",
+  "node:payoutSchedule": "Every week"
 }
 ```
 
