@@ -16,7 +16,7 @@ More revenue if you have enough people leasing to you and payout is not 100%. Al
 
 ### 4. I want to automatically send my tokens to multiple wallets on the LTO platform. Is there a program or bot?
 
-Yes, there are payout scripts that are used by node owners to pay leasers. These can also be used/adjusted to do other automated transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO\_LPoSDistributor). These scripts are provided and maintained by LTO community members.
+Yes, there are payout scripts that node owners can use to pay leasers. These can also be used/adjusted to do other automated transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO\_LPoSDistributor). These scripts are provided and maintained by LTO community members.
 
 ### **5. How can I list my community node?**
 
@@ -25,6 +25,32 @@ The wallet uses a static JSON file to list the community nodes for leasing. Plea
 In the future, services will pull the information from the blockchain. Please use a [data transaction](../../protocol/public/transactions/data.md) to set the meta properties for your node address.
 
 {% tabs %}
+{% tab title="CLI" %}
+Store the node information in a JSON file.
+
+```json
+{
+  "node_name": "My node name",
+  "node_description": "Full description about your node",
+  "branding:logo_svg": "https://example.com/logo.svg",
+  "website": "https://example.com",
+  "social:telegram": "@telegram_handle",
+  "social:twitter": "@twitter_handle",
+  "payout_sharing": "95%",
+  "payout_schedule": "Every week"
+}
+```
+
+
+
+Install the [LTO CLI Client](../../wallets/wallets/cli-client.md) on your system and import the account using the seed phrase. After that, you can set account data.
+
+```bash
+lto account seed <<< "$LTO_WALLET_SEED"
+lto data set < nodeinfo.json
+```
+{% endtab %}
+
 {% tab title="REST API" %}
 Store the following JSON in a file on your server (eg `nodeinfo.json`). Change the `sender` and data values.
 
@@ -33,9 +59,14 @@ Store the following JSON in a file on your server (eg `nodeinfo.json`). Change t
   "sender": "NODE_ADDRESS",
   "data": [
    {
-      "key": "name",
+      "key": "node_name",
       "type": "string",
       "value": "My node name"
+    },
+    {
+      "key": "node_description",
+      "type": "string",
+      "value": "Full description about your node"
     },
     {
       "key": "website",
@@ -43,17 +74,22 @@ Store the following JSON in a file on your server (eg `nodeinfo.json`). Change t
       "value": "https://example.com"
     },
     {
-      "key": "telegram",
+      "key": "social:telegram",
       "type": "string",
       "value": "@telegram_handle"
     },
     {
-      "key": "node:sharing",
+      "key": "social:twitter",
+      "type": "string",
+      "value": "@twitter_handle"
+    },
+    {
+      "key": "payout_sharing",
       "type": "string",
       "value": "95%"
     },    
     {
-      "key": "node:payoutSchedule",
+      "key": "payout_schedule",
       "type": "string",
       "value": "Every week"
     }
@@ -67,28 +103,6 @@ To use the REST API of your node, you'll need your API Key (`LTO_API_KEY` enviro
 curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Authorization: bearer API_KEY" < nodeinfo.json
 ```
 {% endtab %}
-
-{% tab title="CLI" %}
-Store the node information in a JSON file.
-
-```json
-{
-  "name": "My node name",
-  "website": "https://example.com",
-  "telegram": "@telegram_handle",
-  "node:sharing": "95%",
-  "node:payoutSchedule": "Every week"
-}
-```
-
-
-
-Install the [LTO CLI Client](../../wallets/wallets/cli-client.md) on your system and import the account using the seed phrase. After that, you can set account data.
-
-```bash
-lto account seed <<< "$LTO_WALLET_SEED"
-lto data set < nodeinfo.json
-```
-{% endtab %}
 {% endtabs %}
 
+Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
