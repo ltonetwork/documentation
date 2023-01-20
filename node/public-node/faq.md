@@ -74,6 +74,11 @@ Store the following JSON in a file on your server (eg `nodeinfo.json`). Change t
       "value": "https://example.com"
     },
     {
+      "key": "branding:logo_svg",
+      "type": "string",
+      "value": "https://example.com/logo.svg"
+    },
+    {
       "key": "social:telegram",
       "type": "string",
       "value": "@telegram_handle"
@@ -105,4 +110,4 @@ curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Author
 {% endtab %}
 {% endtabs %}
 
-Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
+All properties, except `node_name` are optional. Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
