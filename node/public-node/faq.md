@@ -110,4 +110,4 @@ curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Author
 {% endtab %}
 {% endtabs %}
 
-All properties, except `node_name` are optional. Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
+All properties, except `node_name`, are optional. Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
