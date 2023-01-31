@@ -2,11 +2,11 @@
 
 ### Cloning the base repository
 
-First you will need to clone the base `ownables-demo` [repository](https://github.com/ltonetwork/ownable-demo) and save it under your preferred location.
+First, you will need to clone the base `ownables-sdk` [repository](https://github.com/ltonetwork/ownable-demo) and save it under your preferred location.
 
 ```shell-session
-$ git clone git@github.com:ltonetwork/ownable-demo.git
-$ cd ownable-demo
+$ git clone git@github.com:ltonetwork/ownable-sdk.git
+$ cd ownable-sdk
 ```
 
 Open it in your preferred editor and proceed to the next section.
