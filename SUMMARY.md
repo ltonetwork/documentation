@@ -89,10 +89,10 @@
 ## Ownables
 
 * [What are Ownables?](ownables/what-are-ownables.md)
-* [Tech overview](ownables/tech-overview/README.md)
-  * [Prerequisites](ownables/tech-overview/prerequisites.md)
-  * [Setup](ownables/tech-overview/setup.md)
-  * [Ownable Architecture](ownables/tech-overview/ownable-architecture.md)
+* [Ownable SDK](ownables/ownable-sdk/README.md)
+  * [Prerequisites](ownables/ownable-sdk/prerequisites.md)
+  * [Setup](ownables/ownable-sdk/setup.md)
+  * [Ownable Architecture](ownables/ownable-sdk/ownable-architecture.md)
 
 ## Libraries
 
