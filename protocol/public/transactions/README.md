@@ -16,45 +16,18 @@
 | 19        | [Cancel Sponsor Transaction](cancel-sponsor.md)                                |
 | 20        | [Register Transaction](register.md)                                            |
 | 21        | [Burn Transaction](burn.md)                                                    |
-
-{% hint style="info" %}
-The current version for all transactions is **v3**. Previous versions (v1, v2) can also still be used.
-{% endhint %}
+| 22        | Mapped Anchor Transaction                                                      |
+| 23        | Statement Transaction                                                          |
 
 ## Transaction fees
 
-Transaction fees act as a reward for the miner.
-
-| Transaction        | Fee (LTO)       | Minimum (LTO)     |
-| ------------------ | --------------- | ----------------- |
-| Transfer           | 1               | 0.01              |
-| Lease              | 1               | 0.01              |
-| Cancel Lease       | 1               | 0.01              |
-| Mass Transfer      | 1 + 0.1 \* N    | 0.01 + 0.001 \* N |
-| Anchor             | 0.3 + 0.05 \* N | 0.01 + 0.001 \* N |
-| Invoke Association | 0.35            | 0.01              |
-| Revoke Association | 0.35            | 0.01              |
-| Sponsor            | 5               | 0.1               |
-| Cancel Sponsor     | 1               | 0.01              |
-| Script             | 5               | 0.1               |
-
-The absolute minimum fees are enforced by the consensus model. The current fees are configured by the nodes as the minimum acceptable fee.
-
-Nodes will reject broadcasting transactions that offer a lower fee than configured. However, when running your own node, it's possible to offer any fee equal to or above the minimum. Mining nodes will not process transactions with a fee that's lower than configured. Likely these transactions will stay in the utx pool until your own node is able to mine or until they time out (after 90 minutes).
+Transaction fees act as a reward for the miner. The fees are enforced by the consensus model. The transaction fee can be voted up or down through fee voting.
 
 ### Fee distribution
 
-For every transaction, 20% of the fee isn't awarded and thus effectively taken out of circulation (aka burned). The remaining fee is split up among the current leader, and the next elected node at a ratio of  2:3.
+For every transaction, 50% of the fee isn't awarded and thus effectively taken out of circulation (aka burned). The remaining fee is split up among the current leader, and the next elected node at a ratio of 2:3.
 
-The fee is distributed 32% to the leader, 48% to the next one, and 20% is burned. LTO Network has a deflationary token economy.
-
-For more information, read about the [NG consensus algorithm](../fair\_proof\_of\_stake\_fpos.md#ng-protocol).
-
-{% hint style="warning" %}
-While feature "Transactions v3" is not accepted, a fixed amount of 0.1 LTO is burned for each transaction instead of 20%.
-
-Prior to feature 12 "Partial Fee Burn", the full fee was distributed to the miners. Feature 12 was activated on block 870000.
-{% endhint %}
+The fee is distributed 20% to the leader, 30% to the next one, and 50% is burned. For more information, read about the [NG consensus algorithm](../fair\_proof\_of\_stake\_fpos.md#ng-protocol).
 
 ### Sponsored accounts
 
