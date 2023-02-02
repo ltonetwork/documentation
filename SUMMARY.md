@@ -24,10 +24,9 @@
 
 ## Wallets
 
-* [LTO wallet](wallets/wallets/README.md)
-  * [Official Web UI](wallets/wallets/wallet-web-app.md)
-  * [Using Ledger](wallets/wallets/howto-install-lto-app-on-ledger.md)
-  * [CLI client](wallets/wallets/cli-client.md)
+* [LTO web wallet](wallets/wallet-web-app.md)
+* [LTO CLI](wallets/lto-cli.md)
+* [Using Ledger](wallets/howto-install-lto-app-on-ledger.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
   * [Stakely.io wallet](wallets/third-party-wallets/stakely.io-wallet/README.md)
     * [Web wallet](wallets/third-party-wallets/stakely.io-wallet/ledger.md)

@@ -1,29 +1,33 @@
-# Official Web UI
+# LTO web wallet
 
-### General information
+The official wallet web app is available at [https://wallet.lto.network](https://wallet.lto.network) and enables users to:
+
+* Generate a **new seed phrase** (new wallet keys) or **connect a Ledger Device**
+* Transfer native LTO coins to an address
+* Lease native LTO coins to an address
+* Anchor document hashes to the LTO Network blockchain
+* Utilize the bridge (swap to other networks like Ethereum and Binance Smart Chain)
 
 In the general wallet, multiple accounts can be created and imported.
 
-Click here to access the Web Wallet: [https://wallet.lto.network/](https://wallet.lto.network/)
+The wallet web app operates fully on the client side. Accounts are only stored locally, encrypted, and secured with the password that has been set during creation or import. Network information (like balance, and previous transactions) is fetched from a node's API, using the public wallet address.
 
-The wallet web app operates fully on the client-side. Accounts are only stored locally, encrypted, and secured with the password that has been set during creation or import.\
-Network information (like balance, previous transactions) is fetched from a node's API, using the public wallet address.\
 Transactions are signed locally, and only the signed transaction is broadcasted to a node to be propagated in the LTO Network. No sensitive data is ever transmitted to an external server.
 
 ### Create Account
 
 In order to create an account, go to [https://wallet.lto.network/](https://wallet.lto.network/) and click on **Create Account** in the top right corner. It will notify you about creating a new account - click **Continue**.
 
-![](<../../.gitbook/assets/image (4).png>)
+![](<../.gitbook/assets/image (4).png>)
 
 A name and password are asked to store and secure your account. (Note that this is a non-custodial wallet and this data resides on your PC)
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1).png>)
 
 Click Continue.\
 The next screen will show you your 15 word seed phrase. **Write these words down carefully!** This is needed if you ever want to import your account again.
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (3).png>)
 
 The screen provides two options:
 
@@ -44,19 +48,19 @@ The interface of the wallet is pretty self-explanatory and intuitive while using
 6. List of transfers (incoming/outgoing)
 7. Menu
 
-![](<../../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (2).png>)
 
 #### Leasing
 
-1. Start a new lease (full how-to available [here](../../tutorials/buying-and-staking-lto/staking-lto-tokens.md))
+1. Start a new lease (full how-to available [here](../tutorials/buying-and-staking-lto/staking-lto-tokens.md))
 2. List of lease transactions for your wallet
 3. Button to cancel an active lease (only visible on active leases)
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../.gitbook/assets/image (6).png>)
 
 #### Bridge
 
-A how-to on the bridge is available [here](../../tutorials/buying-and-staking-lto/using-the-lto-bridge.md).
+A how-to on the bridge is available [here](../tutorials/buying-and-staking-lto/using-the-lto-bridge.md).
 
 **Settings**
 
@@ -68,4 +72,4 @@ A how-to on the bridge is available [here](../../tutorials/buying-and-staking-lt
 
 **Note** that certain attributes are not visible in case you connected with a Ledger device.
 
-![](<../../.gitbook/assets/image (7).png>)
+![](<../.gitbook/assets/image (7).png>)

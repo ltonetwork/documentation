@@ -43,7 +43,7 @@ Store the node information in a JSON file.
 
 
 
-Install the [LTO CLI Client](../../wallets/wallets/cli-client.md) on your system and import the account using the seed phrase. After that, you can set account data.
+Install the [LTO CLI Client](../../wallets/lto-cli.md) on your system and import the account using the seed phrase. After that, you can set account data.
 
 ```bash
 lto account seed <<< "$LTO_WALLET_SEED"

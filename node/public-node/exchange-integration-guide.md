@@ -93,7 +93,7 @@ The amount in LTO should be done `* 10^8`. The sender is the address of the inte
 
 ## Cold wallet
 
-It's highly recommended to create a cold wallet that isn't related to a node. This can be done using the [LTO CLI](../../wallets/wallets/cli-client.md).
+It's highly recommended to create a cold wallet that isn't related to a node. This can be done using the [LTO CLI](../../wallets/lto-cli.md).
 
 Most exchanges choose to make transferring LTO between the hot and cold wallet a manual process.
 
