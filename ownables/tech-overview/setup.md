@@ -64,4 +64,8 @@ $ npm run build-ownables
 
 It will simply run the previous script in every directory under `/ownables` .
 
-To get more insight on how to build your own custom Ownables, read on the [Ownable Architecture](ownable-architecture.md).
+
+
+{% hint style="info" %}
+To get more insight on how to build your own custom Ownables, read about the [Ownable Architecture](ownable-architecture.md).
+{% endhint %}
