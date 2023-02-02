@@ -92,7 +92,9 @@
 * [Ownable SDK](ownables/tech-overview/README.md)
   * [Prerequisites](ownables/tech-overview/prerequisites.md)
   * [Setup](ownables/tech-overview/setup.md)
-  * [Ownable Architecture](ownables/tech-overview/ownable-architecture.md)
+* [Ownable Architecture](ownables/ownable-architecture/README.md)
+  * [Smart Contract](ownables/ownable-architecture/smart-contract.md)
+  * [Widget](ownables/ownable-architecture/widget.md)
 
 ## Libraries
 

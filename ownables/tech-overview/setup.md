@@ -67,5 +67,5 @@ It will simply run the previous script in every directory under `/ownables` .
 
 
 {% hint style="info" %}
-To get more insight on how to build your own custom Ownables, read about the [Ownable Architecture](ownable-architecture.md).
+To get more insight on how to build your own custom Ownables, read about the [Ownable Architecture](../ownable-architecture/smart-contract.md).
 {% endhint %}
