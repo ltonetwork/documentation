@@ -4,7 +4,7 @@ description: Welcome to LTO Network developer documentation!
 
 # Getting started
 
-[LTO Network](https://ltonetwork.com) is a hybrid blockchain designed for easy integration of business applications, aimed at breaking data silos that so many organizations face today, using _Live Contracts_. It has a private layer that utilizes a public blockchain for consensus.&#x20;
+[LTO Network](https://ltonetwork.com) is a hybrid blockchain, with a focus on identities and ownership. It has a private layer that utilizes a public blockchain for consensus.&#x20;
 
 {% hint style="info" %}
 If you want more info or notice that some link is broken - [**join the Tech Chat on Telegram**](https://t.me/LTOtech) and let us know. All links to papers, blog, articles, and so on - [you can find here](https://blog.ltonetwork.com/lto-network-sources/).
@@ -40,14 +40,21 @@ Integrating anchoring is relatively simple and should take between a couple of h
 [anchoring](tutorials/anchoring/)
 {% endcontent-ref %}
 
+## Ownables
+
+Ownables are CosmWasm smart contracts that define ownership. Instead of running on a blockchain node, Ownables run directly in a wallet using the LTO Network [private layer](protocol/private/).
+
+{% content-ref url="ownables/what-are-ownables.md" %}
+[what-are-ownables.md](ownables/what-are-ownables.md)
+{% endcontent-ref %}
+
 ## Live Contracts
 
 A Live Contract is an agreement between organizations that contains both on-chain and off-chain instructions. Live Contracts enable cross-organizational workflows without the need for a central system or trusted party.
 
-Start with the tutorial, which takes you through be basic concepts and as you get familiar with writing and testing workflow scenarios.
+Start with the tutorial, which takes you through the basic concepts and as you get familiar with writing and testing workflow scenarios.
 
 {% content-ref url="tutorials/live-contracts.md" %}
 [live-contracts.md](tutorials/live-contracts.md)
 {% endcontent-ref %}
 
-##
