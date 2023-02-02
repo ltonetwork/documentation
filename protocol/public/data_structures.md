@@ -18,7 +18,6 @@ description: Internal data structures of blockchain objects and network messages
 |        Proofs version        | Byte (constant, value=1) | 1      |
 |        Proof size (N)        |           Short          | 2      |
 |             Proof            |       Array\[Byte]       | N      |
-|                              |                          |        |
 
 #### Version 3+
 
@@ -36,7 +35,6 @@ description: Internal data structures of blockchain objects and network messages
 |        Proofs version        | Byte (constant, value=1) | 1             |
 |        Proof size (N)        |           Short          | 2             |
 |             Proof            |       Array\[Byte]       | N             |
-|                              |                          |               |
 
 {% hint style="info" %}
 In version 3+ more fields are standardized. These are part of the transaction-specific bytes in versions 1 and 2.
