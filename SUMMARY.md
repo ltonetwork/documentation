@@ -138,6 +138,7 @@
     * [Cancel Sponsorship](protocol/public/transactions/cancel-sponsor.md)
     * [Register](protocol/public/transactions/register.md)
     * [Burn](protocol/public/transactions/burn.md)
+  * [Transaction fees](protocol/public/transaction-fees.md)
   * [Consensus protocol](protocol/public/fair\_proof\_of\_stake\_fpos.md)
   * [Activation Protocol](protocol/public/activation-protocol.md)
   * [Data Structures](protocol/public/data\_structures.md)
