@@ -24,15 +24,15 @@
 
 ## Wallets
 
-* [LTO web wallet](wallets/wallet-web-app/README.md)
-  * [Using Ledger](wallets/wallet-web-app/howto-install-lto-app-on-ledger.md)
-  * [ERC20 Token Swap](wallets/wallet-web-app/erc20-token-swap.md)
+* [LTO web wallet](wallets/wallet-web-app.md)
+  * [Using Ledger](wallets/howto-install-lto-app-on-ledger.md)
 * [Universal Wallet](wallets/universal-wallet.md)
 * [LTO CLI](wallets/lto-cli.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
   * [Stakely.io wallet](wallets/third-party-wallets/stakely.io-wallet/README.md)
     * [Web wallet](wallets/third-party-wallets/stakely.io-wallet/ledger.md)
     * [Commandline](wallets/third-party-wallets/stakely.io-wallet/commandline.md)
+* [ERC20 Token Swap](wallets/erc20-token-swap.md)
 
 ## Running a node <a href="#node" id="node"></a>
 
