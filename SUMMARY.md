@@ -25,6 +25,7 @@
 ## Wallets
 
 * [LTO web wallet](wallets/wallet-web-app.md)
+* [Universal Wallet](wallets/universal-wallet.md)
 * [LTO CLI](wallets/lto-cli.md)
 * [Using Ledger](wallets/howto-install-lto-app-on-ledger.md)
 * [Third-Party Wallets](wallets/third-party-wallets/README.md)
@@ -94,6 +95,7 @@
 * [Ownable Architecture](ownables/ownable-architecture/README.md)
   * [Smart Contract](ownables/ownable-architecture/smart-contract.md)
   * [Widget](ownables/ownable-architecture/widget.md)
+* [Ownable Bridge](ownables/ownable-bridge.md)
 
 ## Libraries
 
@@ -113,7 +115,6 @@
   * [HTTP Authentication](libraries/php/http-authentication.md)
   * [Commandline scripts](libraries/php/commandline-scripts.md)
 * [Java](libraries/java.md)
-* [Go](libraries/go.md)
 
 ## Protocol
 
