@@ -14,7 +14,7 @@ The wallet web app operates fully on the client side. Accounts are only stored l
 
 Transactions are signed locally, and only the signed transaction is broadcasted to a node to be propagated in the LTO Network. No sensitive data is ever transmitted to an external server.
 
-### Create Account
+## Create Account
 
 In order to create an account, go to [https://wallet.lto.network/](https://wallet.lto.network/) and click on **Create Account** in the top right corner. It will notify you about creating a new account - click **Continue**.
 
@@ -34,11 +34,11 @@ The screen provides two options:
 * "I've written it down" - Click this if you have written down your seed phrase, you will be asked to **verify the seed** after. Confirm if you did.
 * "Do it later" - It will open the wallet immediately **without** confirming/verifying the seed phrase. You can obtain the seed phrase in the "Settings" menu when the account is unlocked.
 
-### Interface
+## Interface
 
 The interface of the wallet is pretty self-explanatory and intuitive while using it.
 
-#### Main screen
+### Main screen
 
 1. Your wallet's public address
 2. The total amount your wallet holds
@@ -50,7 +50,7 @@ The interface of the wallet is pretty self-explanatory and intuitive while using
 
 ![](<../.gitbook/assets/image (2).png>)
 
-#### Leasing
+### Leasing
 
 1. Start a new lease (full how-to available [here](../tutorials/buying-and-staking-lto/staking-lto-tokens.md))
 2. List of lease transactions for your wallet
@@ -58,11 +58,15 @@ The interface of the wallet is pretty self-explanatory and intuitive while using
 
 ![](<../.gitbook/assets/image (6).png>)
 
-#### Bridge
+### Bridge
 
-A how-to on the bridge is available [here](../tutorials/buying-and-staking-lto/using-the-lto-bridge.md).
+The Bridge allows swapping LTO to tokens to ERC20 on Ethereum or BEP2 on Binance chain. For more information, please follow the bridging guide.
 
-**Settings**
+{% content-ref url="../tutorials/buying-and-staking-lto/using-the-lto-bridge.md" %}
+[using-the-lto-bridge.md](../tutorials/buying-and-staking-lto/using-the-lto-bridge.md)
+{% endcontent-ref %}
+
+### **Settings**
 
 1. Your public wallet address
 2. Your public key
@@ -70,6 +74,6 @@ A how-to on the bridge is available [here](../tutorials/buying-and-staking-lto/u
 4. Your private key (Do not share this with anyone!)
 5. Ability to set a script (Smart Account). It provides an option to disable the ability to transfer coins and would set it so it can only do other transactions like anchoring. Do not use this as a coin holder, this is mostly used by integrators.
 
-**Note** that certain attributes are not visible in case you connected with a Ledger device.
+**Note** that certain attributes are not visible in case you are connected with a Ledger device or Universal Wallet.
 
 ![](<../.gitbook/assets/image (7).png>)
