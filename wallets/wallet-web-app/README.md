@@ -18,16 +18,16 @@ Transactions are signed locally, and only the signed transaction is broadcasted 
 
 In order to create an account, go to [https://wallet.lto.network/](https://wallet.lto.network/) and click on **Create Account** in the top right corner. It will notify you about creating a new account - click **Continue**.
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../../.gitbook/assets/image (4).png>)
 
 A name and password are asked to store and secure your account. (Note that this is a non-custodial wallet and this data resides on your PC)
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1).png>)
 
 Click Continue.\
 The next screen will show you your 15 word seed phrase. **Write these words down carefully!** This is needed if you ever want to import your account again.
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 The screen provides two options:
 
@@ -48,19 +48,19 @@ The interface of the wallet is pretty self-explanatory and intuitive while using
 6. List of transfers (incoming/outgoing)
 7. Menu
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../../.gitbook/assets/image (2).png>)
 
 #### Leasing
 
-1. Start a new lease (full how-to available [here](../tutorials/buying-and-staking-lto/staking-lto-tokens.md))
+1. Start a new lease (full how-to available [here](../../tutorials/buying-and-staking-lto/staking-lto-tokens.md))
 2. List of lease transactions for your wallet
 3. Button to cancel an active lease (only visible on active leases)
 
-![](<../.gitbook/assets/image (6).png>)
+![](<../../.gitbook/assets/image (6).png>)
 
 #### Bridge
 
-A how-to on the bridge is available [here](../tutorials/buying-and-staking-lto/using-the-lto-bridge.md).
+A how-to on the bridge is available [here](../../tutorials/buying-and-staking-lto/using-the-lto-bridge.md).
 
 **Settings**
 
@@ -72,4 +72,4 @@ A how-to on the bridge is available [here](../tutorials/buying-and-staking-lto/u
 
 **Note** that certain attributes are not visible in case you connected with a Ledger device.
 
-![](<../.gitbook/assets/image (7).png>)
+![](<../../.gitbook/assets/image (7).png>)
