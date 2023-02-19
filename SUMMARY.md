@@ -24,7 +24,7 @@
 
 ## Wallets
 
-* [LTO web wallet](wallets/wallet-web-app.md)
+* [LTO Web Wallet](wallets/wallet-web-app.md)
   * [Using Ledger](wallets/howto-install-lto-app-on-ledger.md)
 * [Universal Wallet](wallets/universal-wallet.md)
 * [LTO CLI](wallets/lto-cli.md)
