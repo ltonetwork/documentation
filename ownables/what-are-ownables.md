@@ -13,6 +13,7 @@ What makes LTO Network unique is that it’s a hybrid blockchain with a public a
 Since there are no gas fees and no costs for the size of the contracts, smart contracts on the private layer may be larger and more complex than typical blockchain contracts.
 
 * These smart contracts aren’t run on a node but are executed directly in your wallet.
+* Ownables contracts are never published on-chain. They're obtained using a [bridge](ownable-bridge.md).
 * Smart contracts are compiled into WebAssembly using the [CosmWasm](https://cosmwasm.com/) standard library.&#x20;
 * They run in a sandboxed and deterministic runtime environment.
 
