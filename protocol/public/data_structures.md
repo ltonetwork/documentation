@@ -14,7 +14,7 @@ description: Internal data structures of blockchain objects and network messages
 | :--------------------------: | :----------------------: | ------ |
 |       Transaction type       |           Byte           | 1      |
 |            Version           |           Byte           | 1      |
-| _Transaction specific bytes_ |            __            |        |
+| _Transaction specific bytes_ |                          |        |
 |        Proofs version        | Byte (constant, value=1) | 1      |
 |        Proof size (N)        |           Short          | 2      |
 |             Proof            |       Array\[Byte]       | N      |
@@ -29,7 +29,7 @@ description: Internal data structures of blockchain objects and network messages
 |       Sender's key type      |      KeyType (Byte)      | 1             |
 |      Sender's public key     | PublicKey (Array\[Byte]) | 32 \| 33      |
 |              Fee             |           Long           | 8             |
-| _Transaction specific bytes_ |            __            |               |
+| _Transaction specific bytes_ |                          |               |
 |      Sponsor's key type      |      KeyType (Byte)      | 1             |
 |     Sponsor's public key     | PublicKey (Array\[Byte]) | 0 \| 32 \| 33 |
 |        Proofs version        | Byte (constant, value=1) | 1             |

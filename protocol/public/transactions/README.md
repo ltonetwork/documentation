@@ -1,23 +1,6 @@
 # Transactions
 
-| Tx type # | Tx type name                                                                   |
-| --------- | ------------------------------------------------------------------------------ |
-| 1         | Genesis Transaction                                                            |
-| 4         | [Transfer Transaction](transfer-transaction.md)                                |
-| 8         | [Lease Transaction](../../../node/public-node/rest-api/lease\_transactions.md) |
-| 9         | [Cancel Lease Transaction](cancel-lease-transaction.md)                        |
-| 11        | [Mass Transfer Transaction](mass\_transfer\_transaction.md)                    |
-| 12        | [Data Transaction](data.md)                                                    |
-| 13        | [Set Script Transaction](set-script.md)                                        |
-| 15        | [Anchor Transaction](anchor.md)                                                |
-| 16        | [Association Transaction](association.md)                                      |
-| 17        | [Revoke Association Transaction](revoke-association.md)                        |
-| 18        | [Sponsor Transaction](sponsor.md)                                              |
-| 19        | [Cancel Sponsor Transaction](cancel-sponsor.md)                                |
-| 20        | [Register Transaction](register.md)                                            |
-| 21        | [Burn Transaction](burn.md)                                                    |
-| 22        | Mapped Anchor Transaction                                                      |
-| 23        | Statement Transaction                                                          |
+<table><thead><tr><th width="150">Tx type #</th><th>Tx type name</th></tr></thead><tbody><tr><td>1</td><td>Genesis Transaction</td></tr><tr><td>4</td><td><a href="transfer-transaction.md">Transfer Transaction</a></td></tr><tr><td>8</td><td><a href="../../../node/public-node/rest-api/lease_transactions.md">Lease Transaction</a></td></tr><tr><td>9</td><td><a href="cancel-lease-transaction.md">Cancel Lease Transaction</a></td></tr><tr><td>11</td><td><a href="mass_transfer_transaction.md">Mass Transfer Transaction</a></td></tr><tr><td>12</td><td><a href="data.md">Data Transaction</a></td></tr><tr><td>13</td><td><a href="set-script.md">Set Script Transaction</a></td></tr><tr><td>15</td><td><a href="anchor.md">Anchor Transaction</a></td></tr><tr><td>16</td><td><a href="association.md">Association Transaction</a></td></tr><tr><td>17</td><td><a href="revoke-association.md">Revoke Association Transaction</a></td></tr><tr><td>18</td><td><a href="sponsor.md">Sponsor Transaction</a></td></tr><tr><td>19</td><td><a href="cancel-sponsor.md">Cancel Sponsor Transaction</a></td></tr><tr><td>20</td><td><a href="register.md">Register Transaction</a></td></tr><tr><td>21</td><td><a href="burn.md">Burn Transaction</a></td></tr><tr><td>22</td><td>Mapped Anchor Transaction</td></tr><tr><td>23</td><td>Statement Transaction</td></tr></tbody></table>
 
 ## Signing a transaction
 

@@ -2,7 +2,7 @@
 
 #### Summary
 
-The following dependencies will be required to develop Ownables:
+The following dependencies will be required to develop OWNABLES:
 
 * `rustc` and `cargo` versions 1.61.0 or later
 * `npm` version 8.11.0 or later
@@ -13,7 +13,7 @@ If you do not have the above dependencies on your machine, see the sections belo
 
 ### Rust and Cargo
 
-Ownable packages are built with Rust.
+OWNABLES packages are built with Rust.
 
 To install Rust and its package manager Cargo, follow the official [documentation guide from the Rust Book](https://doc.rust-lang.org/cargo/getting-started/installation.html). On Linux and macOS systems, this is done as follows:
 
@@ -31,7 +31,7 @@ The version should be 1.61.0 or later.
 
 ### Node & npm
 
-`npm` will be needed for running the local wallet instance and building the Ownable packages.
+`npm` will be needed for running the local wallet instance and building the OWNABLES packages.
 
 Install it as described on the official [Node.js website](https://nodejs.org/en/download/).
 

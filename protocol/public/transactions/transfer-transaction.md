@@ -39,7 +39,7 @@ The binary data structure of the unsigned transaction.
 
 {% tabs %}
 {% tab title="V3 (current)" %}
-<table><thead><tr><th data-type="number">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=4)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Chain id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>9</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>10</td><td align="center">Attachment length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>11</td><td align="center">Attachment</td><td align="center">Array[Byte]</td><td>N</td></tr></tbody></table>
+<table><thead><tr><th width="150" data-type="number">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=4)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Chain id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>9</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>10</td><td align="center">Attachment length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>11</td><td align="center">Attachment</td><td align="center">Array[Byte]</td><td>N</td></tr></tbody></table>
 
 {% hint style="info" %}
 * Chain id can be obtained by taking the 2nd byte from the sender address.
@@ -49,17 +49,7 @@ The binary data structure of the unsigned transaction.
 {% endtab %}
 
 {% tab title="V2" %}
-| # |       Field Name      |           Type           | Length |
-| - | :-------------------: | :----------------------: | ------ |
-| 1 |    Transaction type   | Byte (constant, value=4) | 1      |
-| 2 |        Version        | Byte (constant, value=2) | 1      |
-| 3 |  Sender's public key  | PublicKey (Array\[Byte]) | 32     |
-| 4 |       Timestamp       |           Long           | 8      |
-| 5 |         Amount        |           Long           | 8      |
-| 6 |          Fee          |           Long           | 8      |
-| 7 |       Recipient       |  Address (Array\[Byte])  | 26     |
-| 8 | Attachment length (N) |           Short          | 2      |
-| 9 |       Attachment      |       Array\[Byte]       | N      |
+<table><thead><tr><th width="150">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=4)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=2)</td><td>1</td></tr><tr><td>3</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>6</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>7</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>8</td><td align="center">Attachment length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>9</td><td align="center">Attachment</td><td align="center">Array[Byte]</td><td>N</td></tr></tbody></table>
 
 {% hint style="info" %}
 Integers (short, int, long) have a big endian byte order.
@@ -67,16 +57,7 @@ Integers (short, int, long) have a big endian byte order.
 {% endtab %}
 
 {% tab title="V1" %}
-| # |       Field Name      |           Type           | Length |
-| - | :-------------------: | :----------------------: | ------ |
-| 1 |    Transaction type   | Byte (constant, value=4) | 1      |
-| 2 |  Sender's public key  | PublicKey (Array\[Byte]) | 32     |
-| 3 |       Timestamp       |           Long           | 8      |
-| 4 |         Amount        |           Long           | 8      |
-| 5 |          Fee          |           Long           | 8      |
-| 6 |       Recipient       |  Address (Array\[Byte])  | 26     |
-| 7 | Attachment length (N) |           Short          | 2      |
-| 8 |       Attachment      |       Array\[Byte]       | N      |
+<table><thead><tr><th width="150">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=4)</td><td>1</td></tr><tr><td>2</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32</td></tr><tr><td>3</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>4</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>6</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>7</td><td align="center">Attachment length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>8</td><td align="center">Attachment</td><td align="center">Array[Byte]</td><td>N</td></tr></tbody></table>
 
 {% hint style="info" %}
 Integers (short, int, long) have a big endian byte order.

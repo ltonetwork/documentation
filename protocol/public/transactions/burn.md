@@ -36,17 +36,7 @@ The binary data structure of the unsigned transaction.
 
 {% tabs %}
 {% tab title="V3 (current)" %}
-| #   |      Field Name     |            Type           | Length   |
-| --- | :-----------------: | :-----------------------: | -------- |
-| 1   |   Transaction type  | Byte (constant, value=21) | 1        |
-| 2   |       Version       |  Byte (constant, value=3) | 1        |
-| 3   |       Chain id      |            Byte           | 1        |
-| 4   |      Timestamp      |            Long           | 8        |
-| 5   |  Sender's key type  |       KeyType (Byte)      | 1        |
-| 6   | Sender's public key |  PublicKey (Array\[Byte]) | 32 \| 33 |
-| 7   |         Fee         |            Long           | 8        |
-| 8   |        Amount       |            Long           | 8        |
-| ... |                     |                           |          |
+<table><thead><tr><th width="150">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=21)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Chain id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>...</td><td align="center"></td><td align="center"></td><td></td></tr></tbody></table>
 
 
 

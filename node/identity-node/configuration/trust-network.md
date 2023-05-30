@@ -109,7 +109,7 @@ The `type` property does not mean the _id_ of the role, but instead the associat
 }
 ```
 
-In the example above, we can see that **ministry** can issue the roles of **university** and **authority** by resolving associations of `type: 100` **** and `type: 101` respectively. But **authority** issues the role of **sub\_authority** when the association is `type: 101`.
+In the example above, we can see that **ministry** can issue the roles of **university** and **authority** by resolving associations of `type: 100` and `type: 101` respectively. But **authority** issues the role of **sub\_authority** when the association is `type: 101`.
 
 ### Web of trust
 
