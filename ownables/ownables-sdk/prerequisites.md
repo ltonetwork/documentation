@@ -5,6 +5,7 @@
 The following dependencies will be required to develop OWNABLES:
 
 * `rustc` and `cargo` versions 1.61.0 or later
+* `clang`
 * `npm` version 8.11.0 or later
 * `node` version 16.15.0 or later
 * `wasm-pack` version 0.10.2 or later
@@ -29,7 +30,20 @@ $ cargo version
 
 The version should be 1.61.0 or later.
 
-### Node & npm
+### clang
+
+Rust may depend on [clang](https://clang.llvm.org/) for building an ownable. Install clang, if you come across the following error
+
+```
+Failed to find tool. Is `clang` installed?
+```
+
+On Mac, clang should come pre-installed. On Linux you should be able to install it from the distro's repository. E.g. on Ubuntu Linux run
+
+<pre class="language-shell-session"><code class="lang-shell-session"><strong>$ apt install clang
+</strong></code></pre>
+
+### Node and npm
 
 `npm` will be needed for running the local wallet instance and building the OWNABLES packages.
 
