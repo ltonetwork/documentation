@@ -5,7 +5,7 @@
 You can create a new account with a random seed with keypair (ed25519):
 
 ```javascript
-import LTO from "@ltonetwork/lto";
+import LTO from '@ltonetwork/lto';
 
 const lto = new LTO("T");
 const account = lto.account();
@@ -18,7 +18,7 @@ console.log(account.privateKey);  // 4dXzhzRcpiukcRBUGfre8s8aRaUqwyKHUzfbQTtNRRM
 It's also possible to recover a keypair from an existing seed:
 
 ```javascript
-import { AccountFactoryECDSA } from '@ltonetwork/lto/raw/accounts';
+import { AccountFactoryECDSA } from '@ltonetwork/lto';
 
 const seed = "const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';"
 const account = new AccountFactoryED25519("T").createFromSeed(seed);
