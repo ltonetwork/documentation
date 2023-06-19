@@ -5,7 +5,7 @@
 You can create a new account with a random seed with keypair (ed25519):
 
 ```javascript
-import LTO from "@ltonetwork/lto/raw/LTO";
+import LTO from "@ltonetwork/lto";
 
 const lto = new LTO("T");
 const account = lto.account();
