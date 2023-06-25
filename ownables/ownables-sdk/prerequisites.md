@@ -4,6 +4,7 @@
 
 The following dependencies will be required to develop OWNABLES:
 
+* `git`
 * `rustc` and `cargo` versions 1.61.0 or later
 * `clang`
 * `npm` version 8.11.0 or later
@@ -12,9 +13,15 @@ The following dependencies will be required to develop OWNABLES:
 
 If you do not have the above dependencies on your machine, see the sections below for instructions.
 
+### Git
+
+[Download and install git](https://git-scm.com/downloads). Git is a version control system. It's used to fetch the Ownables SDK from GitHub.
+
+Alternatively, you can use [GitHub desktop](https://desktop.github.com/), which is more user-friendly.
+
 ### Rust and Cargo
 
-OWNABLES packages are built with Rust.
+Ownable packages are built with Rust.
 
 To install Rust and its package manager Cargo, follow the official [documentation guide from the Rust Book](https://doc.rust-lang.org/cargo/getting-started/installation.html). On Linux and macOS systems, this is done as follows:
 

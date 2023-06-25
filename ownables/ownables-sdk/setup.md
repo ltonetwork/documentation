@@ -32,9 +32,9 @@ Once that is done, navigate to [http://localhost:8080/](http://localhost:8080/) 
 
 
 
-### Building the OWNABLE
+### Building the Ownable
 
-Now that the wallet is running, we need some OWNABLES packages that we can import.
+Now that the wallet is running, we need some Ownable packages that we can import.
 
 There are a few handy commands for that.
 
@@ -44,19 +44,19 @@ The `ownables:build` script, which takes a `--package` parameter that specifies 
 $ npm run ownables:build --package=potion
 ```
 
-Running this will produce a zip file containing the OWNABLE under `ownables` folder.
+Running this will produce a zip file containing the Ownable under `ownables` folder.
 
-Now we can go back to our wallet and click the :heavy\_plus\_sign: icon at the bottom right. This will open an action menu in which we can choose to import a new OWNABLE from a file and select the zipped package from the previous step.
+Now we can go back to our wallet and click the :heavy\_plus\_sign: icon at the bottom right. This will open an action menu in which we can choose to import a new Ownable from a file and select the zipped package from the previous step.
 
-After importing the potion OWNABLE package, there will be another option in the action menu named **potion**, clicking on which will issue the OWNABLE.
+After importing the potion Ownable package, there will be another option in the action menu named **potion**, clicking on which will issue the Ownable.
 
 <figure><img src="../../.gitbook/assets/ownables_wallet_initialized.png" alt=""><figcaption><p>Wallet with an Ownable</p></figcaption></figure>
 
-_Success!_ The issued OWNABLE will be visible in your wallet.
+_Success!_ The issued Ownable will be visible in your wallet.
 
 #### Building all OWNABLES
 
-In case you want to build all OWNABLES in your project at once, run:
+In case you want to build all Ownables in your project at once, run:
 
 ```shell-session
 $ npm run ownables:build-all
