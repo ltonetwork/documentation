@@ -53,7 +53,7 @@ const account = lto.account({ seed, nonce: new Binary('some value') });
 
 ### Multi-chain accounts
 
-LTO Networks supports 3 ciphers: ed25519, secp256k1, and secp256r1. To create an Ethereum-compatible key pair, use the secp256k1 key type and set the correct derivation path
+LTO Networks supports 3 ciphers: ed25519, secp256k1, and secp256r1. To create an Ethereum-compatible key pair, use the secp256k1 key type and the Ethereum derivation path
 
 ```javascript
 import LTO from '@ltonetwork/lto';
@@ -61,7 +61,9 @@ import LTO from '@ltonetwork/lto';
 const lto = new LTO('T');
 const account = lto.account({ keyType: 'secp256k1', derivationPath: `m/44'/60'/0'/0` });
 
-console.log(account.getAddressOnNetwork('ethereum'));
+console.log(account.seed);
+console.log(account.address); // LTO address
+console.log(account.getAddressOnNetwork('ethereum')); // Ethereum address
 ```
 
 ## Seed encryption
