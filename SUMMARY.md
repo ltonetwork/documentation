@@ -88,14 +88,14 @@
 
 ## Ownables
 
-* [What are OWNABLES?](ownables/what-are-ownables.md)
-* [OWNABLES SDK](ownables/ownables-sdk/README.md)
+* [What are Ownables?](ownables/what-are-ownables.md)
+* [Ownables SDK](ownables/ownables-sdk/README.md)
   * [Prerequisites](ownables/ownables-sdk/prerequisites.md)
   * [Setup](ownables/ownables-sdk/setup.md)
-* [OWNABLES Architecture](ownables/ownables-architecture/README.md)
+* [Ownables Architecture](ownables/ownables-architecture/README.md)
   * [Smart Contract](ownables/ownables-architecture/smart-contract.md)
   * [Widget](ownables/ownables-architecture/widget.md)
-* [OWNABLES Bridge](ownables/ownables-bridge.md)
+* [Ownables Bridge](ownables/ownables-bridge.md)
 
 ## Libraries
 
