@@ -66,6 +66,8 @@ console.log(account.address); // LTO address
 console.log(account.getAddressOnNetwork('ethereum')); // Ethereum address
 ```
 
+For secp256k1, the seed phrase is generated according to bip32 with a length of 12 words. When creating the account from seed, also pass the derivation path.
+
 ## Seed encryption
 
 It's recommended to encrypt your seed when storing the account
