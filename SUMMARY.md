@@ -101,8 +101,10 @@
 
 * [JavaScript](libraries/javascript/README.md)
   * [Accounts](libraries/javascript/accounts.md)
-  * [Public layer](libraries/javascript/public-layer.md)
-  * [Private layer](libraries/javascript/private-layer.md)
+  * [Transactions](libraries/javascript/public-layer.md)
+  * [Event chain](libraries/javascript/private-layer.md)
+  * [Messages](libraries/javascript/messages.md)
+  * [Identities](libraries/javascript/identities.md)
   * [HTTP Authentication](libraries/javascript/http-authentication.md)
 * [Python](libraries/python/README.md)
   * [Accounts](libraries/python/accounts.md)

@@ -1,4 +1,8 @@
-# Public layer
+---
+description: Send transactions on the public layer
+---
+
+# Transactions
 
 ## Basic usage
 
@@ -81,9 +85,9 @@ const transaction = await new Anchor(new Binary('foo').hash())
 
 Alternatively, you can set the `parent` property of an account to automatically have the parent sponsor all transactions of the child.
 
-## Transactions
+## Transaction types
 
-#### Transfer Transaction
+### Transfer Transaction
 
 ```js
 import {Transfer} from '@ltonetwork/lto';
@@ -91,7 +95,7 @@ import {Transfer} from '@ltonetwork/lto';
 const transaction = new Transfer(recipient, amount, attachment)
 ```
 
-#### Mass Transfer Transaction
+### Mass Transfer Transaction
 
 ```js
 import {MassTransfer} from '@ltonetwork/lto';
@@ -99,7 +103,7 @@ import {MassTransfer} from '@ltonetwork/lto';
 const transaction = new MassTransfer([{recipient: recipient1, amount: amount1}, {recipient: recipient2, amount: amount2}], attachment)
 ```
 
-#### Anchor Transaction
+### Anchor Transaction
 
 ```js
 import {Anchor} from '@ltonetwork/lto';
@@ -107,7 +111,7 @@ import {Anchor} from '@ltonetwork/lto';
 const transaction = new Anchor(hash);
 ```
 
-#### Lease Transaction
+### Lease Transaction
 
 ```js
 import {Lease} from '@ltonetwork/lto';
@@ -115,7 +119,7 @@ import {Lease} from '@ltonetwork/lto';
 const transaction = new Lease(recipient, amount);
 ```
 
-#### Cancel Lease Transaction
+### Cancel Lease Transaction
 
 ```js
 import {CancelLease} from '@ltonetwork/lto';
@@ -123,7 +127,7 @@ import {CancelLease} from '@ltonetwork/lto';
 const transaction = new CancelLease(leaseId);
 ```
 
-#### SetScript Transaction
+### SetScript Transaction
 
 Create a `SetScript` transaction using the `compile` method of the public node.
 
@@ -139,7 +143,7 @@ import {SetScript} from '@ltonetwork/lto';
 const transaction = new SetScript(null);
 ```
 
-#### Sponsorship transaction
+### Sponsorship transaction
 
 ```js
 import {SetScript} from '@ltonetwork/lto';
@@ -147,7 +151,7 @@ import {SetScript} from '@ltonetwork/lto';
 const transaction = new Sponsorship(recipient);
 ```
 
-#### Cancel Sponsorship transaction
+### Cancel Sponsorship transaction
 
 ```js
 import {CancelSponsorship} from '@ltonetwork/lto';
@@ -155,7 +159,7 @@ import {CancelSponsorship} from '@ltonetwork/lto';
 const transaction = new CancelSponsorship(recipient);
 ```
 
-#### Association transaction
+### Association transaction
 
 ```js
 import {Association} from '@ltonetwork/lto';
@@ -163,7 +167,7 @@ import {Association} from '@ltonetwork/lto';
 transaction = new Association(recipient, association_type, hash);
 ```
 
-#### Revoke Association transaction
+### Revoke Association transaction
 
 ```js
 import {RevokeAssociation} from '@ltonetwork/lto';
