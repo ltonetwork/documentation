@@ -54,7 +54,7 @@ After importing the potion Ownable package, there will be another option in the 
 
 _Success!_ The issued Ownable will be visible in your wallet.
 
-#### Building all OWNABLES
+#### Building all Ownables
 
 In case you want to build all Ownables in your project at once, run:
 
@@ -67,5 +67,5 @@ It will simply run the previous script in every directory under `/ownables` .
 
 
 {% hint style="info" %}
-To get more insight on how to build your own custom OWNABLES read about the [OWNABLE Architecture](../ownables-architecture/smart-contract.md).
+To get more insight on how to build your own custom Ownable read about the [Ownable Architecture](../ownables-architecture/smart-contract.md).
 {% endhint %}
