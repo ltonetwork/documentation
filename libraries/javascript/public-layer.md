@@ -1,82 +1,188 @@
 # Public layer
 
-## Transactions
+## Basic usage
 
-Create a transaction and sign it from a minimal set of required params. If you want to create Transfer transaction the minimum you need to provide is **amount** and **recipient** as defined in Transfer params:
+```js
+import LTO, { Binary } from '@ltonetwork/lto';
+enum RELATIONSHIP { MEMBER_OF=0x3400 };
 
-```javascript
-import Transfer from "@ltonetwork/lto/raw/transactions/Transfer";
+lto = new LTO('T');
+const account = lto.account({seed: seed});
 
-const amount = 1000;
-const recipient = "3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB";
+lto.transfer(account, recipient, 100 * 10^8);
+lto.massTransfer(account, [{recipient: recipient1, amount: 100 * 10^8}, {recipient: recipient2, amount: 50 * 10^8}]);
+lto.anchor(account, new Binary('some value').hash(), new Binary('other value').hash());
+lto.associate(account, RELATIONSHIP.MEMBER_OF, recipient);
+lto.revokeAssociation(account, RELATIONSHIP.MEMBER_OF, recipient);
+lto.lease(account, recipient, 10000 * 10^8);
+lto.cancelLease(account, leaseId);
+lto.sponsor(account, otherAccount);
+lto.cancelSponsorship(account, otherAccount);
+
+lto.getBalance(account);
+lto.setData(account, {foo: 'bar'});
+lto.getData(account);
+```
+
+_Amounts are in `LTO * 10^8`. Eg: 12.46 LTO is `1246000000`._
+
+## Executing Transactions
+
+The `LTO` class provides a simple way for doing transactions. Alternatively you can create a transaction object, sign it, and broadcast it.
+
+### Create transaction
+
+```js
+import {Transfer} from '@ltonetwork/lto';
 
 const transaction = new Transfer(recipient, amount);
 ```
 
-You can sign a transaction with your account:
+### Sign transaction
 
-```typescript
-transaction.signWith(account);
+The Transaction needs then to be signed. In order to sign a transaction an account is needed.
+
+```js
+account.sign(transaction);
 ```
 
-Output will be a signed transfer transaction:
+### Broadcasting transaction
 
-```
-{ 
-  id: '3sgkGCxZmPpKDz8BNztWNoVEiXXgWgeZdYpJNh1CqtKp',
-  type: 4,
-  version: 2,
-  senderPublicKey: '98Pw96PizgJC7MHT8RUDJGS7YGr68YDqmSA2X83XJeDX',
-  recipient: '3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB',
-  amount: 1,
-  attachment: '',
-  fee: 100000,
-  timestamp: 1536917842558,
-  proofs: [ 
-    '4r7Amhzmpj2yh7uCiTkTjosVwKfHUTucoyitRXafzTBtQrsdqVGcJvJdneHakNq2LcsBWCxfDowkke7RbAMMZoaQ' 
-  ]
-}
+For last the transaction needs to be broadcasted to the node. In order to do so we need to connect to the node using the PublicNode class.
+
+```js
+const broadcastedTx = await lto.node.broadcast(transaction);
 ```
 
-Now you are able to POST it to LTO API or store for future purpose or you can decide to sponsor the transaction from another account
+### Fluent interface
 
-```javascript
-transaction.sponsorWith(otherPartyAccount);
+Transaction classes have convenience methods, providing a fluent interface
+
+```js
+import {Transfer} from '@ltonetwork/lto';
+
+const transaction = await new Transfer(recipient, amount)
+    .signWith(account)
+    .broadcastTo(lto.node);
 ```
 
-So now there are two proofs:
+### Sponsoring transactions
 
-```
-{ 
-  id: '3sgkGCxZmPpKDz8BNztWNoVEiXXgWgeZdYpJNh1CqtKp',
-  type: 4,
-  version: 2,
-  senderPublicKey: '98Pw96PizgJC7MHT8RUDJGS7YGr68YDqmSA2X83XJeDX',
-  recipient: '3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB',
-  amount: 1,
-  attachment: '',
-  fee: 100000,
-  timestamp: 1536917842558,
-  proofs: [ 
-    '4r7Amhzmpj2yh7uCiTkTjosVwKfHUTucoyitRXafzTBtQrsdqVGcJvJdneHakNq2LcsBWCxfDowkke7RbAMMZoaQ',
-    '4m2GCeWc3jFg7qE7D67rzD26KTe2YMaSSz99GcxGCezBAuh6LSWBCEnDbPDfRMKDoCZDdTLgjovdF9LhDzan4Qah' 
-  ]
-}
+A second account can offer to pay for the transaction fees by co-signing the transaction.
+
+```js
+import {Anchor} from '@ltonetwork/lto';
+
+const transaction = await new Anchor(new Binary('foo').hash())
+    .signWith(someAccount)
+    .sponsorWith(mainAccount)
+    .broadcastTo(lto.node);
 ```
 
-## Broadcast
+Alternatively, you can set the `parent` property of an account to automatically have the parent sponsor all transactions of the child.
 
-To send transaction you can use either node [REST API](https://nodes.lto.network/api-docs/index.html#!/transactions/broadcast) or broadcast helper function:
+## Transactions
 
-```javascript
-import {PublicNode} from "@ltonetwork/lto/raw/PublicNode";
+#### Transfer Transaction
 
-const node = new PublicNode('https://nodes.lto.network');
+```js
+import {Transfer} from '@ltonetwork/lto';
 
-node.broadcast(signedTx).then(resp => console.log(resp))
+const transaction = new Transfer(recipient, amount, attachment)
 ```
 
-You can send tx to any lto node you like:. E.g.:
+#### Mass Transfer Transaction
 
-* [https://testnet.lto.network](https://testnet.lto.network/) - lto TESTNET nodes hosted by LTO Network
-* [https://nodes.lto.network](https://nodes.lto.network/) - lto MAINNET nodes hosted by LTO Network
+```js
+import {MassTransfer} from '@ltonetwork/lto';
+
+const transaction = new MassTransfer([{recipient: recipient1, amount: amount1}, {recipient: recipient2, amount: amount2}], attachment)
+```
+
+#### Anchor Transaction
+
+```js
+import {Anchor} from '@ltonetwork/lto';
+
+const transaction = new Anchor(hash);
+```
+
+#### Lease Transaction
+
+```js
+import {Lease} from '@ltonetwork/lto';
+
+const transaction = new Lease(recipient, amount);
+```
+
+#### Cancel Lease Transaction
+
+```js
+import {CancelLease} from '@ltonetwork/lto';
+
+const transaction = new CancelLease(leaseId);
+```
+
+#### SetScript Transaction
+
+Create a `SetScript` transaction using the `compile` method of the public node.
+
+```js
+const transaction = lto.node.compile(script);
+```
+
+Clear a script by using `null` as compiled script.
+
+```js
+import {SetScript} from '@ltonetwork/lto';
+
+const transaction = new SetScript(null);
+```
+
+#### Sponsorship transaction
+
+```js
+import {SetScript} from '@ltonetwork/lto';
+
+const transaction = new Sponsorship(recipient);
+```
+
+#### Cancel Sponsorship transaction
+
+```js
+import {CancelSponsorship} from '@ltonetwork/lto';
+
+const transaction = new CancelSponsorship(recipient);
+```
+
+#### Association transaction
+
+```js
+import {Association} from '@ltonetwork/lto';
+
+transaction = new Association(recipient, association_type, hash);
+```
+
+#### Revoke Association transaction
+
+```js
+import {RevokeAssociation} from '@ltonetwork/lto';
+
+transaction = new RevokeAssociation(recipient, association_type, hash);
+
+```
+
+## Public Node
+
+By default the following public nodes are used
+
+* **Mainnet** - https://nodes.lto.network
+* **Testnet** - https://testnet.lto.network
+
+To use your own public node, set the node address of the `LTO` object.
+
+```
+lto.nodeAddress = "http://localhost:6869";
+```
+
+The `lto.node` object will automatically be replaced when the node address is changed.
