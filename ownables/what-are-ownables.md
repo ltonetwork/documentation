@@ -2,11 +2,11 @@
 
 <figure><img src="../.gitbook/assets/ownables_twitter.png" alt=""><figcaption></figcaption></figure>
 
-OWNABLES are digital assets that live in your wallet. To understand the power of Ownables, we first need to look at how NFTs and blockchain wallets work.
+Ownables are digital assets that live in your wallet. To understand the power of Ownables, we first need to look at how NFTs and blockchain wallets work.
 
 A blockchain wallet doesn’t hold NFTs. It only holds key pairs which are used for cryptographic signatures. Each key pair is associated with a blockchain address. For an NFT, an on-chain record is kept connecting a unique number with the owner’s address. Transferring or interacting with the NFT requires the owner to sign with its private key.
 
-OWNABLES flip this concept around. **Everything concerning the Ownable is stored in your wallet.** Not only images or media but also the smart contract and event chain. We have also made it possible to embed whole applications, opening up a world of endless possibilities.
+Ownables flip this concept around. **Everything concerning the Ownable is stored in your wallet.** Not only images or media but also the smart contract and event chain. We have also made it possible to embed whole applications, opening up a world of endless possibilities.
 
 What makes LTO Network unique is that it’s a hybrid blockchain with a public and private layer. The private layer allows holding info privately, delegating consensus to the public layer. Ownables live on the [private](../protocol/private/ "mention").
 
@@ -24,5 +24,5 @@ Smart Contracts are typically written in Rust, but any WebAssembly program can f
 
 
 {% hint style="success" %}
-Want to explore OWNABLES and create your own? [Get started with Ownables SDK.](ownables-sdk/)
+Want to explore Ownables and create your own? [Get started with Ownables SDK.](ownables-sdk/)
 {% endhint %}
