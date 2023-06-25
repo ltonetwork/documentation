@@ -93,6 +93,7 @@ import LTO from '@ltonetwork/lto';
 const encryptedSeed = 'U2FsdGVkX18tLqNbaYdDu5V27VYD4iSylvKnBjMmvQoFFJO1KbsoKKW1eK/y6kqahvv4eak8Uf8tO1w2I9hbcWFUJDysZh1UyaZt6TmXwYfUZq163e9qRhPn4xC8VkxFCymdzYNBAZgyw8ziRhSujujiDZFT3PTmhhkBwIT7FMs=';
 const password = 'verysecretpassword';
 
+const lto = new LTO('T');
 const account = lto.account({ seed: encryptedSeed, password });
 
 console.log(account.phrase); // satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek
