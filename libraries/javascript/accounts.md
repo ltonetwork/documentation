@@ -25,7 +25,48 @@ const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut we
 const account = lto.account({ seed });
 ```
 
-Your seed can be encrypted:
+### Nonce
+
+You can create multiple accounts from a single seed phrase, by passing a nonce.
+
+```javascript
+import LTO from '@ltonetwork/lto';
+
+const lto = new LTO('T');
+const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';
+
+const account1 = lto.account({ seed, nonce: 0 });
+const account2 = lto.account({ seed, nonce: 1 });
+const account3 = lto.account({ seed, nonce: 2 });
+```
+
+Alternatively, pass a binary value as a nonce. Use the `Binary` class to convert a string to a binary value
+
+```javascript
+import LTO, { Binary } from '@ltonetwork/lto';
+
+const lto = new LTO('T');
+const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';
+
+const account = lto.account({ seed, nonce: new Binary('some value') });
+```
+
+### Multi-chain accounts
+
+LTO Networks supports 3 ciphers: ed25519, secp256k1, and secp256r1. To create an Ethereum-compatible key pair, use the secp256k1 key type and set the correct derivation path
+
+```javascript
+import LTO from '@ltonetwork/lto';
+
+const lto = new LTO('T');
+const account = lto.account({ keyType: 'secp256k1', derivationPath: `m/44'/60'/0'/0` });
+
+console.log(account.getAddressOnNetwork('ethereum'));
+```
+
+## Seed encryption
+
+It's recommended to encrypt your seed when storing the account
 
 ```javascript
 import LTO from '@ltonetwork/lto';
@@ -40,9 +81,7 @@ const encrypted = account.encrypt(password);
 console.log(encrypted); //U2FsdGVkX18tLqNbaYdDu5V27VYD4iSylvKnBjMmvQoFFJO1KbsoKKW1eK/y6kqahvv4eak8Uf8tO1w2I9hbcWFUJDysZh1UyaZt6TmXwYfUZq163e9qRhPn4xC8VkxFCymdzYNBAZgyw8ziRhSujujiDZFT3PTmhhkBwIT7FMs=
 ```
 
-### **Seed decryption**
-
-To decrypt your seed:
+Supply the password to create the account from an encrypted seed
 
 ```javascript
 import LTO from '@ltonetwork/lto';
