@@ -11,7 +11,7 @@ import LTO, { Binary } from '@ltonetwork/lto';
 enum RELATIONSHIP { MEMBER_OF=0x3400 };
 
 lto = new LTO('T');
-const account = lto.account({seed: seed});
+const account = lto.account();
 
 lto.transfer(account, recipient, 100 * 10^8);
 lto.massTransfer(account, [{recipient: recipient1, amount: 100 * 10^8}, {recipient: recipient2, amount: 50 * 10^8}]);
