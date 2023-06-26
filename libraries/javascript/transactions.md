@@ -13,22 +13,24 @@ enum RELATIONSHIP { MEMBER_OF=0x3400 };
 lto = new LTO('T');
 const account = lto.account();
 
-lto.transfer(account, recipient, 100 * 10^8);
-lto.massTransfer(account, [{recipient: recipient1, amount: 100 * 10^8}, {recipient: recipient2, amount: 50 * 10^8}]);
+lto.transfer(account, recipient, 100_00000000);
+lto.massTransfer(account, [{recipient: recipient1, amount: 100_00000000}, {recipient: recipient2, amount: 50_00000000}]);
 lto.anchor(account, new Binary('some value').hash(), new Binary('other value').hash());
 lto.associate(account, RELATIONSHIP.MEMBER_OF, recipient);
 lto.revokeAssociation(account, RELATIONSHIP.MEMBER_OF, recipient);
-lto.lease(account, recipient, 10000 * 10^8);
-lto.cancelLease(account, leaseId);
-lto.sponsor(account, otherAccount);
-lto.cancelSponsorship(account, otherAccount);
+lto.lease(account, recipient, 10000_00000000);
+lto.cancelLease(account, '9V7tdKEEJiH86eCPNxPg1vxhmp8oNH6Mqtf1fQeSeS4U');
+lto.sponsor(account, recipient);
+lto.cancelSponsorship(account, recipient);
 
 lto.getBalance(account);
 lto.setData(account, {foo: 'bar'});
 lto.getData(account);
 ```
 
-_Amounts are in `LTO * 10^8`. Eg: 12.46 LTO is `1246000000`._
+{% hint style="info" %}
+Amounts are in `LTO * 10^8`. Eg: 12.46 LTO is `1246000000`, which may be written as `12_46000000` in JavaScript.
+{% endhint %}
 
 ## Executing Transactions
 
@@ -178,7 +180,7 @@ transaction = new RevokeAssociation(recipient, association_type, hash);
 
 ## Public Node
 
-By default the following public nodes are used
+By default, the following public nodes are used
 
 * **Mainnet** - https://nodes.lto.network
 * **Testnet** - https://testnet.lto.network
