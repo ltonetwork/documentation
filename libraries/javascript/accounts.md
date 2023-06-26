@@ -7,7 +7,7 @@ You can create a new account with a random seed with keypair (ed25519):
 ```javascript
 import LTO from '@ltonetwork/lto';
 
-const lto = new LTO("T");
+const lto = new LTO('T');
 const account = lto.account();
 
 console.log(account.seed);  // lion devote brush lemon salmon eyebrow near autumn aspect april ugly position dismiss suit finger
@@ -96,5 +96,5 @@ const password = 'verysecretpassword';
 const lto = new LTO('T');
 const account = lto.account({ seed: encryptedSeed, password });
 
-console.log(account.phrase); // satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek
+console.log(account.seed); // satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek
 ```

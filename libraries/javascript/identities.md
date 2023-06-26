@@ -1,3 +1,7 @@
+---
+description: Create a DID Document for an account
+---
+
 # Identities
 
 Any account on LTO network, for which the public key is known, can be resolved as DID (decentralized identifier). To explicitly create a DID use the identity builder.

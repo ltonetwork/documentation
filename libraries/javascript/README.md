@@ -11,41 +11,42 @@ Visit the [project on GitHub](https://github.com/ltonetwork/lto-api.js).
 ## Installation
 
 ```
-npm install lto-api --save
+npm install @ltonetwork/api --save
 ```
 
 ## Usage
 
 ```javascript
-import {LTO, Transfer, PublicNode, Event} from "@ltonetwork/lto";
+import LTO, {Transfer, Event, Message} from "@ltonetwork/lto";
 
 // Account
 const lto = new LTO('T'); // 'T' for testnet, 'L' for mainnet
 const account = lto.account();
 
-// Public chain
-const node = new PublicNode('https://testnet.lto.network');
-
+// Public layer
 const amount = 1000;
 const recipient = "3JmEPiCpfL4p5WswT21ZpWKND5apPs2hTMB";
 
-const transaction = new Transfer(recipient, amount);
-transaction.signWith(account);
-node.broadcast(transaction).then(resp => console.log(resp));
+const transaction = new Transfer(recipient, amount).signWith(account);
+await lto.node.broadcast(transaction);
 
-
-// Private chain
-const chain = account.createEventChain();
+// Private layer
+const chain = new EventChain(account);
 
 const body = {
-  "$schema": "http://specs.livecontracts.io/01-draft/12-comment/schema.json#",
-  "identity": {
-    "$schema": "http://specs.livecontracts.io/01-draft/02-identity/schema.json#",
-    "id": "1bb5a451-d496-42b9-97c3-e57404d2984f"
-  },
-  "content_media_type": "text/plain",
-  "content": "Hello world!"
+  '@context': 'instantiate_msg.json',
+  ownable_id: '88pDRu52FpsU3kKHwdvPV21RMkBqVqNnthjfdCesTHQhLnUpanw49n6b2PzGnEy',
+  package: 'bafybeie4ts4mbcw4pswzh45bj32ulcyztup2dr7zbbjv3y2ym3q3uuejba',
+  network_id: 'T',
 };
 
-chain.addEvent(new Event(body).signWith(account));
+new Event(body).addTo(chain).signWith(account);
+
+const message = new Message(chain).to(recipient).signWith(account);
+await lto.anchor(message.hash);
+await lto.relay.send(message);
 ```
+
+## Testnet
+
+To obtain testnet tokens, please join the [@ltotech Telegram group](http://localhost:5000/s/-MBYc9qN1f4JIHaaKv\_7/hoofdstuk-4-check-de-status-van-de-opheffing-bij-de-kvk) and ask for testnet tokens. Testnet tokens will be provided to you by the community for free.
