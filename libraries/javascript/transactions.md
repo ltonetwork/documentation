@@ -185,7 +185,7 @@ By default the following public nodes are used
 
 To use your own public node, set the node address of the `LTO` object.
 
-```
+```javascript
 lto.nodeAddress = "http://localhost:6869";
 ```
 
