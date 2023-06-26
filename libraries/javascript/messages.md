@@ -24,6 +24,10 @@ await lto.anchor(account, message.hash);
 await lto.relay.send(message);
 ```
 
+{% hint style="success" %}
+The requirement to anchor prevents spam by associating a small cost for each message.
+{% endhint %}
+
 ### Encrypted messages
 
 Messages can be encrypted so the data can only be read or processed by a specific LTO account. Encrypting a message is done using the public key of the recipient.
