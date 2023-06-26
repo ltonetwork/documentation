@@ -43,12 +43,15 @@ const account3 = lto.account({ seed, nonce: 2 });
 Alternatively, pass a binary value as a nonce. Use the `Binary` class to convert a string to a binary value
 
 ```javascript
-import LTO, { Binary } from '@ltonetwork/lto';
+const account4 = lto.account({ seed, nonce: new Binary('some value') });
+```
 
-const lto = new LTO('T');
-const seed = 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek';
+### **Child accounts**
 
-const account = lto.account({ seed, nonce: new Binary('some value') });
+Instead of specifying the `seed`, you can specify a parent account and a nonce to create a child account. Transactions signed by the child account will be co-signed by the parent so that the parent account will pay the transaction fee.
+
+```javascript
+const child = lto.account({parent: account, nonce: new Binary('foo')});
 ```
 
 ### Multi-chain accounts
