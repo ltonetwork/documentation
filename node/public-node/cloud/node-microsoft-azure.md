@@ -23,11 +23,11 @@ As mentioned before we’re configuring a Container instance using ACI. This is 
 
 Please type “container” (without an s) in the box and “Container instances” will appear. Click **Container instances**.
 
-![LTO Public Node on Azure — Base configuration](https://cdn-images-1.medium.com/max/2400/1\*D3tcLPGLm\_wvYcU--h2ygA.png)
+![LTO Public Node on Azure — Base configuration](../../../.gitbook/assets/azure1.jpg)
 
 First step is to configure some basic settings for your new container instance. You can not really go wrong here. The subscription entry displayed will display on your Azure subscription. You might need to create a Resource group using **create new**. Please name your container, select a Region where you want to host your container and make sure to enter the **image name**correctly. Before going to the next step we need to change 1 more thing.
 
-![LTO Public Node on Azure — Configure memory](https://cdn-images-1.medium.com/max/2400/1\*M2xBigWwtitZ7ORkcXqFDg.png)
+![LTO Public Node on Azure — Configure memory](../../../.gitbook/assets/azure2.jpg)
 
 Let’s boost the memory a little from 1.5 GB default to 2 GB by clicking **Change size**. Now click on **Next: Networking** to go to the next step.
 
@@ -47,7 +47,7 @@ A future update might include the usage of secrets to secure our configuration.
 
 When you’re done putting in these variables click on **Review + create**.
 
-![LTO Public Node on Azure — Validation passed — Your screen might look slightly different](https://cdn-images-1.medium.com/max/2400/1\*c7ogo7KfeBgsc1sGcpibjQ.png)
+![LTO Public Node on Azure — Validation passed — Your screen might look slightly different](../../../.gitbook/assets/azure3.jpg)
 
 If validation is successful click **Create** to create your container and wait for the deployment to finish.
 
@@ -59,7 +59,7 @@ The deployment might take 1–2 minutes to complete.
 
 Your LTO Public Node is now running on Azure using Azure Container Instances. Not convinced? Let’s double check :) Please click on **Go to resource**.
 
-![LTO Public Node on Azure — Connected to the console](https://cdn-images-1.medium.com/max/2400/1\*i09LFIhxy-L4IF\_11KOj2A.png)
+![LTO Public Node on Azure — Connected to the console](../../../.gitbook/assets/azure4.jpg)
 
 Let’s click on **Containers** under **Settings**. Now click on **Connect** and select a bash shell to **Connect**. A terminal will open. Activate the terminal by clicking on the black screen.
 
@@ -67,7 +67,7 @@ Using the cd (change directory) command we will browse to the /lto/log directory
 
 Start a tail like in the above screenshot and follow the progress as your node downloads the blockchain or maybe is already adding MicroBlocks.
 
-![LTO Public Node on Azure — Tailing your Node’s logfile](https://cdn-images-1.medium.com/max/2400/1\*wdZQgT9MFEBlCRneOQReWg.png)
+![LTO Public Node on Azure — Tailing your Node’s logfile](../../../.gitbook/assets/azure5.jpg)
 
 That’s it. You’ve successfully mastered setting up a LTO Network public node on Microsoft Azure. Awesome!
 

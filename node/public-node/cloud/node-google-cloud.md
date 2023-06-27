@@ -15,9 +15,9 @@ Make sure to check out the Prepare: [Setup your wallet page](../../../tutorials/
 
 ## Step 1: **Deploying your node on Google Cloud using the browser interface**
 
-Setting up a LTO Public Node on Google Cloud Engine is very easy. Google automates almost everything for you.
+Setting up an LTO Public Node on Google Cloud Engine is very easy. Google automates almost everything for you.
 
-It’s quite a heavy setup for a LTO Public Node though because of the required Kubernetes cluster. In my case Google spun up a Kubernetes Cluster when running using around 12 GB of memory. Because of this requirement running a node on Google Cloud Engine will probably be quite “expensive” (You determine the value and define what expensive means :) ).
+It’s quite a heavy setup for a LTO Public Node though because of the required Kubernetes cluster. In my case, Google spun up a Kubernetes Cluster when running using around 12 GB of memory. Because of this requirement running a node on Google Cloud Engine will probably be quite “expensive” (You determine the value and define what expensive means :) ).
 
 ![Google Cloud Platform — Main screen](https://cdn-images-1.medium.com/max/2400/1\*IPq70LODxJghc2363rw5fg.png)
 
@@ -27,9 +27,9 @@ Yes, we are in the main screen. Let’s jump in immediately and click **Kubernet
 
 Before you reach the above screen you might have to enable billing. This in turn will enable the GCE — Google Cloud Engine API. Please wait 1–2 minutes before continuing.
 
-Having enabled the API when can start with our deployment. Click **Deploy container**.
+Having enabled the API, we can start with our deployment. Click **Deploy container**.
 
-![Google Cloud Platform — Creating a container deployment step 1](https://cdn-images-1.medium.com/max/2400/1\*pbScQ3JmVVsOFgITi55ROg.png)
+![Google Cloud Platform — Creating a container deployment step 1](../../../.gitbook/assets/google1.jpg)
 
 We immediately jump into configuring our container. This does not mean we do not need networking, security, a Kubernetes cluster, etc. It simply means that Google can take care off a lot of these steps.
 
@@ -71,21 +71,21 @@ Click **Actions** → **Auto-scale** to open auto-scale settings.
 
 Click on **Disable Autoscaler** to disable the auto-scale feature.
 
-![Google Cloud Platform — Back in the deployment overview, now with just 1 managed pod running!](https://cdn-images-1.medium.com/max/2400/1\*ofQck-GDLmkfkudZ0Ztbkw.png)
+![Google Cloud Platform — Back in the deployment overview, now with just 1 managed pod running!](../../../.gitbook/assets/google2.jpg)
 
-Back in our overview we see we only have 1 managed pod. This is what we wanted to achieve. Now let’s see how our LTO Public Node is doing by diving in the logs.
+Back in our overview, we see we only have 1 managed pod. This is what we wanted to achieve. Now let’s see how our LTO Public Node is doing by diving in the logs.
 
 Click **Container logs** in the middle of the screen to jump to the logging screen.
 
 ![Google Cloud Platform — See our node in action](https://cdn-images-1.medium.com/max/2400/1\*uUz8CJJCM3AZeyvnrQJk8Q.png)
 
-In the logging screen you have the ability to click the **Play** icon to start streaming the console log of the container. You can see the blockchain being downloaded. After the blockchain has been successfully downloaded the node should start appending MicroBlocks like in the above screenshot.
+In the logging screen, you have the ability to click the **Play** icon to start streaming the console log of the container. You can see the blockchain being downloaded. After the blockchain has been successfully downloaded the node should start appending MicroBlocks like in the above screenshot.
 
-That’s it. You’ve successfully mastered setting up a LTO Network public node on Google Cloud. Awesome!
+That’s it. You’ve successfully mastered setting up an LTO Network public node on Google Cloud. Awesome!
 
 ## **Step 2: Wait for a 1.000 blocks**
 
-You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are and how many transactions are in the block.
+You can find the LTO Network Explorer at [https://explorer.lto.network.](https://explorer.lto.network/) It shows you the blocks generated, by who, when, how big they are, and how many transactions are in the block.
 
 After launching your node check the [Explorer](https://explorer.lto.network) to see the number of the last block. Wait till another 1.000 blocks are generated and expect your node to be part of the LTO Network.
 
