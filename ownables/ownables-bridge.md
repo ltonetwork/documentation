@@ -1,4 +1,4 @@
-# OWNABLES Bridge
+# Ownables Bridge
 
 An OWNABLE can be presented as unlockable content for an NFT. This allows OWNABLES to be traded on platforms like [OpenSea](https://opensea.io/) and [Rarible](https://rarible.com/).
 
@@ -11,7 +11,7 @@ As the owner of the NFT, you can obtain your OWNABLE using LTO's [Universal Wall
 Universal Wallet will show your Ethereum (EIP-155) address in addition to your LTO address. If you create an account with the seed phrase from your Ethereum wallet, like Metamask, you'll notice that the Ethereum address will match. Alternatively, if you create a new account, you'll first need to transfer the NFT to the displayed Ethereum address.
 
 {% hint style="warning" %}
-When bridging, the cipher (cryptographic protocol) of the LTO wallet must match that of the blockchain the NFT is on. If the NFT is on an EVM network, like Ethereum, you're only able to obtain the Ownable with an [secp256k1](../protocol/accounts.md#secp256k1) account.
+When bridging, the cipher (cryptographic protocol) of the LTO wallet must match that of the blockchain the NFT is on. If the NFT is on an EVM network, like Ethereum, you're only able to obtain the Ownable with an [secp256k1](../protocol/accounts/#secp256k1) account.
 {% endhint %}
 
 ### Obtaining the OWNABLE

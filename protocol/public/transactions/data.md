@@ -73,7 +73,7 @@ The binary data structure of the unsigned transaction.
 {% hint style="info" %}
 * Anchor length and Anchor can be repeated for each anchor hash.
 * Chain id can be obtained by taking the 2nd byte from the sender address.
-* Each [key type](../../accounts.md#key-types) has a numeric id in addition to the reference from the JSON.
+* Each [key type](../../accounts/#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}
 {% endtab %}

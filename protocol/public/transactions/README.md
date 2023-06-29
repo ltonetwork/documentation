@@ -54,7 +54,7 @@ _**Total transaction bytes with signature:**_
 
 ### Key type
 
-By default, transactions are signed using the ED25519 algorithm. However, LTO supports multiple algorithms and curves like secp256k1, NIST P-256, and RSA. When broadcasting a transaction, it's required to include the [key type](../../accounts.md#key-types) in addition to the sender's public key.
+By default, transactions are signed using the ED25519 algorithm. However, LTO supports multiple algorithms and curves like secp256k1, NIST P-256, and RSA. When broadcasting a transaction, it's required to include the [key type](../../accounts/#key-types) in addition to the sender's public key.
 
 {% hint style="warning" %}
 RSA public keys are too large to store for each request. For RSA, the sender public key field must contain the SHA256 hash of the public key. This means that the transaction can't be validated by itself. RSA is only available through a [smart account](set-script.md) or by publishing an X.509 certificate to the public chain.

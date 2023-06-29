@@ -117,7 +117,7 @@ It’s not advisable to use a single DID for multiple purposes. For instance whe
 
 LTO Network supports single-use DIDs in the form of derived identifiers using the form `did:lto:{address}:derived:{secret}`.
 
-The DID document of a derived identifier is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts.md#creating-the-address).
+The DID document of a derived identifier is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts/#creating-the-address).
 
 ```javascript
 {
