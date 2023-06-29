@@ -2,23 +2,13 @@
 
 ## Key types
 
-LTO network supports multiple cryptographic algorithms for signing.
+LTO network supports multiple cryptographic algorithms for signatures and encryption.
 
 | id | reference                 | type  | curve      |
 | -- | ------------------------- | ----- | ---------- |
 | 1  | [ed25519](ed25519.md)     | EdDSA | curve25519 |
 | 2  | [secp256k1](secp256k1.md) | ECDSA | secp256k1  |
 | 3  | [secp256r1](secp256r1.md) | ECDSA | secp256r1  |
-
-{% hint style="info" %}
-Use [NaCl](https://nacl.cr.yp.to/) or [sodium](https://libsodium.gitbook.io/) to create an address from the _account seed_.
-{% endhint %}
-
-{% hint style="success" %}
-EdDSA allows generating the X25519 private key from the ED25519 private key and the X25519 public key from the ED25519 public key. Only the keys for signing are on the public chain, but this allows the keys for encryption to be calculated.
-{% endhint %}
-
-By default, accounts use EdDSA with curve25519. ED25519 is used for signatures. X25519 is used for encryption in the project.
 
 ## Creating the address
 
