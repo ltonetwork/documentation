@@ -84,7 +84,7 @@ To calculate the state at a point on the chain, you'll need to loop through the 
 
 The state and hash of the subsequent event form a pair, with the state as key and hash as value. These pairs can be anchored to the LTO public chain using the mapped anchor transaction.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 ### Rollback detection
 

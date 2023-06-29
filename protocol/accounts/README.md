@@ -1,7 +1,5 @@
 # Accounts
 
-## Key types
-
 LTO network supports multiple cryptographic algorithms for signatures and encryption.
 
 | id | reference                 | type  | curve      |
