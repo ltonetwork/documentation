@@ -1,89 +1,161 @@
+---
+description: Decentralized status list using the LTO public chain
+---
+
 # Verifiable credentials
 
 A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified.
 
-[Verifiable credentials](https://www.w3.org/TR/vc-data-model/) are a W3C standard. LTO Network implements v1.0.
+[Verifiable credentials](https://www.w3.org/TR/vc-data-model/) are a W3C standard.
 
-A credential contains claims about a subject made by the issuer. Both subject and issuer are identified through a [DID](decentralized-identifiers.md). Verifying a claim required resolving the DID of the issuer to validate the signatures \(proofs\) of the credential.
+A credential contains claims about a subject made by the issuer. Both the subject and issuer are identified through a [DID](decentralized-identifiers.md). Verifying a claim requires resolving the issuer's DID to validate the credential's signatures (proofs).
 
-Issuing credentials doesn't require the use of a blockchain. Cryptographic signatures of the claims are embedded within the credential. Blockchain can be used to add a layer of security. A validator might require on-chain proof to prevent issuers from backdating credentials.
+**Issuing credentials doesn't require the use of a blockchain.** Cryptographic signatures of the claims are embedded within the credential.
 
-## DID URL
+The LTO public chain can be used as a decentralized revocation registry. In addition, the blockchain can be used to add a layer of security.
 
-The LTO network address of the subject and a base58 encoded sha256 hash of the credential is used to create a DID URL.
+## Credential status
 
-```text
-did:lto:{subject_address}/credentials/{hash}
-```
+The `credentialStatus` property of a verifiable credential is used for the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked.
+
+### Identifier
+
+It's recommended to use the base58 encoded sha256 hash of the credential as the identifierr.
 
 To create the hash, the JSON document must be serialized according to the [JSON-LD specification](https://www.w3.org/TR/json-ld/). This ensures that the JSON document has the same format when validating the credential.
 
-The `id`, `credentialStatus`, and `proof` fields should be omitted when creating the hash.
+The `credentialStatus` and `proof` fields should be omitted when creating the hash.
 
-### Credential status
+### LTO Status Registry
 
 LTO Network identity nodes are able to resolve the [credential status](https://www.w3.org/TR/vc-data-model/#status) based on this DID URL. The credential document should contain a `credentialStatus` property with this value.
 
-```text
+```
 {
   ...
   "credentialStatus": {
-    "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH/credentials/BYQRy1DbXpDKHTM1qmEAdrv3XzgUu5RfmrgSANkUibwY/status",
-    "type": "CredentialStatusList2017"
+    "id": "BYQRy1DbXpDKHTM1qmEAdrv3XzgUu5RfmrgSANkUibwY",
+    "type": "LtoStatusRegistry2023"
   }
 }
 ```
 
 {% hint style="warning" %}
-The DID URL may also be used as the credential id, but this isn't required. Implementations should only depend on the `credentialStatus` field.
+There's currently no open standard for decentralized status registries for verifiable credentials.
+
+[Credential Status List 2017](https://w3c-ccg.github.io/vc-csl2017/) is not well supported and the initiative seems abandoned. [Status List 2021](https://www.w3.org/TR/vc-status-list/) is a centralized approach where the issuer maintains a bitstring list of all issued credentials.
+
+Libraries like [Veramo](https://veramo.io/) support custom implementations for credential verification.
 {% endhint %}
 
-## Associations
+## Statements
 
-On LTO Network. a credential can be represented by an on-chain [association](../public/transactions/association.md). The association requires a sender, recipient, type, and hash.
+Accounts can make public statements about a verifiable credential through [Statement transactions](../public/transactions/statement.md).
 
-* The sender is the account that corresponds with a DID verification method of the issuer. 
-* The recipient is the address from the DID of the subject. It's recommended to use a [derived identifier](decentralized-identifiers.md#derived-identifiers).
-* The association type for a verifiable credential is `0x10` .
-* The hash field contains the credential hash. It must be same hash as used to create the DID URL.
+<table><thead><tr><th width="149.33333333333331">Statement</th><th width="108">Type</th><th width="361">Description</th><th>Who?</th></tr></thead><tbody><tr><td>issue</td><td><code>0x10</code></td><td>Issue a credential</td><td>issuer</td></tr><tr><td>revoke</td><td><code>0x11</code></td><td>Revoke a credential</td><td>issuer</td></tr><tr><td>suspend</td><td><code>0x12</code></td><td>Suspend a credential</td><td>issuer</td></tr><tr><td>reinstate</td><td><code>0x13</code></td><td>Reinstate a suspended credential</td><td>issuer</td></tr><tr><td>dispute</td><td><code>0x14</code></td><td>Dispute the validity of the credential</td><td>anyone</td></tr><tr><td>acknowledge</td><td><code>0x15</code></td><td>Acknowledge the validaty of the credential</td><td>anyone</td></tr></tbody></table>
 
-{% hint style="info" %}
-The hash must be unique for the recipient. If the same subject and recipient address are used by a different sender, the association is ignored.
+The subject must be the (unencoded) credential status id.
+
+All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer, with [assertion privileges](https://www.w3.org/TR/did-core/#assertion). Statements made by others should be ignored.
+
+The statement timestamp is determined by the timestamp of the block, rather than the timestamp of the transaction.
+
+### Issuance
+
+When issuing a verifiable credential, the issuer can issue a statement with type `0x10` to the public blockchain.
+
+A validator can use the on-chain proof to prevent issuers from backdating credentials.
+
+{% hint style="success" %}
+The `issue` statement is optional.
 {% endhint %}
 
 ### Revocation
 
-To revoke a credential, simply revoke the association. The revocation timestamp is determined by the timestamp of the block, rather than the timestamp of the transaction.
+To revoke a credential the issuer can issue a statement transaction with type `0x11`. Revocation is irreversible.
 
-If the issuer didn't publish an association for the credential, it can issue a dispute \(type `0x12`\) instead. A dispute by the issuer is interpreted as a revocation.
+The issuer may add a data entry with the key `reason` to the statement tx. The reason should be a string explaining why the credential has been revoked.
 
-### Suspend
+### Suspension
 
-The issuer is able to suspend a credential through an association with type `0x11`. The association can be revoked to unsuspend the credential.
+The issuer is able to suspend a credential through a statement transaction with type `0x12`. A suspended credential can either be permanently revoked or reinstated.
 
-The association recipient is the address from the DID of the **subject**. The association hash must be taken from the credential status id.
+To reinstate a credential use a statement with type `0x13`.
 
-By default, only the issuer can suspend a credential. It's possible to allow other parties to suspend associations through the trust network configuration.
+The issuer may add a data entry with the key `reason` to the statement tx. The reason should be a string explaining why the credential has been revoked or reinstated.
 
 ### Dispute
 
-Anyone can dispute the claims of a credential. This is done through an association with type `0x12`. The dispute can also be revoked.
+Anyone can either dispute the claims of a credential. This is done through a statement transaction with type `0x14`.
 
-For a dispute, the association recipient is the address from the DID of the **subject**. The association hash must be taken from the credential status id.
+The issuer should add a data entry with the key `reason` to the statement tx. The reason should be a string explaining why the credential has been revoked or reinstated.
 
-By default, the identity node will only index claims from accounts within the configured trust network.
+The account that has made the dispute, can cancel it using an acknowledgment statement.
+
+If the credential is compromised, the issuer could issue a dispute on the credential. This dispute can be picked up by the issuer to suspend or revoke the credential.
+
+### Acknowledgment
+
+If a validator has independently verified the information of a credential, it can acknowledge the validity of it. This is done using a statement transaction with type `0x15`.
+
+If a single account has made multiple dispute and/or acknowledgment statements about a single credential, only the last statement should be used.
+
+***
 
 {% hint style="danger" %}
-It's not possible to register the reason for a dispute or revocation on the LTO public chain. To support a \(limited set\) of reasons, a custom range of association types should be used instead of the default ones used by LTO identity nodes.
+The reason is public and may lead to privacy concerns. Consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer.
 {% endhint %}
 
 ## Resolving the status
 
-The identity node can resolve the status of a verifiable credential with an LTO DID URL as credential status. Resolving the status results in a [credential status list](https://w3c-ccg.github.io/vc-csl2017/).
+The [identity node](../../node/identity-node/) can resolve the status of a verifiable credential using the credential status id. The response will have a list of statements about the credential made on the public chain.
+
+```json
+{
+  "id": "GKot5hBsd81kMupNCXHaqbhv3huEbxAFMLnpcX2hniwn",
+  "statements": [
+    {
+      "type": "issue",
+      "timestamp": 1688781798500000,
+      "signer": {
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+      }
+    },
+    {
+      "type": "dispute",
+      "timestamp": 1688781798600000,
+      "signer": {
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+      },
+      "reason": "Credentials compromised"
+    },
+    {
+      "type": "suspend",
+      "timestamp": 1688781798700000,
+      "signer": {
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+      },
+      "reason": "Credentials compromised"
+    },
+    {
+      "type": "revoke",
+      "timestamp": 1688781798800000,
+      "signer": {
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+      }
+    }    
+  }
+}
+```
 
 {% hint style="warning" %}
-This association sender only signs the blockchain transaction. The claim for a dispute is generated by the identity node based on the on-chain information. Therefore status claims do not contain proofs.
-
-Optionally, it's possible to have the identity node sign each claim as proof. In this case, the verification method of the claim proof does not belong to the issuer, but to the node that resolved the status claims. The node may also include an evidence field, which will include the transaction details of each association.
+For privacy considerations, verifiers should run their own node and not use a public index node. A public node is capable to gather statistics for verifiable credentials by tracking verification requests.
 {% endhint %}
 
+### Trust network
+
+It's up to the validator to choose what to do with disputes and acknowledgments. Not all statements should be considered. Setting up a [trust network](trust-network.md) can help determine which to consider and which to ignore.

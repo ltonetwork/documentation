@@ -9,3 +9,7 @@ description: >-
 In order to validate that credentials were issued by authorities that have the correct permissions for it, LTO implements roles through association.
 
 You can see how to configure your node for a trust network [here](../../node/identity-node/configuration/trust-network.md).
+
+{% hint style="danger" %}
+This page is a stub and must be improved.
+{% endhint %}
