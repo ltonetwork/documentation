@@ -103,7 +103,7 @@ If a single account has made multiple dispute and/or acknowledgment statements a
 ***
 
 {% hint style="danger" %}
-The reason is public and may lead to privacy concerns. Consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer.
+The reason is public and may lead to privacy concerns. Consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer instead.
 {% endhint %}
 
 ## Resolving the status

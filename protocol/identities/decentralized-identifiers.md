@@ -21,9 +21,9 @@ What proofing control of a DID means depends on the subject. If the DID represen
 DID documents do not contain other (identifying) information, like a name, address, etc.
 
 {% hint style="warning" %}
-#### Identity vs account
+#### DID vs account
 
-An identity isn't the same as an account. Both correspond with a blockchain address. However, an account is based on a single public/private key pair. An identity can have multiple verification methods, managed through associations. This means that an account can be generated client-side, while an identity needs to be resolved through the identity node.
+A decentralized identifier (DID) isn't the same as an account. Both correspond with a blockchain address. However, an account is based on a single public/private key pair. A DID can have multiple verification methods, managed through associations.
 {% endhint %}
 
 ## LTO DID method
@@ -43,11 +43,7 @@ secret = 1*( ALPHA / DIGIT )
 
 The method-specific string is case-sensitive. The address and secret are base58 encoded.
 
-{% hint style="warning" %}
-Identity nodes that support [cross-chain identifiers](decentralized-identifiers.md#resolving-cross-chain-dids) also can also resolve the **ltox** DID method.
-{% endhint %}
-
-## Implicit identities
+## Implicit DID
 
 Any address on the LTO public chain can be represented by a DID. The DID document always contains a single verification method containing the public key of the account. This method is applicable for both authentication and assertion.
 
@@ -57,164 +53,135 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
   "verificationMethod": [
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
-      "type": "Ed25519VerificationKey2018",
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
+      "type": "Ed25519VerificationKey2020",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
-      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
-    }
+      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
+      "blockchainAccountId": "lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH"
+    },
+    {
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
+      "type": "X25519KeyAgreementKey2019",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
+      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
+      "blockchainAccountId": "lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH"
+    },
   ],
   "authentication": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ],
   "assertionMethod": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+  ],
+  "keyAgreement": [
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt"
   ],
   "capabilityInvocation": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+  ],
+  "capabilityDelegation": [
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ]
 }
 ```
-
-{% hint style="warning" %}
-It's only possible to resolve a DID for accounts that have signed at least one on-chain transaction. To generate a DID document, the public key of the address needs to be known. It's not possible to determine the public key purely based on the blockchain address.
-{% endhint %}
-
-## Constructed identities
-
-It's possible to explicitly specify verification methods for a DID document using associations. An association with the type `0x01??` specifies that the public key of the association recipient is a valid verification method for the association sender.
-
-The two least significant bytes from a bit-set that specifies the verification relationship.
-
-| Hex    | Relationship                             |
-| ------ | ---------------------------------------- |
-| 0x0100 | Verification method without relationship |
-| 0x0101 | Authentication                           |
-| 0x0102 | Assertion                                |
-| 0x0104 | Key agreement                            |
-| 0x0108 | Capability invocation                    |
-| 0x0110 | Capability delegation                    |
 
 {% hint style="info" %}
-**Example:** To create a verification method that can be used for authentication, assertion, and key agreement, create an association with type `0x0107`.
+It's only possible to resolve a DID for accounts for which the public key is known on-chain. This is the case for any account that has signed at least one on-chain transaction. Alternatively, public keys can be registered using the [Register](../public/transactions/register.md) transaction.
 {% endhint %}
+
+## Verification methods
+
+It's possible to explicitly specify verification methods for a DID document using [associations](../public/transactions/association.md). An association with the type `0x0100` specifies that the public key of the association recipient is a valid verification method for the association sender.
+
+The `subject` field of the association transaction should not be set.
+
+{% hint style="info" %}
+The public key of the recipient must be known. The [register transaction](../public/transactions/register.md) allows the management account to register the public keys of all verification methods.
+{% endhint %}
+
+The verification method can be revoked using a [Revoke Association](../public/transactions/revoke-association.md) transaction with association type `0x100` and empty subject.
+
+### Verification relationships
+
+Different verification relationships enable the associated verification methods to be used for different purposes. It is up to a verifier to ascertain the validity of a verification attempt by checking that the verification method used is contained in the appropriate verification relationship.
+
+By default, a verification method does not have any relationships. These can be specified using the `data` property of the association transaction.
+
+<table><thead><tr><th width="275">Relationship</th><th>Example purpose</th></tr></thead><tbody><tr><td><a href="https://www.w3.org/TR/did-core/#authentication"><code>authentication</code></a></td><td>Authentication like logging into a website</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#assertion"><code>assertion</code></a></td><td>Issue Verifiable Credential</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#key-agreement"><code>keyAgreement</code></a></td><td>Encryption and secure communication</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-invocation"><code>capabilityInvocation</code></a></td><td>Update the DID document</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-delegation"><code>capabilityDelegation</code></a></td><td>Delegate authority to a subordinate</td></tr></tbody></table>
+
+To change the relationships of an existing verification method, issue a new [Association](../public/transactions/association.md) transaction with updated data.
+
+#### Encryption
+
+For [ed25519 accounts](../accounts/ed25519.md), the _key relationship_ verification method must have type `X25519KeyAgreementKey2019`. The X25519 public key is generated from the ED25519 public key used to sign a transaction.
+
+For secp256k1 and secp256r1 accounts, you can use `EcdsaSecp256k1VerificationKey2019` for encryption. We support [ECIES Hybrid Encryption](https://cryptobook.nakov.com/asymmetric-key-ciphers/ecies-public-key-encryption). However, this may not be understood by verifiers.
+
+### Management key
+
+The key pair of the main account of the DID is known as the management key. This is the only key that can sign for any on-chain transaction. That means it's the only key that can be used to modify the DID document.
 
 {% hint style="warning" %}
-The association recipient needs to have signed at least one on-chain transaction, so the public key of that account is indexed.
+Giving a verification method capability relationships does not allow it to do on-chain transactions. In case you want to allow other keys to modify the DID document and make changes in a [trust network](../../node/identity-node/configuration/trust-network.md), you must a [smart account script](../public/transactions/set-script.md).
+
+You should not add verification methods with capability relationships without using a smart account.
 {% endhint %}
 
-There is no implicit verification relationship of the indexed public key for authentication and assertions for accounts that have at least one verification method association. By default, it can only be used as management key; to sign transactions for updating the DID document.
+By default, the management key has all verification relationships. To change the relationships, issue an association with type `0x100`, setting the data to include specific relationships.
+
+{% hint style="success" %}
+It's recommended to use the management key only for on-chain transactions and remove the authentication, assertion and key agreement relationships.
+{% endhint %}
+
+### Deactivation
+
+If the management key is compromised, the DID should no longer be used. Issuing a statement with type `0x101`, will mark the DID as [deactivated](https://www.w3.org/TR/did-core/#methods).
+
+In addition, it will revoke all verification methods, including the management key. This ensures that the DID document can't be used, including implementations that don't check the metadata.
+
+It's not possible to only revoke the management key, without also revoking all other verification methods.
+
+The recipient of the statement transaction should be omitted. Optionally, a reason can be specified as data entry.
 
 {% hint style="warning" %}
-The management key is always listed as verification method with the capability invocation relationship. Adding alternative methods for capability invocation does not automatically make it possible to use those keys to sign blockchain transactions for updating the DID document.
+Deactivating the DID account does not prevent the associated account to do transactions on the public chain or private layer.
 {% endhint %}
 
-The key relationship verification method only works type `X25519KeyAgreementKey2019`. The X25519 public key is generated from the ED25519 public key used to sign a transaction. In case the association recipient uses an alternative cryptographic algorithm, like ECDSA Secp256k1, the association is ignored.
+#### Trusted party deactivation
 
-## Derived identifiers
+Creating an association with type `0x108` will add a key that can be used to deactivate the DID. This key will be listed in the `capabilityInvocation` relationship (and not as a generic verification method).
 
-It’s not advisable to use a single DID for multiple purposes. For instance when issuing verifiable credentials. Correlating information might allow a party to deduce information, undermining privacy.
+The main reason to use this is to allow a trusted authorized party to deactivate a DID document in case the management key is lost.
 
-LTO Network supports single-use DIDs in the form of derived identifiers using the form `did:lto:{address}:derived:{secret}`.
+An authorized party can deactivate a DID using a statement transaction with type `0x102`. The recipient of that statement should be the address of the management key of the DID. Optionally a reason can be specified as data entry.
 
-The DID document of a derived identifier is always the same DID document for the account, but it has a different blockchain address. See [how to create a blockchain address](../accounts/#creating-the-address).
-
-```javascript
-{
-  "@context": "https://www.w3.org/ns/did/v1",
-  "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH:derived:12D",
-  "verificationMethod": [
-    {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
-      "type": "Ed25519VerificationKey2018",
-      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
-      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
-    }
-  ],
-  "authentication": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
-  ],
-  "assertionMethod": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
-  ]
-}
-```
-
-## Cross-chain identifiers
-
-By default, an LTO identity node will only resolve DIDs based on LTO network addresses. It's possible to configure the service to index DIDs based on addresses of other blockchains, like Ethereum or Bitcoin.
-
-DIDs with the method "**ltox**" can be resolved by LTO Network identity nodes that support cross-chain identifiers.
-
-The method-specific string is comprised of a [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) blockchain ID and an address on that specific chain.
-
-> did:ltox:eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb
-
-```
-ltox-did = "did:ltox:" chain-id ":" address
-chain-id = chain-namespace + ":" + chain-reference
-chain-namespace = {3,16}\*( ALPHA / DIGIT )
-chain-reference = {1,47}\*( ALPHA / DIGIT )
-address = {1,63}\*( ALPHA / DIGIT )
-```
-
-The method-specific string is case-sensitive.
-
-### Supported chains
-
-Currently, only eip155 is supported. This address scheme is used by Ethereum and other EVM-based blockchains like Binance Smart Chain.
-
-### Resolving cross-chain DIDs
-
-The identity node can generate addresses for external blockchains.
-
-DID documents will contain an `alsoKnownAs` property, containing DIDs for LTO Network and for other chains indexed by the identity node.
-
-```javascript
-{
-  "@context": "https://www.w3.org/ns/did/v1",
-  "id": "did:ltox:eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb",
-  "alsoKnownAs": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-    "did:ltox:bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6"
-  ]
-  "verificationMethod": [
-    {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key",
-      "type": "Ed25519VerificationKey2018",
-      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyBase58": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
-      "blockchainAccountId": "3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH@lto:L"
-    }
-  ],
-  "authentication": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
-  ],
-  "assertionMethod": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#key"
-  ]
-}
-```
+{% hint style="danger" %}
+Adding a verification method through an association with type `0x100` and with the capability invocation relationship, will not allow that key to deactivate the account. You must use association type `0x108`.
+{% endhint %}
 
 ## Services
 
 Services are used in DID documents to express ways of communicating with the DID subject or associated entities. A [service](https://www.w3.org/TR/did-core/#services) can be any type of service the DID subject wants to advertise, including decentralized identity management services for further discovery, authentication, authorization, or interaction.
 
-Defining services is done through data transactions. These transactions allow setting metadata of an account. This data is used by the indexer service when resolving a DID.
+Defining services is done through [data transactions](../public/transactions/data.md). These transactions allow setting metadata of an account. This data is used by the indexer service when resolving a DID.
 
-The `service` property of a DID document is a list of objects. The data transaction only supports scalar data types. Therefore the keys must be flattened, with the service id as part of the key.
+Services must be JSON encoded. Any data entry with a key starting with `did:service:` will be decoded and added as data entry. Beyond that, the entry key is ignored.
 
-A data instruction with the following data
+A data instruction with the following data entries
 
-```json
-{
-  "did:service:linked-domain.type": "LinkedDomains",
-  "did:service:linked-domain.serviceEndpoint": "https://bar.example.com",
-  "did:service:didcomm-1.type": "DIDCommMessaging",
-  "did:service:didcomm-1.serviceEndpoint": "did:example:somemediator",
-  "did:service:didcomm-1.routingKeys.0": "did:example:anothermediator#somekey"
-}
+```javascript
+[
+  {
+    key: 'did:service:lto-relay',
+    type: 'string',  
+    value: '{"id":"did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#lto-relay","type":"LTORelay","serviceEndpoint":"ampq://relay.lto.network"}'
+  },
+  {
+    key: 'did:service:https://bar.example.com',
+    type: 'string',
+    value: '{"id":"https://bar.example.com","type":"LinkedDomains","serviceEndpoint":"https://bar.example.com"}'
+  }
+]
 ```
 
 results in the following `service` property of the DID document
@@ -223,18 +190,31 @@ results in the following `service` property of the DID document
 {
   "service": [
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#linked-domain",
-      "type": "LinkedDomains", 
-      "serviceEndpoint": "https://bar.example.com"
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#lto-relay",
+      "type": "LTORelay",
+      "serviceEndpoint": "ampq://relay.lto.network"
     },
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#didcomm-1",
-      "type": "DIDCommMessaging",
-      "serviceEndpoint": "did:example:somemediator",
-      "routingKeys": [
-        "did:example:anothermediator#somekey"
-      ]
-    }
+      "id": "https://bar.example.com",
+      "type": "LinkedDomains", 
+      "serviceEndpoint": "https://bar.example.com"
+    }    
   ]
 }
 ```
+
+## Versioning
+
+LTO Did as versioned and support the [`versionTime` DID parameter](https://www.w3.org/TR/did-core/#did-parameters).
+
+```
+did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH?versionTime=2023-03-01T17:00:00Z
+```
+
+Using `versionTime` will return the DID document at the moment of the given time. If the DID document has changed since that time, the metadata will contain an `updated` and a `nextUpdate` property.
+
+The DID will be marked as `created` at the moment when the public key is known on-chain. Requesting a DID with `versionTime` before the creation date will result in a not-found.
+
+### History
+
+Adding the `history` DID parameter will add a list of changes to the DID metadata. This parameter is non-standard.
