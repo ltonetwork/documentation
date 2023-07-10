@@ -56,12 +56,6 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
-    {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
-      "type": "X25519KeyAgreementKey2019",
-      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
-    },
   ],
   "authentication": [
     "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
@@ -70,7 +64,12 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
     "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ],
   "keyAgreement": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt"
+    {
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
+      "type": "X25519KeyAgreementKey2019",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
+      "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
+    },
   ],
   "capabilityInvocation": [
     "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
