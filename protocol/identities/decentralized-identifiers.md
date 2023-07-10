@@ -8,7 +8,7 @@ description: >-
 
 DIDs are unique universally resolvable identifiers. A DID represents a _subject_, which can be a person, but also an organization, object, document, etc. There is no central register that registers all DIDs. Instead, there a DID has a method that indicates how it can be resolved.
 
-[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a (draft) W3C standard. LTO Network implements v1.0 draft 22.
+[Decentralized identifiers](https://www.w3.org/TR/did-core/) are a W3C standard. LTO Network implements v1.0.
 
 ![](../../.gitbook/assets/did.png)
 
