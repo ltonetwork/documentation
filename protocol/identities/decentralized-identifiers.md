@@ -117,6 +117,12 @@ By default, a verification method does not have any relationships. These can be 
 
 To change the relationships of an existing verification method, issue a new [Association](../public/transactions/association.md) transaction with updated data.
 
+#### Key type
+
+LTO Network supports 3 cryptographic algorithms: ed25519, secp256k1, and secp256r1.
+
+<table><thead><tr><th width="186"></th><th></th></tr></thead><tbody><tr><td>ed25519</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-eddsa-2020-20220724/"><code>Ed25519VerificationKey2020</code></a></td></tr><tr><td>secp256k1</td><td><a href="https://w3c-ccg.github.io/lds-ecdsa-secp256k1-2019/"><code>EcdsaSecp256k1VerificationKey2019</code></a></td></tr><tr><td>secp256r1</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-ecdsa-2019-20220724/"><code>EcdsaSecp256r1VerificationKey2019</code></a></td></tr></tbody></table>
+
 #### Encryption
 
 For [ed25519 accounts](../accounts/ed25519.md), the _key relationship_ verification method must have type `X25519KeyAgreementKey2019`. The X25519 public key is generated from the ED25519 public key used to sign a transaction.
