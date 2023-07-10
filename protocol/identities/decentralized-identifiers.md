@@ -101,6 +101,12 @@ The public key of the recipient must be known. The [register transaction](../pub
 
 The verification method can be revoked using a [Revoke Association](../public/transactions/revoke-association.md) transaction with association type `0x100` and empty subject.
 
+#### Expiration
+
+Association transactions support expiration. Set the `expires` field to add a verification method that's automatically revoked at a specific date.
+
+The expiration date can be changed by issuing a new association with an updated `expires` field.
+
 ### Verification relationships
 
 Different verification relationships enable the associated verification methods to be used for different purposes. It is up to a verifier to ascertain the validity of a verification attempt by checking that the verification method used is contained in the appropriate verification relationship.
