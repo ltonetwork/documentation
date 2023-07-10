@@ -54,15 +54,13 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
-      "blockchainAccountId": "lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH"
+      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
     {
       "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
       "type": "X25519KeyAgreementKey2019",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
-      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk",
-      "blockchainAccountId": "lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH"
+      "publicKeyMultihash": "mMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
   "authentication": [
