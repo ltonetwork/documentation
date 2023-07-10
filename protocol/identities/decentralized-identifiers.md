@@ -35,13 +35,11 @@ DID with the method "**lto**" can be resolved by the LTO Network identity node.
 The method-specific string is an address on the public chain. In the case of derived DIDs, it's followed by a path.
 
 ```
-lto-did = "did:lto:" lto-specific-idstring
-lto-specific-string = lto-address [ ":derived:" secret ]
+lto-did = "did:lto:" lto-address
 lto-address = 35\*( ALPHA / DIGIT )
-secret = 1*( ALPHA / DIGIT )
 ```
 
-The method-specific string is case-sensitive. The address and secret are base58 encoded.
+The address is case-sensitive.
 
 ## Implicit DID
 
@@ -99,7 +97,15 @@ The `subject` field of the association transaction should not be set.
 The public key of the recipient must be known. The [register transaction](../public/transactions/register.md) allows the management account to register the public keys of all verification methods.
 {% endhint %}
 
-The verification method can be revoked using a [Revoke Association](../public/transactions/revoke-association.md) transaction with association type `0x100` and empty subject.
+#### Revocation
+
+The verification method can be revoked using a [Revoke Association](../public/transactions/revoke-association.md) transaction with association type `0x100` and an empty subject.
+
+#### Key type
+
+LTO Network supports 3 cryptographic algorithms: ed25519, secp256k1, and secp256r1.
+
+<table data-header-hidden><thead><tr><th width="186">Key type</th><th>Verification method key type</th></tr></thead><tbody><tr><td>ed25519</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-eddsa-2020-20220724/"><code>Ed25519VerificationKey2020</code></a></td></tr><tr><td>secp256k1</td><td><a href="https://w3c-ccg.github.io/lds-ecdsa-secp256k1-2019/"><code>EcdsaSecp256k1VerificationKey2019</code></a></td></tr><tr><td>secp256r1</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-ecdsa-2019-20220724/"><code>EcdsaSecp256r1VerificationKey2019</code></a></td></tr></tbody></table>
 
 #### Expiration
 
@@ -116,12 +122,6 @@ By default, a verification method does not have any relationships. These can be 
 <table><thead><tr><th width="275">Relationship</th><th>Example purpose</th></tr></thead><tbody><tr><td><a href="https://www.w3.org/TR/did-core/#authentication"><code>authentication</code></a></td><td>Authentication like logging into a website</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#assertion"><code>assertion</code></a></td><td>Issue Verifiable Credential</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#key-agreement"><code>keyAgreement</code></a></td><td>Encryption and secure communication</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-invocation"><code>capabilityInvocation</code></a></td><td>Update the DID document</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-delegation"><code>capabilityDelegation</code></a></td><td>Delegate authority to a subordinate</td></tr></tbody></table>
 
 To change the relationships of an existing verification method, issue a new [Association](../public/transactions/association.md) transaction with updated data.
-
-#### Key type
-
-LTO Network supports 3 cryptographic algorithms: ed25519, secp256k1, and secp256r1.
-
-<table><thead><tr><th width="186"></th><th></th></tr></thead><tbody><tr><td>ed25519</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-eddsa-2020-20220724/"><code>Ed25519VerificationKey2020</code></a></td></tr><tr><td>secp256k1</td><td><a href="https://w3c-ccg.github.io/lds-ecdsa-secp256k1-2019/"><code>EcdsaSecp256k1VerificationKey2019</code></a></td></tr><tr><td>secp256r1</td><td><a href="https://www.w3.org/community/reports/credentials/CG-FINAL-di-ecdsa-2019-20220724/"><code>EcdsaSecp256r1VerificationKey2019</code></a></td></tr></tbody></table>
 
 #### Encryption
 
