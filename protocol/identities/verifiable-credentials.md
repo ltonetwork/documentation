@@ -46,7 +46,7 @@ Libraries like [Veramo](https://veramo.io/) support custom implementations for c
 
 ## Statements
 
-Accounts can make public statements about a verifiable credential through [Statement transactions](../public/transactions/statement.md).
+Accounts can make public statements about a verifiable credential through [Statement transactions](broken-reference).
 
 <table><thead><tr><th width="149.33333333333331">Statement</th><th width="108">Type</th><th width="361">Description</th><th>Who?</th></tr></thead><tbody><tr><td>issue</td><td><code>0x10</code></td><td>Issue a credential</td><td>issuer</td></tr><tr><td>revoke</td><td><code>0x11</code></td><td>Revoke a credential</td><td>issuer</td></tr><tr><td>suspend</td><td><code>0x12</code></td><td>Suspend a credential</td><td>issuer</td></tr><tr><td>reinstate</td><td><code>0x13</code></td><td>Reinstate a suspended credential</td><td>issuer</td></tr><tr><td>dispute</td><td><code>0x14</code></td><td>Dispute the validity of the credential</td><td>anyone</td></tr><tr><td>acknowledge</td><td><code>0x15</code></td><td>Acknowledge the validaty of the credential</td><td>anyone</td></tr></tbody></table>
 
