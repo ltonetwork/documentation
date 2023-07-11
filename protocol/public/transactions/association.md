@@ -12,42 +12,43 @@ description: >-
 {
   "type": 16,
   "version": 4,
-  "id": "1uZqDjRjaehEceSxrVxz6WD6wt8su8TBHyDLQ1KFnJo",
+  "id": "7xzhQ5dkehS547ejG4X17QRBvJigT7ruELgLp7qff6G9",
   "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
-  "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
+  "fee": 60000000,
+  "timestamp": 1689090586785,
   "associationType": 1,
-  "subject": "3yMApqCuCjXDWPrbjfR5mjCPTHqFG8Pux1TxQrEM35jj",
+  "recipient": "3N2XoMuukk4BPiLn95vDkv4ocU5szMXuxVN",
+  "expires": 1704067200000,
+  "subject": "3yZe7d",
   "data": [
     {
-      "type": "boolean",
-      "value": true,
-      "key": "bool"
-    },
-    {
-      "type": "binary",
-      "value": "base64:SGVsbG8gV2F2ZXM=",
-      "key": "bin"
-    },
-    {
-      "type": "integer",
-      "value": 1234567,
-      "key": "int"
-    },
-    {
+      "key": "str",
       "type": "string",
-      "value": "some text",
-      "key": "str"
+      "value": "some text"
+    },
+    {
+      "key": "int",
+      "type": "integer",
+      "value": 1234567
+    },
+    {
+      "key": "bool",
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "key": "bin",
+      "type": "binary",
+      "value": "base64:aGVsbG8="
     }
-  ],  
-  "timestamp": 1610404930000,
-  "expires": 1641961856000,
-  "fee": 100000000,
-  "proofs": [
-    "2jQMruoLoshfKe6FAUbA9vmVVvAt8bVpCFyM75Z2PLJiuRmjmLzFpM2UmgQ6E73qn46AVQprQJPBhQe92S7iSXbZ"
   ],
-  "height": 1225712
+  "proofs": [
+    "2k6hCWSQdJhMkSni4q6Y76X1obGCx2B3FPEsJXtJLyG3aaJAYeCNMAmGhdTqHxzM7m4SKLgJ7iV8UFF2Dmq5jAJa"
+  ],
+  "height": 2546397,
+  "effectiveFee": 49587000
 }
 ```
 
