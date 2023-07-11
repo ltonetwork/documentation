@@ -58,8 +58,6 @@ The subject must be the (unencoded) credential status id.
 
 All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer, with [assertion privileges](https://www.w3.org/TR/did-core/#assertion). Statements made by others should be ignored.
 
-The statement timestamp is determined by the timestamp of the block, rather than the timestamp of the transaction.
-
 ### Issuance
 
 When issuing a verifiable credential, the issuer can issue a statement with type `0x10` to the public blockchain.

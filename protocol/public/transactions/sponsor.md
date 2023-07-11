@@ -49,7 +49,7 @@ The binary data structure of the unsigned transaction.
 | - | :-----------------: | :-----------------------: | -------- |
 | 1 |   Transaction type  | Byte (constant, value=18) | 1        |
 | 2 |       Version       |  Byte (constant, value=3) | 1        |
-| 3 |       Chain id      |            Byte           | 1        |
+| 3 |      Network id     |            Byte           | 1        |
 | 4 |      Timestamp      |            Long           | 8        |
 | 5 |  Sender's key type  |       KeyType (Byte)      | 1        |
 | 6 | Sender's public key |  PublicKey (Array\[Byte]) | 32 \| 33 |
@@ -57,7 +57,7 @@ The binary data structure of the unsigned transaction.
 | 8 |      Recipient      |   Address (Array\[Byte])  | 26       |
 
 {% hint style="info" %}
-* Chain id can be obtained by taking the 2nd byte from the sender address.
+* Network id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts/#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}
@@ -68,14 +68,14 @@ The binary data structure of the unsigned transaction.
 | - | :-----------------: | :-----------------------: | ------ |
 | 1 |   Transaction type  | Byte (constant, value=18) | 1      |
 | 2 |       Version       |  Byte (constant, value=1) | 1      |
-| 3 |       Chain id      |            Byte           | 1      |
+| 3 |      Network id     |            Byte           | 1      |
 | 4 | Sender's public key |  PublicKey (Array\[Byte]) | 32     |
 | 5 |      Recipient      |   Address (Array\[Byte])  | 26     |
 | 6 |         Fee         |            Long           | 8      |
 | 7 |      Timestamp      |            Long           | 8      |
 
 {% hint style="info" %}
-* Chain id can be obtained by taking the 2nd byte from the sender or recipient address.
+* Network id can be obtained by taking the 2nd byte from the sender or recipient address.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}
 {% endtab %}

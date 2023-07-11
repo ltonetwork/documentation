@@ -46,7 +46,7 @@ The binary data structure of the unsigned transaction.
 | --- | :-----------------: | :-----------------------: | -------- |
 | 1   |   Transaction type  | Byte (constant, value=15) | 1        |
 | 2   |       Version       |  Byte (constant, value=3) | 1        |
-| 3   |       Chain id      |            Byte           | 1        |
+| 3   |      Network id     |            Byte           | 1        |
 | 4   |      Timestamp      |            Long           | 8        |
 | 5   |  Sender's key type  |       KeyType (Byte)      | 1        |
 | 6   | Sender's public key |  PublicKey (Array\[Byte]) | 32 \| 33 |
@@ -58,7 +58,7 @@ The binary data structure of the unsigned transaction.
 
 {% hint style="info" %}
 * Anchor length and Anchor can be repeated for each anchor hash.
-* Chain id can be obtained by taking the 2nd byte from the sender address.
+* Network id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts/#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}

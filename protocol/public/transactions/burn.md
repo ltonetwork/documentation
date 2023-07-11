@@ -36,12 +36,12 @@ The binary data structure of the unsigned transaction.
 
 {% tabs %}
 {% tab title="V3 (current)" %}
-<table><thead><tr><th width="150">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=21)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Chain id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>...</td><td align="center"></td><td align="center"></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="150">#</th><th align="center">Field Name</th><th align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=21)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Network id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Amount</td><td align="center">Long</td><td>8</td></tr><tr><td>...</td><td align="center"></td><td align="center"></td><td></td></tr></tbody></table>
 
 
 
 {% hint style="info" %}
-* Chain id can be obtained by taking the 2nd byte from the sender address.
+* Network id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts/#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers (short, int, long) have a big endian byte order.
 {% endhint %}
