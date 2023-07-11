@@ -79,6 +79,8 @@ The binary data structure of the unsigned transaction.
 {% endtab %}
 {% endtabs %}
 
+### Binary schema of data entries
+
 The encoding of a data entry depends on the type.
 
 #### Integer

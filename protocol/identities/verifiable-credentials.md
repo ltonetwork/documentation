@@ -1,7 +1,3 @@
----
-description: Decentralized status list using the LTO public chain
----
-
 # Verifiable credentials
 
 A verifiable credential is a tamper-evident credential that has authorship that can be cryptographically verified.

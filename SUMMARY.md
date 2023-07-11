@@ -146,6 +146,7 @@
     * [Burn](protocol/public/transactions/burn.md)
     * [Mapped Anchor](protocol/public/transactions/mapped-anchor.md)
     * [Statement](protocol/public/transactions/statement.md)
+    * [Statement](protocol/public/transactions/statement-1.md)
   * [Transaction fees](protocol/public/transaction-fees.md)
   * [Consensus protocol](protocol/public/fair\_proof\_of\_stake\_fpos.md)
   * [Activation Protocol](protocol/public/activation-protocol.md)
