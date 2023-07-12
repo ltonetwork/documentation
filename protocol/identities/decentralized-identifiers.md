@@ -174,7 +174,7 @@ Services are used in DID documents to express ways of communicating with the DID
 
 Defining services is done through [data transactions](../public/transactions/data.md). These transactions allow setting metadata of an account. This data is used by the indexer service when resolving a DID.
 
-Services must be JSON encoded. Any data entry with a key starting with `did:service:` will be decoded and added as data entry. Beyond that, the entry key is ignored.
+Services must be JSON encoded. Any data entry with a key starting with `did:service:` will be decoded and added as data entry. If the service id is omitted, it will be generated based on the service key.
 
 A data instruction with the following data entries
 
@@ -183,7 +183,7 @@ A data instruction with the following data entries
   {
     key: 'did:service:lto-relay',
     type: 'string',  
-    value: '{"id":"did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#lto-relay","type":"LTORelay","serviceEndpoint":"ampq://relay.lto.network"}'
+    value: '{"type":"LTORelay","serviceEndpoint":"ampq://relay.lto.network"}'
   },
   {
     key: 'did:service:https://bar.example.com',
