@@ -12,24 +12,86 @@ import {IdentityBuilder} from '@ltonetwork/lto';
 const account = lto.account();
 
 new IdentityBuilder(account)
-  .transactions.map(tx => lto.broadcast(tx));
+  .transactions.map(tx => lto.node.broadcast(tx));
 ```
+
+The main account is known as the management key.
+
+{% hint style="info" %}
+Use `Promise.all()` if you wait to await for the transactions to be broadcasted.
+{% endhint %}
 
 ### Verification methods
 
-By default the account's public key is the only verification method of the DID. Other verification methods can be added through associations with other accounts.
+By default, the account's public key is the only verification method of the DID. Other verification methods can be added through associations with other accounts.
 
 ```js
-import {IdentityBuilder, VerificationRelationship as VR} from '@ltonetwork/lto';
+import {IdentityBuilder} from '@ltonetwork/lto';
 
 const account = lto.account();
 const key1 = lto.account({publicKey: "8cMyCW5Esx98zBqQCy9N36UaGZuNcuJhVe17DuG42dHS"});
 const key2 = lto.account({publicKey: "9ubzzV9tRYTcQee68v1mUPJW7PHdB74LZEgG1MgZUExf"});
 
+const expires = new Date();
+expires.setFullYear(expires.getFullYear() + 1);
+
 new IdentityBuilder(account)
   .addVerificationMethod(key1)
-  .addVerificationMethod(key2, VR.authentication | VR.capabilityInvocation)
-  .transactions.map(tx => lto.broadcast(tx));
+  .addVerificationMethod(key2, ['authentication', 'assertionMethod'], expires)
+  .transactions.map(tx => lto.node.broadcast(tx));
 ```
 
-_Use `Promise.all()` if you wait to await for the transactions to be broadcasted._
+If no verification relationships are specified, it is only listed as a verification method, which is typically not what you want. Optionally, you can have the verification method automatically expire.
+
+#### Revoking verification methods
+
+```javascript
+import {IdentityBuilder} from '@ltonetwork/lto';
+
+const account = lto.account();
+const key = lto.account({publicKey: "8cMyCW5Esx98zBqQCy9N36UaGZuNcuJhVe17DuG42dHS"});
+
+new IdentityBuilder(account)
+  .removeVerificationMethod(key)
+  .transactions.map(tx => lto.node.broadcast(tx));
+```
+
+Verification methods can also be removed by address.
+
+### Services
+
+```javascript
+import {IdentityBuilder} from '@ltonetwork/lto';
+
+const account = lto.account();
+
+new IdentityBuilder(account)
+  .addService({type: 'LTORelay', serviceEndpoint: 'ampq://relay.lto.network'})
+  .transactions.map(tx => lto.node.broadcast(tx));
+```
+
+#### Removing services
+
+```javascript
+import {IdentityBuilder} from '@ltonetwork/lto';
+
+const account = lto.account();
+
+new IdentityBuilder(account)
+  .removeService({type: 'LTORelay'})
+  .transactions.map(tx => lto.node.broadcast(tx));
+```
+
+A service may also be removed by id.
+
+### Deactivation
+
+If the management key is compromised, the DID should no longer be deactivated.
+
+```javascript
+import {IdentityBuilder} from '@ltonetwork/lto';
+
+const account = lto.account();
+
+new IdentityBuilder(account).deactivate().broadcastTo(lto.node);
+```
