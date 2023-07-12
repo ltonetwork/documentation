@@ -186,7 +186,7 @@ A data instruction with the following data entries
     value: '{"type":"LTORelay","serviceEndpoint":"ampq://relay.lto.network"}'
   },
   {
-    key: 'did:service:https://bar.example.com',
+    key: 'did:service:bar.example.com',
     type: 'string',
     value: '{"id":"https://bar.example.com","type":"LinkedDomains","serviceEndpoint":"https://bar.example.com"}'
   }
