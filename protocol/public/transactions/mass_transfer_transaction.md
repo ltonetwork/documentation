@@ -8,7 +8,7 @@ A Mass Transfer combines several ordinary Transfer transactions that share a sin
   "version" : 3,
   "id" : "BG7MQF8KffVU6MMbJW5xPowVQsohwJhfEJ4wSF8cWdC2",
   "sender" : "3HhQxe5kLwuTfE3psYcorrhogY4fCwz2BSh",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey" : "7eAkEXtFGRPQ9pxjhtcQtbH889n8xSPWuswKfW2v3iK4",
   "fee" : 200000,
   "timestamp" : 1518091313964,
@@ -37,20 +37,13 @@ Other than that, we've decided not to put any restrictions on transactions that 
 
 ### Fees
 
-The Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. By default the formula looks like:
+The Mass Transfer fee is made up of two amounts: a fixed one plus a per-recipient one. The fees are calculated as:
 
 ```
 1 + 0.1 * N
 ```
 
-where `N` is the number of recipients in the transaction. The total is rounded up to the nearest 100\_000. Fee can be configured in miner node settings using the usual syntax, just keep in mind that there are two parts to it, the base (`BASE`) fee and the variable (`VAR`) fee. Below is an excerpt from the configuration file that ships with the node:
-
-```cpp
-mass-transfer {
-  BASE = 100000000
-  VAR = 10000000
-}
-```
+where `N` is the number of recipients in the transaction. The total is rounded up to the nearest 100\_000.
 
 ### Binary schema
 

@@ -20,7 +20,7 @@ To revoke an association, the `sender`, `assocationType`, `recipient`, and `hash
   "version": 3,
   "id": "HtxiY9x8aVBDfPvEUifYZuBEDge5TCDDAtqRGBW8HDef",
   "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
   "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
   "associationType": 1,

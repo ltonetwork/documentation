@@ -18,7 +18,7 @@ The statement transaction is part of the **Titanium** release.
   "version": 3,
   "id": "1uZqDjRjaehEceSxrVxz6WD6wt8su8TBHyDLQ1KFnJo",
   "sender": "3NBcx7AQqDopBj3WfwCVARNYuZyt1L9xEVM",
-  "senderKeyType": "Ed25519",
+  "senderKeyType": "ed25519",
   "senderPublicKey": "7gghhSwKRvshZwwh6sG97mzo1qoFtHEQK7iM4vGcnEt7",
   "recipient": "3N9ChkxWXqgdWLLErWFrSwjqARB6NtYsvZh",
   "statementType": 1,
@@ -59,7 +59,7 @@ The statement transaction is part of the **Titanium** release.
 * `id` and `height` should be omitted when broadcasting. These fields are set by the node.
 * `recipient` and`subject` are optional.
 * Binary strings are base58 encoded.
-* `timestamp` and `expires` is in microseconds since epoch.
+* `timestamp` is in microseconds since epoch.
 * `fee` includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 

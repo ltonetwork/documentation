@@ -36,6 +36,18 @@ description: >-
 * `fee` includes 8 digits, so `LTO * 10^8`
 {% endhint %}
 
+### Batch transaction
+
+Up to 100 hashes can be anchored in a single transaction. Bundling multiple anchors in 1 transaction can help reduce transaction fees.
+
+The Anchor fee is made up of two amounts: a fixed one plus a per-anchor one. The fees are calculated as:
+
+```
+0.25 + 0.1 * N
+```
+
+where `N` is the number of anchor hashes in the transaction. The total is rounded up to the nearest 100\_000.
+
 ### Binary schema
 
 The binary data structure of the unsigned transaction.
@@ -57,7 +69,8 @@ The binary data structure of the unsigned transaction.
 | ... |                     |                           |          |
 
 {% hint style="info" %}
-* Anchor length and Anchor can be repeated for each anchor hash.
+* Anchor length and Anchor are repeated for each anchor hash.
+* The maximum length of an anchor is 100 bytes.
 * Network id can be obtained by taking the 2nd byte from the sender address.
 * Each [key type](../../accounts/#key-types) has a numeric id in addition to the reference from the JSON.
 * Integers (short, int, long) have a big endian byte order.
