@@ -59,7 +59,7 @@ An event can be seen as an envelope around the event data. For more details see
 For an event chain with a specific set of events, we can calculate the state.
 
 {% hint style="info" %}
-The event hash of the last event is already a unique identifier for the event chain with a set of events. However, we need a unique value that can't be calculated on the event alone, for [rollback detection](./#rollback-detection).
+The event hash of the last event is already a unique identifier for the event chain with a set of events. However, we need a unique value that can't be calculated on the event alone for [rollback detection](./#rollback-detection).
 {% endhint %}
 
 ### Initial state
