@@ -121,7 +121,7 @@ Usually in your `execute()` you will need to exhaustively match all variants ava
 
 ```rust
 match msg {
-        tExecuteMsg::Transfer { to } => try_transfer(info, deps, to),
+        ExecuteMsg::Transfer { to } => try_transfer(info, deps, to),
         ExecuteMsg::Lock {} => try_lock(info, deps),
 }
 ```
