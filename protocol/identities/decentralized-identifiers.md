@@ -144,7 +144,7 @@ It's recommended to use the management key only for on-chain transactions and re
 
 ### Deactivation
 
-If the management key is compromised, the DID should no longer be used. Issuing a statement with type `0x101`, will mark the DID as [deactivated](https://www.w3.org/TR/did-core/#methods).
+If the management key is compromised, the DID should no longer be used. Issuing a statement with type `0x120`, will mark the DID as [deactivated](https://www.w3.org/TR/did-core/#methods).
 
 In addition, it will revoke all verification methods, including the management key. This ensures that the DID document can't be used, including implementations that don't check the metadata.
 
@@ -162,7 +162,7 @@ Creating an association with type `0x108` will add a key that can be used to dea
 
 The main reason to use this is to allow a trusted authorized party to deactivate a DID document in case the management key is lost.
 
-An authorized party can deactivate a DID using a statement transaction with type `0x102`. The recipient of that statement should be the address of the management key of the DID. Optionally a reason can be specified as data entry.
+An authorized party can deactivate a DID using a statement transaction with type `0x121`. The recipient of that statement should be the address of the management key of the DID. Optionally a reason can be specified as data entry.
 
 {% hint style="danger" %}
 Adding a verification method through an association with type `0x100` and with the capability invocation relationship, will not allow that key to deactivate the account. You must use association type `0x108`.
