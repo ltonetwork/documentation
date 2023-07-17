@@ -70,7 +70,9 @@ A graph is made up of points (also called vertices) connected with edges. Both t
 
 ### Statements
 
-The graph can help determine which statements to consider and which to ignore. There are different kinds of statements that can be made. Off-chain these are in the form of verifiable credentials. On-chain, there are statement transactions allowing a public statement about any subject and/or another account. Anchoring can also be seen as a statement. It's limited to just publishing a hash, but more cost-efficient.
+The graph can help determine which statements to consider and which to ignore. There are different kinds of statements that can be made. Off-chain these are in the form of verifiable credentials. On-chain, there are statement transactions allowing a public statement about any subject and/or another account.
+
+Anchoring can also be seen as a statement. It's limited to just publishing a hash, but more cost-efficient.
 
 ### Identities
 
