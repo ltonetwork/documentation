@@ -51,31 +51,29 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
   "verificationMethod": [
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
+      "id": "#sign",
       "type": "Ed25519VerificationKey2020",
-      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
   "authentication": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+    "#sign"
   ],
   "assertionMethod": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+    "#sign"
   ],
   "keyAgreement": [
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
+      "id": "#encrypt",
       "type": "X25519KeyAgreementKey2019",
-      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
   "capabilityInvocation": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+    "#sign"
   ],
   "capabilityDelegation": [
-    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
+    "#sign"
   ]
 }
 ```
@@ -131,7 +129,7 @@ For secp256k1 and secp256r1 accounts, you can use `EcdsaSecp256k1VerificationKey
 The key pair of the main account of the DID is known as the management key. This is the only key that can sign for any on-chain transaction. That means it's the only key that can be used to modify the DID document.
 
 {% hint style="warning" %}
-Giving a verification method capability relationships does not allow it to do on-chain transactions. In case you want to allow other keys to modify the DID document and make changes in a [trust network](../../node/identity-node/configuration/trust-network.md), you must a [smart account script](../public/transactions/set-script.md).
+Giving a verification method capability relationships does not allow it to do on-chain transactions. In case you want to allow other keys to modify the DID document and make changes in a [trust network](../../node/identity-node/configuration/trust-network.md), you must use a [smart account script](../public/transactions/set-script.md).
 
 You should not add verification methods with capability relationships without using a smart account.
 {% endhint %}
@@ -169,6 +167,49 @@ Adding a verification method through an association with type `0x100` and with t
 {% endhint %}
 
 The first thing the malicious holder of a compromised management key would do is revoke all deactivation capabilities. This would be a serious issue if the management key is both compromised and lost. To counter this, the holder can set a revocation delay by adding a `revokeDelay` data entry to the association tx. The value should be in microseconds. E.g. `86400000` is a delay of 24 hours.
+
+### Example
+
+```javascript
+{
+  "@context": "https://www.w3.org/ns/did/v1",
+  "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
+  "verificationMethod": [
+    {
+      "id": "#sign",
+      "type": "Ed25519VerificationKey2020",
+      "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
+    },
+    {
+      "id": "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign",
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "publicKeyMultibase": "zDeAxCdh1pYXpU7h41ieyqTDrTyQmhJWZarqxTtkmJv99",
+    }
+  ],
+  "authentication": [
+    "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign"
+  ],
+  "assertionMethod": [
+    "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign"
+  ],
+  "keyAgreement": [
+    "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign"
+  ],
+  "capabilityInvocation": [
+    "#sign",
+    {
+      "id": "3Mv7ajrPLKewkBNqfxwRZoRwW6fziehp7dQ#sign",
+      "type": "Ed25519VerificationKey2020",
+      "publicKeyMultibase": "z6YQpeq9Yeh3VDAuVQvnUQLcUTnEq9hPUwCb9nX3yZHPC"
+    }
+  ],
+  "capabilityDelegation": [
+    "#sign"
+  ]
+}
+```
+
+In this example, the verification relationships of the management key have been set to only capability invocation and capability delegation. A new verification method is added for authentication, assert method and key agreement. And deactivation capability is granted to one key.
 
 ## Services
 
