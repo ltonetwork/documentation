@@ -10,7 +10,7 @@ The public layer is a proof-of-stake permissionless blockchain with a fixed set 
 
 While most blockchains are permissionless on a global level, permissions are introduced through smart contracts. A smart contract keeps track of a custom state, which determines what statements _(as calls to the contract)_ are accepted onto the chain. Secondly, the contract allows a verifier to get concrete answers based on the state.
 
-LTO has a different approach. Any statement is allowed onto the blockchain, as long as the fee is paid. It's up to the verifier to determine which statements to consider and which to ignore. It's also up to the verifier to determine an answer based on the set of statements.
+LTO has a different approach. Any statement is allowed onto the blockchain, as long as the fee is paid. The verifier is the end-user (application) and determines which statements to consider and which to ignore. It's also up to the verifier to determine an answer based on the set of statements.
 
 Let's have a look at an example...
 
@@ -20,9 +20,9 @@ Volvo created a car and sold it to Arnold, which in term sold it to Bob.
 
 <img src=".gitbook/assets/file.excalidraw (6).svg" alt="" class="gitbook-drawing">
 
-We could represent this with an NFT smart contract. The NFT is minted by Volvo and transferred to Arnold, who transfers it to Bob. The validator can ask the contract who the current owner is: Bob.
+We could represent this with an NFT smart contract. The NFT is minted by Volvo and transferred to Arnold, who transfers it to Bob. The verifier can ask the contract who the current owner is: Bob.
 
-On LTO, we would present this as 3 statements. Each statement would have the same subject, which should be a unique reference to the car. To find out the current owner, a validator needs to track the car from the manufacturer, following all related statements.
+On LTO, we would present this as 3 statements. Each statement would have the same subject, which should be a unique reference to the car. To find out the current owner, a verifier needs to track the car from the manufacturer, following all related statements.
 
 #### Invalid statement
 
@@ -32,17 +32,17 @@ Xavier wants to make a statement that he transferred the car to David.&#x20;
 
 With a smart contract, this statement would be denied, as Xavier isn't the owner of the car.
 
-On LTO, Xavier is able to publish this statement on-chain. A validator will disregard this statement because it doesn't come across it when tracking it from the manufacturer.
+On LTO, Xavier is able to publish this statement on-chain. A verifier will disregard this statement because it doesn't come across it when tracking it from the manufacturer.
 
 #### Authorized statement
 
-Since we're tracking a real-world asset, we might come across a situation where an authorized party, like law enforcement, has taken hold of an asset without the consent of the current owner.
+Since we're tracking a real-world asset, we might come across a situation where an authority, like law enforcement, has taken hold of an asset without the consent of the current owner.
 
 <img src=".gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
 To make this possible with a smart contract, the issuers must keep a list of authorized accounts that are able to seize a token.
 
-On LTO, the police can publish this statement on-chain. It's up to the validator to determine if should honor this statement, making David the current owner.
+On LTO, the police can publish this statement on-chain. It's up to the verifier to determine if should honor this statement, making David the current owner.
 
 ### Responsibility
 
@@ -50,7 +50,7 @@ Looking at the previous example, we can see the key difference between the smart
 
 With a smart contract, it's the original issuer that determines which statements should be accepted. This does not match the scenario in the real world. It's typically not up to the manufacturer of the car to determine which authority is recognized and which isn't.
 
-With statements on LTO Network, it's up to the validator to determine with authority to recognize. This more closely resembles the real-world situation, where it's up to a potential buyer to ensure he's purchasing the car from the legal owner.
+With statements on LTO Network, it's up to the verifier to determine with authority to recognize. This more closely resembles the real-world situation, where it's up to a potential buyer to ensure he's purchasing the car from the legal owner.
 
 ### Conclusion
 

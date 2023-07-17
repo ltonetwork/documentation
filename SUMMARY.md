@@ -21,7 +21,7 @@
   * [Public community nodes](tutorials/mining/public-community-nodes.md)
 * [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
-* [LetsFlow](https://letsflow.io)
+* [LetsFlow](https://docs.letsflow.io)
 
 ## Wallets
 
