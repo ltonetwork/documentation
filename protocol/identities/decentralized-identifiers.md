@@ -183,7 +183,7 @@ The first thing the malicious holder of a compromised management key would do is
     {
       "id": "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign",
       "type": "EcdsaSecp256k1VerificationKey2019",
-      "publicKeyMultibase": "zDeAxCdh1pYXpU7h41ieyqTDrTyQmhJWZarqxTtkmJv99",
+      "publicKeyMultibase": "zDeAxCdh1pYXpU7h41ieyqTDrTyQmhJWZarqxTtkmJv99"
     }
   ],
   "authentication": [
