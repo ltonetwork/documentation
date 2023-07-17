@@ -82,9 +82,9 @@ To calculate the state at a point on the chain, you'll need to loop through the 
 
 ## Event anchoring
 
-The state and hash of the subsequent event form a pair, with the state as key and hash as value. These pairs can be anchored to the LTO public chain using the mapped anchor transaction.
+The state and hash of the subsequent event form a pair, with the state as key and the hash as value. These pairs can be anchored to the LTO public chain using the mapped anchor transaction.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
 ### Rollback detection
 
@@ -115,7 +115,7 @@ When converting a partial chain to JSON, the first entry of `events` is a stub. 
 * The `state` of the chain at the point where it was sliced
 * The `hash` of the last event that's not part of the partial chain
 
-<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2) (1).svg" alt="" class="gitbook-drawing">
 
 {% hint style="warning" %}
 Removing events from an event chain creates an invalid chain and not a partial chain. The hash and state must be known to create a partial chain.

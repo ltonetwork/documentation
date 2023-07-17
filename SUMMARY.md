@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Getting started](README.md)
+* [What is LTO Network?](what-is-lto-network.md)
 
 ## Tutorials
 
@@ -20,7 +21,7 @@
   * [Public community nodes](tutorials/mining/public-community-nodes.md)
 * [Anchoring](tutorials/anchoring/README.md)
   * [Hashing](tutorials/anchoring/hashing.md)
-* [Live Contracts](tutorials/live-contracts.md)
+* [LetsFlow](https://letsflow.io)
 
 ## Wallets
 

@@ -49,4 +49,4 @@ await lto.relay.send(message);
 
 ## Testnet
 
-To obtain testnet tokens, please join the [@ltotech Telegram group](http://localhost:5000/s/-MBYc9qN1f4JIHaaKv\_7/hoofdstuk-4-check-de-status-van-de-opheffing-bij-de-kvk) and ask for testnet tokens. Testnet tokens will be provided to you by the community for free.
+To obtain testnet tokens, please join the [@ltotech Telegram group](http://127.0.0.1:5000/s/-MBYc9qN1f4JIHaaKv\_7/hoofdstuk-4-check-de-status-van-de-opheffing-bij-de-kvk) and ask for testnet tokens. Testnet tokens will be provided to you by the community for free.

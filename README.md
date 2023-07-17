@@ -48,13 +48,16 @@ Ownables are CosmWasm smart contracts that define ownership. Instead of running 
 [what-are-ownables.md](ownables/what-are-ownables.md)
 {% endcontent-ref %}
 
-## Live Contracts
+## Decentralized workflows
 
-A Live Contract is an agreement between organizations that contains both on-chain and off-chain instructions. Live Contracts enable cross-organizational workflows without the need for a central system or trusted party.
+LetsFlow is a deterministic workflow engine. It supports cross-organizational workflows without the need for a central system or trusted party, using the LTO Network private layer.
 
 Start with the tutorial, which takes you through the basic concepts and as you get familiar with writing and testing workflow scenarios.
 
-{% content-ref url="tutorials/live-contracts.md" %}
-[live-contracts.md](tutorials/live-contracts.md)
+{% content-ref url="http://127.0.0.1:5000/o/-LXU62m-tQwwZ72UgSyz/s/-LqfEh5_BvvaC3_Evt-h/" %}
+[LetsFlow](http://127.0.0.1:5000/o/-LXU62m-tQwwZ72UgSyz/s/-LqfEh5\_BvvaC3\_Evt-h/)
 {% endcontent-ref %}
 
+{% hint style="success" %}
+Are you interested in adding decentralization to your existing application? LetsFlow is an excellent example of how this can be achieved.
+{% endhint %}
