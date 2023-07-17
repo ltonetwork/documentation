@@ -201,7 +201,7 @@ results in the following `service` property of the DID document
 {
   "service": [
     {
-      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#lto-relay",
+      "id": "#lto-relay",
       "type": "LTORelay",
       "serviceEndpoint": "ampq://relay.lto.network"
     },
