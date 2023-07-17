@@ -168,6 +168,12 @@ An authorized party can deactivate a DID using a statement transaction with type
 Adding a verification method through an association with type `0x100` and with the capability invocation relationship, will not allow that key to deactivate the account. You must use association type `0x108`.
 {% endhint %}
 
+#### Revocation delay
+
+The first thing the malicious holder of a compromised management key would do is revoke all deactivation capabilities. This would be a serious issue if the management key is both compromised and lost.
+
+To counter this, the holder can set a revocation delay by adding a `revokeDelay` data entry to the association tx. The value should be in microseconds. E.g. `86400000` is a delay of 24 hours.
+
 ## Services
 
 Services are used in DID documents to express ways of communicating with the DID subject or associated entities. A [service](https://www.w3.org/TR/did-core/#services) can be any type of service the DID subject wants to advertise, including decentralized identity management services for further discovery, authentication, authorization, or interaction.
