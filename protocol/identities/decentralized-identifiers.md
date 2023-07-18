@@ -53,6 +53,7 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
     {
       "id": "#sign",
       "type": "Ed25519VerificationKey2020",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
@@ -66,6 +67,7 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
     {
       "id": "#encrypt",
       "type": "X25519KeyAgreementKey2019",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
@@ -172,17 +174,23 @@ The first thing the malicious holder of a compromised management key would do is
 
 ```javascript
 {
-  "@context": "https://www.w3.org/ns/did/v1",
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
+  ],
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
   "verificationMethod": [
     {
       "id": "#sign",
       "type": "Ed25519VerificationKey2020",
+      "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
     {
       "id": "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign",
       "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx",
       "publicKeyMultibase": "zDeAxCdh1pYXpU7h41ieyqTDrTyQmhJWZarqxTtkmJv99"
     }
   ],
@@ -200,6 +208,7 @@ The first thing the malicious holder of a compromised management key would do is
     {
       "id": "3Mv7ajrPLKewkBNqfxwRZoRwW6fziehp7dQ#sign",
       "type": "Ed25519VerificationKey2020",
+      "controller": "did:lto:3Mv7ajrPLKewkBNqfxwRZoRwW6fziehp7dQ"
       "publicKeyMultibase": "z6YQpeq9Yeh3VDAuVQvnUQLcUTnEq9hPUwCb9nX3yZHPC"
     }
   ],
