@@ -125,7 +125,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
       "timestamp": 1688781798600000,
       "signer": {
         "type": "Ed25519VerificationKey2020",
-        "publicKeyMultibase": "z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+        "publicKeyMultibase": "zGL293fxZ2uVG6KEtyJ1dKAfXJBMR2264jHivbhN5zpfD"
       },
       "reason": "Credentials compromised"
     },
