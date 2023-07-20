@@ -58,11 +58,15 @@ All credential statements, except a dispute, can only be done by the credential 
 
 When issuing a verifiable credential, the issuer can issue a statement with type `0x10` to the public blockchain.
 
-A validator can use the on-chain proof to prevent issuers from backdating credentials.
+A validator can use the on-chain proof to prevent backdating credentials.
 
 {% hint style="success" %}
-The `issue` statement is optional.
+The `issue` statement is optional, but highly **recommended**.
 {% endhint %}
+
+If a key with the `assertionMethod` relationship is ever compromised, an attacker can continue to issue backdated credentials, that will appear to be valid, even if the verification method is revoked.&#x20;
+
+Without on-chain proof, it will be impossible to verify which credentials are authentic and which are created by the attacker.&#x20;
 
 ### Revocation
 
