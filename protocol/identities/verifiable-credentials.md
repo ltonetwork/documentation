@@ -16,7 +16,7 @@ The `credentialStatus` property of a verifiable credential is used for the disco
 
 ### Identifier
 
-It's recommended to use the base58 encoded sha256 hash of the credential as the identifierr.
+It's recommended to use the base58 encoded sha256 hash of the credential as the identifier.
 
 To create the hash, the JSON document must be serialized according to the [JSON-LD specification](https://www.w3.org/TR/json-ld/). This ensures that the JSON document has the same format when validating the credential.
 
