@@ -6,9 +6,9 @@ A verifiable credential is a tamper-evident credential that has authorship that 
 
 A credential contains claims about a subject made by the issuer. Both the subject and issuer are identified through a [DID](decentralized-identifiers.md). Verifying a claim requires resolving the issuer's DID to validate the credential's signatures (proofs).
 
-**Issuing credentials doesn't require the use of a blockchain.** Cryptographic signatures of the claims are embedded within the credential.
+Issuing credentials doesn't require the use of a blockchain. Cryptographic signatures of the claims are embedded within the credential.
 
-The LTO public chain can be used as a decentralized revocation registry. In addition, the blockchain can be used to add a layer of security.
+The LTO public chain can be used as a decentralized revocation registry. In addition, the blockchain can be used for on-chain proof, adding a layer of security in case a private key is ever compromised.
 
 ## Credential status
 
