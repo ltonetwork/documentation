@@ -81,7 +81,7 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
 ```
 
 {% hint style="info" %}
-It's only possible to resolve a DID for accounts for which the public key is known on-chain. This is the case for any account that has signed at least one on-chain transaction. Alternatively, public keys can be registered using the [Register](../public/transactions/register.md) transaction.
+It's only possible to resolve a DID for accounts for which the public key is known on-chain. This is the case for any account that has signed at least one on-chain transaction.
 {% endhint %}
 
 ## Verification methods
