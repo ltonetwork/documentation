@@ -11,7 +11,8 @@ The event chain is a microledger. Normally a ledger is a hash chain of blocks, w
 The event id is generated from the account public key and a random value or a nonce, to prevent collisions.
 
 ```javascript
-import LTO, { EventChain } from '@ltonetwork/lto';
+import LTO from '@ltonetwork/lto';
+import { EventChain } from '@ltonetwork/lto/events';
 
 const lto = new LTO('T');
 const account = lto.account();
@@ -23,7 +24,7 @@ const chain = new EventChain(account); // Creates an empty event chain with a va
 The genesis event determines the purpose of the event chain. For an Ownable the genesis event contains an instantiate message.
 
 ```javascript
-import { EventChain, Event } from '@ltonetwork/lto';
+import { EventChain, Event } from '@ltonetwork/lto/events';
 
 const body = {
   '@context': 'instantiate_msg.json',
@@ -48,7 +49,7 @@ Events need to be added to the chain before they can be signed.
 You can store or submit an event chain as JSON. To create an event chain object from JSON data use the `from` method.
 
 ```javascript
-import { EventChain } from '@ltonetwork/lto';
+import { EventChain } from '@ltonetwork/lto/events';
 
 const data = {
   id: '2dZKMnHHsM1MGqTPZ5p3NmmGmAFE4hYFtMwb2e6tGVDMGZT13cBomKoo8DLEWh',

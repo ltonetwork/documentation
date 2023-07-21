@@ -7,7 +7,8 @@ description: Send messages on the private layer
 To share information on the private layer, it should be wrapped as a message.
 
 ```javascript
-import LTO, { Message } from '@ltonetwork/lto';
+import LTO from '@ltonetwork/lto';
+import { Message } from '@ltonetwork/lto/messages';
 
 const lto = new LTO('T');
 const account = lto.account();
@@ -35,7 +36,8 @@ Messages can be encrypted so the data can only be read or processed by a specifi
 To get the public key from an address, we'll need to resolve the address. This uses the LTO DID resolver internally.
 
 ```javascript
-import LTO, { Message } from '@ltonetwork/lto';
+import LTO from '@ltonetwork/lto';
+import { Message } from '@ltonetwork/lto/messages';
 
 const lto = new LTO('T');
 const account = lto.account();
@@ -54,7 +56,8 @@ Only accounts that have submitted at least one transaction on the public chain c
 The recipient can decrypt the message using its private key.
 
 ```javascript
-import LTO, { Message } from '@ltonetwork/lto';
+import LTO from '@ltonetwork/lto';
+import { Message } from '@ltonetwork/lto/messages';
 
 const lto = new LTO('T');
 const account = lto.account({ seed: 'satisfy sustain shiver skill betray mother appear pupil coconut weasel firm top puzzle monkey seek', nonce: 1 });
@@ -79,7 +82,8 @@ const message = Message
 By default, messages are posted through [https://relay.lto.network](https://relay.lto.network). Instead of depending on the public relay service, you can [host your own](https://github.com/ltonetwork/relay).
 
 ```javascript
-import LTO, { Relay } from '@ltonetwork/lto';
+import LTO from '@ltonetwork/lto';
+import { Relay } from '@ltonetwork/lto/messages';
 
 const lto = new LTO('T');
 lto.relay = new Relay('https://my-relay.example.com');

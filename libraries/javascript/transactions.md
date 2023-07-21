@@ -53,7 +53,7 @@ The `LTO` class provides a simple way for doing transactions. Alternatively, you
 ### Create transaction
 
 ```js
-import {Transfer} from '@ltonetwork/lto';
+import { Transfer } from '@ltonetwork/lto/transactions';
 
 const transaction = new Transfer(recipient, amount);
 ```
@@ -79,7 +79,7 @@ const broadcastedTx = await lto.node.broadcast(transaction);
 Transaction classes have convenience methods, providing a fluent interface
 
 ```js
-import {Transfer} from '@ltonetwork/lto';
+import { Transfer } from '@ltonetwork/lto/transactions';
 
 const tx = await new Transfer(recipient, amount)
     .signWith(account)
@@ -91,7 +91,7 @@ const tx = await new Transfer(recipient, amount)
 A second account can offer to pay for the transaction fees by co-signing the transaction.
 
 ```js
-import {Anchor} from '@ltonetwork/lto';
+import { Anchor } from '@ltonetwork/lto/transactions';
 
 const tx = await new Anchor(new Binary('foo').hash())
     .signWith(someAccount)
@@ -106,7 +106,7 @@ Alternatively, you can set the `parent` property of an account to automatically 
 ### Transfer transaction
 
 ```js
-import {Transfer} from '@ltonetwork/lto';
+import { Transfer } from '@ltonetwork/lto/transactions';
 
 const tx = new Transfer(recipient, amount, new Binary('attachment'))
 ```
@@ -114,7 +114,7 @@ const tx = new Transfer(recipient, amount, new Binary('attachment'))
 ### Mass Transfer transaction
 
 ```js
-import {MassTransfer} from '@ltonetwork/lto';
+import { MassTransfer } from '@ltonetwork/lto/transactions';
 
 const tx = new MassTransfer(
   [
@@ -128,7 +128,7 @@ const tx = new MassTransfer(
 ### Anchor transaction
 
 ```js
-import {Anchor} from '@ltonetwork/lto';
+import { Anchor } from '@ltonetwork/lto/transactions';
 
 const hash1 = new Binary('hello').hash();
 const hash2 = Binary.fromHex('e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
@@ -139,7 +139,7 @@ const tx = new Anchor(hash1, hash2, ...);
 ### Mapped Anchor transaction
 
 ```javascript
-import {MappedAnchor} from '@ltonetwork/lto';
+import { MappedAnchor } from '@ltonetwork/lto/transactions';
 
 const hashKey = new Binary('key').hash();
 const hashValue = new Binary('value').hash();
@@ -150,7 +150,7 @@ const tx = new MappedAnchor({ key: hashKey, value: hashValue }, ...);
 ### Lease transaction
 
 ```js
-import {Lease} from '@ltonetwork/lto';
+import { Lease } from '@ltonetwork/lto/transactions';
 
 const tx = new Lease(recipient, amount);
 ```
@@ -158,7 +158,7 @@ const tx = new Lease(recipient, amount);
 ### Cancel Lease transaction
 
 ```js
-import {CancelLease} from '@ltonetwork/lto';
+import { CancelLease } from '@ltonetwork/lto/transactions';
 
 const tx = new CancelLease(leaseId);
 ```
@@ -174,7 +174,7 @@ const tx = lto.node.compile(script);
 Clear a script by using `null` as compiled script.
 
 ```js
-import {SetScript} from '@ltonetwork/lto';
+import { SetScript } from '@ltonetwork/lto/transactions';
 
 const tx = new SetScript(null);
 ```
@@ -182,7 +182,7 @@ const tx = new SetScript(null);
 ### Sponsorship transaction
 
 ```js
-import {SetScript} from '@ltonetwork/lto';
+import { SetScript } from '@ltonetwork/lto/transactions';
 
 const tx = new Sponsorship(recipient);
 ```
@@ -190,7 +190,7 @@ const tx = new Sponsorship(recipient);
 ### Cancel Sponsorship transaction
 
 ```js
-import {CancelSponsorship} from '@ltonetwork/lto';
+import { CancelSponsorship } from '@ltonetwork/lto/transactions';
 
 const tx = new CancelSponsorship(recipient);
 ```
@@ -198,7 +198,7 @@ const tx = new CancelSponsorship(recipient);
 ### Association transaction
 
 ```js
-import {Association} from '@ltonetwork/lto';
+import { Association } from '@ltonetwork/lto/transactions';
 
 const tx = new Association(
   association_type,
@@ -212,7 +212,7 @@ const tx = new Association(
 ### Revoke Association transaction
 
 ```js
-import {RevokeAssociation} from '@ltonetwork/lto';
+import { RevokeAssociation } from '@ltonetwork/lto/transactions';
 
 const tx = new RevokeAssociation(association_type, recipient, new Binary('subject'));
 
@@ -221,7 +221,7 @@ const tx = new RevokeAssociation(association_type, recipient, new Binary('subjec
 ### Statement transaction
 
 ```javascript
-import {Statement} from '@ltonetwork/lto';
+import { Statement } from '@ltonetwork/lto/transactions';
 
 const tx = new Statement(
   statement_type,
@@ -235,7 +235,7 @@ const tx = new Statement(
 ### Data transaction
 
 ```javascript
-import {Data} from '@ltonetwork/lto';
+import { Data } from '@ltonetwork/lto/transactions';
 
 const tx = new Data({
   num: 100,
