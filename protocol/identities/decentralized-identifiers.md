@@ -114,7 +114,7 @@ The expiration date can be changed by issuing a new association with an updated 
 
 Different verification relationships enable the associated verification methods to be used for different purposes. It is up to a verifier to ascertain the validity of a verification attempt by checking that the verification method used is contained in the appropriate verification relationship.
 
-By default, a verification method does not have any relationships. These can be specified using the `data` property of the association transaction.
+By default, a verification method does not have any relationships. These can be specified using the `data` property of the association transaction using the relationship as key and `true` as value.
 
 <table><thead><tr><th width="275">Relationship</th><th>Example purpose</th></tr></thead><tbody><tr><td><a href="https://www.w3.org/TR/did-core/#authentication"><code>authentication</code></a></td><td>Authentication like logging into a website</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#assertion"><code>assertion</code></a></td><td>Issue Verifiable Credential</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#key-agreement"><code>keyAgreement</code></a></td><td>Encryption and secure communication</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-invocation"><code>capabilityInvocation</code></a></td><td>Update the DID document</td></tr><tr><td><a href="https://www.w3.org/TR/did-core/#capability-delegation"><code>capabilityDelegation</code></a></td><td>Delegate authority to a subordinate</td></tr></tbody></table>
 
