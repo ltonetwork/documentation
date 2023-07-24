@@ -143,7 +143,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
         },
         {
             "type": "revoke",
-            "timestamp": "2023-07-01T12:00:00Z",
+            "timestamp": "2023-06-02T12:00:00Z",
             "signer": {
                 "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",            
                 "type": "Ed25519VerificationKey2020",
