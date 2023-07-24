@@ -110,43 +110,43 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
 
 ```json
 {
-  "id": "GKot5hBsd81kMupNCXHaqbhv3huEbxAFMLnpcX2hniwn",
-  "statements": [
-    {
-      "type": "issue",
-      "timestamp": 1688781798500000,
-      "signer": {
-        "type": "Ed25519VerificationKey2020",
-        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
-      }
-    },
-    {
-      "type": "dispute",
-      "timestamp": 1688781798600000,
-      "signer": {
-        "type": "Ed25519VerificationKey2020",
-        "publicKeyMultibase": "zGL293fxZ2uVG6KEtyJ1dKAfXJBMR2264jHivbhN5zpfD"
-      },
-      "reason": "Credentials compromised"
-    },
-    {
-      "type": "suspend",
-      "timestamp": 1688781798700000,
-      "signer": {
-        "type": "Ed25519VerificationKey2020",
-        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
-      },
-      "reason": "Credentials compromised"
-    },
-    {
-      "type": "revoke",
-      "timestamp": 1688781798800000,
-      "signer": {
-        "type": "Ed25519VerificationKey2020",
-        "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
-      }
-    }    
-  }
+    "id": "GKot5hBsd81kMupNCXHaqbhv3huEbxAFMLnpcX2hniwn",
+    "statements": [
+        {
+            "type": "issue",
+            "timestamp": 1688781798500000,
+            "signer": {
+                "type": "Ed25519VerificationKey2020",
+                "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+            }
+        },
+        {
+            "type": "dispute",
+            "timestamp": 1688781798600000,
+            "signer": {
+                "type": "Ed25519VerificationKey2020",
+                "publicKeyMultibase": "zGL293fxZ2uVG6KEtyJ1dKAfXJBMR2264jHivbhN5zpfD"
+            },
+            "reason": "Credentials compromised"
+        },
+        {
+            "type": "suspend",
+            "timestamp": 1688781798700000,
+            "signer": {
+                "type": "Ed25519VerificationKey2020",
+                "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+            },
+            "reason": "Credentials compromised"
+        },
+        {
+            "type": "revoke",
+            "timestamp": 1688781798800000,
+            "signer": {
+                "type": "Ed25519VerificationKey2020",
+                "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
+            }
+        }
+    ]
 }
 ```
 
