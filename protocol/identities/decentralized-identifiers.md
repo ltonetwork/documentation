@@ -51,31 +51,31 @@ Any address on the LTO public chain can be represented by a DID. The DID documen
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
   "verificationMethod": [
     {
-      "id": "#sign",
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
   "authentication": [
-    "#sign"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ],
   "assertionMethod": [
-    "#sign"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ],
   "keyAgreement": [
     {
-      "id": "#encrypt",
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#encrypt",
       "type": "X25519KeyAgreementKey2019",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
     },
   ],
   "capabilityInvocation": [
-    "#sign"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ],
   "capabilityDelegation": [
-    "#sign"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ]
 }
 ```
@@ -182,7 +182,7 @@ The first thing the malicious holder of a compromised management key would do is
   "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
   "verificationMethod": [
     {
-      "id": "#sign",
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
       "type": "Ed25519VerificationKey2020",
       "controller": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH",
       "publicKeyMultibase": "zmMyJxTQuXW9bQVLmJeCrWNCSKzsEMkbZQ3xuNavj6Mk"
@@ -204,7 +204,7 @@ The first thing the malicious holder of a compromised management key would do is
     "did:lto:3MsE8Jfjkh2zaZ1LCGqaDzB5nAYw5FXhfCx#sign"
   ],
   "capabilityInvocation": [
-    "#sign",
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign",
     {
       "id": "3Mv7ajrPLKewkBNqfxwRZoRwW6fziehp7dQ#sign",
       "type": "Ed25519VerificationKey2020",
@@ -213,7 +213,7 @@ The first thing the malicious holder of a compromised management key would do is
     }
   ],
   "capabilityDelegation": [
-    "#sign"
+    "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#sign"
   ]
 }
 ```
@@ -251,7 +251,7 @@ results in the following `service` property of the DID document
 {
   "service": [
     {
-      "id": "#lto-relay",
+      "id": "did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH#lto-relay",
       "type": "LTORelay",
       "serviceEndpoint": "ampq://relay.lto.network"
     },
@@ -275,7 +275,3 @@ did:lto:3JugjxT51cTjWAsgnQK4SpmMqK6qua1VpXH?versionTime=2023-03-01T17:00:00Z
 Using `versionTime` will return the DID document at the moment of the given time. If the DID document has changed since that time, the metadata will contain an `updated` and a `nextUpdate` property.
 
 The DID will be marked as `created` at the moment when the public key is known on-chain. Requesting a DID with `versionTime` before the creation date will result in a not-found.
-
-### History
-
-Adding the `history` DID parameter will add a list of changes to the DID metadata. This parameter is non-standard.
