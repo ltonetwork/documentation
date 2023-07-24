@@ -114,7 +114,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
     "statements": [
         {
             "type": "issue",
-            "timestamp": 1688781798500000,
+            "timestamp": "2023-01-01T12:00:00Z",
             "signer": {
                 "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",
                 "type": "Ed25519VerificationKey2020",
@@ -123,7 +123,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
         },
         {
             "type": "dispute",
-            "timestamp": 1688781798600000,
+            "timestamp": "2023-06-01T12:00:00Z",
             "signer": {
                 "id": "did:lto:3MqmT15dkZW4a6v4ynVhca1EdPryjCwbahH#sign",
                 "type": "Ed25519VerificationKey2020",
@@ -133,17 +133,17 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
         },
         {
             "type": "suspend",
-            "timestamp": 1688781798700000,
+            "timestamp": "2023-06-01T12:03:00Z",
             "signer": {
                 "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",            
                 "type": "Ed25519VerificationKey2020",
                 "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
             },
-            "reason": "Credentials compromised"
+            "reason": "Dispute by trusted party"
         },
         {
             "type": "revoke",
-            "timestamp": 1688781798800000,
+            "timestamp": "2023-07-01T12:00:00Z",
             "signer": {
                 "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",            
                 "type": "Ed25519VerificationKey2020",
