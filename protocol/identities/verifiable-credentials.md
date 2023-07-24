@@ -52,7 +52,7 @@ Accounts can make public statements about a verifiable credential through [State
 
 The subject must be the (unencoded) credential status id.
 
-All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer, with [assertion privileges](https://www.w3.org/TR/did-core/#assertion). Statements made by others should be ignored.
+All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer that signed the verifiable credential. Statements made by others should be ignored.
 
 ### Issuance
 
@@ -92,6 +92,10 @@ The account that has made the dispute, can cancel it using an acknowledgment sta
 
 If the credential is compromised, the issuer could issue a dispute on the credential. This dispute can be picked up by the issuer to suspend or revoke the credential.
 
+{% hint style="danger" %}
+The `reason` is public and may lead to privacy concerns. When issuing a dispute, consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer instead.
+{% endhint %}
+
 ### Acknowledgment
 
 If a validator has independently verified the information of a credential, it can acknowledge the validity of it. This is done using a statement transaction with type `0x15`.
@@ -99,10 +103,6 @@ If a validator has independently verified the information of a credential, it ca
 If a single account has made multiple dispute and/or acknowledgment statements about a single credential, only the last statement should be used.
 
 ***
-
-{% hint style="danger" %}
-The reason is public and may lead to privacy concerns. Consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer instead.
-{% endhint %}
 
 ## Resolving the status
 
@@ -116,6 +116,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
             "type": "issue",
             "timestamp": 1688781798500000,
             "signer": {
+                "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",
                 "type": "Ed25519VerificationKey2020",
                 "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
             }
@@ -124,6 +125,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
             "type": "dispute",
             "timestamp": 1688781798600000,
             "signer": {
+                "id": "did:lto:3MqmT15dkZW4a6v4ynVhca1EdPryjCwbahH#sign",
                 "type": "Ed25519VerificationKey2020",
                 "publicKeyMultibase": "zGL293fxZ2uVG6KEtyJ1dKAfXJBMR2264jHivbhN5zpfD"
             },
@@ -133,6 +135,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
             "type": "suspend",
             "timestamp": 1688781798700000,
             "signer": {
+                "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",            
                 "type": "Ed25519VerificationKey2020",
                 "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
             },
@@ -142,6 +145,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
             "type": "revoke",
             "timestamp": 1688781798800000,
             "signer": {
+                "id": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa#sign",            
                 "type": "Ed25519VerificationKey2020",
                 "publicKeyMultibase": "zH3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV"
             }
@@ -151,7 +155,7 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
 ```
 
 {% hint style="warning" %}
-For privacy considerations, verifiers should run their own node and not use a public index node. A public node is capable to gather statistics for verifiable credentials by tracking verification requests.
+For privacy considerations, verifiers should run their own node and not use a public index node. The node maintainer would be capable to gather statistics for verifiable credentials by tracking verification requests.
 {% endhint %}
 
 ### Trust network
