@@ -176,7 +176,9 @@ The [identity node](../../node/identity-node/) can resolve the status of a verif
 }
 ```
 
-{% hint style="warning" %}
+[Anyone can make any statement](../../what-is-lto-network.md#truly-permissionless) on LTO network. You should pass the `issuer` as query parameter when resolving the credential status to filter the statements.
+
+{% hint style="success" %}
 For privacy considerations, verifiers should run their own node and not use a public index node. The node maintainer would be capable to gather statistics for verifiable credentials by tracking verification requests.
 {% endhint %}
 
