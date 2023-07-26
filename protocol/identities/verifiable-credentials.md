@@ -10,6 +10,28 @@ Issuing credentials doesn't require the use of a blockchain. Cryptographic signa
 
 The LTO public chain can be used as a decentralized revocation registry. In addition, the blockchain can be used for on-chain proof, adding a layer of security in case a private key is ever compromised.
 
+## Issuer
+
+DID documents are dynamic. Verification methods may be added and removed over time. This means that the verification method that was used to sign a credential may have been revoked afterward.
+
+When resolving the DID to verify the credential, it's important to get the document of the issuer that was valid at the moment the credential was issued. To accomplish this, you should add the `versionTime` parameter to the DID.
+
+```json
+{
+  "@context": "https://www.w3.org/2018/credentials/v1",
+  "type": ["VerifiableCredential"],
+  "issuer": "did:lto:3Mw3EddCivSFmMD68yRJQsM6awDxJoXUCfa?versionTime=2023-01-01T12:00:00Z",
+  "issuanceDate": "2023-01-01T12:00:00Z",
+  "credentialSubject": {
+    "id": "did:lto:3N1hVvUMuVKEP8m1W3XuHL3ShXn6nimAiMv"
+  }
+}
+```
+
+{% hint style="warning" %}
+Dealing with the mutability of DID documents, when verifying credentials is not well established and not part of the verifiable credentials standard. Most implementations simply resolve the issuer DID as-is.
+{% endhint %}
+
 ## Credential status
 
 The `credentialStatus` property of a verifiable credential is used for the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked.
@@ -52,7 +74,7 @@ Accounts can make public statements about a verifiable credential through [State
 
 The subject must be the (unencoded) credential status id.
 
-All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer that signed the verifiable credential. Statements made by others should be ignored.
+All credential statements, except a dispute, can only be done by the credential issuer. The transaction should be signed with a verification method of the issuer that is active at the moment of the statement. Statements made by others should be ignored.
 
 ### Issuance
 
@@ -66,7 +88,7 @@ The `issue` statement is optional, but highly **recommended**.
 
 If a key with the `assertionMethod` relationship is ever compromised, an attacker can continue to issue backdated credentials, that will appear to be valid, even if the verification method is revoked.&#x20;
 
-Without on-chain proof, it will be impossible to verify which credentials are authentic and which are created by the attacker.&#x20;
+Without on-chain proof, verifying which credentials are authentic and which are created by the attacker will be impossible.&#x20;
 
 ### Revocation
 
