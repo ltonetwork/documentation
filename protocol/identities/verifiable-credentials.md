@@ -80,7 +80,9 @@ All credential statements, except a dispute, can only be done by the credential 
 
 When issuing a verifiable credential, the issuer can issue a statement with type `0x10` to the public blockchain.
 
-A validator can use the on-chain proof to prevent backdating credentials.
+The on-chain statement should have a timestamp of no more than 30 minutes after the issue date of the credential.
+
+A verifier can use the on-chain proof to prevent backdating credentials.
 
 {% hint style="success" %}
 The `issue` statement is optional, but highly **recommended**.
@@ -115,12 +117,12 @@ The account that has made the dispute, can cancel it using an acknowledgment sta
 If the credential is compromised, the issuer could issue a dispute on the credential. This dispute can be picked up by the issuer to suspend or revoke the credential.
 
 {% hint style="danger" %}
-The `reason` is public and may lead to privacy concerns. When issuing a dispute, consider omitting this field and handling communication off-chain. The credential subject or validator could [send a message](../private/messaging/) over the LTO Network private layer instead.
+The `reason` is public and may lead to privacy concerns. When issuing a dispute, consider omitting this field and handling communication off-chain. The credential subject or verifier could [send a message](../private/messaging/) over the LTO Network private layer instead.
 {% endhint %}
 
 ### Acknowledgment
 
-If a validator has independently verified the information of a credential, it can acknowledge the validity of it. This is done using a statement transaction with type `0x15`.
+If a verifier has independently verified the information of a credential, it can acknowledge the validity of it. This is done using a statement transaction with type `0x15`.
 
 If a single account has made multiple dispute and/or acknowledgment statements about a single credential, only the last statement should be used.
 
@@ -184,4 +186,4 @@ For privacy considerations, verifiers should run their own node and not use a pu
 
 ### Trust network
 
-It's up to the validator to choose what to do with disputes and acknowledgments. Not all statements should be considered. Setting up a [trust network](trust-network.md) can help determine which to consider and which to ignore.
+It's up to the verifier to choose what to do with disputes and acknowledgments. Not all statements should be considered. Setting up a [trust network](trust-network.md) can help determine which to consider and which to ignore.
