@@ -90,6 +90,7 @@
 ## Ownables
 
 * [What are Ownables?](ownables/what-are-ownables.md)
+* [Making your first ownable](ownables/making-your-first-ownable.md)
 * [Ownables SDK](ownables/ownables-sdk/README.md)
   * [Prerequisites](ownables/ownables-sdk/prerequisites.md)
   * [Setup](ownables/ownables-sdk/setup.md)
