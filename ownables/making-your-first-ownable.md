@@ -58,19 +58,19 @@ This file contains the actual representation of the ownable widget. It can be st
         overflow: hidden;
       }
 
-      video {
+      img {
         width: 100%;
         height: 100%;
       }
     </style>
   </head>
   <body>
-    <image src="lto.jpg"/>
+    <img src="lto.jpg"/>
   </body>
 </html>
 ```
 
-You can use this template and customize it to display your own ownable widget. All you have to do is replace the title used in `<title>` and the image used in `<image src>`.
+You can use this template and customize it to display your own ownable widget. All you have to do is replace the title used in `<title>` and the image used in `<img src>`.
 
 {% hint style="warning" %}
 Please note that widgets cannot make HTTP calls, which means that every asset used should be provided in the folder of the ownable. You cannot load things such as images from the internet, they need to be provided in the folder of the ownable.
