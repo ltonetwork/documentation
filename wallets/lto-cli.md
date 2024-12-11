@@ -13,7 +13,7 @@ pip install lto-cli
 [pip](https://pip.pypa.io/en/stable/) is the package installer for Python.
 
 {% hint style="warning" %}
-On some operating systems, like Ubuntu, the `pip` command is linked to Python 2. In that case use `pip3` instead.
+On some older operating systems the `pip` command is linked to Python 2. In that case use `pip3` instead.
 {% endhint %}
 
 ## Setup
