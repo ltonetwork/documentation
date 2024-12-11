@@ -153,8 +153,12 @@ To detect rollbacks, resolve merge conflicts, and prevent tampering, events shou
 For rollback detection, we use mapped anchoring where the event hash is combined with a state.
 
 ```javascript
+import LTO from '@ltonetwork/lto';
+const lto = new LTO('T');
+const account = lto.account();
+
 const appendedEvents = chain.startingAfter(lastKnownEvent);
 const achorMap = appendedEvents.anchorMap();
 
-await lto.anchor(anchorMap);
+await lto.anchor(account, anchorMap);
 ```

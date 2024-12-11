@@ -54,8 +54,8 @@ LetsFlow is a deterministic workflow engine. It supports cross-organizational wo
 
 Start with the tutorial, which takes you through the basic concepts and as you get familiar with writing and testing workflow scenarios.
 
-{% content-ref url="http://127.0.0.1:5000/o/-LXU62m-tQwwZ72UgSyz/s/-LqfEh5_BvvaC3_Evt-h/" %}
-[LetsFlow](http://127.0.0.1:5000/o/-LXU62m-tQwwZ72UgSyz/s/-LqfEh5\_BvvaC3\_Evt-h/)
+{% content-ref url="https://app.gitbook.com/o/-LFKCu6CkVsolY-KCNCf/s/-LqfEh5_BvvaC3_Evt-h/" %}
+[LetsFlow](https://app.gitbook.com/o/-LFKCu6CkVsolY-KCNCf/s/-LqfEh5_BvvaC3_Evt-h/)
 {% endcontent-ref %}
 
 {% hint style="success" %}
