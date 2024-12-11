@@ -16,13 +16,13 @@ More revenue if you have enough people leasing to you and payout is not 100%. Al
 
 ### 4. I want to automatically send my tokens to multiple wallets on the LTO platform. Is there a program or bot?
 
-Yes, there are payout scripts that node owners can use to pay leasers. These can also be used/adjusted to do other automated transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO\_LPoSDistributor). These scripts are provided and maintained by LTO community members.
+Yes, there are payout scripts that node owners can use to pay leasers. These can also be used/adjusted to do other automated transfers, e.g., [_**LTOLPoSDistributor**_](https://github.com/jayjaynl/LTO_LPoSDistributor). These scripts are provided and maintained by LTO community members.
 
 ### **5. How can I list my community node?**
 
-The wallet uses a static JSON file to list the community nodes for leasing. Please edit the file [communityNodes.json](https://github.com/ltonetwork/lto-wallet/blob/master/src/communityNodes.json) on GitHub and issue a pull request.
+Services like universal wallet pull the information about community nodes from the LTO public blockchain. Please use a [data transaction](../../protocol/public/transactions/data.md) to set the meta properties for your node address.
 
-In the future, services will pull the information from the blockchain. Please use a [data transaction](../../protocol/public/transactions/data.md) to set the meta properties for your node address.
+The `node_name` property is required. All other properties are optional. Additional settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard) may also be used.
 
 {% tabs %}
 {% tab title="CLI" %}
@@ -43,7 +43,7 @@ Store the node information in a JSON file.
 
 
 
-Install the [LTO CLI Client](../../wallets/lto-cli.md) on your system and import the account using the seed phrase. After that, you can set account data.
+Install the [LTO CLI Client](../../wallets/lto-cli.md) and import the account using the seed phrase of your node. After that, you can set account data.
 
 ```bash
 lto account seed <<< "$LTO_WALLET_SEED"
@@ -110,4 +110,4 @@ curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Author
 {% endtab %}
 {% endtabs %}
 
-All properties, except `node_name`, are optional. Other settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard), may also be used.
+**Additionally**; the web wallet uses a static JSON file to list the community nodes for leasing. Please edit the file [communityNodes.json](https://github.com/ltonetwork/lto-wallet/blob/master/src/communityNodes.json) on GitHub and issue a pull request.
