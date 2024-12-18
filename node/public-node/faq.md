@@ -56,6 +56,7 @@ Store the following JSON in a file on your server (eg `nodeinfo.json`). Change t
 
 ```json
 {
+  "fee": "100000000",
   "sender": "NODE_ADDRESS",
   "data": [
    {
@@ -105,7 +106,7 @@ Store the following JSON in a file on your server (eg `nodeinfo.json`). Change t
 To use the REST API of your node, you'll need your API Key (`LTO_API_KEY` environment variable).
 
 ```bash
-curl -X POST http://localhost:6869/transactions/submit/data --data @- -H "Authorization: bearer API_KEY" < nodeinfo.json
+curl -X POST http://localhost:6869/transactions/submit/data -d @nodeinfo.json -H "Authorization: bearer API_KEY" -H "Content-Type: application/json"
 ```
 {% endtab %}
 {% endtabs %}
