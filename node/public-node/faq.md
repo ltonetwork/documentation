@@ -2,13 +2,13 @@
 
 ## Frequently Asked Questions
 
-### 1. How much LTO do I need to have in order to start the mining process?
+### 1. How much LTO do I need to start the mining process?
 
 In order to activate mining, the node needs not less than 1000 LTO (for testnet we can always provide you with that, do not hesitate to contact us).
 
-### 2. Where can i get the link for last mainnet state?
+### 2. What is the current mainnet state?
 
-[_**Last Mainnet State.**_](https://nodes.lto.network)
+[_**Current mainnet state.**_](https://nodes.lto.network/node/status)&#x20;
 
 ### 3. What is the incentive to run my own full node instead of leasing my coins?
 
