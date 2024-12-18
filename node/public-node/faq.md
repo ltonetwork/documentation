@@ -24,6 +24,8 @@ Services like universal wallet pull the information about community nodes from t
 
 The `node_name` and `payout_sharing`properties are required. All other properties are optional. Additional settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard) may also be used.
 
+Use either the [**LTO CLI Client**](../../wallets/lto-cli.md) or the **REST API of your node** to set the account data.
+
 {% tabs %}
 {% tab title="CLI" %}
 Store the node information in a JSON file.
@@ -41,9 +43,7 @@ Store the node information in a JSON file.
 }
 ```
 
-
-
-Install the [LTO CLI Client](../../wallets/lto-cli.md) and import the account using the seed phrase of your node. After that, you can set account data.
+Install the [LTO CLI Client](../../wallets/lto-cli.md) and import the account using the seed phrase of your node. After that, you can set the account data.
 
 ```bash
 lto account seed <<< "$LTO_WALLET_SEED"
