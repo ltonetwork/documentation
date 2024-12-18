@@ -22,7 +22,7 @@ Yes, there are payout scripts that node owners can use to pay leasers. These can
 
 Services like universal wallet pull the information about community nodes from the LTO public blockchain. Please use a [data transaction](../../protocol/public/transactions/data.md) to set the meta properties for your node address.
 
-The `node_name` property is required. All other properties are optional. Additional settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard) may also be used.
+The `node_name` and `payout_sharing`properties are required. All other properties are optional. Additional settings from the [community-proposed metadata standard](https://github.com/sbrekelmans/generator-info-standard) may also be used.
 
 {% tabs %}
 {% tab title="CLI" %}
