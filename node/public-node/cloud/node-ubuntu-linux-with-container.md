@@ -289,10 +289,9 @@ After a short period of time you can reconnect to your VPS.
 
 ## Step 9: Installing Docker
 
-We’re finally getting close to installing your LTO Network Public node! The node is easily installed through a Docker image, so first we’re going to need to install Docker & Docker Compose on our server. Use the following guides to do so and stop when you’ve ran the test provided in this guide (sudo docker run hello-world):
+We’re finally getting close to installing your LTO Network Public node! The node is easily installed through a Docker image, so first we’re going to need to install Docker on our server. Use the following guide to do so and stop when you’ve ran the test provided in this guide (sudo docker run hello-world):
 
 * [ ] Docker: [https://docs.docker.com/install/linux/docker-ce/ubuntu/](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-* [ ] Docker Compose: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
 Now, give docker the proper privileges:
 
@@ -380,7 +379,7 @@ Press ctrl +x and y to close and save the file.
 **Now it’s really time to start your node! Use the following command to run the Docker container in the background. It will pull the latest image from the LTO node and start running.**
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 To see the progress use the following command:
