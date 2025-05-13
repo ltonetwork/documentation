@@ -55,8 +55,7 @@ Only accounts that have submitted at least one transaction on the public chain c
 
 The recipient can decrypt the message using its private key.
 
-```javascript
-import LTO from '@ltonetwork/lto';
+<pre class="language-javascript"><code class="lang-javascript">import LTO from '@ltonetwork/lto';
 import { Message } from '@ltonetwork/lto/messages';
 
 const lto = new LTO('T');
@@ -73,9 +72,48 @@ const data = {
 };
 
 const message = Message
-  .from(data)
-  .decryptWith(account);
+<strong>  .from(data)
+</strong>  .decryptWith(account);
+</code></pre>
+
+### Adding Metadata to Messages
+
+To enhance client-side rendering and improve UX, you can attach metadata to a message before sending it. This metadata allows the receiving wallet to preview the content with a title, description, and thumbnail.
+
+**Supported Metadata Fields**
+
+* `type`: A string identifier (e.g., `"ownable"`) if type is left undefined the library defaults to "basic", generally advised to explictly use "ownable" if its an ownable.
+* `title`: A short, human-readable title
+* `description`: A brief explanation of the message contents
+* `thumbnail`: A binary image preview (max size: **256KB**)
+
+```typescript
+const thumbnail = Binary.from(new Uint8Array(buffer)); // ensure <= 256KB
+
+const meta = {
+  type: "ownable",
+  title: "Cool Ownable",
+  description: "Ownable created by @user123",
+  thumbnail,
+};
+
+const message = new Message(
+  messageContent,
+  "application/octet-stream",
+  meta
+)
+  .to(recipient)
+  .signWith(sender);
+
+await this.relay.send(message);
 ```
+
+{% hint style="info" %}
+Metadata is optional, but including it enables:&#x20;
+
+* Rich previews in wallet interfaces
+* Early validation before import
+{% endhint %}
 
 ## Relay service
 
