@@ -4,7 +4,7 @@ description: Microledger on the private layer
 
 # Event chain
 
-The event chain is a microledger. Normally a ledger is a hash chain of blocks, with each block containing multiple transactions. The event chain is a hash chain of individual events.
+The event chain is a microledger. Normally, a ledger is a hash chain of blocks, with each block containing multiple transactions. The event chain is a hash chain of individual events.
 
 ## **Create an event chain**
 
@@ -21,7 +21,7 @@ const chain = new EventChain(account); // Creates an empty event chain with a va
 
 ## Adding events
 
-The genesis event determines the purpose of the event chain. For an Ownable the genesis event contains an instantiate message.
+The genesis event determines the purpose of the event chain. For an Ownable, the genesis event contains an instantiate message.
 
 ```javascript
 import { EventChain, Event } from '@ltonetwork/lto/events';
@@ -116,7 +116,7 @@ if (!chain.isCreatedBy(genesisSigner))
 
 ## Partial chain
 
-There are several reasons why you'd only want to get part of the event chain. For instance, you may only need to share added events with another party. To do so you can `startingWith` or `startingAfter` method.
+There are several reasons why you'd only want to get part of the event chain. For instance, you may only need to share added events with another party. To do so, you can `startingWith` or `startingAfter` method.
 
 ```javascript
 const partial1 = chain.startingWith('9Y9DhjXHdrsUE93TZzSAYBWZS5TDWWNKKh2mihqRCGXh');
@@ -158,7 +158,7 @@ const lto = new LTO('T');
 const account = lto.account();
 
 const appendedEvents = chain.startingAfter(lastKnownEvent);
-const achorMap = appendedEvents.anchorMap();
+const anchorMap = appendedEvents.anchorMap();
 
 await lto.anchor(account, anchorMap);
 ```

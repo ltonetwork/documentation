@@ -39,10 +39,10 @@
 
 * [Public node](node/public-node/README.md)
   * [Installation Guide](node/public-node/installation-guide/README.md)
-    * [Mainnet & Testnet](node/public-node/installation-guide/lto\_mainnet.md)
+    * [Mainnet & Testnet](node/public-node/installation-guide/lto_mainnet.md)
     * [Requirements](node/public-node/installation-guide/requirements.md)
     * [Configuration](node/public-node/installation-guide/configuration.md)
-    * [(Virtual) Machine](node/public-node/installation-guide/virtual\_machine.md)
+    * [(Virtual) Machine](node/public-node/installation-guide/virtual_machine.md)
     * [Nginx reverse proxy (optional)](node/public-node/installation-guide/optional-nginx-reverse-proxy.md)
     * [Troubleshooting FAQ](node/public-node/installation-guide/troubleshooting-faq.md)
   * [Cloud installation](node/public-node/cloud/README.md)
@@ -58,7 +58,7 @@
   * [REST API](node/public-node/rest-api/README.md)
     * [Address](node/public-node/rest-api/address.md)
     * [Wallet](node/public-node/rest-api/wallet.md)
-    * [Lease Transactions](node/public-node/rest-api/lease\_transactions.md)
+    * [Lease Transactions](node/public-node/rest-api/lease_transactions.md)
     * [Peers](node/public-node/rest-api/peers.md)
     * [Blocks](node/public-node/rest-api/blocks.md)
     * [Utils](node/public-node/rest-api/utils.md)
@@ -99,6 +99,10 @@
   * [Widget](ownables/ownables-architecture/widget.md)
 * [Ownables Bridge](ownables/ownables-bridge.md)
 
+***
+
+* [Templates Overview](templates-overview.md)
+
 ## Libraries
 
 * [JavaScript](libraries/javascript/README.md)
@@ -136,7 +140,7 @@
     * [Transfer](protocol/public/transactions/transfer-transaction.md)
     * [Lease](protocol/public/transactions/lease-transaction.md)
     * [Cancel Lease](protocol/public/transactions/cancel-lease-transaction.md)
-    * [Mass Transfer](protocol/public/transactions/mass\_transfer\_transaction.md)
+    * [Mass Transfer](protocol/public/transactions/mass_transfer_transaction.md)
     * [Set Script](protocol/public/transactions/set-script.md)
     * [Data](protocol/public/transactions/data.md)
     * [Anchor](protocol/public/transactions/anchor.md)
@@ -149,9 +153,9 @@
     * [Mapped Anchor](protocol/public/transactions/mapped-anchor.md)
     * [Statement](protocol/public/transactions/statement.md)
   * [Transaction fees](protocol/public/transaction-fees.md)
-  * [Consensus protocol](protocol/public/fair\_proof\_of\_stake\_fpos.md)
+  * [Consensus protocol](protocol/public/fair_proof_of_stake_fpos.md)
   * [Activation Protocol](protocol/public/activation-protocol.md)
-  * [Data Structures](protocol/public/data\_structures.md)
+  * [Data Structures](protocol/public/data_structures.md)
 * [Private layer](protocol/private/README.md)
   * [Event chain](protocol/private/events/README.md)
     * [Event](protocol/private/events/event.md)

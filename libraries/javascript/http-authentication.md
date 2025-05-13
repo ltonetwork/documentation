@@ -37,7 +37,7 @@ The `verify()` method accepts an LTO client as verifier. The key type is determi
 
 ```javascript
 import LTO from '@ltonetwork/lto';
-import { sign } from '@ltonetwork/http-message-signatures';
+import { verify } from '@ltonetwork/http-message-signatures';
 
 const lto = new LTO();
 

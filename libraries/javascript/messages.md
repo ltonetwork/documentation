@@ -115,6 +115,43 @@ Metadata is optional, but including it enables:&#x20;
 * Early validation before import
 {% endhint %}
 
+## Ownables messages
+
+By default, messages are assigned the `basic` type, which provides minimal descriptive context. While this is sufficient for most simple message exchanges, it lacks the flexibility needed for richer, more descriptive content.
+
+Starting from versions **v0.15.17** and **v0.16.9+**, support for **message metadata** and **message versioning** was introduced. This enhancement allows developers to embed additional context such as a **title**, **description**, and a **thumbnail** directly into the message metadata.
+
+This is particularly valuable for **Ownables**, where visual and descriptive cues are essential for user comprehension. With metadata support, client-side applications can render messages with meaningful context, without decrypting and parsing message bodies just to extract basic display information. This not only improves performance but also significantly enhances the developer and user experience.
+
+```javascript
+import {Message, Binary} from '@ltonetwork/lto/messages'
+
+
+const imageBuffer = await some-image-file.arrayBuffer()
+
+const meta = {
+      type: "ownable", //defaults to basic if not provided
+      title: "ownableRobot",
+      description: "A simple robot ownables",
+      thumbnail: Binary.from(new Uint8Array(image-file)),
+}
+
+//application-octet sets the mediaType arbitrarily
+const message = new Message('hello', "application/octet-stream", meta)
+  .encryptFor(recipient)
+  .signWith(account);
+```
+
+{% hint style="info" %}
+Messages with a metadata are marked version=1, Messages without a metadata have a version=0
+{% endhint %}
+
+{% hint style="info" %}
+Thumbnails are optional, but if you must include it, then it should be in a Binary format
+{% endhint %}
+
+
+
 ## Relay service
 
 By default, messages are posted through [https://relay.lto.network](https://relay.lto.network). Instead of depending on the public relay service, you can [host your own](https://github.com/ltonetwork/relay).
