@@ -13,7 +13,7 @@ A **Certificate** transaction allows an identity on the LTO Network to anchor an
 By registering the certificate on-chain, the organization’s identity can be cryptographically verified and linked to its LTO account. This serves as a foundation for verifiable credentials, cross-chain identity proofs, and secure interactions in regulated environments.
 
 {% hint style="info" %}
-The public key and key type in the sender fields must match the Subject Public Key Info (SPKI) in the X.509 certificate.
+The Subject Public Key Info (SPKI) in the X.509 certificate must match the sender’s public key and key type in the transaction.
 
 If they differ, the transaction is considered invalid and will be rejected by the network.
 {% endhint %}
