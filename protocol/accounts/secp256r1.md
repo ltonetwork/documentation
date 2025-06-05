@@ -4,7 +4,11 @@ The most commonly used and well-supported Elliptic Curve is NIST P-256. This is 
 
 ### Seeding
 
-Seeding is not supported for secp256r1. Instead, the private key must be stored and used to create an account.
+LTO libraries use BIP39 with the English word list to create a seed phrase for the secp256k1 key type. BIP32 is used to generate the binary seed from the seed phrase.
+
+{% hint style="warning" %}
+BIP39 + BIP32 with `secp256r1` is non-standard and not supported by mainstream wallets. It is safe when using hardened paths, but specific to LTO Network.
+{% endhint %}
 
 ### Signing
 

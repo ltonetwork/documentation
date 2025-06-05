@@ -6,10 +6,6 @@ description: >-
 
 # Statement
 
-{% hint style="success" %}
-The statement transaction is part of the **Titanium** release.
-{% endhint %}
-
 ### JSON
 
 ```javascript

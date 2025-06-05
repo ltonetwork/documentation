@@ -2,11 +2,12 @@
 
 LTO network supports multiple cryptographic algorithms for signatures and encryption.
 
-| id | reference                 | type  | curve      |
-| -- | ------------------------- | ----- | ---------- |
-| 1  | [ed25519](ed25519.md)     | EdDSA | curve25519 |
-| 2  | [secp256k1](secp256k1.md) | ECDSA | secp256k1  |
-| 3  | [secp256r1](secp256r1.md) | ECDSA | secp256r1  |
+| id | reference                 | type                | curve      |
+| -- | ------------------------- | ------------------- | ---------- |
+| 1  | [ed25519](ed25519.md)     | EdDSA               | curve25519 |
+| 2  | [secp256k1](secp256k1.md) | ECDSA               | secp256k1  |
+| 3  | [secp256r1](secp256r1.md) | ECDSA               | secp256r1  |
+| 4  | bls12-381                 | BLS (pairing-based) | BLS12-381  |
 
 ## Creating the address
 

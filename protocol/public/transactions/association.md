@@ -81,11 +81,7 @@ Since version 4, association transactions can have data entries. These are simil
 The binary data structure of the unsigned transaction.
 
 {% tabs %}
-{% tab title="V4" %}
-{% hint style="success" %}
-Version 4 of the anchor transaction is part of the **Titanium** release.
-{% endhint %}
-
+{% tab title="V4 (current)" %}
 <table data-full-width="true"><thead><tr><th width="70">#</th><th width="240" align="center">Field Name</th><th width="285" align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=16)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Network id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>9</td><td align="center">Association type</td><td align="center">Int</td><td>4</td></tr><tr><td>10</td><td align="center">Expires</td><td align="center">Long</td><td>8</td></tr><tr><td>11</td><td align="center">Subject length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>12</td><td align="center">Subject</td><td align="center">Array[Byte]</td><td>N</td></tr><tr><td>13</td><td align="center">Number of entries</td><td align="center">Short</td><td>2</td></tr><tr><td>14</td><td align="center">Entry 1</td><td align="center"></td><td></td></tr><tr><td>...</td><td align="center"></td><td align="center"></td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
@@ -96,7 +92,7 @@ Version 4 of the anchor transaction is part of the **Titanium** release.
 {% endhint %}
 {% endtab %}
 
-{% tab title="V3 (current)" %}
+{% tab title="V3" %}
 <table data-full-width="true"><thead><tr><th width="70">#</th><th width="240" align="center">Field Name</th><th width="285" align="center">Type</th><th>Length</th></tr></thead><tbody><tr><td>1</td><td align="center">Transaction type</td><td align="center">Byte (constant, value=16)</td><td>1</td></tr><tr><td>2</td><td align="center">Version</td><td align="center">Byte (constant, value=3)</td><td>1</td></tr><tr><td>3</td><td align="center">Network id</td><td align="center">Byte</td><td>1</td></tr><tr><td>4</td><td align="center">Timestamp</td><td align="center">Long</td><td>8</td></tr><tr><td>5</td><td align="center">Sender's key type</td><td align="center">KeyType (Byte)</td><td>1</td></tr><tr><td>6</td><td align="center">Sender's public key</td><td align="center">PublicKey (Array[Byte])</td><td>32 | 33</td></tr><tr><td>7</td><td align="center">Fee</td><td align="center">Long</td><td>8</td></tr><tr><td>8</td><td align="center">Recipient</td><td align="center">Address (Array[Byte])</td><td>26</td></tr><tr><td>9</td><td align="center">Association type</td><td align="center">Int</td><td>4</td></tr><tr><td>10</td><td align="center">Expires</td><td align="center">Long</td><td>8</td></tr><tr><td>11</td><td align="center">Subject length (N)</td><td align="center">Short</td><td>2</td></tr><tr><td>12</td><td align="center">Subject</td><td align="center">Array[Byte]</td><td>N</td></tr></tbody></table>
 
 {% hint style="info" %}
