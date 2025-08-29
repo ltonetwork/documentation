@@ -25,7 +25,7 @@ Please note that this tutorial applies only to **Native LTO coins (LTO Mainnet)*
 7. Your device will display Processing…
 8. The app installation is confirmed.
 
-There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the [**Official Web Wallet**](wallet-web-app.md) and [**third-party wallets**](third-party-wallets/) like stakely.io and an installable CLI Wallet**.**
+There are currently multiple ways to interact with the LTO Network blockchain using a Ledger hardware wallet: the [**Official Web Wallet**](wallet-web-app.md) and [**third-party wallets**](third-party-wallets/) like stakely.io and an installable CLI Walle&#x74;**.**
 
 ## Connect**ing** Ledger (Official Web Wallet)
 

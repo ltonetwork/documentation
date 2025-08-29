@@ -33,6 +33,7 @@
   * [Stakely.io wallet](wallets/third-party-wallets/stakely.io-wallet/README.md)
     * [Web wallet](wallets/third-party-wallets/stakely.io-wallet/ledger.md)
     * [Commandline](wallets/third-party-wallets/stakely.io-wallet/commandline.md)
+* [Swapping LTO to EQTY](wallets/swapping-lto-to-eqty.md)
 * [ERC20 Token Swap](wallets/erc20-token-swap.md)
 
 ## Running a node <a href="#node" id="node"></a>

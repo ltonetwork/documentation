@@ -12,20 +12,19 @@ A node can be configured with an authorization token. This can be done in case t
 Authorization: bearer <token>
 ```
 
-{% swagger baseUrl="https://lto.example.com" path="/hash" method="post" summary="Anchor a hash on the blockchain" %}
-{% swagger-description %}
+## Anchor a hash on the blockchain
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://lto.example.com/hash`
 
-{% swagger-parameter in="body" name="hash" type="string" %}
+#### Request Body
 
-{% endswagger-parameter %}
+| Name     | Type   | Description |
+| -------- | ------ | ----------- |
+| hash     | string |             |
+| encoding | string |             |
 
-{% swagger-parameter in="body" name="encoding" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "chainpoint": {
@@ -47,34 +46,38 @@ Authorization: bearer <token>
   }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400" description="" %}
+{% tab title="400 " %}
 ```
 invalid body given
 no hash given
 invalid hash given
 invalid encoding given
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500" description="" %}
+{% tab title="500 " %}
 ```
 failed to anchor '[reason]'
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://lto.example.com" path="/hash/:hash" method="get" summary="Verify if a hash was anchored" %}
-{% swagger-description %}
+## Verify if a hash was anchored
+
+<mark style="color:blue;">`GET`</mark> `https://lto.example.com/hash/:hash`
+
 Get chainpoint info of an anchored hash.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="hash" type="string" %}
-anchor hash in hexadecimal format
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200" description="" %}
+| Name | Type   | Description                       |
+| ---- | ------ | --------------------------------- |
+| hash | string | anchor hash in hexadecimal format |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "chainpoint": {
@@ -96,39 +99,35 @@ anchor hash in hexadecimal format
   }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404" description="" %}
+{% tab title="404 " %}
 ```
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500" description="" %}
+{% tab title="500 " %}
 ```
 Failed to get transaction by hash and encoding '[reason]'
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://lto.example.com" path="/hash/:hash/encoding/:encoding" method="get" summary="Verify if a hash was anchored" %}
-{% swagger-description %}
+## Verify if a hash was anchored
+
+<mark style="color:blue;">`GET`</mark> `https://lto.example.com/hash/:hash/encoding/:encoding`
+
 Get chainpoint info of an anchored hash in given encoding.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="hash" type="string" %}
-anchored hash
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="encoding" type="string" %}
-The encoding in which the hash is given. Options are
+| Name     | Type   | Description                                                                          |
+| -------- | ------ | ------------------------------------------------------------------------------------ |
+| hash     | string | anchored hash                                                                        |
+| encoding | string | <p>The encoding in which the hash is given. Options are<br>(hex, base58, base64)</p> |
 
-\
-
-
-(hex, base58, base64)
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "chainpoint": {
@@ -150,22 +149,22 @@ The encoding in which the hash is given. Options are
   }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400" description="" %}
+{% tab title="400 " %}
 ```
 invalid encoding given
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404" description="" %}
+{% tab title="404 " %}
 ```
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="500" description="" %}
+{% tab title="500 " %}
 ```
 Failed to get transaction by hash and encoding '[reason]'
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
