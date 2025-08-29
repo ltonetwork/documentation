@@ -92,13 +92,33 @@ Reference: [Explore the Base ecosystem with Exodus](https://www.exodus.com/suppo
 
 [Buy a Ledger](https://www.ledger.com/) and [download Ledger Live](https://www.ledger.com/ledger-live) to manage it.
 
-Ledger Live supports Base. To use EQTY on Base with your Ledger:
 
-* Connect your Ledger to MetaMask or Exodus
-* Select the Base network in that wallet
-* Add EQTY using the contract address: `0xc71f37d9bf4c5d1e7fe4bccb97e6f30b11b37d29` as a custom token (via MetaMask or Exodus)
 
-Reference: [Ledger support for Base](https://support.ledger.com/article/13334147998877).
+1. **Install and update**
+
+* Install Ledger Live and update firmware.
+* In Ledger Live, install the **Ethereum** app on your device.
+
+2. **Add a Base account**
+
+* Ledger Live → **Accounts** → **Add account** → choose **Base**.
+* Connect and unlock your Ledger, then **open the Ethereum app**. Ledger Live will create a Base account (0x… address).
+
+3. **Get your Base address**
+
+* Ledger Live → **Receive** → pick your **Base** account.
+* Verify the address on the device screen and copy it. You will need this address for the swap.
+
+4. **Seeing and sending EQTY**
+
+* Ledger Live shows ETH and supported tokens on Base. If EQTY is not visible yet, you can still receive it at your Base address.
+* To view or move EQTY, connect your Ledger to a compatible wallet, eg:
+  * **MetaMask**: select Base, then **Import tokens** with EQTY contract.
+  * **Exodus**: add a **custom token** on Base with the EQTY contract.
+
+EQTY Smart contract addresss: `0xc71f37d9bf4c5d1e7fe4bccb97e6f30b11b37d29`
+
+Reference: [BASE on Ledger](https://support.ledger.com/article/13334147998877-zd)
 {% endtab %}
 {% endtabs %}
 
