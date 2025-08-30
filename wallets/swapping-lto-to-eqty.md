@@ -37,6 +37,10 @@ To see EQTY in MetaMask, import it as a **Custom Token**:
 * MetaMask will automatically detect the symbol and decimals
 
 Guide: [Display tokens in MetaMask](https://support.metamask.io/manage-crypto/tokens/how-to-display-tokens-in-metamask/?utm_source=chatgpt.com).
+
+{% hint style="danger" %}
+Troubleshooting: If the token symbol is not detected and the decimals shown as 0, you  select **only** Base instead of multiple networks before import.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Trust Wallet" %}
