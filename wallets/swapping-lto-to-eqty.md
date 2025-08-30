@@ -39,7 +39,7 @@ To see EQTY in MetaMask, import it as a **Custom Token**:
 Guide: [Display tokens in MetaMask](https://support.metamask.io/manage-crypto/tokens/how-to-display-tokens-in-metamask/?utm_source=chatgpt.com).
 
 {% hint style="danger" %}
-Troubleshooting: If symbol/decimals fail to auto-fill when importing, ensure only Base is selected in the dropdown. MetaMask may mis-fetch metadata when multiple networks are included.
+Troubleshooting: If symbol/decimals fail to auto-fill when importing, ensure **only** Base is selected in the dropdown. MetaMask may mis-fetch metadata when multiple networks are included.
 {% endhint %}
 {% endtab %}
 
