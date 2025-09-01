@@ -59,16 +59,16 @@ To add EQTY:
 Reference: [How to Add a Custom Token using Trust Wallet](https://trustwallet.com/blog/web3/how-to-add-a-custom-token-using-trust-wallet)
 {% endtab %}
 
-{% tab title="Coinbase Wallet" %}
+{% tab title="Base Wallet" %}
 ### Coinbase Wallet
 
-Install [Coinbase Wallet](https://www.coinbase.com/wallet) on mobile or as a browser extension.
+Install [Base Wallet](https://www.coinbase.com/wallet) on mobile or as a browser extension.
 
-Coinbase Wallet has Base support out of the box. Simply select **Base** in the network menu.
+Base Wallet has Base support out of the box. Simply select **Base** in the network menu.
 
 EQTY will appear automatically when you receive it at your Base address.
 
-Reference: [Tokens in Coinbase Wallet – Base docs](https://docs.base.org/base-chain/tools/tokens-in-wallet).
+Reference: [Tokens in Base Wallet](https://docs.base.org/base-chain/tools/tokens-in-wallet).
 
 {% hint style="warning" %}
 EQTY may appear in Coinbase Wallet without a logo and with limited information until it's propertly listed on CoinMarketCap and/or CoinGecko.
