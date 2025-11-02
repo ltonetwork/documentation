@@ -4,7 +4,13 @@ description: Welcome to LTO Network developer documentation!
 
 # Getting started
 
-[LTO Network](https://ltonetwork.com) is a hybrid blockchain, with a focus on identities and ownership. It has a private layer that utilizes a public blockchain for consensus.&#x20;
+{% hint style="danger" %}
+## LTO Network is shutting down!
+
+[Read more about the migration to EQTY](https://blog.ltonetwork.com/a-new-chapter-for-lto-network-transition-to-base-and-a-dao-driven-future/)
+{% endhint %}
+
+[LTO Network](https://ltonetwork.com) is a hybrid blockchain, with a focus on identities and ownership. It has a private layer that utilizes a public blockchain for consensus.
 
 {% hint style="info" %}
 If you want more info or notice that some link is broken - [**join the Tech Chat on Telegram**](https://t.me/LTOtech) and let us know. All links to papers, blog, articles, and so on - [you can find here](https://blog.ltonetwork.com/lto-network-sources/).
@@ -47,17 +53,3 @@ Ownables are CosmWasm smart contracts that define ownership. Instead of running 
 {% content-ref url="ownables/what-are-ownables.md" %}
 [what-are-ownables.md](ownables/what-are-ownables.md)
 {% endcontent-ref %}
-
-## Decentralized workflows
-
-LetsFlow is a deterministic workflow engine. It supports cross-organizational workflows without the need for a central system or trusted party, using the LTO Network private layer.
-
-Start with the tutorial, which takes you through the basic concepts and as you get familiar with writing and testing workflow scenarios.
-
-{% content-ref url="https://app.gitbook.com/o/-LFKCu6CkVsolY-KCNCf/s/-LqfEh5_BvvaC3_Evt-h/" %}
-[LetsFlow](https://app.gitbook.com/o/-LFKCu6CkVsolY-KCNCf/s/-LqfEh5_BvvaC3_Evt-h/)
-{% endcontent-ref %}
-
-{% hint style="success" %}
-Are you interested in adding decentralization to your existing application? LetsFlow is an excellent example of how this can be achieved.
-{% endhint %}
