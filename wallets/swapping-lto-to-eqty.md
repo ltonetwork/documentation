@@ -2,8 +2,10 @@
 
 The LTO Web Wallet allows you to swap your tokens for EQTY on the Base network. The swap is **1:1 and free of charge**. You can swap both **LTO Mainnet tokens** and **wrapped tokens (ERC-20 or BEP-20)**.
 
-{% hint style="warning" %}
-Swapping is only available between **September 1, 00:00 UTC** and **October 31, 23:59 UTC**. Make sure to complete your swap before the deadline.
+{% hint style="danger" %}
+## The swap period has ended.
+
+Swapping has available between **September 1, 00:00 UTC** and **October 31, 23:59 UTC**. It's no longer possible to swap or trade LTO tokens.
 {% endhint %}
 
 EQTY is an ERC-20 token deployed on the **Base network** with smart contract addres&#x73;**:** `0xc71f37d9bf4c5d1e7fe4bccb97e6f30b11b37d29`
