@@ -7,7 +7,7 @@ description: Welcome to LTO Network developer documentation!
 {% hint style="danger" %}
 ## LTO Network is shutting down!
 
-[Read more about the migration to EQTY](https://blog.ltonetwork.com/a-new-chapter-for-lto-network-transition-to-base-and-a-dao-driven-future/)
+[Read more about the migration to Base with EQTY](https://blog.ltonetwork.com/a-new-chapter-for-lto-network-transition-to-base-and-a-dao-driven-future/)
 {% endhint %}
 
 [LTO Network](https://ltonetwork.com) is a hybrid blockchain, with a focus on identities and ownership. It has a private layer that utilizes a public blockchain for consensus.
